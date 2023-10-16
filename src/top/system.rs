@@ -24,8 +24,7 @@ impl TopSystem {
         Ok(GetSystemRequestBuilder::new(
             client
                 .get(format!("node/class/topology/pod-{pod}/topSystem.json").as_str())?
-                .rsp_subtree(crate::RspSubTree::FULL)
-                .rsp_subtree_class(crate::ClassName::EthpmPhysIf),
+                .rsp_subtree(crate::RspSubTree::FULL),
         ))
     }
 
@@ -53,7 +52,6 @@ impl<'a> GetSystemRequestBuilder<'a> {
 
     pub async fn send(self) -> Result<Box<[TopSystem]>, Box<dyn std::error::Error>> {
         let res = self.builder.send().await?;
-        eprintln!("res: {res:#?}");
         Ok(res
             .into_iter()
             .map(|res| serde_json::from_value(res))
