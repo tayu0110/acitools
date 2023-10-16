@@ -219,6 +219,8 @@ pub enum EnforceRouteControl {
     #[default]
     Export,
     Import,
+    #[serde(rename = "export,import")]
+    ExportImport,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -262,4 +264,6 @@ pub enum ChildItem {
     BgpExtP {
         attributes: bgp::ext_epg::Attributes,
     },
+    L3extRtOutDefContToOut {},
+    L3extRtSrcToL3extOut {},
 }

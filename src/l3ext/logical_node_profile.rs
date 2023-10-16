@@ -34,4 +34,6 @@ pub enum ChildItem {
         #[serde(default)]
         children: Vec<logical_if_profile::ChildItem>,
     },
+    BgpPeerP {},
+    BgpProtP {},
 }

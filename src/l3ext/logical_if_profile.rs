@@ -35,4 +35,5 @@ pub enum ChildItem {
     L3extRsIngressQosDppPol {},
     L3extRsEgressQosDppPol {},
     L3extRsArpIfPol {},
+    BfdIfP {},
 }

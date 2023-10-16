@@ -49,4 +49,7 @@ pub enum ChildItem {
     FvRsCons {},
     FvRsProv {},
     FvUpdateContract {},
+    L3extRsInstPToProfile {},
+    FvRtLIfCtxToInstP {},
+    FvRtTermToEPg {},
 }

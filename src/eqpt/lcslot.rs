@@ -1,34 +1,31 @@
 use serde::{Deserialize, Serialize};
 
+use super::lc;
+
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Attributes {
-    annotation: String,
-    auto_continue: String,
+    card_oper_st: String,
     child_action: String,
     descr: String,
-    direction: String,
-    ext_mngd_by: String,
-    lc_own: String,
-    level: String,
+    id: String,
+    loc: String,
     mod_ts: String,
     mon_pol_dn: String,
-    name: String,
-    name_alias: String,
-    owner_key: String,
-    owner_tag: String,
+    oper_st: String,
+    phys_id: String,
     rn: String,
     status: String,
     #[serde(rename = "type")]
     r#type: String,
-    uid: String,
-    userdom: String,
 }
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub enum ChildItem {
-    RtctrlRtSubnetToProfile {},
-    RtctrlRtInstPToProfile {},
-    RtctrlCtxP {},
+    EqptLC {
+        attributes: lc::Attributes,
+        #[serde(default)]
+        children: Vec<lc::ChildItem>,
+    },
 }

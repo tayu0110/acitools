@@ -7,7 +7,8 @@ use std::{collections::HashMap, net::IpAddr};
 pub enum FvSubnet {
     FvSubnet {
         attributes: Attributes,
-        children: HashMap<String, String>,
+        #[serde(default)]
+        children: Vec<ChildItem>,
     },
 }
 
@@ -251,3 +252,6 @@ pub struct Attributes {
     // mon_pol_dn: String,
     // uid: String,
 }
+
+#[derive(Debug, Clone, Deserialize, Serialize)]
+pub enum ChildItem {}

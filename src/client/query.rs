@@ -22,6 +22,9 @@ pub enum ClassName {
     FvCtx,
     FvBD,
     FvSubnet,
+    LldpEntity,
+    EqptCh,
+    EthpmPhysIf,
 }
 
 impl ToString for ClassName {
@@ -31,6 +34,9 @@ impl ToString for ClassName {
             ClassName::FvCtx => "fvCtx",
             ClassName::FvBD => "fvBD",
             ClassName::FvSubnet => "fvSubnet",
+            ClassName::LldpEntity => "lldpEntity",
+            ClassName::EqptCh => "eqptCh",
+            ClassName::EthpmPhysIf => "ethpmPhysIf",
         }
         .to_string()
     }

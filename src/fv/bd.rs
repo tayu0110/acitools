@@ -102,7 +102,6 @@ impl BDBuilder {
                 child_action: String::new(),
                 descr: String::new(),
                 dn: format!("uni/tn-{}/BD-{}", tenant_name, name),
-                enable_rogue_except_mac: "no".to_string(),
                 ep_move_detect_mode: String::new(),
                 ll_addr: String::new(),
                 multi_dst_pkt_act: MultiDestinationFlooding::FloodInBD,
@@ -146,11 +145,6 @@ impl BDBuilder {
 
     pub fn set_descr(mut self, value: impl ToString) -> Self {
         self.data.descr = value.to_string();
-        self
-    }
-
-    pub fn set_enable_rogue_except_mac(mut self, flag: bool) -> Self {
-        self.data.enable_rogue_except_mac = Self::set_flag(flag);
         self
     }
 
@@ -263,7 +257,6 @@ pub struct Attributes {
     child_action: String,
     descr: String,
     dn: String,
-    enable_rogue_except_mac: String,
     ep_move_detect_mode: String,
     ll_addr: String,
     multi_dst_pkt_act: MultiDestinationFlooding,
@@ -281,6 +274,7 @@ pub struct Attributes {
     payload: Option<HashMap<String, String>>,
     // bcastP: String,
     // epClear: String,
+    // enable_rogue_except_mac: String,
     // hostBasedRouting: String,
     // intersiteBumTrafficAllow: String,
     // intersiteL2Stretch: String,

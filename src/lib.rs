@@ -3,13 +3,18 @@
 mod aaa;
 mod bgp;
 mod client;
+mod eqpt;
 mod error;
+mod ethpm;
 mod fabric;
 mod fault;
 mod fv;
+mod l1;
 mod l3ext;
+mod lldp;
 mod ospf;
 mod rtctrl;
+mod top;
 
 pub use aaa::login::AaaLogin;
 pub use aaa::role::PrivType;
@@ -23,6 +28,7 @@ pub use fv::ctx::FvCtx;
 pub use fv::subnet::FvSubnet;
 pub use fv::tenant::*;
 pub use l3ext::out::L3extOut;
+pub use top::system::TopSystem;
 
 use serde::{Deserialize, Serialize};
 
