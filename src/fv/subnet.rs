@@ -1,19 +1,14 @@
-use crate::{error::InvalidSubnetError, BuilderTrait, Client, ResponseFormat};
+use crate::{error::InvalidSubnetError, BuilderTrait, Client};
 use serde::{Deserialize, Serialize};
 use std::{collections::HashMap, net::IpAddr};
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
-pub struct FvSubnet {
-    fv_subnet: Inner,
-}
-
-#[derive(Debug, Clone, Deserialize, Serialize)]
-#[serde(rename_all = "camelCase")]
-struct Inner {
-    attributes: Attributes,
-    #[serde(flatten)]
-    children: HashMap<String, String>,
+pub enum FvSubnet {
+    FvSubnet {
+        attributes: Attributes,
+        children: HashMap<String, String>,
+    },
 }
 
 impl FvSubnet {
@@ -26,7 +21,12 @@ impl FvSubnet {
         Ok(SubnetBuilder::new(subnet, mask_len, bd_name, tenant_name)?)
     }
 
-    pub fn get(client: &mut Client) -> Result<GetSubnetRequestBuilder, Box<dyn std::error::Error>> {
+    pub fn attributes(&self) -> &Attributes {
+        let FvSubnet::FvSubnet { attributes, .. } = self;
+        attributes
+    }
+
+    pub fn get(client: &Client) -> Result<GetSubnetRequestBuilder, Box<dyn std::error::Error>> {
         Ok(GetSubnetRequestBuilder::new(
             client.get("node/class/fvSubnet.json")?,
         ))
@@ -44,8 +44,11 @@ impl<'a> GetSubnetRequestBuilder<'a> {
 
     pub async fn send(self) -> Result<Box<[FvSubnet]>, Box<dyn std::error::Error>> {
         let res = self.builder.send().await?;
-        let res = serde_json::from_value::<ResponseFormat<FvSubnet>>(res)?.extract();
-        Ok(res.into_boxed_slice())
+        Ok(res
+            .into_iter()
+            .map(|res| serde_json::from_value(res))
+            .collect::<Result<Vec<FvSubnet>, serde_json::Error>>()?
+            .into_boxed_slice())
     }
 }
 
@@ -176,8 +179,8 @@ impl SubnetBuilder {
 
     async fn post(
         &mut self,
-        client: &mut Client,
-    ) -> Result<serde_json::Value, Box<dyn std::error::Error>> {
+        client: &Client,
+    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
         let json = serde_json::json!({
             "totalCount": "1",
             "imdata": [{
@@ -196,24 +199,24 @@ impl SubnetBuilder {
 
     pub async fn create(
         &mut self,
-        client: &mut Client,
-    ) -> Result<serde_json::Value, Box<dyn std::error::Error>> {
+        client: &Client,
+    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
         self.data.status = "created".to_string();
         Ok(self.post(client).await?)
     }
 
     pub async fn update(
         &mut self,
-        client: &mut Client,
-    ) -> Result<serde_json::Value, Box<dyn std::error::Error>> {
+        client: &Client,
+    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
         self.data.status = "modified".to_string();
         Ok(self.post(client).await?)
     }
 
     pub async fn delete(
         &mut self,
-        client: &mut Client,
-    ) -> Result<serde_json::Value, Box<dyn std::error::Error>> {
+        client: &Client,
+    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
         self.data.status = "deleted".to_string();
         Ok(self.post(client).await?)
     }
@@ -221,7 +224,7 @@ impl SubnetBuilder {
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
-struct Attributes {
+pub struct Attributes {
     annotation: String,
     child_action: String,
     ctrl: String,

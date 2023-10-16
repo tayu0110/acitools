@@ -1,40 +1,50 @@
 #![recursion_limit = "256"]
 
 mod aaa;
+mod bgp;
 mod client;
 mod error;
+mod fabric;
 mod fault;
 mod fv;
+mod l3ext;
+mod ospf;
+mod rtctrl;
 
-pub use aaa::login::*;
+pub use aaa::login::AaaLogin;
 pub use aaa::role::PrivType;
 pub use aaa::user::*;
 pub use client::*;
 pub use error::*;
-pub use fault::*;
-pub use fv::ap::*;
-pub use fv::bd::*;
-pub use fv::ctx::*;
-pub use fv::subnet::*;
+pub use fault::FaultInst;
+pub use fv::ap::{FvAp, QoSClass};
+pub use fv::bd::{FvBD, L2UnknownUnicast, L3UnknownMulticast, MultiDestinationFlooding};
+pub use fv::ctx::FvCtx;
+pub use fv::subnet::FvSubnet;
 pub use fv::tenant::*;
+pub use l3ext::out::L3extOut;
 
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Clone, Deserialize, Serialize)]
-#[serde(untagged)]
-pub(crate) enum ResponseFormat<T: Clone> {
-    #[serde(rename_all = "camelCase")]
-    Response { total_count: String, imdata: Vec<T> },
+#[derive(Debug, Deserialize, Serialize)]
+pub(crate) struct Response {
+    #[serde(rename = "totalCount")]
+    total_count: String,
+    imdata: Vec<serde_json::Value>,
 }
 
-impl<T: Clone> ResponseFormat<T> {
-    pub fn extract(self) -> Vec<T> {
-        match self {
-            ResponseFormat::Response {
-                imdata,
-                total_count: _,
-            } => imdata,
+impl Response {
+    pub(crate) async fn extract(mut self) -> Result<Vec<serde_json::Value>, Error> {
+        if self.imdata.len() != 1 {
+            return Ok(self.imdata);
         }
+
+        if let Some(mut error) = self.imdata[0].as_object_mut().unwrap().remove("error") {
+            let attributes = error.as_object_mut().unwrap().remove("attributes").unwrap();
+            return Err(serde_json::from_value::<Error>(attributes).unwrap());
+        }
+
+        Ok(self.imdata)
     }
 }
 
@@ -44,8 +54,8 @@ mod tests {
 
     #[test]
     fn response_format_test() {
-        let ser = serde_json::to_value(ResponseFormat::<()>::Response {
-            total_count: "1".to_string(),
+        let ser = serde_json::to_value(Response {
+            total_count: "1".to_owned(),
             imdata: vec![],
         });
 

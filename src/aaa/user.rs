@@ -78,8 +78,8 @@ impl AaaUser {
 
     pub async fn create(
         &self,
-        client: &mut Client,
-    ) -> Result<serde_json::Value, Box<dyn std::error::Error>> {
+        client: &Client,
+    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
         let json = serde_json::to_value(self)?;
         eprintln!("json: {:#?}", json);
         client.post("mo/uni/userext.json", &json).await

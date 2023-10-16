@@ -1,8 +1,13 @@
 mod query;
 
-use crate::{AaaLogin, Error};
+use crate::{AaaLogin, Response};
 pub use query::*;
+use reqwest::{
+    cookie::Jar,
+    header::{HeaderMap, HeaderValue, CONTENT_TYPE},
+};
 use serde_json::json;
+use std::sync::Arc;
 use url::Url;
 
 #[derive(Debug, Clone)]
@@ -12,7 +17,7 @@ pub struct Client {
     domain: Option<String>,
     password: String,
     client: reqwest::Client,
-    token: String,
+    jar: Arc<Jar>,
 }
 
 impl Client {
@@ -22,11 +27,21 @@ impl Client {
         domain: &str,
         password: &str,
     ) -> Result<Self, Box<dyn std::error::Error>> {
+        let jar = Arc::new(Jar::default());
+
+        let mut header = HeaderMap::new();
+        header.insert(CONTENT_TYPE, HeaderValue::from_static("application/json"));
+
         let client = reqwest::ClientBuilder::new()
+            .cookie_store(true)
+            .cookie_provider(Arc::clone(&jar))
+            .default_headers(header)
             .danger_accept_invalid_certs(true)
             .build()?;
         let endpoint = Url::parse(&format!("https://{}", endpoint))?.join("api/")?;
         let res = Self::login(&client, username, &endpoint, domain, password).await?;
+
+        jar.add_cookie_str(format!("APIC-cookie={}", res.token()).as_str(), &endpoint);
 
         Ok(Self {
             username: username.to_string(),
@@ -34,8 +49,13 @@ impl Client {
             domain: domain.is_empty().then_some(domain.to_string()),
             password: password.to_string(),
             client,
-            token: format!("APIC-cookie={}", res.token()),
+            jar,
         })
+    }
+
+    async fn set_cookie(&self, token: &str) {
+        self.jar
+            .add_cookie_str(format!("APIC-cookie={}", token).as_str(), &self.endpoint);
     }
 
     async fn login(
@@ -58,29 +78,26 @@ impl Client {
 
         let res = client
             .post(endpoint.join("aaaLogin.json")?)
-            .header("Content-Type", "application/json")
             .body(login)
             .send()
             .await?
-            .json::<serde_json::Value>()
-            .await?;
-
-        if Error::is_error(&res) {
-            return Err(Box::new(Error::try_new(&res)?));
-        }
+            .json::<Response>()
+            .await?
+            .extract()
+            .await?
+            .pop()
+            .unwrap();
 
         Ok(serde_json::from_value::<AaaLogin>(res)?)
     }
 
-    async fn refresh(&mut self) -> Result<(), Box<dyn std::error::Error>> {
-        if let Ok(login) = self
+    async fn refresh(&self) -> Result<(), Box<dyn std::error::Error>> {
+        if let Ok(mut login) = self
             .get_unchecked(self.endpoint.join("aaaRefresh.json")?)
             .await
         {
-            self.token = format!(
-                "APIC-cookie={}",
-                serde_json::from_value::<AaaLogin>(login)?.token()
-            );
+            let token = serde_json::from_value::<AaaLogin>(login.pop().unwrap())?.token();
+            self.set_cookie(&token).await;
             return Ok(());
         }
         let token = Self::login(
@@ -92,31 +109,26 @@ impl Client {
         )
         .await?
         .token();
-        self.token = format!("APIC-cookie={}", token);
+        self.set_cookie(&token).await;
         Ok(())
     }
 
     async fn get_unchecked(
         &self,
         endpoint: Url,
-    ) -> Result<serde_json::Value, Box<dyn std::error::Error>> {
-        let res = self
+    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
+        Ok(self
             .client
             .get(endpoint)
-            .header("Cookie", &self.token)
             .send()
             .await?
-            .json::<serde_json::Value>()
-            .await?;
-
-        if Error::is_error(&res) {
-            Err(Box::new(Error::try_new(&res)?))
-        } else {
-            Ok(res)
-        }
+            .json::<Response>()
+            .await?
+            .extract()
+            .await?)
     }
 
-    pub fn get(&mut self, endpoint: &str) -> Result<GetRequestBuilder, Box<dyn std::error::Error>> {
+    pub fn get(&self, endpoint: &str) -> Result<GetRequestBuilder, Box<dyn std::error::Error>> {
         Ok(GetRequestBuilder::new(
             self,
             self.endpoint.clone().join(endpoint)?,
@@ -124,33 +136,27 @@ impl Client {
     }
 
     async fn post_unchecked(
-        &mut self,
+        &self,
         endpoint: &str,
         json: &serde_json::Value,
-    ) -> Result<serde_json::Value, Box<dyn std::error::Error>> {
-        let res = self
+    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
+        Ok(self
             .client
             .post(self.endpoint.join(endpoint)?)
-            .header("Content-Type", "application/json")
-            .header("Cookie", &self.token)
             .body(json.to_string())
             .send()
             .await?
-            .json::<serde_json::Value>()
-            .await?;
-
-        if Error::is_error(&res) {
-            Err(Box::new(Error::try_new(&res)?))
-        } else {
-            Ok(res)
-        }
+            .json::<Response>()
+            .await?
+            .extract()
+            .await?)
     }
 
     pub async fn post(
-        &mut self,
+        &self,
         endpoint: &str,
         json: &serde_json::Value,
-    ) -> Result<serde_json::Value, Box<dyn std::error::Error>> {
+    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
         let res = self.post_unchecked(endpoint, json).await;
         if res.is_ok() {
             return res;
@@ -161,13 +167,13 @@ impl Client {
 }
 
 pub struct GetRequestBuilder<'a> {
-    client: &'a mut Client,
+    client: &'a Client,
     endpoint: Url,
     queries: Vec<String>,
 }
 
 impl<'a> GetRequestBuilder<'a> {
-    fn new(client: &'a mut Client, endpoint: Url) -> Self {
+    fn new(client: &'a Client, endpoint: Url) -> Self {
         Self {
             client,
             endpoint,
@@ -215,7 +221,7 @@ impl<'a> GetRequestBuilder<'a> {
         self
     }
 
-    pub async fn send(mut self) -> Result<serde_json::Value, Box<dyn std::error::Error>> {
+    pub async fn send(mut self) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
         self.endpoint
             .set_query(Some(&self.queries.join("&").to_string()));
         let res = self.client.get_unchecked(self.endpoint.clone()).await;

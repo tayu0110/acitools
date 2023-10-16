@@ -1,25 +1,26 @@
-use crate::{BuilderTrait, Client, ResponseFormat};
+use crate::{BuilderTrait, Client};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
-pub struct FvBD {
+pub enum FvBD {
     #[serde(rename = "fvBD")]
-    fv_bd: Inner,
-}
-
-#[derive(Debug, Clone, Deserialize, Serialize)]
-#[serde(rename_all = "camelCase")]
-struct Inner {
-    attributes: Attributes,
-    #[serde(flatten)]
-    children: HashMap<String, String>,
+    FvBD {
+        attributes: Attributes,
+        #[serde(flatten)]
+        children: HashMap<String, String>,
+    },
 }
 
 impl FvBD {
     pub fn builder(name: &str, tenant_name: &str) -> BDBuilder {
         BDBuilder::new(name, tenant_name)
+    }
+
+    fn attributes(&self) -> &Attributes {
+        let FvBD::FvBD { attributes, .. } = self;
+        attributes
     }
 
     pub fn get(client: &mut Client) -> Result<GetBDRequestBuilder, Box<dyn std::error::Error>> {
@@ -29,31 +30,31 @@ impl FvBD {
     }
 
     pub fn annotation(&self) -> &str {
-        &self.fv_bd.attributes.annotation
+        &self.attributes().annotation
     }
 
     pub fn child_action(&self) -> &str {
-        &self.fv_bd.attributes.child_action
+        &self.attributes().child_action
     }
 
     pub fn descr(&self) -> &str {
-        &self.fv_bd.attributes.descr
+        &self.attributes().descr
     }
 
     pub fn name(&self) -> &str {
-        &self.fv_bd.attributes.name
+        &self.attributes().name
     }
 
     pub fn name_alias(&self) -> &str {
-        &self.fv_bd.attributes.name_alias
+        &self.attributes().name_alias
     }
 
     pub fn owner_key(&self) -> &str {
-        &self.fv_bd.attributes.owner_key
+        &self.attributes().owner_key
     }
 
     pub fn owner_tag(&self) -> &str {
-        &self.fv_bd.attributes.owner_tag
+        &self.attributes().owner_tag
     }
 }
 
@@ -68,8 +69,11 @@ impl<'a> GetBDRequestBuilder<'a> {
 
     pub async fn send(self) -> Result<Box<[FvBD]>, Box<dyn std::error::Error>> {
         let res = self.builder.send().await?;
-        let res = serde_json::from_value::<ResponseFormat<FvBD>>(res)?.extract();
-        Ok(res.into_boxed_slice())
+        Ok(res
+            .into_iter()
+            .map(|res| serde_json::from_value(res))
+            .collect::<Result<Vec<FvBD>, serde_json::Error>>()?
+            .into_boxed_slice())
     }
 }
 
@@ -177,8 +181,8 @@ impl BDBuilder {
 
     async fn post(
         &mut self,
-        client: &mut Client,
-    ) -> Result<serde_json::Value, Box<dyn std::error::Error>> {
+        client: &Client,
+    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
         let json = serde_json::json!({
             "totalCount": "1",
             "imdata": [{
@@ -200,24 +204,24 @@ impl BDBuilder {
 
     pub async fn create(
         &mut self,
-        client: &mut Client,
-    ) -> Result<serde_json::Value, Box<dyn std::error::Error>> {
+        client: &Client,
+    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
         self.data.status = "created".to_string();
         Ok(self.post(client).await?)
     }
 
     pub async fn update(
         &mut self,
-        client: &mut Client,
-    ) -> Result<serde_json::Value, Box<dyn std::error::Error>> {
+        client: &Client,
+    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
         self.data.status = "modified".to_string();
         Ok(self.post(client).await?)
     }
 
     pub async fn delete(
         &mut self,
-        client: &mut Client,
-    ) -> Result<serde_json::Value, Box<dyn std::error::Error>> {
+        client: &Client,
+    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
         self.data.status = "deleted".to_string();
         Ok(self.post(client).await?)
     }
@@ -251,7 +255,7 @@ pub enum MultiDestinationFlooding {
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
-struct Attributes {
+pub struct Attributes {
     #[serde(rename = "OptimizeWanBandwidth")]
     optimize_wan_bandwidth: String,
     annotation: String,

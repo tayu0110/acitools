@@ -2,45 +2,28 @@ use serde::Deserialize;
 
 #[derive(Debug, Deserialize)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct AaaLogin {
-    total_count: String,
-    imdata: Vec<ImdataElement>,
+pub enum AaaLogin {
+    AaaLogin { attributes: Attributes },
 }
 
 impl AaaLogin {
-    fn total_count(&self) -> u32 {
-        self.total_count.parse().unwrap()
+    fn attributes(&self) -> &Attributes {
+        let AaaLogin::AaaLogin { attributes } = self;
+        attributes
     }
+
     pub fn timeout(&self) -> u32 {
-        assert!(self.total_count() > 0);
-        self.imdata[0]
-            .aaa_login
-            .attributes
-            .refresh_timeout_seconds
-            .parse()
-            .unwrap()
+        self.attributes().refresh_timeout_seconds.parse().unwrap()
     }
 
     pub fn token(&self) -> String {
-        assert!(self.total_count() > 0);
-        self.imdata[0].aaa_login.attributes.token.clone()
+        self.attributes().token.clone()
     }
 }
 
 #[derive(Debug, Deserialize, Clone)]
 #[serde(rename_all(deserialize = "camelCase"))]
-struct ImdataElement {
-    aaa_login: ImdataInner,
-}
-
-#[derive(Debug, Deserialize, Clone)]
-struct ImdataInner {
-    attributes: Attributes,
-}
-
-#[derive(Debug, Deserialize, Clone)]
-#[serde(rename_all(deserialize = "camelCase"))]
-struct Attributes {
+pub struct Attributes {
     refresh_timeout_seconds: String,
     token: String,
 }
@@ -53,15 +36,12 @@ mod tests {
     #[test]
     fn login_deserialize_test() {
         let login = json!({
-            "totalCount": "1",
-            "imdata": [{
-                "aaaLogin": {
-                    "attributes": {
-                        "token": "abcdefg",
-                        "refreshTimeoutSeconds": "30"
-                    }
+            "aaaLogin": {
+                "attributes": {
+                    "token": "abcdefg",
+                    "refreshTimeoutSeconds": "30"
                 }
-            }]
+            }
         })
         .to_string();
 

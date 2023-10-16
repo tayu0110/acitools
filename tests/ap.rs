@@ -1,42 +1,49 @@
 use acitools::{Client, FvAp, FvTenant};
 
+const TENANT_NAME: &'static str = "test-tenant";
+const AP_NAME: &'static str = "test-app-acitools-rust";
+
 #[tokio::test]
 async fn bd_test() {
     let str = include_str!("../sandbox.txt")
         .split_whitespace()
         .collect::<Vec<&str>>();
     let (user, ip, pass) = (str[0], str[1], str[2]);
-    let mut client = Client::new(user, ip, "", pass).await.unwrap();
+    let client = Client::new(user, ip, "", pass).await.unwrap();
 
-    FvTenant::builder("test-tenant")
-        .create(&mut client)
+    FvTenant::builder(TENANT_NAME)
+        .create(&client)
         .await
         .unwrap();
 
-    let res = FvAp::builder("test-app", "test-tenant")
-        .create(&mut client)
-        .await;
+    let res = FvAp::builder(AP_NAME, TENANT_NAME).create(&client).await;
     assert!(res.is_ok());
 
-    let aps = FvAp::get(&mut client);
+    let aps = FvAp::get(&client);
     assert!(aps.is_ok());
     let aps = aps.unwrap().send().await;
     assert!(aps.is_ok());
-    assert!(aps.unwrap().into_iter().any(|ap| ap.name() == "test-app"));
+    assert!(aps.unwrap().into_iter().any(|ap| ap.name() == AP_NAME));
 
-    let res = FvAp::builder("test-app", "test-tenant")
-        .delete(&mut client)
-        .await;
+    let res = FvAp::builder(AP_NAME, TENANT_NAME).delete(&client).await;
     assert!(res.is_ok());
 
-    let aps = FvAp::get(&mut client);
+    let aps = FvAp::get(&client);
     assert!(aps.is_ok());
     let aps = aps.unwrap().send().await;
     assert!(aps.is_ok());
-    assert!(aps.unwrap().into_iter().all(|ap| ap.name() != "test-app"));
+    eprintln!(
+        "aps: {:?}",
+        aps.as_ref()
+            .unwrap()
+            .into_iter()
+            .map(|ap| ap.name())
+            .collect::<Vec<_>>()
+    );
+    assert!(aps.unwrap().into_iter().all(|ap| ap.name() != AP_NAME));
 
-    FvTenant::builder("test-tenant")
-        .delete(&mut client)
+    FvTenant::builder(TENANT_NAME)
+        .delete(&client)
         .await
         .unwrap();
 }

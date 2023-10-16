@@ -1,16 +1,11 @@
-use crate::{BuilderTrait, Client, FvCtx, ResponseFormat};
+use crate::{BuilderTrait, Client, FvCtx};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
 #[derive(Debug, Deserialize, Clone, Serialize)]
 #[serde(rename_all = "camelCase")]
-pub struct FvTenant {
-    fv_tenant: Inner,
-}
-
-#[derive(Debug, Deserialize, Clone, Serialize)]
-struct Inner {
-    attributes: Attributes,
+pub enum FvTenant {
+    FvTenant { attributes: Attributes },
 }
 
 impl FvTenant {
@@ -18,7 +13,17 @@ impl FvTenant {
         TenantBuilder::new(name)
     }
 
-    pub fn get(client: &mut Client) -> Result<GetTenantRequestBuilder, Box<dyn std::error::Error>> {
+    fn attributes(&self) -> &Attributes {
+        let FvTenant::FvTenant { attributes } = self;
+        attributes
+    }
+
+    fn attributes_mut(&mut self) -> &mut Attributes {
+        let FvTenant::FvTenant { attributes } = self;
+        attributes
+    }
+
+    pub fn get(client: &Client) -> Result<GetTenantRequestBuilder, Box<dyn std::error::Error>> {
         Ok(GetTenantRequestBuilder::new(
             client.get("node/class/fvTenant.json")?,
         ))
@@ -26,43 +31,46 @@ impl FvTenant {
 
     pub async fn get_vrfs(
         &self,
-        client: &mut Client,
+        client: &Client,
     ) -> Result<Vec<FvCtx>, Box<dyn std::error::Error>> {
         let val = client
-            .get(&format!("mo/{}.json", self.fv_tenant.attributes.dn))?
+            .get(&format!("mo/{}.json", self.attributes().dn))?
             .query_target(crate::QueryTarget::CHILDREN)
             .target_subtree_class(crate::ClassName::FvCtx)
             .send()
             .await?;
-        Ok(serde_json::from_value::<ResponseFormat<FvCtx>>(val)?.extract())
+        Ok(val
+            .into_iter()
+            .map(|res| serde_json::from_value(res))
+            .collect::<Result<Vec<FvCtx>, serde_json::Error>>()?)
     }
 
     pub fn annotation(&self) -> &str {
-        &self.fv_tenant.attributes.annotation
+        &self.attributes().annotation
     }
 
     pub fn child_action(&self) -> &str {
-        &self.fv_tenant.attributes.child_action
+        &self.attributes().child_action
     }
 
     pub fn descr(&self) -> &str {
-        &self.fv_tenant.attributes.descr
+        &self.attributes().descr
     }
 
     pub fn name(&self) -> &str {
-        &self.fv_tenant.attributes.name
+        &self.attributes().name
     }
 
     pub fn name_alias(&self) -> &str {
-        &self.fv_tenant.attributes.name_alias
+        &self.attributes().name_alias
     }
 
     pub fn owner_key(&self) -> &str {
-        &self.fv_tenant.attributes.owner_key
+        &self.attributes().owner_key
     }
 
     pub fn owner_tag(&self) -> &str {
-        &self.fv_tenant.attributes.owner_tag
+        &self.attributes().owner_tag
     }
 }
 
@@ -77,8 +85,11 @@ impl<'a> GetTenantRequestBuilder<'a> {
 
     pub async fn send(self) -> Result<Box<[FvTenant]>, Box<dyn std::error::Error>> {
         let res = self.builder.send().await?;
-        let res = serde_json::from_value::<ResponseFormat<FvTenant>>(res)?.extract();
-        Ok(res.into_boxed_slice())
+        Ok(res
+            .into_iter()
+            .map(|res| serde_json::from_value(res))
+            .collect::<Result<Vec<FvTenant>, serde_json::Error>>()?
+            .into_boxed_slice())
     }
 }
 
@@ -114,7 +125,7 @@ impl TenantBuilder {
     }
 
     pub fn from_tenant(mut tenant: FvTenant) -> Self {
-        if let Some(payload) = tenant.fv_tenant.attributes.payload.as_mut() {
+        if let Some(payload) = tenant.attributes_mut().payload.as_mut() {
             payload.remove("extMngdBy");
             payload.remove("lcOwn");
             payload.remove("modTs");
@@ -122,7 +133,7 @@ impl TenantBuilder {
             payload.remove("uid");
         }
         Self {
-            data: tenant.fv_tenant.attributes,
+            data: tenant.attributes().clone(),
         }
     }
 
@@ -153,8 +164,8 @@ impl TenantBuilder {
 
     async fn post(
         &mut self,
-        client: &mut Client,
-    ) -> Result<serde_json::Value, Box<dyn std::error::Error>> {
+        client: &Client,
+    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
         let json = serde_json::json!({
             "totalCount": "1",
             "imdata": [{
@@ -168,8 +179,8 @@ impl TenantBuilder {
 
     pub async fn create(
         &mut self,
-        client: &mut Client,
-    ) -> Result<serde_json::Value, Box<dyn std::error::Error>> {
+        client: &Client,
+    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
         self.data.status = "created".to_string();
         Ok(self.post(client).await?)
     }
@@ -177,15 +188,15 @@ impl TenantBuilder {
     pub async fn update(
         &mut self,
         client: &mut Client,
-    ) -> Result<serde_json::Value, Box<dyn std::error::Error>> {
+    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
         self.data.status = "modified".to_string();
         Ok(self.post(client).await?)
     }
 
     pub async fn delete(
         &mut self,
-        client: &mut Client,
-    ) -> Result<serde_json::Value, Box<dyn std::error::Error>> {
+        client: &Client,
+    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
         self.data.status = "deleted".to_string();
         Ok(self.post(client).await?)
     }
@@ -193,7 +204,7 @@ impl TenantBuilder {
 
 #[derive(Debug, Deserialize, Clone, Serialize)]
 #[serde(rename_all = "camelCase")]
-struct Attributes {
+pub struct Attributes {
     annotation: String,
     child_action: String,
     descr: String,

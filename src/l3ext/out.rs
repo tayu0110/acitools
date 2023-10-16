@@ -1,30 +1,39 @@
+use super::{bridge_domain, domain_profile, ext_epg, logical_node_profile, private_network};
+use crate::{bgp, ospf, rtctrl};
 use crate::{BuilderTrait, Client};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
 #[derive(Debug, Deserialize, Clone, Serialize)]
 #[serde(rename_all = "camelCase")]
-pub enum FvCtx {
-    FvCtx {
+pub enum L3extOut {
+    L3extOut {
         attributes: Attributes,
-        #[serde(flatten)]
-        children: HashMap<String, String>,
+        #[serde(default)]
+        children: Vec<ChildItem>,
     },
 }
 
-impl FvCtx {
-    pub fn builder(name: &str, tenant_name: &str) -> CtxBuilder {
-        CtxBuilder::new(name, tenant_name)
+impl L3extOut {
+    pub fn builder(tenant: &str, name: &str) -> L3extOutBuilder {
+        L3extOutBuilder::new(tenant, name)
     }
 
-    fn attributes(&self) -> &Attributes {
-        let FvCtx::FvCtx { attributes, .. } = self;
+    pub fn attributes(&self) -> &Attributes {
+        let L3extOut::L3extOut { attributes, .. } = self;
         attributes
     }
 
-    pub fn get(client: &Client) -> Result<GetCtxRequestBuilder, Box<dyn std::error::Error>> {
-        Ok(GetCtxRequestBuilder::new(
-            client.get("node/class/fvCtx.json")?,
+    pub fn attributes_mut(&mut self) -> &mut Attributes {
+        let L3extOut::L3extOut { attributes, .. } = self;
+        attributes
+    }
+
+    pub fn get(client: &Client) -> Result<GetL3extOutRequestBuilder, Box<dyn std::error::Error>> {
+        Ok(GetL3extOutRequestBuilder::new(
+            client
+                .get("class/l3extOut.json")?
+                .rsp_subtree(crate::RspSubTree::FULL),
         ))
     }
 
@@ -57,26 +66,26 @@ impl FvCtx {
     }
 }
 
-pub struct GetCtxRequestBuilder<'a> {
+pub struct GetL3extOutRequestBuilder<'a> {
     builder: crate::client::GetRequestBuilder<'a>,
 }
 
-impl<'a> GetCtxRequestBuilder<'a> {
+impl<'a> GetL3extOutRequestBuilder<'a> {
     fn new(builder: crate::client::GetRequestBuilder<'a>) -> Self {
         Self { builder }
     }
 
-    pub async fn send(self) -> Result<Box<[FvCtx]>, Box<dyn std::error::Error>> {
+    pub async fn send(self) -> Result<Box<[L3extOut]>, Box<dyn std::error::Error>> {
         let res = self.builder.send().await?;
         Ok(res
             .into_iter()
             .map(|res| serde_json::from_value(res))
-            .collect::<Result<Vec<FvCtx>, serde_json::Error>>()?
+            .collect::<Result<Vec<L3extOut>, serde_json::Error>>()?
             .into_boxed_slice())
     }
 }
 
-impl<'a> BuilderTrait<'a> for GetCtxRequestBuilder<'a> {
+impl<'a> BuilderTrait<'a> for GetL3extOutRequestBuilder<'a> {
     fn renew(builder: crate::GetRequestBuilder<'a>) -> Self {
         Self::new(builder)
     }
@@ -85,28 +94,31 @@ impl<'a> BuilderTrait<'a> for GetCtxRequestBuilder<'a> {
     }
 }
 
-pub struct CtxBuilder {
-    parent: String,
+pub struct L3extOutBuilder {
     data: Attributes,
+    children: Vec<ChildItem>,
 }
 
-impl CtxBuilder {
-    pub fn new(name: &str, tenant_name: &str) -> Self {
+impl L3extOutBuilder {
+    fn new(tenant: &str, name: &str) -> Self {
         Self {
-            parent: tenant_name.to_string(),
             data: Attributes {
                 annotation: String::new(),
                 child_action: String::new(),
                 descr: String::new(),
-                dn: format!("uni/tn-{}/ctx-{}", tenant_name, name),
+                dn: format!("uni/tn-{}/out-{}", tenant, name),
+                enforce_rtctrl: EnforceRouteControl::default(),
+                mpls_enabled: String::new(),
                 name: name.to_string(),
                 name_alias: String::new(),
                 owner_key: String::new(),
                 owner_tag: String::new(),
                 status: String::new(),
+                target_dscp: String::new(),
                 userdom: String::new(),
                 payload: None,
             },
+            children: vec![],
         }
     }
 
@@ -120,13 +132,18 @@ impl CtxBuilder {
         self
     }
 
-    pub fn set_name_alias(mut self, name_alias: impl ToString) -> Self {
-        self.data.name_alias = name_alias.to_string();
+    pub fn enforce_route_control(mut self, val: EnforceRouteControl) -> Self {
+        self.data.enforce_rtctrl = val;
         self
     }
 
-    pub fn set_status(mut self, status: impl ToString) -> Self {
-        self.data.status = status.to_string();
+    pub fn set_name(mut self, name: impl ToString) -> Self {
+        self.data.name = name.to_string();
+        self
+    }
+
+    pub fn set_name_alias(mut self, name_alias: impl ToString) -> Self {
+        self.data.name_alias = name_alias.to_string();
         self
     }
 
@@ -137,16 +154,9 @@ impl CtxBuilder {
         let json = serde_json::json!({
             "totalCount": "1",
             "imdata": [{
-                "fvTenant": {
-                    "attributes": {
-                        "name": self.parent,
-                        "status": "modified",
-                    },
-                    "children": [{
-                        "fvCtx": {
-                            "attributes": self.data
-                        }
-                    }]
+                "l3extOut": {
+                    "attributes": self.data,
+                    "children": self.children
                 }
             }]
         });
@@ -163,7 +173,7 @@ impl CtxBuilder {
 
     pub async fn update(
         &mut self,
-        client: &Client,
+        client: &mut Client,
     ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
         self.data.status = "modified".to_string();
         Ok(self.post(client).await?)
@@ -185,28 +195,71 @@ pub struct Attributes {
     child_action: String,
     descr: String,
     dn: String,
+    enforce_rtctrl: EnforceRouteControl,
+    mpls_enabled: String,
     name: String,
     name_alias: String,
     owner_key: String,
     owner_tag: String,
     status: String,
+    target_dscp: String,
     userdom: String,
     #[serde(flatten)]
     payload: Option<HashMap<String, String>>,
-    // bd_enforced_enable: String,
     // ext_mngd_by: String,
-    // ip_data_plane_learning: String,
-    // knw_mcast_act: String,
     // lc_own: String,
     // mod_ts: String,
     // mon_pol_dn: String,
-    // pc_enf_dir: String,
-    // pc_enf_dir_updated: String,
-    // pc_enf_pref: String,
-    // pc_tag: String,
-    // scope: String,
-    // seg: String,
     // uid: String,
-    // vrf_id: String,
-    // vrf_index: String,
+}
+
+#[derive(Debug, Clone, Copy, Default, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub enum EnforceRouteControl {
+    #[default]
+    Export,
+    Import,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub enum ChildItem {
+    L3extRsOutToBDPublicSubnetHolder {},
+    L3extRtBDToOut {
+        attributes: bridge_domain::Attributes,
+    },
+    L3extRsEctx {
+        attributes: private_network::Attributes,
+    },
+    OspfExtP {
+        attributes: ospf::ext_epg::Attributes,
+    },
+    L3extRsL3DomAtt {
+        attributes: domain_profile::Attributes,
+    },
+    L3extLNodeP {
+        attributes: logical_node_profile::Attributes,
+        #[serde(default)]
+        children: Vec<logical_node_profile::ChildItem>,
+    },
+    L3extInstP {
+        attributes: ext_epg::Attributes,
+        #[serde(default)]
+        children: Vec<ext_epg::ChildItem>,
+    },
+    L3extExtEncapAllocator {},
+    L3extCtxUpdater {},
+    RtctrlProfile {
+        attributes: rtctrl::profile::Attributes,
+        #[serde(default)]
+        children: Vec<rtctrl::profile::ChildItem>,
+    },
+    BgpDomainIdAllocator {
+        attributes: bgp::domain_id::Attributes,
+        #[serde(default)]
+        children: Vec<bgp::domain_id::ChildItem>,
+    },
+    BgpExtP {
+        attributes: bgp::ext_epg::Attributes,
+    },
 }

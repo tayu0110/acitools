@@ -1,17 +1,11 @@
-use crate::{BuilderTrait, Client, ResponseFormat};
+use crate::{BuilderTrait, Client};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
-pub struct FvAp {
-    fv_ap: Inner,
-}
-
-#[derive(Debug, Clone, Deserialize, Serialize)]
-#[serde(rename_all = "camelCase")]
-struct Inner {
-    attributes: Attributes,
+pub enum FvAp {
+    FvAp { attributes: Attributes },
 }
 
 impl FvAp {
@@ -19,38 +13,43 @@ impl FvAp {
         ApBuilder::new(name, tenant_name)
     }
 
-    pub fn get(client: &mut Client) -> Result<GetApRequestBuilder, Box<dyn std::error::Error>> {
+    fn attributes(&self) -> &Attributes {
+        let FvAp::FvAp { attributes } = self;
+        attributes
+    }
+
+    pub fn get(client: &Client) -> Result<GetApRequestBuilder, Box<dyn std::error::Error>> {
         Ok(GetApRequestBuilder::new(
             client.get("node/class/fvAp.json")?,
         ))
     }
 
     pub fn annotation(&self) -> &str {
-        &self.fv_ap.attributes.annotation
+        &self.attributes().annotation
     }
 
     pub fn child_action(&self) -> &str {
-        &self.fv_ap.attributes.child_action
+        &self.attributes().child_action
     }
 
     pub fn descr(&self) -> &str {
-        &self.fv_ap.attributes.descr
+        &self.attributes().descr
     }
 
     pub fn name(&self) -> &str {
-        &self.fv_ap.attributes.name
+        &self.attributes().name
     }
 
     pub fn name_alias(&self) -> &str {
-        &self.fv_ap.attributes.name_alias
+        &self.attributes().name_alias
     }
 
     pub fn owner_key(&self) -> &str {
-        &self.fv_ap.attributes.owner_key
+        &self.attributes().owner_key
     }
 
     pub fn owner_tag(&self) -> &str {
-        &self.fv_ap.attributes.owner_tag
+        &self.attributes().owner_tag
     }
 }
 
@@ -65,8 +64,11 @@ impl<'a> GetApRequestBuilder<'a> {
 
     pub async fn send(self) -> Result<Box<[FvAp]>, Box<dyn std::error::Error>> {
         let res = self.builder.send().await?;
-        let res = serde_json::from_value::<ResponseFormat<FvAp>>(res)?.extract();
-        Ok(res.into_boxed_slice())
+        Ok(res
+            .into_iter()
+            .map(|res| serde_json::from_value(res))
+            .collect::<Result<Vec<FvAp>, serde_json::Error>>()?
+            .into_boxed_slice())
     }
 }
 
@@ -127,8 +129,8 @@ impl ApBuilder {
 
     async fn post(
         &mut self,
-        client: &mut Client,
-    ) -> Result<serde_json::Value, Box<dyn std::error::Error>> {
+        client: &Client,
+    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
         let json = serde_json::json!({
             "totalCount": "1",
             "imdata": [{
@@ -150,24 +152,24 @@ impl ApBuilder {
 
     pub async fn create(
         &mut self,
-        client: &mut Client,
-    ) -> Result<serde_json::Value, Box<dyn std::error::Error>> {
+        client: &Client,
+    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
         self.data.status = "created".to_string();
         Ok(self.post(client).await?)
     }
 
     pub async fn update(
         &mut self,
-        client: &mut Client,
-    ) -> Result<serde_json::Value, Box<dyn std::error::Error>> {
+        client: &Client,
+    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
         self.data.status = "modified".to_string();
         Ok(self.post(client).await?)
     }
 
     pub async fn delete(
         &mut self,
-        client: &mut Client,
-    ) -> Result<serde_json::Value, Box<dyn std::error::Error>> {
+        client: &Client,
+    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
         self.data.status = "deleted".to_string();
         Ok(self.post(client).await?)
     }
@@ -175,7 +177,7 @@ impl ApBuilder {
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
-struct Attributes {
+pub struct Attributes {
     annotation: String,
     child_action: String,
     descr: String,
