@@ -1,5 +1,7 @@
 use serde::{Deserialize, Serialize};
 
+use crate::{AciObject, EndpointScheme};
+
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Attributes {
@@ -28,7 +30,36 @@ pub struct Attributes {
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub enum ChildItem {
-    RtctrlRtSubnetToProfile {},
-    RtctrlRtInstPToProfile {},
     RtctrlCtxP {},
+    RtctrlRtBDSubnetToProfile {},
+    RtctrlRtBDToProfile {},
+    RtctrlRtInstPToProfile {},
+    RtctrlRtSubnetToProfile {},
+}
+
+#[derive(Debug, Clone, Copy)]
+pub enum Endpoint {}
+
+impl EndpointScheme for Endpoint {
+    fn endpoint(&self) -> std::borrow::Cow<'_, str> {
+        unimplemented!()
+    }
+}
+
+pub type RtctrlProfile = AciObject<__internal::RtctrlProfile>;
+
+mod __internal {
+    use crate::AciObjectScheme;
+
+    use super::*;
+
+    #[derive(Debug, Clone, Copy)]
+    pub struct RtctrlProfile;
+
+    impl AciObjectScheme for RtctrlProfile {
+        type Attributes = Attributes;
+        type ChildItem = ChildItem;
+        type Endpoint = Endpoint;
+        const CLASS_NAME: &'static str = "rtctrlProfile";
+    }
 }

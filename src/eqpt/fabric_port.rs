@@ -1,3 +1,5 @@
+use crate::{AciObject, EndpointScheme};
+
 use super::port;
 use serde::{Deserialize, Serialize};
 
@@ -22,11 +24,33 @@ pub struct Attributes {
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub enum ChildItem {
-    EqptLPort {
-        attributes: port::Attributes,
-        #[serde(default)]
-        children: Vec<port::ChildItem>,
-    },
+    EqptLPort(port::EqptLPort),
     EqptRsIoPPhysConf {},
     DbgRemotePort {},
+}
+
+#[derive(Debug, Clone, Copy)]
+pub enum Endpoint {}
+
+impl EndpointScheme for Endpoint {
+    fn endpoint(&self) -> std::borrow::Cow<'_, str> {
+        unimplemented!()
+    }
+}
+
+pub type EqptFabP = AciObject<__internal::EqptFabP>;
+
+mod __internal {
+    use super::*;
+    use crate::AciObjectScheme;
+
+    #[derive(Debug, Clone, Copy)]
+    pub struct EqptFabP;
+
+    impl AciObjectScheme for EqptFabP {
+        type Attributes = Attributes;
+        type ChildItem = ChildItem;
+        type Endpoint = Endpoint;
+        const CLASS_NAME: &'static str = "eqptFabP";
+    }
 }

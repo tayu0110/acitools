@@ -1,4 +1,8 @@
+use std::borrow::Cow;
+
 use serde::{Deserialize, Serialize};
+
+use crate::{AciObject, EndpointScheme};
 
 use super::lcslot;
 
@@ -35,11 +39,7 @@ pub enum ChildItem {
     EqptFCSlot {},
     EqptFlashConfig {},
     EqptFtSlot {},
-    EqptLCSlot {
-        attributes: lcslot::Attributes,
-        #[serde(default)]
-        children: Vec<lcslot::ChildItem>,
-    },
+    EqptLCSlot(lcslot::EqptLCSlot),
     EqptLocLed {},
     EqptNSlot {},
     EqptPsuSlot {},
@@ -47,4 +47,30 @@ pub enum ChildItem {
     EqptSupCSlot {},
     EqptSysCSlot {},
     EqptUsbConfig {},
+}
+
+#[derive(Debug, Clone, Copy)]
+pub enum Endpoint {}
+
+impl EndpointScheme for Endpoint {
+    fn endpoint(&self) -> Cow<'_, str> {
+        unimplemented!()
+    }
+}
+
+pub type EqptCh = AciObject<__internal::EqptCh>;
+
+mod __internal {
+    use super::*;
+    use crate::AciObjectScheme;
+
+    #[derive(Debug, Clone, Copy)]
+    pub struct EqptCh;
+
+    impl AciObjectScheme for EqptCh {
+        type Attributes = Attributes;
+        type ChildItem = ChildItem;
+        type Endpoint = Endpoint;
+        const CLASS_NAME: &'static str = "eqptCh";
+    }
 }

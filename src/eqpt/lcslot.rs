@@ -1,6 +1,7 @@
-use serde::{Deserialize, Serialize};
+use crate::{AciObject, EndpointScheme};
 
 use super::lc;
+use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -23,9 +24,32 @@ pub struct Attributes {
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub enum ChildItem {
-    EqptLC {
-        attributes: lc::Attributes,
-        #[serde(default)]
-        children: Vec<lc::ChildItem>,
-    },
+    EqptLC(lc::EqptLC),
+}
+
+#[derive(Debug, Clone, Copy)]
+pub enum Endpoint {}
+
+impl EndpointScheme for Endpoint {
+    fn endpoint(&self) -> std::borrow::Cow<'_, str> {
+        unimplemented!()
+    }
+}
+
+pub type EqptLCSlot = AciObject<__internal::EqptLCSlot>;
+
+mod __internal {
+    use crate::AciObjectScheme;
+
+    use super::*;
+
+    #[derive(Debug, Clone, Copy)]
+    pub struct EqptLCSlot;
+
+    impl AciObjectScheme for EqptLCSlot {
+        type Attributes = Attributes;
+        type ChildItem = ChildItem;
+        type Endpoint = Endpoint;
+        const CLASS_NAME: &'static str = "eqptLCSlot";
+    }
 }

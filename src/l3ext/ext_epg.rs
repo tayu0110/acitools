@@ -1,5 +1,7 @@
 use serde::{Deserialize, Serialize};
 
+use crate::{AciObject, EndpointScheme};
+
 use super::subnet;
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
@@ -40,16 +42,40 @@ pub struct Attributes {
 #[serde(rename_all = "camelCase")]
 pub enum ChildItem {
     L3extConfigOutDef {},
-    L3extSubnet {
-        attributes: subnet::Attributes,
-        #[serde(default)]
-        children: Vec<subnet::ChildItem>,
-    },
+    L3extSubnet(subnet::L3extSubnet),
     FvRsCustQosPol {},
     FvRsCons {},
+    FvRsGraphDef {},
     FvRsProv {},
     FvUpdateContract {},
     L3extRsInstPToProfile {},
     FvRtLIfCtxToInstP {},
     FvRtTermToEPg {},
+}
+
+#[derive(Debug, Clone, Copy)]
+pub enum Endpoint {}
+
+impl EndpointScheme for Endpoint {
+    fn endpoint(&self) -> std::borrow::Cow<'_, str> {
+        unimplemented!()
+    }
+}
+
+pub type L3extInstP = AciObject<__internal::L3extInstP>;
+
+mod __internal {
+    use crate::AciObjectScheme;
+
+    use super::*;
+
+    #[derive(Debug, Clone, Copy)]
+    pub struct L3extInstP;
+
+    impl AciObjectScheme for L3extInstP {
+        type Attributes = Attributes;
+        type ChildItem = ChildItem;
+        type Endpoint = Endpoint;
+        const CLASS_NAME: &'static str = "l3extInstP";
+    }
 }

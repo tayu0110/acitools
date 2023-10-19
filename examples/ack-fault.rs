@@ -19,8 +19,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
 
     let routes = client
-        .get("node/class/topology/pod-1/topSystem.json")?
-        .rsp_subtree(acitools::RspSubTree::FULL)
+        .get("node/mo/topology/pod-1.json")?
+        // .rsp_subtree(acitools::RspSubTree::Full)
         .send()
         .await?;
     eprintln!("{:#?}", routes);

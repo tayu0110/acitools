@@ -1,5 +1,7 @@
 use serde::{Deserialize, Serialize};
 
+use crate::{AciObject, EndpointScheme};
+
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Attributes {
@@ -21,4 +23,33 @@ pub struct Attributes {
     status: String,
     uid: String,
     userdom: String,
+}
+
+#[derive(Debug, Clone, Copy, Deserialize, Serialize)]
+pub enum ChildItem {}
+
+#[derive(Debug, Clone, Copy)]
+pub enum Endpoint {}
+
+impl EndpointScheme for Endpoint {
+    fn endpoint(&self) -> std::borrow::Cow<'_, str> {
+        unimplemented!()
+    }
+}
+
+pub type OspfExtP = AciObject<__internal::OspfExtP>;
+
+mod __internal {
+    use super::*;
+    use crate::AciObjectScheme;
+
+    #[derive(Debug, Clone, Copy)]
+    pub struct OspfExtP;
+
+    impl AciObjectScheme for OspfExtP {
+        type Attributes = Attributes;
+        type ChildItem = ChildItem;
+        type Endpoint = Endpoint;
+        const CLASS_NAME: &'static str = "ospfExtP";
+    }
 }

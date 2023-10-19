@@ -24,7 +24,7 @@ impl TopSystem {
         Ok(GetSystemRequestBuilder::new(
             client
                 .get(format!("node/class/topology/pod-{pod}/topSystem.json").as_str())?
-                .rsp_subtree(crate::RspSubTree::FULL),
+                .rsp_subtree(crate::RspSubTree::Full),
         ))
     }
 
@@ -134,6 +134,7 @@ pub enum ChildItem {
     AaaCtrlrFipsState {},
     AaaFipsState {},
     AcEntity {},
+    AclcapProv {},
     ActionLCont {},
     ActrlEntity {},
     ActrlcapProv {},
@@ -157,17 +158,14 @@ pub enum ChildItem {
     DppEntity {},
     EigrpEntity {},
     EthpmEntity {},
-    EqptCh {
-        attributes: eqpt::chassis::Attributes,
-        #[serde(default)]
-        children: Vec<eqpt::chassis::ChildItem>,
-    },
+    EqptCh(eqpt::chassis::EqptCh),
     EqptcapacityEntity {},
     EqptdiagEntity {},
     EqptEntity {},
     EqptFeatureEx {},
     EqptReloadSwitch {},
     FabrgmEntity {},
+    FabricDecommission {},
     FabricLeafNodeRole {},
     FabricSpineNodeRole {},
     FabricSystemInfo {},
@@ -182,16 +180,8 @@ pub enum ChildItem {
     FvStaleTunEpCont {},
     HsrpEntity {},
     LicenseEntity {},
-    LldpEntity {
-        attributes: lldp::entity::Attributes,
-        #[serde(default)]
-        children: Vec<lldp::entity::ChildItem>,
-    },
-    L1PhysIf {
-        attributes: l1::physif::Attributes,
-        #[serde(default)]
-        children: Vec<l1::physif::ChildItem>,
-    },
+    LldpEntity(lldp::entity::LldpEntity),
+    L1PhysIf(l1::physif::L1PhysIf),
     L1capProv {},
     L2BrIf {},
     L2capProv {},
@@ -219,6 +209,7 @@ pub enum ChildItem {
     OspfEntity {},
     Ospfv3Entity {},
     PatchingEntity {},
+    PcAggrIf {},
     PcEntity {},
     PcFcEntity {},
     PoeEntity {},
@@ -262,7 +253,4 @@ pub enum ChildItem {
     TunnelIf {},
     TwampEntity {},
     VpcEntity {},
-    // eqptcapacityEntity {},
-    // opflexOeHupTrigger {},
-    // icmpv4Entity {},
 }

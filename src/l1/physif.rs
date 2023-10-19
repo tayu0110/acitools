@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-use crate::ethpm;
+use crate::{ethpm, AciObject, EndpointScheme};
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -57,11 +57,7 @@ pub struct Attributes {
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub enum ChildItem {
-    EthpmPhysIf {
-        attributes: ethpm::physif::Attributes,
-        #[serde(default)]
-        children: Vec<ethpm::physif::ChildItem>,
-    },
+    EthpmPhysIf(ethpm::physif::EthpmPhysIf),
     FvDomDef {},
     L1LinkLevelFlowCtrlP {},
     L1LoadP {},
@@ -76,6 +72,7 @@ pub enum ChildItem {
     L1RsFLinkFlapPolCons {},
     L1RsFcIfPolCons {},
     L1RsHIfPolCons {},
+    L1RsLacpIfPolCons {},
     L1RsLinkFlapPolCons {},
     L1RsLldpIfPolCons {},
     L1RsL2PortSecurityCons {},
@@ -96,9 +93,36 @@ pub enum ChildItem {
     L1RtBrConf {},
     L1RtEncPhysRtdConf {},
     L1RtEthIf {},
+    L1RtMbrIfs {},
     L1RtIoPPhysConf {},
     L1RtPhysRtdConf {},
     L1RtToObservedEthIf {},
     L1StormCtrlP {},
     NwRtPathToIf {},
+}
+
+#[derive(Debug, Clone, Copy)]
+pub enum Endpoint {}
+
+impl EndpointScheme for Endpoint {
+    fn endpoint(&self) -> std::borrow::Cow<'_, str> {
+        unimplemented!()
+    }
+}
+
+pub type L1PhysIf = AciObject<__internal::L1PhysIf>;
+
+mod __internal {
+    use super::*;
+    use crate::AciObjectScheme;
+
+    #[derive(Debug, Clone, Copy)]
+    pub struct L1PhysIf;
+
+    impl AciObjectScheme for L1PhysIf {
+        type Attributes = Attributes;
+        type ChildItem = ChildItem;
+        type Endpoint = Endpoint;
+        const CLASS_NAME: &'static str = "l1PhysIf";
+    }
 }

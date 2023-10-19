@@ -1,6 +1,7 @@
 use serde::{Deserialize, Serialize};
 
 use super::interface;
+use crate::{AciObject, EndpointScheme};
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -42,4 +43,30 @@ pub enum ChildItem {
     LldptlvpolUByte {},
     LldptlvpolUInt16 {},
     LldptlvpolUInt32 {},
+}
+
+#[derive(Debug, Clone, Copy)]
+pub enum Endpoint {}
+
+impl EndpointScheme for Endpoint {
+    fn endpoint(&self) -> std::borrow::Cow<'_, str> {
+        unimplemented!()
+    }
+}
+
+pub type LldpInst = AciObject<__internal::LldpInst>;
+
+mod __internal {
+    use super::*;
+    use crate::AciObjectScheme;
+
+    #[derive(Debug, Clone, Copy)]
+    pub struct LldpInst;
+
+    impl AciObjectScheme for LldpInst {
+        type Attributes = Attributes;
+        type ChildItem = ChildItem;
+        type Endpoint = Endpoint;
+        const CLASS_NAME: &'static str = "lldpInst";
+    }
 }

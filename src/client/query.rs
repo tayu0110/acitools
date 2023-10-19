@@ -87,17 +87,17 @@ impl ToString for Filter {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum RspSubTree {
-    NO,
-    CHILDREN,
-    FULL,
+    No,
+    Children,
+    Full,
 }
 
 impl ToString for RspSubTree {
     fn to_string(&self) -> String {
         match self {
-            RspSubTree::NO => "no",
-            RspSubTree::CHILDREN => "children",
-            RspSubTree::FULL => "full",
+            RspSubTree::No => "no",
+            RspSubTree::Children => "children",
+            RspSubTree::Full => "full",
         }
         .to_string()
     }
@@ -105,17 +105,17 @@ impl ToString for RspSubTree {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum RspPropInclude {
-    ALL,
-    NAMINGONLY,
-    CONFIGONLY,
+    All,
+    NamingOnly,
+    ConfigOnly,
 }
 
 impl ToString for RspPropInclude {
     fn to_string(&self) -> String {
         match self {
-            RspPropInclude::ALL => "all",
-            RspPropInclude::NAMINGONLY => "naming-only",
-            RspPropInclude::CONFIGONLY => "config-only",
+            RspPropInclude::All => "all",
+            RspPropInclude::NamingOnly => "naming-only",
+            RspPropInclude::ConfigOnly => "config-only",
         }
         .to_string()
     }

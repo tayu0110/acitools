@@ -13,10 +13,10 @@ use url::Url;
 #[derive(Debug, Clone)]
 pub struct Client {
     username: String,
-    endpoint: Url,
+    pub(crate) endpoint: Url,
     domain: Option<String>,
     password: String,
-    client: reqwest::Client,
+    pub(crate) client: reqwest::Client,
     jar: Arc<Jar>,
 }
 
@@ -91,9 +91,9 @@ impl Client {
         Ok(serde_json::from_value::<AaaLogin>(res)?)
     }
 
-    async fn refresh(&self) -> Result<(), Box<dyn std::error::Error>> {
+    pub async fn refresh(&self) -> Result<(), Box<dyn std::error::Error>> {
         if let Ok(mut login) = self
-            .get_unchecked(self.endpoint.join("aaaRefresh.json")?)
+            .get_unchecked(self.endpoint.join("aaaRefresh.json")?, &[])
             .await
         {
             let token = serde_json::from_value::<AaaLogin>(login.pop().unwrap())?.token();
@@ -113,13 +113,15 @@ impl Client {
         Ok(())
     }
 
-    async fn get_unchecked(
+    pub(crate) async fn get_unchecked(
         &self,
         endpoint: Url,
+        queries: &[(&'static str, String)],
     ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
         Ok(self
             .client
             .get(endpoint)
+            .query(queries)
             .send()
             .await?
             .json::<Response>()
@@ -224,12 +226,12 @@ impl<'a> GetRequestBuilder<'a> {
     pub async fn send(mut self) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
         self.endpoint
             .set_query(Some(&self.queries.join("&").to_string()));
-        let res = self.client.get_unchecked(self.endpoint.clone()).await;
+        let res = self.client.get_unchecked(self.endpoint.clone(), &[]).await;
         if res.is_ok() {
             return res;
         }
         self.client.refresh().await?;
-        Ok(self.client.get_unchecked(self.endpoint).await?)
+        Ok(self.client.get_unchecked(self.endpoint, &[]).await?)
     }
 }
 

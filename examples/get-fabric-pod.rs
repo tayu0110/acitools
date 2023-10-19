@@ -1,4 +1,4 @@
-use acitools::{Client, L3extOut, L3extOutEndpoint};
+use acitools::{Client, FabricPod, FabricPodEndpoint};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -8,8 +8,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let (username, endpoint, password) = (str[0], str[1], str[2]);
     let client = Client::new(username, endpoint, "", password).await?;
 
-    let response = L3extOut::get(L3extOutEndpoint::ClassAll)
-        .rsp_subtree(acitools::RspSubTree::Full)
+    let response = FabricPod::get(FabricPodEndpoint::Mo { id: 1 })
         .send(&client)
         .await?;
     eprintln!("{:#?}", response);

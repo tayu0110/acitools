@@ -1,3 +1,5 @@
+use crate::{AciObject, EndpointScheme};
+
 use super::{fabric_port, leaf_port};
 use serde::{Deserialize, Serialize};
 
@@ -43,18 +45,36 @@ pub enum ChildItem {
     EqptCPU {},
     EqptDimm {},
     EqptEobcP {},
-    EqptFabP {
-        attributes: fabric_port::Attributes,
-        #[serde(default)]
-        children: Vec<fabric_port::ChildItem>,
-    },
+    EqptFabP(fabric_port::EqptFabP),
     EqptFpga {},
     EqptIndLed {},
-    EqptLeafP {
-        attributes: leaf_port::Attributes,
-        #[serde(default)]
-        children: Vec<leaf_port::ChildItem>,
-    },
+    EqptLeafP(leaf_port::EqptLeafP),
     EqptLocLed {},
     EqptObfl {},
+}
+
+#[derive(Debug, Clone, Copy)]
+pub enum Endpoint {}
+
+impl EndpointScheme for Endpoint {
+    fn endpoint(&self) -> std::borrow::Cow<'_, str> {
+        unimplemented!()
+    }
+}
+
+pub type EqptLC = AciObject<__internal::EqptLC>;
+
+mod __internal {
+    use super::*;
+    use crate::AciObjectScheme;
+
+    #[derive(Debug, Clone, Copy)]
+    pub struct EqptLC;
+
+    impl AciObjectScheme for EqptLC {
+        type Attributes = Attributes;
+        type ChildItem = ChildItem;
+        type Endpoint = Endpoint;
+        const CLASS_NAME: &'static str = "eqptLC";
+    }
 }
