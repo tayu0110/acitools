@@ -1,90 +1,42 @@
 use crate::{AciObject, ConfigStatus, Configurable, EndpointScheme};
 use serde::{Deserialize, Serialize};
-use std::collections::HashMap;
 
 use super::subnet;
 
-#[derive(Debug, Clone, Deserialize, Serialize)]
-pub enum L2UnknownUnicast {
-    #[serde(rename = "flood")]
-    Flood,
-    #[serde(rename = "proxy")]
-    HardwareProxy,
-}
-
-#[derive(Debug, Clone, Deserialize, Serialize)]
-pub enum L3UnknownMulticast {
-    #[serde(rename = "flood")]
-    Flood,
-    #[serde(rename = "opt-flood")]
-    OptimizeFlood,
-}
-
-#[derive(Debug, Clone, Deserialize, Serialize)]
-pub enum MultiDestinationFlooding {
-    #[serde(rename = "bd-flood")]
-    FloodInBD,
-    #[serde(rename = "drop")]
-    Drop,
-    #[serde(rename = "encap-flood")]
-    FloodInEncapsulation,
-}
-
-#[derive(Debug, Clone, Deserialize, Serialize)]
-#[serde(rename_all = "camelCase")]
+#[derive(Debug, Clone, Default, Deserialize, Serialize)]
+#[serde(rename_all = "camelCase", default)]
 pub struct Attributes {
-    #[serde(rename = "OptimizeWanBandwidth")]
-    optimize_wan_bandwidth: String,
     annotation: String,
-    arp_flood: String,
     child_action: String,
+    config_issues: String,
+    config_st: String,
     descr: String,
     dn: String,
-    ep_move_detect_mode: String,
-    ll_addr: String,
-    multi_dst_pkt_act: MultiDestinationFlooding,
+    exception_tag: String,
+    ext_mngd_by: String,
+    flood_on_encap: String,
+    fwd_ctrl: String,
+    has_mcast_source: String,
+    is_attr_based_epg: String,
+    is_shared_srv_msite_e_pg: String,
+    lc_own: String,
+    match_t: String,
+    mod_ts: String,
+    mon_pol_dn: String,
     name: String,
     name_alias: String,
-    owner_key: String,
-    owner_tag: String,
+    pc_enf_pref: String,
+    pc_tag: String,
+    pref_gr_memb: String,
+    prio: String,
+    rn: String,
+    scope: String,
+    shutdown: String,
     status: ConfigStatus,
-    unk_mac_ucast_act: L2UnknownUnicast,
-    unk_mcast_act: L3UnknownMulticast,
+    trigger_st: String,
+    tx_id: String,
+    uid: String,
     userdom: String,
-    v6unk_mcast_act: L3UnknownMulticast,
-    vmac: String,
-    #[serde(flatten)]
-    payload: Option<HashMap<String, String>>,
-    // bcastP: String,
-    // epClear: String,
-    // enable_rogue_except_mac: String,
-    // hostBasedRouting: String,
-    // intersiteBumTrafficAllow: String,
-    // intersiteL2Stretch: String,
-    // ipLearning: String,
-    // ipv6McastAllow: String,
-    // lcOwn: String,
-    // limit_ip_learn_to_subnets: String,
-    // mcastARPDrop: String,
-    // mcastAllow: String,
-    // mod_ts: String,
-    // mtu: String,
-    // pc_tag: String,
-    // scope: String,
-    // seg: String,
-    // type: String,
-    // uid: String,
-    // unicastRoute: String,
-    // configIssues: String,
-    // extMngdBy: String,
-    // mon_pol_dn: String,
-    // mac: String,
-}
-
-impl Attributes {
-    pub fn name(&self) -> &str {
-        &self.name
-    }
 }
 
 impl Configurable for Attributes {
@@ -97,11 +49,14 @@ impl Configurable for Attributes {
 #[serde(rename_all = "camelCase")]
 pub enum ChildItem {
     AaaRbacAnnotation {},
-    DhcpLbl {},
+    DhcpConsLbl {},
     FaultCounts {},
     FaultDelegate {},
     FaultInst {},
-    FvAccP {},
+    FvAEPgBkProp {},
+    FvCEp {},
+    FvCrtrn {},
+    FvCtrctCtxDefCont {},
     FvFltCounter15min {},
     FvFltCounter1d {},
     FvFltCounter1h {},
@@ -118,37 +73,70 @@ pub enum ChildItem {
     FvFltCounterHist1w {},
     FvFltCounterHist1year {},
     FvFltCounterHist5min {},
-    FvPolMod {},
-    FvRsABDPolMonPol {},
-    FvRsBDToFhs {},
-    FvRsBDToNdP {},
-    FvRsBDToNetflowMonitorPol {},
-    FvRsBDToOut {},
-    FvRsBDToProfile {},
-    FvRsBDToRelayP {},
-    FvRsBdFloodTo {},
-    FvRsBdToEpRet {},
-    FvRsCtx {},
-    FvRsIgmpsn {},
-    FvRsMldsn {},
-    FvRtBDDefToBD {},
-    FvRtBd {},
-    FvRtDefInfraBd {},
-    FvRtEBd {},
-    FvRtEPpInfoToBD {},
-    FvRtEpTagBd {},
-    FvRtInfraBD {},
-    FvRtLIfCtxToBD {},
-    FvRtMgmtBD {},
-    FvRtREPpInfoToBD {},
-    FvRtSrcToBD {},
-    FvRtSvcBDToBDAtt {},
+    FvOrchsInfo {},
+    FvQinqFabEncap {},
+    FvRInfoHolder {},
+    FvRsAEPgMonPol {},
+    FvRsBd {},
+    FvRsCons {},
+    FvRsConsIf {},
+    FvRsCustQosPol {},
+    FvRsDomAtt {},
+    FvRsDppPol {},
+    FvRsFcPathAtt {},
+    FvRsGraphDef {},
+    FvRsIntraEpg {},
+    FvRsNodeAtt {},
+    FvRsPathAtt {},
+    FvRsProtBy {},
+    FvRsProv {},
+    FvRsProvDef {},
+    FvRsQosRequirement {},
+    FvRsSecInherited {},
+    FvRsTrustCtrl {},
+    FvRtARemoteHostToEpg {},
+    FvRtChassisEpg {},
+    FvRtDestEpg {},
+    FvRtDevEpg {},
+    FvRtDevMgrEpg {},
+    FvRtEpg {},
+    FvRtExporterToEPg {},
+    FvRtExtdevMgrMgmtEPg {},
+    FvRtFromAbsEpg {},
+    FvRtFromEpg {},
+    FvRtFuncToEpg {},
+    FvRtInstPToNatMappingEPg {},
+    FvRtLIfCtxToInstP {},
+    FvRtMatchEPg {},
+    FvRtMgmtEPg {},
+    FvRtNtpProvToEpg {},
+    FvRtPoeEpg {},
+    FvRtProfileToEpg {},
+    FvRtProv {},
+    FvRtRtdEpPToNatMappingEPg {},
+    FvRtSecInherited {},
+    FvRtSecProvToEpg {},
+    FvRtSrcToEpg {},
+    FvRtSvcMgmtEpg {},
+    FvRtSvrEpg {},
+    FvRtSvrToMgmtEPg {},
+    FvRtTermToEPg {},
+    FvRtToAbsEpg {},
+    FvRtToAbsEpgForEpgToEpg {},
+    FvRtToEpg {},
+    FvRtToEpgForEpgToEpg {},
+    FvRtVConnToEpgEp {},
+    FvRtVConnToEpgSubnet {},
+    FvRtVsrcToEpg {},
+    FvSharedService {},
     FvSiteAssociated {},
+    FvStCEp {},
     FvSubnet(subnet::FvSubnet),
-    FvUnkMacUcastActMod {},
+    FvUpdateContract {},
+    FvVip {},
+    FvVipUpdate {},
     HealthInst {},
     HealthNodeInst {},
-    IgmpIfP {},
     L2EgrBytesAg15min {},
     L2EgrBytesAg1d {},
     L2EgrBytesAg1h {},
@@ -389,79 +377,92 @@ pub enum ChildItem {
     L3MplsIngrPktsPartHist1w {},
     L3MplsIngrPktsPartHist1year {},
     L3MplsIngrPktsPartHist5min {},
-    NdRaSubnet {},
-    PimBDP {},
+    MdpClassId {},
+    MdpLocalEp {},
+    OrchsLDevVipCfg {},
     TagAliasDelInst {},
     TagAliasInst {},
     TagAnnotation {},
     TagExtMngdInst {},
     TagInst {},
     TagTag {},
+    TelemetryMatchedSelector {},
     VnsAbsCfgRel {},
     VnsAbsFolder {},
     VnsAbsParam {},
+    VnsAddrInst {},
     VnsCFolder {},
     VnsCParam {},
     VnsCRel {},
     VnsCfgRelInst {},
+    VnsCtrlrEp {},
     VnsFolderInst {},
     VnsGFolder {},
     VnsGParam {},
     VnsGRel {},
+    VnsLBIPReq {},
+    VnsLBRNatReq {},
+    VnsLBVSvcGrpSvrReq {},
+    VnsLBVSvrReq {},
+    VnsNATDynPATReq {},
+    VnsNATPATReq {},
     VnsParamInst {},
     VnsSvcPol {},
+    VsvcConsLbl {},
+    VzConsCtrctLbl {},
+    VzConsLbl {},
+    VzConsSubjLbl {},
+    VzProvCtrctLbl {},
+    VzProvLbl {},
+    VzProvSubjLbl {},
 }
 
 #[derive(Debug, Clone)]
-pub enum FvBDEndpoint {
+pub enum FvAEPgEndpoint {
     ClassAll,
-    ClassTenant { tenant: String },
+    ClassTenant {
+        tenant: String,
+    },
+    ClassAp {
+        tenant: String,
+        ap: String,
+    },
     MoUni,
-    MoBD { tenant: String, bd: String },
+    MoAp {
+        tenant: String,
+        ap: String,
+        epg: String,
+    },
 }
 
-impl EndpointScheme for FvBDEndpoint {
+impl EndpointScheme for FvAEPgEndpoint {
     fn endpoint(&self) -> std::borrow::Cow<'_, str> {
         match self {
-            Self::ClassAll => std::borrow::Cow::Borrowed("node/class/fvBD.json"),
+            Self::ClassAll => std::borrow::Cow::Borrowed("node/class/fvAEPg.json"),
             Self::ClassTenant { tenant } => {
-                std::borrow::Cow::Owned(format!("node/class/uni/tn-{tenant}/fvBD.json"))
+                std::borrow::Cow::Owned(format!("node/class/uni/tn-{tenant}/fvAEPg.json"))
+            }
+            Self::ClassAp { tenant, ap } => {
+                std::borrow::Cow::Owned(format!("node/class/uni/tn-{tenant}/ap-{ap}/fvAEPg.json"))
             }
             Self::MoUni => std::borrow::Cow::Borrowed("mo/uni.json"),
-            Self::MoBD { tenant, bd } => {
-                std::borrow::Cow::Owned(format!("mo/uni/tn-{tenant}/BD-{bd}.json"))
+            Self::MoAp { tenant, ap, epg } => {
+                std::borrow::Cow::Owned(format!("mo/uni/tn-{tenant}/ap-{ap}/epg-{epg}.json"))
             }
         }
     }
 }
 
-pub type FvBD = AciObject<__internal::FvBD>;
+pub type FvAEPg = AciObject<__internal::FvAEPg>;
 
-impl FvBD {
-    pub fn new(name: &str, tenant: &str) -> Self {
+impl FvAEPg {
+    pub fn new(name: &str, tenant: &str, ap: &str) -> Self {
+        let mut attr = Attributes::default();
+        attr.dn = format!("uni/tn-{tenant}/ap-{ap}/epg-{name}");
+        attr.name = name.to_owned();
+
         Self {
-            attributes: Attributes {
-                optimize_wan_bandwidth: "no".to_string(),
-                annotation: String::new(),
-                arp_flood: "no".to_string(),
-                child_action: String::new(),
-                descr: String::new(),
-                dn: format!("uni/tn-{}/BD-{}", tenant, name),
-                ep_move_detect_mode: String::new(),
-                ll_addr: String::new(),
-                multi_dst_pkt_act: MultiDestinationFlooding::FloodInBD,
-                name: name.to_string(),
-                name_alias: String::new(),
-                owner_key: String::new(),
-                owner_tag: String::new(),
-                status: ConfigStatus::None,
-                unk_mac_ucast_act: L2UnknownUnicast::HardwareProxy,
-                unk_mcast_act: L3UnknownMulticast::Flood,
-                userdom: String::new(),
-                v6unk_mcast_act: L3UnknownMulticast::Flood,
-                vmac: String::new(),
-                payload: None,
-            },
+            attributes: attr,
             children: vec![],
         }
     }
@@ -476,12 +477,12 @@ mod __internal {
     use crate::AciObjectScheme;
 
     #[derive(Debug, Clone, Copy)]
-    pub struct FvBD;
+    pub struct FvAEPg;
 
-    impl AciObjectScheme for FvBD {
+    impl AciObjectScheme for FvAEPg {
         type Attributes = Attributes;
         type ChildItem = ChildItem;
-        type Endpoint = FvBDEndpoint;
-        const CLASS_NAME: &'static str = "fvBD";
+        type Endpoint = FvAEPgEndpoint;
+        const CLASS_NAME: &'static str = "fvAEPg";
     }
 }

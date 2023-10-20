@@ -1,5 +1,7 @@
 use serde::{Deserialize, Serialize};
 
+use crate::{AciObject, EndpointScheme};
+
 use super::{adjacency, controller_adjacency};
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
@@ -30,17 +32,50 @@ pub struct Attributes {
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub enum ChildItem {
+    DcbxIfCtx {},
+    FaultCounts {},
+    FaultInst {},
+    HealthInst {},
     L2RsEthIf {},
-    LldpAdjEp {
-        attributes: adjacency::Attributes,
-        #[serde(default)]
-        children: Vec<adjacency::ChildItem>,
-    },
-    LldpCtrlrAdjEp {
-        attributes: controller_adjacency::Attributes,
-        #[serde(default)]
-        children: Vec<controller_adjacency::ChildItem>,
-    },
+    L2RsMgmtIf {},
+    LldpAdjEp(adjacency::LldpAdjEp),
+    LldpCtrlrAdjEp(controller_adjacency::LldpCtrlrAdjEp),
+    LldpIfSendTask {},
+    LldpIfStats {},
+    LldpInvalidAciAdjEp {},
+    LldptlvpolComplex {},
+    LldptlvpolIp {},
+    LldptlvpolMac {},
+    LldptlvpolText {},
     LldptlvpolUByte {},
     LldptlvpolUInt16 {},
+    LldptlvpolUInt32 {},
+    LldptlvpolUInt64 {},
+    NwRtPathToIf {},
+}
+
+#[derive(Debug, Clone, Copy)]
+pub enum Endpoint {}
+
+impl EndpointScheme for Endpoint {
+    fn endpoint(&self) -> std::borrow::Cow<'_, str> {
+        unimplemented!()
+    }
+}
+
+pub type LldpIf = AciObject<__internal::LldpIf>;
+
+mod __internal {
+    use super::*;
+    use crate::AciObjectScheme;
+
+    #[derive(Debug, Clone, Copy)]
+    pub struct LldpIf;
+
+    impl AciObjectScheme for LldpIf {
+        type Attributes = Attributes;
+        type ChildItem = ChildItem;
+        type Endpoint = Endpoint;
+        const CLASS_NAME: &'static str = "lldpIf";
+    }
 }

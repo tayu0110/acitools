@@ -1,179 +1,8 @@
-use crate::{BuilderTrait, Client};
+use crate::{AciObject, ConfigStatus, Configurable, EndpointScheme};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
-#[derive(Debug, Clone, Deserialize, Serialize)]
-#[serde(rename_all = "camelCase")]
-pub enum FvAp {
-    FvAp { attributes: Attributes },
-}
-
-impl FvAp {
-    pub fn builder(name: &str, tenant_name: &str) -> ApBuilder {
-        ApBuilder::new(name, tenant_name)
-    }
-
-    fn attributes(&self) -> &Attributes {
-        let FvAp::FvAp { attributes } = self;
-        attributes
-    }
-
-    pub fn get(client: &Client) -> Result<GetApRequestBuilder, Box<dyn std::error::Error>> {
-        Ok(GetApRequestBuilder::new(
-            client.get("node/class/fvAp.json")?,
-        ))
-    }
-
-    pub fn annotation(&self) -> &str {
-        &self.attributes().annotation
-    }
-
-    pub fn child_action(&self) -> &str {
-        &self.attributes().child_action
-    }
-
-    pub fn descr(&self) -> &str {
-        &self.attributes().descr
-    }
-
-    pub fn name(&self) -> &str {
-        &self.attributes().name
-    }
-
-    pub fn name_alias(&self) -> &str {
-        &self.attributes().name_alias
-    }
-
-    pub fn owner_key(&self) -> &str {
-        &self.attributes().owner_key
-    }
-
-    pub fn owner_tag(&self) -> &str {
-        &self.attributes().owner_tag
-    }
-}
-
-pub struct GetApRequestBuilder<'a> {
-    builder: crate::client::GetRequestBuilder<'a>,
-}
-
-impl<'a> GetApRequestBuilder<'a> {
-    fn new(builder: crate::client::GetRequestBuilder<'a>) -> Self {
-        Self { builder }
-    }
-
-    pub async fn send(self) -> Result<Box<[FvAp]>, Box<dyn std::error::Error>> {
-        let res = self.builder.send().await?;
-        Ok(res
-            .into_iter()
-            .map(|res| serde_json::from_value(res))
-            .collect::<Result<Vec<FvAp>, serde_json::Error>>()?
-            .into_boxed_slice())
-    }
-}
-
-impl<'a> BuilderTrait<'a> for GetApRequestBuilder<'a> {
-    fn renew(builder: crate::GetRequestBuilder<'a>) -> Self {
-        Self::new(builder)
-    }
-    fn builder(self) -> crate::GetRequestBuilder<'a> {
-        self.builder
-    }
-}
-
-pub struct ApBuilder {
-    parent: String,
-    data: Attributes,
-}
-
-impl ApBuilder {
-    fn new(name: &str, tenant_name: &str) -> Self {
-        Self {
-            parent: tenant_name.to_string(),
-            data: Attributes {
-                annotation: String::new(),
-                child_action: String::new(),
-                descr: String::new(),
-                dn: format!("uni/tn-{}/ap-{}", tenant_name, name),
-                name: name.to_string(),
-                name_alias: String::new(),
-                owner_key: String::new(),
-                owner_tag: String::new(),
-                prio: QoSClass::Unspecified,
-                status: String::new(),
-                userdom: String::new(),
-                payload: None,
-            },
-        }
-    }
-
-    pub fn set_annotation(mut self, value: impl ToString) -> Self {
-        self.data.annotation = value.to_string();
-        self
-    }
-
-    pub fn set_descr(mut self, value: impl ToString) -> Self {
-        self.data.descr = value.to_string();
-        self
-    }
-
-    pub fn set_name_alias(mut self, value: impl ToString) -> Self {
-        self.data.name_alias = value.to_string();
-        self
-    }
-
-    pub fn set_qos_class(mut self, class: QoSClass) -> Self {
-        self.data.prio = class;
-        self
-    }
-
-    async fn post(
-        &mut self,
-        client: &Client,
-    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
-        let json = serde_json::json!({
-            "totalCount": "1",
-            "imdata": [{
-                "fvTenant": {
-                    "attributes": {
-                        "name": self.parent,
-                        "status": "modified",
-                    },
-                    "children": [{
-                        "fvAp": {
-                            "attributes": self.data
-                        }
-                    }]
-                }
-            }]
-        });
-        Ok(client.post("mo/uni.json", &json).await?)
-    }
-
-    pub async fn create(
-        &mut self,
-        client: &Client,
-    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
-        self.data.status = "created".to_string();
-        Ok(self.post(client).await?)
-    }
-
-    pub async fn update(
-        &mut self,
-        client: &Client,
-    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
-        self.data.status = "modified".to_string();
-        Ok(self.post(client).await?)
-    }
-
-    pub async fn delete(
-        &mut self,
-        client: &Client,
-    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
-        self.data.status = "deleted".to_string();
-        Ok(self.post(client).await?)
-    }
-}
+use super::aepg;
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -187,7 +16,7 @@ pub struct Attributes {
     owner_key: String,
     owner_tag: String,
     prio: QoSClass,
-    status: String,
+    status: ConfigStatus,
     userdom: String,
     #[serde(flatten)]
     payload: Option<HashMap<String, String>>,
@@ -196,6 +25,18 @@ pub struct Attributes {
     // modTs: String,
     // monPolDn: String,
     // uid: String,
+}
+
+impl Attributes {
+    pub fn name(&self) -> &str {
+        &self.name
+    }
+}
+
+impl Configurable for Attributes {
+    fn set_status(&mut self, status: ConfigStatus) {
+        self.status = status;
+    }
 }
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
@@ -208,4 +49,178 @@ pub enum QoSClass {
     Level4,
     Level5,
     Level6,
+}
+
+#[derive(Debug, Clone, Deserialize, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub enum ChildItem {
+    AaaRbacAnnotation {},
+    FaultCounts {},
+    FaultDelegate {},
+    FaultInst {},
+    FvAEPg(aepg::FvAEPg),
+    FvESg {},
+    FvFltCounter15min {},
+    FvFltCounter1d {},
+    FvFltCounter1h {},
+    FvFltCounter1mo {},
+    FvFltCounter1qtr {},
+    FvFltCounter1w {},
+    FvFltCounter1year {},
+    FvFltCounter5min {},
+    FvFltCounterHist15min {},
+    FvFltCounterHist1d {},
+    FvFltCounterHist1h {},
+    FvFltCounterHist1mo {},
+    FvFltCounterHist1qtr {},
+    FvFltCounterHist1w {},
+    FvFltCounterHist1year {},
+    FvFltCounterHist5min {},
+    FvRsApMonPol {},
+    HealthInst {},
+    HealthNodeInst {},
+    L2EgrBytesAg15min {},
+    L2EgrBytesAg1d {},
+    L2EgrBytesAg1h {},
+    L2EgrBytesAg1mo {},
+    L2EgrBytesAg1qtr {},
+    L2EgrBytesAg1w {},
+    L2EgrBytesAg1year {},
+    L2EgrBytesAgHist15min {},
+    L2EgrBytesAgHist1d {},
+    L2EgrBytesAgHist1h {},
+    L2EgrBytesAgHist1mo {},
+    L2EgrBytesAgHist1qtr {},
+    L2EgrBytesAgHist1w {},
+    L2EgrBytesAgHist1year {},
+    L2EgrPktsAg15min {},
+    L2EgrPktsAg1d {},
+    L2EgrPktsAg1h {},
+    L2EgrPktsAg1mo {},
+    L2EgrPktsAg1qtr {},
+    L2EgrPktsAg1w {},
+    L2EgrPktsAg1year {},
+    L2EgrPktsAgHist15min {},
+    L2EgrPktsAgHist1d {},
+    L2EgrPktsAgHist1h {},
+    L2EgrPktsAgHist1mo {},
+    L2EgrPktsAgHist1qtr {},
+    L2EgrPktsAgHist1w {},
+    L2EgrPktsAgHist1year {},
+    L2IngrBytesAg15min {},
+    L2IngrBytesAg1d {},
+    L2IngrBytesAg1h {},
+    L2IngrBytesAg1mo {},
+    L2IngrBytesAg1qtr {},
+    L2IngrBytesAg1w {},
+    L2IngrBytesAg1year {},
+    L2IngrBytesAgHist15min {},
+    L2IngrBytesAgHist1d {},
+    L2IngrBytesAgHist1h {},
+    L2IngrBytesAgHist1mo {},
+    L2IngrBytesAgHist1qtr {},
+    L2IngrBytesAgHist1w {},
+    L2IngrBytesAgHist1year {},
+    L2IngrPktsAg15min {},
+    L2IngrPktsAg1d {},
+    L2IngrPktsAg1h {},
+    L2IngrPktsAg1mo {},
+    L2IngrPktsAg1qtr {},
+    L2IngrPktsAg1w {},
+    L2IngrPktsAg1year {},
+    L2IngrPktsAgHist15min {},
+    L2IngrPktsAgHist1d {},
+    L2IngrPktsAgHist1h {},
+    L2IngrPktsAgHist1mo {},
+    L2IngrPktsAgHist1qtr {},
+    L2IngrPktsAgHist1w {},
+    L2IngrPktsAgHist1year {},
+    TagAliasDelInst {},
+    TagAliasInst {},
+    TagAnnotation {},
+    TagExtMngdInst {},
+    TagInst {},
+    TagTag {},
+    VnsAbsCfgRel {},
+    VnsAbsFolder {},
+    VnsAbsParam {},
+    VnsCFolder {},
+    VnsCParam {},
+    VnsCRel {},
+    VnsCfgRelInst {},
+    VnsFolderInst {},
+    VnsGFolder {},
+    VnsGParam {},
+    VnsGRel {},
+    VnsParamInst {},
+    VnsSvcPol {},
+}
+
+pub enum FvApEndpoint {
+    ClassAll,
+    ClassTenant { tenant: String },
+    MoUni,
+    MoAp { tenant: String, ap: String },
+}
+
+impl EndpointScheme for FvApEndpoint {
+    fn endpoint(&self) -> std::borrow::Cow<'_, str> {
+        match self {
+            Self::ClassAll => std::borrow::Cow::Borrowed("node/class/fvAp.json"),
+            Self::ClassTenant { tenant } => {
+                std::borrow::Cow::Owned(format!("node/class/tn-{tenant}/fvAp.json"))
+            }
+            Self::MoUni => std::borrow::Cow::Borrowed("mo/uni.json"),
+            Self::MoAp { tenant, ap } => {
+                std::borrow::Cow::Owned(format!("mo/uni/tn-{tenant}/ap-{ap}.json"))
+            }
+        }
+    }
+}
+
+pub type FvAp = AciObject<__internal::FvAp>;
+
+impl FvAp {
+    pub fn new(name: &str, tenant: &str) -> Self {
+        Self {
+            attributes: Attributes {
+                annotation: String::new(),
+                child_action: String::new(),
+                descr: String::new(),
+                dn: format!("uni/tn-{}/ap-{}", tenant, name),
+                name: name.to_string(),
+                name_alias: String::new(),
+                owner_key: String::new(),
+                owner_tag: String::new(),
+                prio: QoSClass::Unspecified,
+                status: ConfigStatus::None,
+                userdom: String::new(),
+                payload: None,
+            },
+            children: vec![],
+        }
+    }
+
+    pub fn set_descr(&mut self, descr: impl ToString) {
+        self.attributes.descr = descr.to_string();
+    }
+
+    pub fn set_qos_class(&mut self, class: QoSClass) {
+        self.attributes.prio = class;
+    }
+}
+
+mod __internal {
+    use super::*;
+    use crate::AciObjectScheme;
+
+    #[derive(Debug, Clone, Copy)]
+    pub struct FvAp;
+
+    impl AciObjectScheme for FvAp {
+        type Attributes = Attributes;
+        type ChildItem = ChildItem;
+        type Endpoint = FvApEndpoint;
+        const CLASS_NAME: &'static str = "fvAp";
+    }
 }

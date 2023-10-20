@@ -1,4 +1,4 @@
-use acitools::{Client, FvBD};
+use acitools::{Client, FvBD, FvBDEndpoint};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -8,10 +8,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let (username, endpoint, password) = (str[0], str[1], str[2]);
     let mut client = Client::new(username, endpoint, "", password).await?;
 
-    let res = FvBD::builder("test-bd", "test-tenant")
-        .set_descr("Rust ACI Tool Test")
-        .create(&mut client)
-        .await?;
+    let mut bd = FvBD::new("test-bd", "test-tenant");
+    bd.set_descr("Rust ACI Tool Test");
+    let res = bd.create(FvBDEndpoint::MoUni, &mut client).await?;
     eprintln!("{:#?}", res);
 
     Ok(())

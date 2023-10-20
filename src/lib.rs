@@ -17,6 +17,7 @@ mod rtctrl;
 mod top;
 
 use std::borrow::Cow;
+use std::fmt::Display;
 use std::marker::PhantomData;
 
 pub use aaa::login::AaaLogin;
@@ -26,16 +27,17 @@ pub use client::*;
 pub use error::*;
 pub use fabric::pod::{FabricPod, FabricPodEndpoint};
 pub use fault::FaultInst;
-pub use fv::ap::{FvAp, QoSClass};
-pub use fv::bd::{FvBD, L2UnknownUnicast, L3UnknownMulticast, MultiDestinationFlooding};
-pub use fv::ctx::FvCtx;
-pub use fv::subnet::FvSubnet;
-pub use fv::tenant::*;
+pub use fv::ap::{FvAp, FvApEndpoint, QoSClass};
+pub use fv::bd::{
+    FvBD, FvBDEndpoint, L2UnknownUnicast, L3UnknownMulticast, MultiDestinationFlooding,
+};
+pub use fv::ctx::{FvCtx, FvCtxEndpoint};
+pub use fv::subnet::{FvSubnet, FvSubnetEndpoint};
+pub use fv::tenant::{FvTenant, FvTenantChild, FvTenantEndpoint};
 pub use l3ext::out::{L3extOut, L3extOutEndpoint};
 use serde::de::DeserializeOwned;
-pub use top::system::TopSystem;
-
 use serde::{Deserialize, Serialize};
+pub use top::system::{TopSystem, TopSystemEndpoint};
 
 #[derive(Debug, Deserialize, Serialize)]
 pub(crate) struct Response {
@@ -67,7 +69,7 @@ pub struct AciObject<T: AciObjectScheme> {
 }
 
 impl<T: AciObjectScheme> AciObject<T> {
-    pub fn new(attr: T::Attributes) -> Self {
+    pub fn from_attr(attr: T::Attributes) -> Self {
         Self {
             attributes: attr,
             children: vec![],
@@ -105,7 +107,7 @@ impl<T: AciObjectScheme> AciObject<T> {
     }
 
     pub async fn post(
-        self,
+        &self,
         endpoint: T::Endpoint,
         client: &Client,
     ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
@@ -119,6 +121,42 @@ impl<T: AciObjectScheme> AciObject<T> {
             }]
         });
         Ok(client.post(endpoint.endpoint().as_ref(), &json).await?)
+    }
+}
+
+impl<T: AciObjectScheme> AciObject<T>
+where
+    T::Attributes: Configurable,
+{
+    pub fn set_status(&mut self, status: ConfigStatus) {
+        self.attributes.set_status(status);
+    }
+
+    pub async fn create(
+        &mut self,
+        endpoint: T::Endpoint,
+        client: &Client,
+    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
+        self.attributes.set_status(ConfigStatus::Created);
+        self.post(endpoint, client).await
+    }
+
+    pub async fn delete(
+        &mut self,
+        endpoint: T::Endpoint,
+        client: &Client,
+    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
+        self.attributes.set_status(ConfigStatus::Deleted);
+        self.post(endpoint, client).await
+    }
+
+    pub async fn update(
+        &mut self,
+        endpoint: T::Endpoint,
+        client: &Client,
+    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
+        self.attributes.set_status(ConfigStatus::Modified);
+        self.post(endpoint, client).await
     }
 }
 
@@ -222,6 +260,36 @@ pub trait AciObjectScheme {
     type ChildItem: DeserializeOwned + Serialize;
     type Endpoint: EndpointScheme;
     const CLASS_NAME: &'static str;
+}
+
+pub trait Configurable {
+    fn set_status(&mut self, status: ConfigStatus);
+}
+
+#[derive(Debug, Clone, Copy, Default, Deserialize, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub enum ConfigStatus {
+    #[default]
+    #[serde(rename = "")]
+    None,
+    Created,
+    Deleted,
+    Modified,
+}
+
+impl Display for ConfigStatus {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(
+            f,
+            "{}",
+            match self {
+                Self::None => "",
+                Self::Created => "created",
+                Self::Deleted => "deleted",
+                Self::Modified => "modified",
+            }
+        )
+    }
 }
 
 #[cfg(test)]

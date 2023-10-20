@@ -9,9 +9,9 @@ pub struct Attributes {
     child_action: String,
     descr: String,
     flags: String,
-    global_port: String,
+    // global_port: String,
     id: String,
-    is_lem: String,
+    // is_lem: String,
     mod_ts: String,
     mon_pol_dn: String,
     rn: String,
@@ -24,8 +24,22 @@ pub struct Attributes {
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub enum ChildItem {
+    EqptBrkoutCap {},
+    EqptBrkoutP {},
+    EqptIndLed {},
     EqptLPort(port::EqptLPort),
+    EqptLocLed {},
     EqptRsIoPPhysConf {},
+    EqptRtCcepConn {},
+    EqptRtLpOdDiag {},
+    FaultCounts {},
+    HealthInst {},
+    TagAliasDelInst {},
+    TagAliasInst {},
+    TagAnnotation {},
+    TagExtMngdInst {},
+    TagInst {},
+    TagTag {},
 }
 
 #[derive(Debug, Clone, Copy)]

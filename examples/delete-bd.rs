@@ -1,4 +1,4 @@
-use acitools::{Client, FvBD};
+use acitools::{Client, FvBD, FvBDEndpoint};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -6,10 +6,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .split_whitespace()
         .collect::<Vec<&str>>();
     let (username, endpoint, password) = (str[0], str[1], str[2]);
-    let mut client = Client::new(username, endpoint, "", password).await?;
+    let client = Client::new(username, endpoint, "", password).await?;
 
-    let response = FvBD::builder("test-bd", "test-tenant")
-        .delete(&mut client)
+    let response = FvBD::new("test-bd", "test-tenant")
+        .delete(FvBDEndpoint::MoUni, &client)
         .await?;
     eprintln!("{:#?}", response);
 

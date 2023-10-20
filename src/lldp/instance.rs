@@ -13,8 +13,8 @@ pub struct Attributes {
     infra_vlan: String,
     init_delay_time: String,
     lc_own: String,
-    #[serde(rename = "md5CACert")]
-    md5_ca_cert: String,
+    // #[serde(rename = "md5CACert")]
+    // md5_ca_cert: String,
     mod_ts: String,
     mon_pol_dn: String,
     name: String,
@@ -29,20 +29,22 @@ pub struct Attributes {
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub enum ChildItem {
-    LldpIf {
-        attributes: interface::Attributes,
-        #[serde(default)]
-        children: Vec<interface::ChildItem>,
-    },
+    FaultCounts {},
+    HealthInst {},
+    LldpIf(interface::LldpIf),
     LldpInstIfSendTask {},
-    LldptlvpolComplex {},
     LldpInstSendTask {},
-    LldptlvpolText {},
+    LldpInstStats {},
+    LldpMgmtAddr {},
     LldpRsLldpInstPolCons {},
+    LldptlvpolComplex {},
     LldptlvpolIp {},
+    LldptlvpolMac {},
+    LldptlvpolText {},
     LldptlvpolUByte {},
     LldptlvpolUInt16 {},
     LldptlvpolUInt32 {},
+    LldptlvpolUInt64 {},
 }
 
 #[derive(Debug, Clone, Copy)]

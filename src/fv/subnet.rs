@@ -1,227 +1,7 @@
-use crate::{error::InvalidSubnetError, BuilderTrait, Client};
+use crate::{AciObject, ConfigStatus, Configurable, EndpointScheme};
+use ipnetwork::{IpNetwork, IpNetworkError};
 use serde::{Deserialize, Serialize};
 use std::{collections::HashMap, net::IpAddr};
-
-#[derive(Debug, Clone, Deserialize, Serialize)]
-#[serde(rename_all = "camelCase")]
-pub enum FvSubnet {
-    FvSubnet {
-        attributes: Attributes,
-        #[serde(default)]
-        children: Vec<ChildItem>,
-    },
-}
-
-impl FvSubnet {
-    pub fn builder(
-        subnet: IpAddr,
-        mask_len: u8,
-        bd_name: &str,
-        tenant_name: &str,
-    ) -> Result<SubnetBuilder, Box<dyn std::error::Error>> {
-        Ok(SubnetBuilder::new(subnet, mask_len, bd_name, tenant_name)?)
-    }
-
-    pub fn attributes(&self) -> &Attributes {
-        let FvSubnet::FvSubnet { attributes, .. } = self;
-        attributes
-    }
-
-    pub fn get(client: &Client) -> Result<GetSubnetRequestBuilder, Box<dyn std::error::Error>> {
-        Ok(GetSubnetRequestBuilder::new(
-            client.get("node/class/fvSubnet.json")?,
-        ))
-    }
-}
-
-pub struct GetSubnetRequestBuilder<'a> {
-    builder: crate::client::GetRequestBuilder<'a>,
-}
-
-impl<'a> GetSubnetRequestBuilder<'a> {
-    fn new(builder: crate::client::GetRequestBuilder<'a>) -> Self {
-        Self { builder }
-    }
-
-    pub async fn send(self) -> Result<Box<[FvSubnet]>, Box<dyn std::error::Error>> {
-        let res = self.builder.send().await?;
-        Ok(res
-            .into_iter()
-            .map(|res| serde_json::from_value(res))
-            .collect::<Result<Vec<FvSubnet>, serde_json::Error>>()?
-            .into_boxed_slice())
-    }
-}
-
-impl<'a> BuilderTrait<'a> for GetSubnetRequestBuilder<'a> {
-    fn renew(builder: crate::GetRequestBuilder<'a>) -> Self {
-        Self::new(builder)
-    }
-    fn builder(self) -> crate::GetRequestBuilder<'a> {
-        self.builder
-    }
-}
-
-pub struct SubnetBuilder {
-    tenant: String,
-    bd: String,
-    data: Attributes,
-}
-
-impl SubnetBuilder {
-    fn new(
-        gateway_address: IpAddr,
-        mask_len: u8,
-        bd_name: &str,
-        tenant_name: &str,
-    ) -> Result<Self, Box<dyn std::error::Error>> {
-        match gateway_address {
-            IpAddr::V4(address) => {
-                if mask_len > 32 {
-                    return Err(Box::new(InvalidSubnetError(format!(
-                        "Invalid IPv4 Subnet Mask '{}'",
-                        mask_len
-                    ))));
-                }
-                let octets = address.octets().iter().fold(0, |s, &v| (s << 8) | v as u32);
-                let mask = !0u32 >> mask_len;
-
-                if octets & mask == 0 {
-                    return Err(Box::new(InvalidSubnetError(format!(
-                        "{}/{} is a network address. This can be used for Gateway Address.",
-                        address, mask_len
-                    ))));
-                } else if octets & mask == mask {
-                    return Err(Box::new(InvalidSubnetError(format!(
-                        "{}/{} is a broadcast address. This can be used for Gateway Address.",
-                        address, mask_len
-                    ))));
-                }
-            }
-            IpAddr::V6(address) => {
-                if mask_len > 128 {
-                    return Err(Box::new(InvalidSubnetError(format!(
-                        "Invalid IPv6 Subnet Mask '{}'",
-                        mask_len
-                    ))));
-                }
-                let octets = address
-                    .octets()
-                    .iter()
-                    .fold(0u128, |s, &v| (s << 8) | v as u128);
-                let mask = !0u128 >> mask_len;
-
-                if octets & mask == 0 {
-                    return Err(Box::new(InvalidSubnetError(format!(
-                        "{}/{} is a network address. This can be used for Gateway Address.",
-                        address, mask_len
-                    ))));
-                } else if octets & mask == mask {
-                    return Err(Box::new(InvalidSubnetError(format!(
-                        "{}/{} is a broadcast address. This can be used for Gateway Address.",
-                        address, mask_len
-                    ))));
-                }
-            }
-        };
-        Ok(Self {
-            tenant: tenant_name.to_string(),
-            bd: bd_name.to_string(),
-            data: Attributes {
-                annotation: String::new(),
-                child_action: String::new(),
-                ctrl: String::new(),
-                descr: String::new(),
-                dn: format!(
-                    "uni/tn-{}/BD-{}/subnet-[{}/{}]",
-                    tenant_name, bd_name, gateway_address, mask_len
-                ),
-                ip: format!("{}/{}", gateway_address, mask_len),
-                name: String::new(),
-                name_alias: String::new(),
-                preferred: "no".to_string(),
-                scope: String::new(),
-                status: String::new(),
-                userdom: String::new(),
-                virtual_: "no".to_string(),
-                payload: None,
-            },
-        })
-    }
-
-    fn set_flag(flag: bool) -> String {
-        if flag { "yes" } else { "no" }.to_string()
-    }
-
-    pub fn set_annotation(mut self, value: impl ToString) -> Self {
-        self.data.annotation = value.to_string();
-        self
-    }
-
-    pub fn set_descr(mut self, value: impl ToString) -> Self {
-        self.data.descr = value.to_string();
-        self
-    }
-
-    pub fn set_name_alias(mut self, value: impl ToString) -> Self {
-        self.data.name_alias = value.to_string();
-        self
-    }
-
-    pub fn make_primary(mut self, flag: bool) -> Self {
-        self.data.preferred = Self::set_flag(flag);
-        self
-    }
-
-    pub fn treat_as_virtual_ip(mut self, flag: bool) -> Self {
-        self.data.virtual_ = Self::set_flag(flag);
-        self
-    }
-
-    async fn post(
-        &mut self,
-        client: &Client,
-    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
-        let json = serde_json::json!({
-            "totalCount": "1",
-            "imdata": [{
-                "fvSubnet": {
-                    "attributes": self.data,
-                }
-            }]
-        });
-        Ok(client
-            .post(
-                &format!("mo/uni/tn-{}/BD-{}.json", self.tenant, self.bd),
-                &json,
-            )
-            .await?)
-    }
-
-    pub async fn create(
-        &mut self,
-        client: &Client,
-    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
-        self.data.status = "created".to_string();
-        Ok(self.post(client).await?)
-    }
-
-    pub async fn update(
-        &mut self,
-        client: &Client,
-    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
-        self.data.status = "modified".to_string();
-        Ok(self.post(client).await?)
-    }
-
-    pub async fn delete(
-        &mut self,
-        client: &Client,
-    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
-        self.data.status = "deleted".to_string();
-        Ok(self.post(client).await?)
-    }
-}
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -231,12 +11,14 @@ pub struct Attributes {
     ctrl: String,
     descr: String,
     dn: String,
-    ip: String,
+    ip: IpNetwork,
+    #[serde(rename = "ipDPLearning")]
+    ip_dp_learning: String,
     name: String,
     name_alias: String,
     preferred: String,
     scope: String,
-    status: String,
+    status: ConfigStatus,
     userdom: String,
     #[serde(rename = "virtual")]
     virtual_: String,
@@ -245,13 +27,197 @@ pub struct Attributes {
     // config_issues: String,
     // debug_message: String,
     // ext_mngd_by: String,
-    // #[serde(rename = "ipDPLearning")]
-    // ip_dp_learning: String,
     // lc_own: String,
     // mod_ts: String,
     // mon_pol_dn: String,
     // uid: String,
 }
 
+impl Configurable for Attributes {
+    fn set_status(&mut self, status: ConfigStatus) {
+        self.status = status;
+    }
+}
+
 #[derive(Debug, Clone, Deserialize, Serialize)]
-pub enum ChildItem {}
+pub enum ChildItem {
+    AaaRbacAnnotation {},
+    FaultCounts {},
+    FaultDelegate {},
+    FaultInst {},
+    FvAssocESgTagSel {},
+    FvCepNetCfgPol {},
+    FvDisableDPLearning {},
+    FvEpAnycast {},
+    FvEpNlb {},
+    FvEpReachability {},
+    FvRsBDSubnetToOut {},
+    FvRsBDSubnetToProfile {},
+    FvRsNdPfxPol {},
+    HealthInst {},
+    TagAliasDelInst {},
+    TagAliasInst {},
+    TagAnnotation {},
+    TagExtMngdInst {},
+    TagInst {},
+    TagTag {},
+}
+
+pub enum FvSubnetEndpoint {
+    ClassAll,
+    ClassTenant {
+        tenant: String,
+    },
+    ClassBD {
+        tenant: String,
+        bd: String,
+    },
+    ClassEPG {
+        tenant: String,
+        ap: String,
+        epg: String,
+    },
+    MoUni,
+    MoTenant {
+        tenant: String,
+        subnet: IpAddr,
+        masklen: u8,
+    },
+    MoBD {
+        tenant: String,
+        bd: String,
+        subnet: IpAddr,
+        masklen: u8,
+    },
+    MoEPG {
+        tenant: String,
+        ap: String,
+        epg: String,
+        subnet: IpAddr,
+        masklen: u8,
+    },
+}
+
+impl EndpointScheme for FvSubnetEndpoint {
+    fn endpoint(&self) -> std::borrow::Cow<'_, str> {
+        match self {
+            Self::ClassAll => std::borrow::Cow::Borrowed("node/class/fvSubnet.json"),
+            Self::ClassTenant { tenant } => {
+                std::borrow::Cow::Owned(format!("node/class/uni/tn-{tenant}/fvSubnet.json"))
+            }
+            Self::ClassBD { tenant, bd } => {
+                std::borrow::Cow::Owned(format!("node/class/uni/tn-{tenant}/bd-{bd}/fvSubnet.json"))
+            }
+            Self::ClassEPG { tenant, ap, epg } => std::borrow::Cow::Owned(format!(
+                "node/class/uni/tn-{tenant}/ap-{ap}/epg-{epg}/fvSubnet.json"
+            )),
+            Self::MoUni => std::borrow::Cow::Borrowed("mo/uni.json"),
+            Self::MoTenant {
+                tenant,
+                subnet,
+                masklen,
+            } => std::borrow::Cow::Owned(format!(
+                "mo/uni/tn-{tenant}/subnet-[{subnet}/{masklen}].json"
+            )),
+            Self::MoBD {
+                tenant,
+                bd,
+                subnet,
+                masklen,
+            } => std::borrow::Cow::Owned(format!(
+                "mo/uni/tn-{tenant}/bd-{bd}/subnet-[{subnet}/{masklen}].json"
+            )),
+            Self::MoEPG {
+                tenant,
+                ap,
+                epg,
+                subnet,
+                masklen,
+            } => std::borrow::Cow::Owned(format!(
+                "mo/uni/tn-{tenant}/ap-{ap}/epg-{epg}/subnet-[{subnet}/{masklen}].json"
+            )),
+        }
+    }
+}
+
+pub type FvSubnet = AciObject<__internal::FvSubnet>;
+
+impl FvSubnet {
+    pub fn new_in_bd(
+        subnet: IpAddr,
+        masklen: u8,
+        tenant: &str,
+        bd: &str,
+    ) -> Result<Self, IpNetworkError> {
+        let ip = IpNetwork::new(subnet, masklen)?;
+        Ok(Self {
+            attributes: Attributes {
+                annotation: String::new(),
+                child_action: String::new(),
+                ctrl: String::new(),
+                descr: String::new(),
+                dn: format!("uni/tn-{tenant}/BD-{bd}/subnet-[{ip}]",),
+                ip,
+                ip_dp_learning: "enabled".to_owned(),
+                name: String::new(),
+                name_alias: String::new(),
+                preferred: "no".to_string(),
+                scope: String::new(),
+                status: ConfigStatus::None,
+                userdom: String::new(),
+                virtual_: "no".to_string(),
+                payload: None,
+            },
+            children: vec![],
+        })
+    }
+
+    pub fn new_in_epg(
+        subnet: IpAddr,
+        masklen: u8,
+        tenant: &str,
+        ap: &str,
+        epg: &str,
+    ) -> Result<Self, IpNetworkError> {
+        let ip = IpNetwork::new(subnet, masklen)?;
+        Ok(Self {
+            attributes: Attributes {
+                annotation: String::new(),
+                child_action: String::new(),
+                ctrl: String::new(),
+                descr: String::new(),
+                dn: format!("uni/tn-{tenant}/ap-{ap}/epg-{epg}/subnet-[{ip}]",),
+                ip,
+                ip_dp_learning: "enabled".to_owned(),
+                name: String::new(),
+                name_alias: String::new(),
+                preferred: "no".to_string(),
+                scope: String::new(),
+                status: ConfigStatus::None,
+                userdom: String::new(),
+                virtual_: "no".to_string(),
+                payload: None,
+            },
+            children: vec![],
+        })
+    }
+
+    pub fn set_descr(&mut self, descr: impl ToString) {
+        self.attributes.descr = descr.to_string();
+    }
+}
+
+mod __internal {
+    use super::*;
+    use crate::AciObjectScheme;
+
+    #[derive(Debug, Clone, Copy)]
+    pub struct FvSubnet;
+
+    impl AciObjectScheme for FvSubnet {
+        type Attributes = Attributes;
+        type ChildItem = ChildItem;
+        type Endpoint = FvSubnetEndpoint;
+        const CLASS_NAME: &'static str = "fvSubnet";
+    }
+}

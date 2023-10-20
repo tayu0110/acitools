@@ -81,7 +81,11 @@ pub struct Attributes {
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
-pub enum ChildItem {}
+pub enum ChildItem {
+    FaultCounts {},
+    FaultInst {},
+    HealthInst {},
+}
 
 #[derive(Debug, Clone, Copy)]
 pub enum Endpoint {}

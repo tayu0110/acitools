@@ -1,5 +1,6 @@
 use acitools::Client;
-use acitools::{FvTenant, TenantBuilder};
+use acitools::FvTenant;
+use acitools::FvTenantEndpoint;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -7,15 +8,15 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .split_whitespace()
         .collect::<Vec<&str>>();
     let (username, endpoint, password) = (str[0], str[1], str[2]);
-    let mut client = Client::new(username, endpoint, "", password).await?;
+    let client = Client::new(username, endpoint, "", password).await?;
 
-    let tenants = FvTenant::get(&mut client)?.send().await?;
-    for tenant in tenants.into_iter() {
-        if tenant.name() == "test-tenant" {
-            let response = TenantBuilder::from_tenant(tenant.clone())
-                .set_name_alias("test-tenant-alias")
-                .update(&mut client)
-                .await?;
+    let mut tenants = FvTenant::get(FvTenantEndpoint::ClassAll)
+        .send(&client)
+        .await?;
+    for tenant in tenants.iter_mut() {
+        if tenant.attributes().name() == "test-tenant" {
+            tenant.set_name_alias("test-tenant-alias");
+            let response = tenant.update(FvTenantEndpoint::MoUni, &client).await?;
             eprintln!("{:#?}", response);
         }
     }

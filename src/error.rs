@@ -27,17 +27,3 @@ impl Display for InvalidFormatError {
 }
 
 impl std::error::Error for InvalidFormatError {}
-
-#[cfg(test)]
-mod tests {}
-
-#[derive(Debug, Clone)]
-pub struct InvalidSubnetError(pub(crate) String);
-
-impl Display for InvalidSubnetError {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "Error: Invalid Subnet Error. (message: {})", self.0)
-    }
-}
-
-impl std::error::Error for InvalidSubnetError {}

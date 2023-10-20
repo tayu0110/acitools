@@ -25,6 +25,11 @@ pub struct Attributes {
 #[serde(rename_all = "camelCase")]
 pub enum ChildItem {
     EqptLC(lc::EqptLC),
+    EqptRtOosSlot {},
+    FaultCounts {},
+    FaultInst {},
+    HealthInst {},
+    SyshistCardRstRec {},
 }
 
 #[derive(Debug, Clone, Copy)]

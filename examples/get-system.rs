@@ -1,4 +1,4 @@
-use acitools::{Client, TopSystem};
+use acitools::{Client, TopSystem, TopSystemEndpoint};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -8,7 +8,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let (username, endpoint, password) = (str[0], str[1], str[2]);
     let client = Client::new(username, endpoint, "", password).await?;
 
-    let response = TopSystem::get(&client, 1)?.send().await?;
+    let response = TopSystem::get(TopSystemEndpoint::ClassNode { pod: 1, node: 102 })
+        .rsp_subtree(acitools::RspSubTree::Full)
+        .send(&client)
+        .await?;
     eprintln!("{:#?}", response);
 
     Ok(())

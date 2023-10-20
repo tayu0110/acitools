@@ -1,5 +1,7 @@
 use serde::{Deserialize, Serialize};
 
+use crate::{AciObject, EndpointScheme};
+
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Attributes {
@@ -30,10 +32,44 @@ pub struct Attributes {
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub enum ChildItem {
+    DcbxAdjCtx {},
+    FaultCounts {},
+    FaultInst {},
+    HealthInst {},
+    LldpAdjStats {},
     LldptlvComplex {},
     LldptlvIp {},
+    LldptlvMac {},
     LldptlvText {},
     LldptlvUByte {},
     LldptlvUInt16 {},
     LldptlvUInt32 {},
+    LldptlvUInt64 {},
+}
+
+#[derive(Debug, Clone, Copy)]
+pub enum Endpoint {}
+
+impl EndpointScheme for Endpoint {
+    fn endpoint(&self) -> std::borrow::Cow<'_, str> {
+        unimplemented!()
+    }
+}
+
+pub type LldpAdjEp = AciObject<__internal::LldpAdjEp>;
+
+mod __internal {
+    use crate::AciObjectScheme;
+
+    use super::*;
+
+    #[derive(Debug, Clone, Copy)]
+    pub struct LldpAdjEp;
+
+    impl AciObjectScheme for LldpAdjEp {
+        type Attributes = Attributes;
+        type ChildItem = ChildItem;
+        type Endpoint = Endpoint;
+        const CLASS_NAME: &'static str = "lldpAdjEp";
+    }
 }

@@ -1,4 +1,10 @@
-pub mod physif;
+pub mod dom_current_stats;
+pub mod dom_rx_power_stats;
+pub mod dom_stats;
+pub mod dom_temp_stats;
+pub mod dom_tx_power_stats;
+pub mod dom_volt_stats;
 pub mod fcot;
 pub mod fcotx2;
+pub mod physif;
 pub mod port_cap;

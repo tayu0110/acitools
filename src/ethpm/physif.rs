@@ -2,7 +2,7 @@ use serde::{Deserialize, Serialize};
 
 use crate::{AciObject, AciObjectScheme, EndpointScheme};
 
-use super::{fcot, fcotx2, port_cap};
+use super::{dom_stats, fcot, fcotx2, port_cap};
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -71,9 +71,15 @@ pub struct Attributes {
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub enum ChildItem {
+    EthpmDOMStats(dom_stats::EthpmDOMStats),
+    EthpmFault {},
     EthpmFcot(fcot::EthpmFcot),
+    EthpmFcotDD {},
     EthpmFcotX2(fcotx2::EthpmFcotX2),
     EthpmPortCap(port_cap::EthpmPortCap),
+    FaultCounts {},
+    FaultInst {},
+    HealthInst {},
 }
 
 #[derive(Debug, Clone, Copy)]

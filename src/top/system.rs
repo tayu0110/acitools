@@ -1,73 +1,5 @@
-use crate::{eqpt, l1, lldp, BuilderTrait, Client};
+use crate::{eqpt, l1, lldp, AciObject, EndpointScheme};
 use serde::{Deserialize, Serialize};
-
-#[derive(Debug, Clone, Deserialize, Serialize)]
-#[serde(rename_all = "camelCase")]
-pub enum TopSystem {
-    TopSystem {
-        attributes: Attributes,
-        #[serde(default)]
-        children: Vec<ChildItem>,
-    },
-}
-
-impl TopSystem {
-    fn attributes(&self) -> &Attributes {
-        let TopSystem::TopSystem { attributes, .. } = self;
-        attributes
-    }
-
-    pub fn get(
-        client: &Client,
-        pod: u32,
-    ) -> Result<GetSystemRequestBuilder, Box<dyn std::error::Error>> {
-        Ok(GetSystemRequestBuilder::new(
-            client
-                .get(format!("node/class/topology/pod-{pod}/topSystem.json").as_str())?
-                .rsp_subtree(crate::RspSubTree::Full),
-        ))
-    }
-
-    pub fn child_action(&self) -> &str {
-        &self.attributes().child_action
-    }
-
-    pub fn name(&self) -> &str {
-        &self.attributes().name
-    }
-
-    pub fn name_alias(&self) -> &str {
-        &self.attributes().name_alias
-    }
-}
-
-pub struct GetSystemRequestBuilder<'a> {
-    builder: crate::client::GetRequestBuilder<'a>,
-}
-
-impl<'a> GetSystemRequestBuilder<'a> {
-    fn new(builder: crate::client::GetRequestBuilder<'a>) -> Self {
-        Self { builder }
-    }
-
-    pub async fn send(self) -> Result<Box<[TopSystem]>, Box<dyn std::error::Error>> {
-        let res = self.builder.send().await?;
-        Ok(res
-            .into_iter()
-            .map(|res| serde_json::from_value(res))
-            .collect::<Result<Vec<TopSystem>, serde_json::Error>>()?
-            .into_boxed_slice())
-    }
-}
-
-impl<'a> BuilderTrait<'a> for GetSystemRequestBuilder<'a> {
-    fn renew(builder: crate::GetRequestBuilder<'a>) -> Self {
-        Self::new(builder)
-    }
-    fn builder(self) -> crate::GetRequestBuilder<'a> {
-        self.builder
-    }
-}
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -134,11 +66,15 @@ pub enum ChildItem {
     AaaCtrlrFipsState {},
     AaaFipsState {},
     AcEntity {},
+    AclEntity {},
     AclcapProv {},
     ActionLCont {},
     ActrlEntity {},
     ActrlcapProv {},
+    AentpEntity {},
+    AibEntity {},
     AnalyticsEntity {},
+    AnalyticsHwTelemetry {},
     ArpEntity {},
     BdEnforceExpCont {},
     BfdEntity {},
@@ -146,93 +82,200 @@ pub enum ChildItem {
     CapCat {},
     CdpEntity {},
     CertEntity {},
+    CloudController {},
+    CloudsecEntity {},
     CnwAggrIf {},
     CnwPhysIf {},
+    CommRLTepInfo {},
     CommSshInst {},
+    CommTelnetInst {},
+    CompatSuppFw {},
+    ConfigprofileCatalog {},
     CoopEntity {},
     CoppEntity {},
+    CpinfraEntity {},
     DatetimeClkPol {},
+    DatetimeNtpq {},
     DhcpEntity {},
     DnsEntity {},
     Dot1xEntity {},
+    Dot1xNic {},
     DppEntity {},
     EigrpEntity {},
-    EthpmEntity {},
     EqptCh(eqpt::chassis::EqptCh),
-    EqptcapacityEntity {},
-    EqptdiagEntity {},
     EqptEntity {},
+    EqptExtCh {},
     EqptFeatureEx {},
     EqptReloadSwitch {},
+    EqptcapacityEntity {},
+    EqptdiagEntity {},
+    EthpmEntity {},
     FabrgmEntity {},
     FabricDecommission {},
     FabricLeafNodeRole {},
+    FabricMMUpgrader {},
+    FabricNodeHealth15min {},
+    FabricNodeHealth1d {},
+    FabricNodeHealth1h {},
+    FabricNodeHealth1mo {},
+    FabricNodeHealth1qtr {},
+    FabricNodeHealth1w {},
+    FabricNodeHealth1year {},
+    FabricNodeHealth5min {},
+    FabricNodeHealthHist15min {},
+    FabricNodeHealthHist1d {},
+    FabricNodeHealthHist1h {},
+    FabricNodeHealthHist1mo {},
+    FabricNodeHealthHist1qtr {},
+    FabricNodeHealthHist1w {},
+    FabricNodeHealthHist1year {},
+    FabricNodeHealthHist5min {},
+    FabricRemoteLeafNodeRole {},
     FabricSpineNodeRole {},
     FabricSystemInfo {},
+    FaultCounts {},
+    FaultInst {},
+    FcEntity {},
     FcoeEntity {},
     FcpmEntity {},
-    FirmwareCtrlrFwStatusCont {},
+    FhsEntity {},
     FirmwareCatFwStatusCont {},
+    FirmwareCtrlrFwStatusCont {},
     FirmwareFwStatusCont {},
     FvEpNs {},
+    FvFltCounter15min {},
+    FvFltCounter1d {},
+    FvFltCounter1h {},
+    FvFltCounter1mo {},
+    FvFltCounter1qtr {},
+    FvFltCounter1w {},
+    FvFltCounter1year {},
+    FvFltCounter5min {},
+    FvFltCounterHist15min {},
+    FvFltCounterHist1d {},
+    FvFltCounterHist1h {},
+    FvFltCounterHist1mo {},
+    FvFltCounterHist1qtr {},
+    FvFltCounterHist1w {},
+    FvFltCounterHist1year {},
+    FvFltCounterHist5min {},
     FvIfConnOper {},
     FvImplicitStaleEpCont {},
     FvStaleTunEpCont {},
+    GleanEntity {},
+    HealthInst {},
     HsrpEntity {},
-    LicenseEntity {},
-    LldpEntity(lldp::entity::LldpEntity),
+    Icmpv4Entity {},
+    Icmpv6Entity {},
+    IgmpEntity {},
+    IgmpsnoopEntity {},
+    ImEntity {},
+    InfrasecEntity {},
+    IpagectrlEntity {},
+    IpsecEntity {},
+    Ipv4Entity {},
+    Ipv6Entity {},
+    IsisEntity {},
     L1PhysIf(l1::physif::L1PhysIf),
     L1capProv {},
     L2BrIf {},
+    L2ExtIf {},
+    L2InbandIf {},
     L2capProv {},
+    L3Ctx {},
+    L3CtxSubstitute {},
     L3Inst {},
     L3capProv {},
-    L3Ctx {},
+    L3vmEntity {},
     LacpEntity {},
-    IgmpEntity {},
-    Icmpv4Entity {},
-    IgmpsnoopEntity {},
-    Icmpv6Entity {},
-    IsisEntity {},
-    IpagectrlEntity {},
-    Ipv4Entity {},
-    Ipv6Entity {},
+    LeqptLooseNode {},
+    LicenseEntity {},
+    LldpEntity(lldp::entity::LldpEntity),
     MacsecEntity {},
     McpEntity {},
     MgmtMgmtIf {},
+    MldEntity {},
     MldsnoopEntity {},
     MockMockRoot {},
+    MonitorEntity {},
+    MpLocalfabric {},
+    MpSite {},
+    MplsEntity {},
+    MribEntity {},
+    MultidomainInternalCtxInfo {},
+    MultidomainMultiDomainIps {},
+    MultidomainMultiDomainVnids {},
+    NatEntity {},
     NdEntity {},
     NpvEntity {},
     NwConnGrp {},
+    NwVdc {},
+    OpflexODevCmdReq {},
+    OpflexODevCmdResp {},
+    OpflexODevRefCont {},
     OpflexOeHupTrigger {},
+    OpflexPodInfo {},
+    OpflexVtepRefCont {},
+    OpflexpHupTrigger {},
+    OpflexpPolicyResolveReq {},
+    OpflexpReference {},
+    OpflexpReportedEpReg {},
+    OpflexpReportedRouteReg {},
     OspfEntity {},
     Ospfv3Entity {},
     PatchingEntity {},
     PcAggrIf {},
     PcEntity {},
     PcFcEntity {},
-    PoeEntity {},
     PconsBootStrapTracking {},
-    PkiFabricSelfCACertsModified {},
     Pim6Entity {},
+    PimCapability {},
     PimEntity {},
+    PkiFabricSelfCACertsModified {},
+    PlatformmgrPlmgrTrig {},
+    PoeEntity {},
+    PoeNic {},
+    ProcContainer {},
+    ProcEntity {},
+    ProcSystem {},
     PtpEntity {},
     QosmEntity {},
     RadiusEntity {},
+    RegressIf {},
+    RlpodredRlPodRedPolicy {},
+    RlpodredRlSwitchoverPod {},
     RpmEntity {},
+    RpmMmode {},
+    SatmEntity {},
+    SegrtEntity {},
+    SlaEntity {},
+    SlowdrainEntity {},
+    SmmEntity {},
     SnmpEntity {},
     SpanAcct {},
     SpanEntity {},
     SpanRetryCont {},
     StatsprefCont {},
     StpEntity {},
+    StsEntity {},
+    SvccopyEntity {},
+    SvcredirEntity {},
+    SynceEntity {},
+    SyntheticSwTLTestObj {},
     SysdebugCoreFileRepository {},
-    SysdebugTechSupFileRepository {},
     SysdebugEp {},
-    TelemetryInst {},
+    SysdebugTechSupFileRepository {},
+    SyslogAcct {},
+    SysmgrEntity {},
     TelemetryCapabilityCont {},
-    TopoctrlEntity {},
+    TelemetryEntity {},
+    TelemetryInst {},
+    TopRsMonPolSystemPolCons {},
+    TopRsNeighFw {},
+    TopRsProtGFw {},
+    TopRsSysBfdIpv4PolCons {},
+    TopRsSysBfdIpv6PolCons {},
+    TopRsSysCdpInstPolCons {},
     TopRsSysErrDisRecoverPolCons {},
     TopRsSysFastLinkFailoverInstPolCons {},
     TopRsSysFcFabricPolCons {},
@@ -240,17 +283,73 @@ pub enum ChildItem {
     TopRsSysFlashConfigPolCons {},
     TopRsSysFwdScaleProfPolCons {},
     TopRsSysIaclProfilePolCons {},
-    TopRsSysLldpInstPolCons {},
     TopRsSysL2NodePolAuthCons {},
+    TopRsSysLldpInstPolCons {},
     TopRsSysMcpInstPolCons {},
     TopRsSysMstInstPolCons {},
     TopRsSysNetflowNodePolCons {},
     TopRsSysPoeInstPolCons {},
     TopRsSysPsuInstPolCons {},
-    TopRsSysUsbConfigProfilePolCons {},
+    TopRsSysPtpInstPolCons {},
     TopRsSysSynceInstPolCons {},
     TopRsSystemRack {},
+    TopRsSysUsbConfigProfilePolCons {},
+    TopRtExporterToTopSystem {},
+    TopRtFwinstlsrc {},
+    TopRtTrDst {},
+    TopRtTrSrc {},
+    TopRtTsSrc {},
+    TopoctrlEntity {},
+    TrackEntity {},
     TunnelIf {},
     TwampEntity {},
+    UdldEntity {},
+    UnifiedportsEntity {},
+    Uribv4Entity {},
+    Uribv6Entity {},
+    UsrcallhomeRecord {},
+    UsrsyslogRecord {},
+    VethEntity {},
+    VlanmgrEntity {},
     VpcEntity {},
+    VsanmgrEntity {},
+    WwnEntity {},
+}
+
+#[derive(Debug, Clone, Copy)]
+pub enum TopSystemEndpoint {
+    ClassAll,
+    ClassPod { pod: u32 },
+    ClassNode { pod: u32, node: u32 },
+}
+
+impl EndpointScheme for TopSystemEndpoint {
+    fn endpoint(&self) -> std::borrow::Cow<'_, str> {
+        match self {
+            Self::ClassAll => std::borrow::Cow::Borrowed("node/class/topSystem.json"),
+            Self::ClassPod { pod } => {
+                std::borrow::Cow::Owned(format!("node/class/topology/pod-{pod}/topSystem.json"))
+            }
+            Self::ClassNode { pod, node } => std::borrow::Cow::Owned(format!(
+                "node/class/topology/pod-{pod}/node-{node}/topSystem.json"
+            )),
+        }
+    }
+}
+
+pub type TopSystem = AciObject<__internal::TopSystem>;
+
+mod __internal {
+    use super::*;
+    use crate::AciObjectScheme;
+
+    #[derive(Debug, Clone, Copy)]
+    pub struct TopSystem;
+
+    impl AciObjectScheme for TopSystem {
+        type Attributes = Attributes;
+        type ChildItem = ChildItem;
+        type Endpoint = TopSystemEndpoint;
+        const CLASS_NAME: &'static str = "topSystem";
+    }
 }

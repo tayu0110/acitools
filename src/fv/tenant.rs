@@ -1,206 +1,8 @@
-use crate::{BuilderTrait, Client, FvCtx};
+use crate::{AciObject, ConfigStatus, Configurable, EndpointScheme};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
-#[derive(Debug, Deserialize, Clone, Serialize)]
-#[serde(rename_all = "camelCase")]
-pub enum FvTenant {
-    FvTenant { attributes: Attributes },
-}
-
-impl FvTenant {
-    pub fn builder(name: &str) -> TenantBuilder {
-        TenantBuilder::new(name)
-    }
-
-    fn attributes(&self) -> &Attributes {
-        let FvTenant::FvTenant { attributes } = self;
-        attributes
-    }
-
-    fn attributes_mut(&mut self) -> &mut Attributes {
-        let FvTenant::FvTenant { attributes } = self;
-        attributes
-    }
-
-    pub fn get(client: &Client) -> Result<GetTenantRequestBuilder, Box<dyn std::error::Error>> {
-        Ok(GetTenantRequestBuilder::new(
-            client.get("node/class/fvTenant.json")?,
-        ))
-    }
-
-    pub async fn get_vrfs(
-        &self,
-        client: &Client,
-    ) -> Result<Vec<FvCtx>, Box<dyn std::error::Error>> {
-        let val = client
-            .get(&format!("mo/{}.json", self.attributes().dn))?
-            .query_target(crate::QueryTarget::CHILDREN)
-            .target_subtree_class(crate::ClassName::FvCtx)
-            .send()
-            .await?;
-        Ok(val
-            .into_iter()
-            .map(|res| serde_json::from_value(res))
-            .collect::<Result<Vec<FvCtx>, serde_json::Error>>()?)
-    }
-
-    pub fn annotation(&self) -> &str {
-        &self.attributes().annotation
-    }
-
-    pub fn child_action(&self) -> &str {
-        &self.attributes().child_action
-    }
-
-    pub fn descr(&self) -> &str {
-        &self.attributes().descr
-    }
-
-    pub fn name(&self) -> &str {
-        &self.attributes().name
-    }
-
-    pub fn name_alias(&self) -> &str {
-        &self.attributes().name_alias
-    }
-
-    pub fn owner_key(&self) -> &str {
-        &self.attributes().owner_key
-    }
-
-    pub fn owner_tag(&self) -> &str {
-        &self.attributes().owner_tag
-    }
-}
-
-pub struct GetTenantRequestBuilder<'a> {
-    builder: crate::client::GetRequestBuilder<'a>,
-}
-
-impl<'a> GetTenantRequestBuilder<'a> {
-    fn new(builder: crate::client::GetRequestBuilder<'a>) -> Self {
-        Self { builder }
-    }
-
-    pub async fn send(self) -> Result<Box<[FvTenant]>, Box<dyn std::error::Error>> {
-        let res = self.builder.send().await?;
-        Ok(res
-            .into_iter()
-            .map(|res| serde_json::from_value(res))
-            .collect::<Result<Vec<FvTenant>, serde_json::Error>>()?
-            .into_boxed_slice())
-    }
-}
-
-impl<'a> BuilderTrait<'a> for GetTenantRequestBuilder<'a> {
-    fn renew(builder: crate::GetRequestBuilder<'a>) -> Self {
-        Self::new(builder)
-    }
-    fn builder(self) -> crate::GetRequestBuilder<'a> {
-        self.builder
-    }
-}
-
-pub struct TenantBuilder {
-    data: Attributes,
-}
-
-impl TenantBuilder {
-    fn new(name: &str) -> Self {
-        Self {
-            data: Attributes {
-                annotation: String::new(),
-                child_action: String::new(),
-                descr: String::new(),
-                dn: format!("uni/tn-{}", name),
-                name: name.to_string(),
-                name_alias: String::new(),
-                owner_key: String::new(),
-                owner_tag: String::new(),
-                status: String::new(),
-                payload: None,
-            },
-        }
-    }
-
-    pub fn from_tenant(mut tenant: FvTenant) -> Self {
-        if let Some(payload) = tenant.attributes_mut().payload.as_mut() {
-            payload.remove("extMngdBy");
-            payload.remove("lcOwn");
-            payload.remove("modTs");
-            payload.remove("monPolDn");
-            payload.remove("uid");
-        }
-        Self {
-            data: tenant.attributes().clone(),
-        }
-    }
-
-    pub fn set_annotation(mut self, annotation: impl ToString) -> Self {
-        self.data.annotation = annotation.to_string();
-        self
-    }
-
-    pub fn set_descr(mut self, descr: impl ToString) -> Self {
-        self.data.descr = descr.to_string();
-        self
-    }
-
-    pub fn set_name(mut self, name: impl ToString) -> Self {
-        self.data.name = name.to_string();
-        self
-    }
-
-    pub fn set_name_alias(mut self, name_alias: impl ToString) -> Self {
-        self.data.name_alias = name_alias.to_string();
-        self
-    }
-
-    pub fn set_status(mut self, status: impl ToString) -> Self {
-        self.data.status = status.to_string();
-        self
-    }
-
-    async fn post(
-        &mut self,
-        client: &Client,
-    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
-        let json = serde_json::json!({
-            "totalCount": "1",
-            "imdata": [{
-                "fvTenant": {
-                    "attributes": self.data
-                }
-            }]
-        });
-        Ok(client.post("mo/uni.json", &json).await?)
-    }
-
-    pub async fn create(
-        &mut self,
-        client: &Client,
-    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
-        self.data.status = "created".to_string();
-        Ok(self.post(client).await?)
-    }
-
-    pub async fn update(
-        &mut self,
-        client: &mut Client,
-    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
-        self.data.status = "modified".to_string();
-        Ok(self.post(client).await?)
-    }
-
-    pub async fn delete(
-        &mut self,
-        client: &Client,
-    ) -> Result<Vec<serde_json::Value>, Box<dyn std::error::Error>> {
-        self.data.status = "deleted".to_string();
-        Ok(self.post(client).await?)
-    }
-}
+use super::{ap, bd, ctx};
 
 #[derive(Debug, Deserialize, Clone, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -213,7 +15,7 @@ pub struct Attributes {
     name_alias: String,
     owner_key: String,
     owner_tag: String,
-    status: String,
+    status: ConfigStatus,
     #[serde(flatten)]
     payload: Option<HashMap<String, String>>,
     // ext_mngd_by: String,
@@ -221,4 +23,614 @@ pub struct Attributes {
     // mod_ts: String,
     // mon_pol_dn: String,
     // uid: String,
+}
+
+impl Attributes {
+    pub fn name(&self) -> &str {
+        &self.name
+    }
+}
+
+impl Configurable for Attributes {
+    fn set_status(&mut self, status: crate::ConfigStatus) {
+        self.status = status;
+    }
+}
+
+#[derive(Debug, Clone, Deserialize, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub enum FvTenantChild {
+    AaaDomainRef {},
+    AaaPartialRbacRule {},
+    AaaRbacAnnotation {},
+    ArpIfPol {},
+    AuthSvrGroup {},
+    BfdIfPol {},
+    BfdMhIfPol {},
+    BfdMhNodePol {},
+    BgpBestPathCtrlPol {},
+    BgpCtxAfPol {},
+    BgpCtxPol {},
+    BgpPeerPfxPol {},
+    BgpRtSummPol {},
+    CloudAD {},
+    CloudAccessPolicy {},
+    CloudAccount {},
+    CloudApicSubnetPool {},
+    CloudApp {},
+    CloudAppGwStatsAg15min {},
+    CloudAppGwStatsAg1d {},
+    CloudAppGwStatsAg1h {},
+    CloudAppGwStatsAg1mo {},
+    CloudAppGwStatsAg1qtr {},
+    CloudAppGwStatsAg1w {},
+    CloudAppGwStatsAg1year {},
+    CloudAppGwStatsAg5min {},
+    CloudAppGwStatsAgHist15min {},
+    CloudAppGwStatsAgHist1d {},
+    CloudAppGwStatsAgHist1h {},
+    CloudAppGwStatsAgHist1mo {},
+    CloudAppGwStatsAgHist1qtr {},
+    CloudAppGwStatsAgHist1w {},
+    CloudAppGwStatsAgHist1year {},
+    CloudAppGwStatsAgHist5min {},
+    CloudAwsFlowLogPol {},
+    CloudAwsLogGroup {},
+    CloudAwsProvider {},
+    CloudAzNLBStatsAg15min {},
+    CloudAzNLBStatsAg1d {},
+    CloudAzNLBStatsAg1h {},
+    CloudAzNLBStatsAg1mo {},
+    CloudAzNLBStatsAg1qtr {},
+    CloudAzNLBStatsAg1w {},
+    CloudAzNLBStatsAg1year {},
+    CloudAzNLBStatsAg5min {},
+    CloudAzNLBStatsAgHist15min {},
+    CloudAzNLBStatsAgHist1d {},
+    CloudAzNLBStatsAgHist1h {},
+    CloudAzNLBStatsAgHist1mo {},
+    CloudAzNLBStatsAgHist1qtr {},
+    CloudAzNLBStatsAgHist1w {},
+    CloudAzNLBStatsAgHist1year {},
+    CloudAzNLBStatsAgHist5min {},
+    CloudAzureStatsPol {},
+    CloudCDevDef {},
+    CloudCertStore {},
+    CloudCounter {},
+    CloudCredentials {},
+    CloudCtxProfile {},
+    CloudDepl {},
+    CloudEgressBytesAg15min {},
+    CloudEgressBytesAg1d {},
+    CloudEgressBytesAg1h {},
+    CloudEgressBytesAg1mo {},
+    CloudEgressBytesAg1qtr {},
+    CloudEgressBytesAg1w {},
+    CloudEgressBytesAg1year {},
+    CloudEgressBytesAg5min {},
+    CloudEgressBytesAgHist15min {},
+    CloudEgressBytesAgHist1d {},
+    CloudEgressBytesAgHist1h {},
+    CloudEgressBytesAgHist1mo {},
+    CloudEgressBytesAgHist1qtr {},
+    CloudEgressBytesAgHist1w {},
+    CloudEgressBytesAgHist1year {},
+    CloudEgressBytesAgHist5min {},
+    CloudEgressPktsAg15min {},
+    CloudEgressPktsAg1d {},
+    CloudEgressPktsAg1h {},
+    CloudEgressPktsAg1mo {},
+    CloudEgressPktsAg1qtr {},
+    CloudEgressPktsAg1w {},
+    CloudEgressPktsAg1year {},
+    CloudEgressPktsAg5min {},
+    CloudEgressPktsAgHist15min {},
+    CloudEgressPktsAgHist1d {},
+    CloudEgressPktsAgHist1h {},
+    CloudEgressPktsAgHist1mo {},
+    CloudEgressPktsAgHist1qtr {},
+    CloudEgressPktsAgHist1w {},
+    CloudEgressPktsAgHist1year {},
+    CloudEgressPktsAgHist5min {},
+    CloudExtCtxProfile {},
+    CloudGatewayRouterP {},
+    CloudHostRouterEgressBytesAg15min {},
+    CloudHostRouterEgressBytesAg1d {},
+    CloudHostRouterEgressBytesAg1h {},
+    CloudHostRouterEgressBytesAg1mo {},
+    CloudHostRouterEgressBytesAg1qtr {},
+    CloudHostRouterEgressBytesAg1w {},
+    CloudHostRouterEgressBytesAg1year {},
+    CloudHostRouterEgressBytesAg5min {},
+    CloudHostRouterEgressBytesAgHist15min {},
+    CloudHostRouterEgressBytesAgHist1d {},
+    CloudHostRouterEgressBytesAgHist1h {},
+    CloudHostRouterEgressBytesAgHist1mo {},
+    CloudHostRouterEgressBytesAgHist1qtr {},
+    CloudHostRouterEgressBytesAgHist1w {},
+    CloudHostRouterEgressBytesAgHist1year {},
+    CloudHostRouterEgressBytesAgHist5min {},
+    CloudHostRouterEgressPktsAg15min {},
+    CloudHostRouterEgressPktsAg1d {},
+    CloudHostRouterEgressPktsAg1h {},
+    CloudHostRouterEgressPktsAg1mo {},
+    CloudHostRouterEgressPktsAg1qtr {},
+    CloudHostRouterEgressPktsAg1w {},
+    CloudHostRouterEgressPktsAg1year {},
+    CloudHostRouterEgressPktsAg5min {},
+    CloudHostRouterEgressPktsAgHist15min {},
+    CloudHostRouterEgressPktsAgHist1d {},
+    CloudHostRouterEgressPktsAgHist1h {},
+    CloudHostRouterEgressPktsAgHist1mo {},
+    CloudHostRouterEgressPktsAgHist1qtr {},
+    CloudHostRouterEgressPktsAgHist1w {},
+    CloudHostRouterEgressPktsAgHist1year {},
+    CloudHostRouterEgressPktsAgHist5min {},
+    CloudHostRouterIngressBytesAg15min {},
+    CloudHostRouterIngressBytesAg1d {},
+    CloudHostRouterIngressBytesAg1h {},
+    CloudHostRouterIngressBytesAg1mo {},
+    CloudHostRouterIngressBytesAg1qtr {},
+    CloudHostRouterIngressBytesAg1w {},
+    CloudHostRouterIngressBytesAg1year {},
+    CloudHostRouterIngressBytesAg5min {},
+    CloudHostRouterIngressBytesAgHist15min {},
+    CloudHostRouterIngressBytesAgHist1d {},
+    CloudHostRouterIngressBytesAgHist1h {},
+    CloudHostRouterIngressBytesAgHist1mo {},
+    CloudHostRouterIngressBytesAgHist1qtr {},
+    CloudHostRouterIngressBytesAgHist1w {},
+    CloudHostRouterIngressBytesAgHist1year {},
+    CloudHostRouterIngressBytesAgHist5min {},
+    CloudHostRouterIngressPktsAg15min {},
+    CloudHostRouterIngressPktsAg1d {},
+    CloudHostRouterIngressPktsAg1h {},
+    CloudHostRouterIngressPktsAg1mo {},
+    CloudHostRouterIngressPktsAg1qtr {},
+    CloudHostRouterIngressPktsAg1w {},
+    CloudHostRouterIngressPktsAg1year {},
+    CloudHostRouterIngressPktsAg5min {},
+    CloudHostRouterIngressPktsAgHist15min {},
+    CloudHostRouterIngressPktsAgHist1d {},
+    CloudHostRouterIngressPktsAgHist1h {},
+    CloudHostRouterIngressPktsAgHist1mo {},
+    CloudHostRouterIngressPktsAgHist1qtr {},
+    CloudHostRouterIngressPktsAgHist1w {},
+    CloudHostRouterIngressPktsAgHist1year {},
+    CloudHostRouterIngressPktsAgHist5min {},
+    CloudHostRouterPol {},
+    CloudIngressBytesAg15min {},
+    CloudIngressBytesAg1d {},
+    CloudIngressBytesAg1h {},
+    CloudIngressBytesAg1mo {},
+    CloudIngressBytesAg1qtr {},
+    CloudIngressBytesAg1w {},
+    CloudIngressBytesAg1year {},
+    CloudIngressBytesAg5min {},
+    CloudIngressBytesAgHist15min {},
+    CloudIngressBytesAgHist1d {},
+    CloudIngressBytesAgHist1h {},
+    CloudIngressBytesAgHist1mo {},
+    CloudIngressBytesAgHist1qtr {},
+    CloudIngressBytesAgHist1w {},
+    CloudIngressBytesAgHist1year {},
+    CloudIngressBytesAgHist5min {},
+    CloudIngressPktsAg15min {},
+    CloudIngressPktsAg1d {},
+    CloudIngressPktsAg1h {},
+    CloudIngressPktsAg1mo {},
+    CloudIngressPktsAg1qtr {},
+    CloudIngressPktsAg1w {},
+    CloudIngressPktsAg1year {},
+    CloudIngressPktsAg5min {},
+    CloudIngressPktsAgHist15min {},
+    CloudIngressPktsAgHist1d {},
+    CloudIngressPktsAgHist1h {},
+    CloudIngressPktsAgHist1mo {},
+    CloudIngressPktsAgHist1qtr {},
+    CloudIngressPktsAgHist1w {},
+    CloudIngressPktsAgHist1year {},
+    CloudIngressPktsAgHist5min {},
+    CloudLB {},
+    CloudLBStatsAg15min {},
+    CloudLBStatsAg1d {},
+    CloudLBStatsAg1h {},
+    CloudLBStatsAg1mo {},
+    CloudLBStatsAg1qtr {},
+    CloudLBStatsAg1w {},
+    CloudLBStatsAg1year {},
+    CloudLBStatsAg5min {},
+    CloudLBStatsAgHist15min {},
+    CloudLBStatsAgHist1d {},
+    CloudLBStatsAgHist1h {},
+    CloudLBStatsAgHist1mo {},
+    CloudLBStatsAgHist1qtr {},
+    CloudLBStatsAgHist1w {},
+    CloudLBStatsAgHist1year {},
+    CloudLBStatsAgHist5min {},
+    CloudLDev {},
+    CloudLDevDef {},
+    CloudNLBStatsAg15min {},
+    CloudNLBStatsAg1d {},
+    CloudNLBStatsAg1h {},
+    CloudNLBStatsAg1mo {},
+    CloudNLBStatsAg1qtr {},
+    CloudNLBStatsAg1w {},
+    CloudNLBStatsAg1year {},
+    CloudNLBStatsAg5min {},
+    CloudNLBStatsAgHist15min {},
+    CloudNLBStatsAgHist1d {},
+    CloudNLBStatsAgHist1h {},
+    CloudNLBStatsAgHist1mo {},
+    CloudNLBStatsAgHist1qtr {},
+    CloudNLBStatsAgHist1w {},
+    CloudNLBStatsAgHist1year {},
+    CloudNLBStatsAgHist5min {},
+    CloudPoolHealthStatsAg15min {},
+    CloudPoolHealthStatsAg1d {},
+    CloudPoolHealthStatsAg1h {},
+    CloudPoolHealthStatsAg1mo {},
+    CloudPoolHealthStatsAg1qtr {},
+    CloudPoolHealthStatsAg1w {},
+    CloudPoolHealthStatsAg1year {},
+    CloudPoolHealthStatsAg5min {},
+    CloudPoolHealthStatsAgHist15min {},
+    CloudPoolHealthStatsAgHist1d {},
+    CloudPoolHealthStatsAgHist1h {},
+    CloudPoolHealthStatsAgHist1mo {},
+    CloudPoolHealthStatsAgHist1qtr {},
+    CloudPoolHealthStatsAgHist1w {},
+    CloudPoolHealthStatsAgHist1year {},
+    CloudPoolHealthStatsAgHist5min {},
+    CloudPoolResponseLatencyAg15min {},
+    CloudPoolResponseLatencyAg1d {},
+    CloudPoolResponseLatencyAg1h {},
+    CloudPoolResponseLatencyAg1mo {},
+    CloudPoolResponseLatencyAg1qtr {},
+    CloudPoolResponseLatencyAg1w {},
+    CloudPoolResponseLatencyAg1year {},
+    CloudPoolResponseLatencyAg5min {},
+    CloudPoolResponseLatencyAgHist15min {},
+    CloudPoolResponseLatencyAgHist1d {},
+    CloudPoolResponseLatencyAgHist1h {},
+    CloudPoolResponseLatencyAgHist1mo {},
+    CloudPoolResponseLatencyAgHist1qtr {},
+    CloudPoolResponseLatencyAgHist1w {},
+    CloudPoolResponseLatencyAgHist1year {},
+    CloudPoolResponseLatencyAgHist5min {},
+    CloudStatsFilter {},
+    CloudSvcDevPol {},
+    CloudTransitHubGwPol {},
+    CloudVpnGwPol {},
+    CloudVrfRouteLeakPol {},
+    CloudsecIfPol {},
+    CloudtemplateInfraNetwork {},
+    DbgacAnyToEp {},
+    DbgacEpToAny {},
+    DbgacEpToEp {},
+    DbgacEpToEpg {},
+    DbgacEpToExt {},
+    DbgacEpgToEp {},
+    DbgacEpgToEpg {},
+    DbgacEpgToIp {},
+    DbgacExtToEp {},
+    DbgacIpToEpg {},
+    DbgacIpToIp {},
+    DhcpOptionPol {},
+    DhcpRelayP {},
+    DnsepgSvrGrp {},
+    DrawCont {},
+    EigrpCtxAfPol {},
+    EigrpIfPol {},
+    EigrpRtSummPol {},
+    ExtdevSDWanPolCont {},
+    ExtdevSDWanVpnCont {},
+    FaultCountsWithDetails {},
+    FaultDelegate {},
+    FaultInst {},
+    FcPinningP {},
+    FhsBDPol {},
+    FhsTrustCtrlPol {},
+    FvAp(ap::FvAp),
+    FvBD(bd::FvBD),
+    FvConnInstrPol {},
+    FvCtx(ctx::FvCtx),
+    FvEpRetPol {},
+    FvEpTags {},
+    FvFabricExtConnP {},
+    FvFltCounter15min {},
+    FvFltCounter1d {},
+    FvFltCounter1h {},
+    FvFltCounter1mo {},
+    FvFltCounter1qtr {},
+    FvFltCounter1w {},
+    FvFltCounter1year {},
+    FvFltCounter5min {},
+    FvFltCounterHist15min {},
+    FvFltCounterHist1d {},
+    FvFltCounterHist1h {},
+    FvFltCounterHist1mo {},
+    FvFltCounterHist1qtr {},
+    FvFltCounterHist1w {},
+    FvFltCounterHist1year {},
+    FvFltCounterHist5min {},
+    FvIPSLAMonitoringPol {},
+    FvKeyChainPol {},
+    FvOverallHealth15min {},
+    FvOverallHealth1d {},
+    FvOverallHealth1h {},
+    FvOverallHealth1mo {},
+    FvOverallHealth1qtr {},
+    FvOverallHealth1w {},
+    FvOverallHealth1year {},
+    FvOverallHealthHist15min {},
+    FvOverallHealthHist1d {},
+    FvOverallHealthHist1h {},
+    FvOverallHealthHist1mo {},
+    FvOverallHealthHist1qtr {},
+    FvOverallHealthHist1w {},
+    FvOverallHealthHist1year {},
+    FvRsCloudAccount {},
+    FvRsTenantMonPol {},
+    FvRsTnDenyRule {},
+    FvRtTenant {},
+    FvRtTenantInfra {},
+    FvSlaDef {},
+    FvSvcBD {},
+    FvTnlCtx {},
+    FvTnlEPg {},
+    FvTrackList {},
+    FvTrackMember {},
+    FvnsAddrInst {},
+    HealthInst {},
+    HealthNodeInst {},
+    HostprotPol {},
+    HsrpGroupPol {},
+    HsrpIfPol {},
+    IgmpIfPol {},
+    IgmpSnoopPol {},
+    InfraClP {},
+    InfraProvP {},
+    IpsecIsakmpPhase1Pol {},
+    IpsecIsakmpPhase2Pol {},
+    IsakmpGlobalPol {},
+    IsakmpKeyring {},
+    IsakmpPolicy {},
+    IsakmpProfile {},
+    L2EgrBytesAg15min {},
+    L2EgrBytesAg1d {},
+    L2EgrBytesAg1h {},
+    L2EgrBytesAg1mo {},
+    L2EgrBytesAg1qtr {},
+    L2EgrBytesAg1w {},
+    L2EgrBytesAg1year {},
+    L2EgrBytesAgHist15min {},
+    L2EgrBytesAgHist1d {},
+    L2EgrBytesAgHist1h {},
+    L2EgrBytesAgHist1mo {},
+    L2EgrBytesAgHist1qtr {},
+    L2EgrBytesAgHist1w {},
+    L2EgrBytesAgHist1year {},
+    L2EgrPktsAg15min {},
+    L2EgrPktsAg1d {},
+    L2EgrPktsAg1h {},
+    L2EgrPktsAg1mo {},
+    L2EgrPktsAg1qtr {},
+    L2EgrPktsAg1w {},
+    L2EgrPktsAg1year {},
+    L2EgrPktsAgHist15min {},
+    L2EgrPktsAgHist1d {},
+    L2EgrPktsAgHist1h {},
+    L2EgrPktsAgHist1mo {},
+    L2EgrPktsAgHist1qtr {},
+    L2EgrPktsAgHist1w {},
+    L2EgrPktsAgHist1year {},
+    L2IngrBytesAg15min {},
+    L2IngrBytesAg1d {},
+    L2IngrBytesAg1h {},
+    L2IngrBytesAg1mo {},
+    L2IngrBytesAg1qtr {},
+    L2IngrBytesAg1w {},
+    L2IngrBytesAg1year {},
+    L2IngrBytesAgHist15min {},
+    L2IngrBytesAgHist1d {},
+    L2IngrBytesAgHist1h {},
+    L2IngrBytesAgHist1mo {},
+    L2IngrBytesAgHist1qtr {},
+    L2IngrBytesAgHist1w {},
+    L2IngrBytesAgHist1year {},
+    L2IngrPktsAg15min {},
+    L2IngrPktsAg1d {},
+    L2IngrPktsAg1h {},
+    L2IngrPktsAg1mo {},
+    L2IngrPktsAg1qtr {},
+    L2IngrPktsAg1w {},
+    L2IngrPktsAg1year {},
+    L2IngrPktsAgHist15min {},
+    L2IngrPktsAgHist1d {},
+    L2IngrPktsAgHist1h {},
+    L2IngrPktsAgHist1mo {},
+    L2IngrPktsAgHist1qtr {},
+    L2IngrPktsAgHist1w {},
+    L2IngrPktsAgHist1year {},
+    L2extOut {},
+    L3extBdProfile {},
+    L3extOut {},
+    L3extOutDef {},
+    L3extRouteTagPol {},
+    L3extVrfValidationPol {},
+    MdpLocalTenant {},
+    MdpRemoteTenant {},
+    MgmtExtMgmtEntity {},
+    MgmtMgmtP {},
+    MldSnoopPol {},
+    MonEPGPol {},
+    MplsIfPol {},
+    MplsLabelPol {},
+    NdIfPol {},
+    NdPfxPol {},
+    NetflowExporterPol {},
+    NetflowMonitorPol {},
+    NetflowRecordPol {},
+    OrchsSvcRsrcPool {},
+    OspfCtxPol {},
+    OspfIfPol {},
+    OspfRtSummPol {},
+    PimIfPol {},
+    PimRouteMapPol {},
+    QosCustomPol {},
+    QosDppPol {},
+    QosDscpTransPol {},
+    QosMplsCustomPol {},
+    QosRequirement {},
+    RtctrlAttrP {},
+    RtctrlProfile {},
+    RtctrlSubjP {},
+    SpanDestGrp {},
+    SpanSrcGrp {},
+    SpanVDestGrp {},
+    SpanVSrcGrp {},
+    TagAliasDelInst {},
+    TagAliasInst {},
+    TagAnnotation {},
+    TagExtMngdInst {},
+    TagInst {},
+    TagTag {},
+    TelemetrySelector {},
+    TraceroutepTrEp {},
+    TraceroutepTrEpExt {},
+    TraceroutepTrExtEp {},
+    TraceroutepTrExtExt {},
+    Uribv4EgrBytesAg15min {},
+    Uribv4EgrBytesAg1d {},
+    Uribv4EgrBytesAg1h {},
+    Uribv4EgrBytesAg1mo {},
+    Uribv4EgrBytesAg1qtr {},
+    Uribv4EgrBytesAg1w {},
+    Uribv4EgrBytesAg1year {},
+    Uribv4EgrBytesAgHist15min {},
+    Uribv4EgrBytesAgHist1d {},
+    Uribv4EgrBytesAgHist1h {},
+    Uribv4EgrBytesAgHist1mo {},
+    Uribv4EgrBytesAgHist1qtr {},
+    Uribv4EgrBytesAgHist1w {},
+    Uribv4EgrBytesAgHist1year {},
+    Uribv4EgrPktsAg15min {},
+    Uribv4EgrPktsAg1d {},
+    Uribv4EgrPktsAg1h {},
+    Uribv4EgrPktsAg1mo {},
+    Uribv4EgrPktsAg1qtr {},
+    Uribv4EgrPktsAg1w {},
+    Uribv4EgrPktsAg1year {},
+    Uribv4EgrPktsAgHist15min {},
+    Uribv4EgrPktsAgHist1d {},
+    Uribv4EgrPktsAgHist1h {},
+    Uribv4EgrPktsAgHist1mo {},
+    Uribv4EgrPktsAgHist1qtr {},
+    Uribv4EgrPktsAgHist1w {},
+    Uribv4EgrPktsAgHist1year {},
+    VmmOrchsExtTenant {},
+    VnsAbsCfgRel {},
+    VnsAbsFolder {},
+    VnsAbsFuncProfContr {},
+    VnsAbsGraph {},
+    VnsAbsParam {},
+    VnsCFolder {},
+    VnsCParam {},
+    VnsCRel {},
+    VnsCfgRelInst {},
+    VnsChassis {},
+    VnsCopyBdHolder {},
+    VnsCtrlrMgmtPol {},
+    VnsDevMgr {},
+    VnsDevProf {},
+    VnsEPGExtRequest {},
+    VnsFWReq {},
+    VnsFolderInst {},
+    VnsGFolder {},
+    VnsGParam {},
+    VnsGRel {},
+    VnsGraphInst {},
+    VnsInBHolder {},
+    VnsLDevCtx {},
+    VnsLDevIf {},
+    VnsLDevInst {},
+    VnsLDevVip {},
+    VnsMscGraphXlateCont {},
+    VnsNatInst {},
+    VnsParamInst {},
+    VnsPbrByPassCont {},
+    VnsRtrCfg {},
+    VnsSvcCont {},
+    VnsSvcL3Cont {},
+    VnsSvcPol {},
+    VnsUnitHolder {},
+    VzBrCP {},
+    VzCPIf {},
+    VzERFltP {},
+    VzFilter {},
+    VzOOBBrCP {},
+    VzRFltP {},
+    VzTaboo {},
+}
+
+#[derive(Debug, Clone, Copy)]
+pub enum FvTenantEndpoint {
+    ClassAll,
+    MoUni,
+}
+
+impl EndpointScheme for FvTenantEndpoint {
+    fn endpoint(&self) -> std::borrow::Cow<'_, str> {
+        match self {
+            Self::ClassAll => std::borrow::Cow::Borrowed("node/class/fvTenant.json"),
+            Self::MoUni => std::borrow::Cow::Borrowed("mo/uni.json"),
+        }
+    }
+}
+
+pub type FvTenant = AciObject<__internal::FvTenant>;
+
+impl FvTenant {
+    pub fn new(name: &str) -> Self {
+        Self {
+            attributes: Attributes {
+                annotation: String::new(),
+                child_action: String::new(),
+                descr: String::new(),
+                dn: format!("uni/tn-{}", name),
+                name: name.to_string(),
+                name_alias: String::new(),
+                owner_key: String::new(),
+                owner_tag: String::new(),
+                status: ConfigStatus::None,
+                payload: None,
+            },
+            children: vec![],
+        }
+    }
+
+    pub fn set_descr(&mut self, descr: impl ToString) {
+        self.attributes_mut().descr = descr.to_string();
+    }
+
+    pub fn set_name_alias(&mut self, alias: impl ToString) {
+        self.attributes_mut().name_alias = alias.to_string();
+    }
+}
+
+mod __internal {
+    use crate::AciObjectScheme;
+
+    use super::*;
+
+    #[derive(Debug, Clone, Copy)]
+    pub struct FvTenant;
+
+    impl AciObjectScheme for FvTenant {
+        type Attributes = Attributes;
+        type ChildItem = FvTenantChild;
+        type Endpoint = FvTenantEndpoint;
+        const CLASS_NAME: &'static str = "fvTenant";
+    }
 }

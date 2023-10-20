@@ -1,5 +1,6 @@
 use acitools::Client;
 use acitools::FvCtx;
+use acitools::FvCtxEndpoint;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -7,10 +8,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .split_whitespace()
         .collect::<Vec<&str>>();
     let (username, endpoint, password) = (str[0], str[1], str[2]);
-    let mut client = Client::new(username, endpoint, "", password).await?;
+    let client = Client::new(username, endpoint, "", password).await?;
 
-    let res = FvCtx::builder("test-vrf", "test-tenant")
-        .delete(&mut client)
+    let res = FvCtx::new("test-vrf", "test-tenant")
+        .delete(FvCtxEndpoint::MoUni, &client)
         .await?;
     eprintln!("{:#?}", res);
 

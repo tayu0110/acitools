@@ -1,4 +1,4 @@
-use acitools::{Client, FvBD};
+use acitools::{Client, FvBD, FvBDEndpoint};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -6,9 +6,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .split_whitespace()
         .collect::<Vec<&str>>();
     let (username, endpoint, password) = (str[0], str[1], str[2]);
-    let mut client = Client::new(username, endpoint, "", password).await?;
+    let client = Client::new(username, endpoint, "", password).await?;
 
-    let response = FvBD::get(&mut client)?.send().await?;
+    let response = FvBD::get(FvBDEndpoint::ClassAll)
+        .rsp_subtree(acitools::RspSubTree::Full)
+        .send(&client)
+        .await?;
     eprintln!("{:#?}", response);
 
     Ok(())

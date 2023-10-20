@@ -22,6 +22,8 @@ pub struct Attributes {
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub enum ChildItem {
+    FaultCounts {},
+    HealthInst {},
     LldpInst(instance::LldpInst),
 }
 
