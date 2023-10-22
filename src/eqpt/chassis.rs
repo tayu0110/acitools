@@ -4,7 +4,10 @@ use serde::{Deserialize, Serialize};
 
 use crate::{AciObject, EndpointScheme};
 
-use super::lcslot;
+use super::{
+    backplane_sprom, boardslot, fcslot, flash_config, ftslot, ind_led, lcslot, loc_led, nicslot,
+    psuslot, storage, supcslot, syscslot,
+};
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -35,19 +38,19 @@ pub struct Attributes {
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub enum ChildItem {
-    EqptBSlot {},
-    EqptFCSlot {},
-    EqptFlashConfig {},
-    EqptFtSlot {},
-    EqptIndLed {},
+    EqptBSlot(boardslot::EqptBSlot),
+    EqptFCSlot(fcslot::EqptFcSlot),
+    EqptFlashConfig(flash_config::EqptFlashConfig),
+    EqptFtSlot(ftslot::EqptFtSlot),
+    EqptIndLed(ind_led::EqptIndLed),
     EqptLCSlot(lcslot::EqptLCSlot),
-    EqptLocLed {},
-    EqptNSlot {},
-    EqptPsuSlot {},
-    EqptSpromBP {},
-    EqptStorage {},
-    EqptSupCSlot {},
-    EqptSysCSlot {},
+    EqptLocLed(loc_led::EqptLocLed),
+    EqptNSlot(nicslot::EqptNSlot),
+    EqptPsuSlot(psuslot::EqptPsuSlot),
+    EqptSpromBP(backplane_sprom::EqptSpromBp),
+    EqptStorage(storage::EqptStorage),
+    EqptSupCSlot(supcslot::EqptSupCSlot),
+    EqptSysCSlot(syscslot::EqptSysCSlot),
     EqptUsbConfig {},
 }
 

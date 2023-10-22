@@ -10,6 +10,7 @@ pub struct Attributes {
     child_action: String,
     ctrl: String,
     descr: String,
+    #[serde(default)]
     dn: String,
     ip: IpNetwork,
     #[serde(rename = "ipDPLearning")]
@@ -40,6 +41,7 @@ impl Configurable for Attributes {
 }
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
+#[serde(rename_all = "camelCase")]
 pub enum ChildItem {
     AaaRbacAnnotation {},
     FaultCounts {},

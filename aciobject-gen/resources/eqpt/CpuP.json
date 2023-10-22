@@ -1,0 +1,1358 @@
+{
+        "eqpt:CpuP": {
+            "contains": {
+                "eqpt:EgrBytes15min": "",
+                "eqpt:EgrBytes1d": "",
+                "eqpt:EgrBytes1h": "",
+                "eqpt:EgrBytes1mo": "",
+                "eqpt:EgrBytes1qtr": "",
+                "eqpt:EgrBytes1w": "",
+                "eqpt:EgrBytes1year": "",
+                "eqpt:EgrBytes5min": "",
+                "eqpt:EgrBytesHist15min": "",
+                "eqpt:EgrBytesHist1d": "",
+                "eqpt:EgrBytesHist1h": "",
+                "eqpt:EgrBytesHist1mo": "",
+                "eqpt:EgrBytesHist1qtr": "",
+                "eqpt:EgrBytesHist1w": "",
+                "eqpt:EgrBytesHist1year": "",
+                "eqpt:EgrBytesHist5min": "",
+                "eqpt:EgrPkts15min": "",
+                "eqpt:EgrPkts1d": "",
+                "eqpt:EgrPkts1h": "",
+                "eqpt:EgrPkts1mo": "",
+                "eqpt:EgrPkts1qtr": "",
+                "eqpt:EgrPkts1w": "",
+                "eqpt:EgrPkts1year": "",
+                "eqpt:EgrPkts5min": "",
+                "eqpt:EgrPktsHist15min": "",
+                "eqpt:EgrPktsHist1d": "",
+                "eqpt:EgrPktsHist1h": "",
+                "eqpt:EgrPktsHist1mo": "",
+                "eqpt:EgrPktsHist1qtr": "",
+                "eqpt:EgrPktsHist1w": "",
+                "eqpt:EgrPktsHist1year": "",
+                "eqpt:EgrPktsHist5min": "",
+                "eqpt:EgrTotal15min": "",
+                "eqpt:EgrTotal1d": "",
+                "eqpt:EgrTotal1h": "",
+                "eqpt:EgrTotal1mo": "",
+                "eqpt:EgrTotal1qtr": "",
+                "eqpt:EgrTotal1w": "",
+                "eqpt:EgrTotal1year": "",
+                "eqpt:EgrTotal5min": "",
+                "eqpt:EgrTotalHist15min": "",
+                "eqpt:EgrTotalHist1d": "",
+                "eqpt:EgrTotalHist1h": "",
+                "eqpt:EgrTotalHist1mo": "",
+                "eqpt:EgrTotalHist1qtr": "",
+                "eqpt:EgrTotalHist1w": "",
+                "eqpt:EgrTotalHist1year": "",
+                "eqpt:EgrTotalHist5min": "",
+                "eqpt:IngrBytes15min": "",
+                "eqpt:IngrBytes1d": "",
+                "eqpt:IngrBytes1h": "",
+                "eqpt:IngrBytes1mo": "",
+                "eqpt:IngrBytes1qtr": "",
+                "eqpt:IngrBytes1w": "",
+                "eqpt:IngrBytes1year": "",
+                "eqpt:IngrBytes5min": "",
+                "eqpt:IngrBytesHist15min": "",
+                "eqpt:IngrBytesHist1d": "",
+                "eqpt:IngrBytesHist1h": "",
+                "eqpt:IngrBytesHist1mo": "",
+                "eqpt:IngrBytesHist1qtr": "",
+                "eqpt:IngrBytesHist1w": "",
+                "eqpt:IngrBytesHist1year": "",
+                "eqpt:IngrBytesHist5min": "",
+                "eqpt:IngrPkts15min": "",
+                "eqpt:IngrPkts1d": "",
+                "eqpt:IngrPkts1h": "",
+                "eqpt:IngrPkts1mo": "",
+                "eqpt:IngrPkts1qtr": "",
+                "eqpt:IngrPkts1w": "",
+                "eqpt:IngrPkts1year": "",
+                "eqpt:IngrPkts5min": "",
+                "eqpt:IngrPktsHist15min": "",
+                "eqpt:IngrPktsHist1d": "",
+                "eqpt:IngrPktsHist1h": "",
+                "eqpt:IngrPktsHist1mo": "",
+                "eqpt:IngrPktsHist1qtr": "",
+                "eqpt:IngrPktsHist1w": "",
+                "eqpt:IngrPktsHist1year": "",
+                "eqpt:IngrPktsHist5min": "",
+                "eqpt:IngrTotal15min": "",
+                "eqpt:IngrTotal1d": "",
+                "eqpt:IngrTotal1h": "",
+                "eqpt:IngrTotal1mo": "",
+                "eqpt:IngrTotal1qtr": "",
+                "eqpt:IngrTotal1w": "",
+                "eqpt:IngrTotal1year": "",
+                "eqpt:IngrTotal5min": "",
+                "eqpt:IngrTotalHist15min": "",
+                "eqpt:IngrTotalHist1d": "",
+                "eqpt:IngrTotalHist1h": "",
+                "eqpt:IngrTotalHist1mo": "",
+                "eqpt:IngrTotalHist1qtr": "",
+                "eqpt:IngrTotalHist1w": "",
+                "eqpt:IngrTotalHist1year": "",
+                "eqpt:IngrTotalHist5min": "",
+                "eqpt:IngrUnkBytes15min": "",
+                "eqpt:IngrUnkBytes1d": "",
+                "eqpt:IngrUnkBytes1h": "",
+                "eqpt:IngrUnkBytes1mo": "",
+                "eqpt:IngrUnkBytes1qtr": "",
+                "eqpt:IngrUnkBytes1w": "",
+                "eqpt:IngrUnkBytes1year": "",
+                "eqpt:IngrUnkBytes5min": "",
+                "eqpt:IngrUnkBytesHist15min": "",
+                "eqpt:IngrUnkBytesHist1d": "",
+                "eqpt:IngrUnkBytesHist1h": "",
+                "eqpt:IngrUnkBytesHist1mo": "",
+                "eqpt:IngrUnkBytesHist1qtr": "",
+                "eqpt:IngrUnkBytesHist1w": "",
+                "eqpt:IngrUnkBytesHist1year": "",
+                "eqpt:IngrUnkBytesHist5min": "",
+                "eqpt:IngrUnkPkts15min": "",
+                "eqpt:IngrUnkPkts1d": "",
+                "eqpt:IngrUnkPkts1h": "",
+                "eqpt:IngrUnkPkts1mo": "",
+                "eqpt:IngrUnkPkts1qtr": "",
+                "eqpt:IngrUnkPkts1w": "",
+                "eqpt:IngrUnkPkts1year": "",
+                "eqpt:IngrUnkPkts5min": "",
+                "eqpt:IngrUnkPktsHist15min": "",
+                "eqpt:IngrUnkPktsHist1d": "",
+                "eqpt:IngrUnkPktsHist1h": "",
+                "eqpt:IngrUnkPktsHist1mo": "",
+                "eqpt:IngrUnkPktsHist1qtr": "",
+                "eqpt:IngrUnkPktsHist1w": "",
+                "eqpt:IngrUnkPktsHist1year": "",
+                "eqpt:IngrUnkPktsHist5min": "",
+                "eqpt:LPort": "",
+                "fault:Counts": "",
+                "fault:Inst": "",
+                "health:Inst": ""
+            },
+            "rnMap": {
+                "CDeqptEgrBytes15min": "eqpt:EgrBytes15min",
+                "CDeqptEgrBytes1d": "eqpt:EgrBytes1d",
+                "CDeqptEgrBytes1h": "eqpt:EgrBytes1h",
+                "CDeqptEgrBytes1mo": "eqpt:EgrBytes1mo",
+                "CDeqptEgrBytes1qtr": "eqpt:EgrBytes1qtr",
+                "CDeqptEgrBytes1w": "eqpt:EgrBytes1w",
+                "CDeqptEgrBytes1year": "eqpt:EgrBytes1year",
+                "CDeqptEgrBytes5min": "eqpt:EgrBytes5min",
+                "CDeqptEgrPkts15min": "eqpt:EgrPkts15min",
+                "CDeqptEgrPkts1d": "eqpt:EgrPkts1d",
+                "CDeqptEgrPkts1h": "eqpt:EgrPkts1h",
+                "CDeqptEgrPkts1mo": "eqpt:EgrPkts1mo",
+                "CDeqptEgrPkts1qtr": "eqpt:EgrPkts1qtr",
+                "CDeqptEgrPkts1w": "eqpt:EgrPkts1w",
+                "CDeqptEgrPkts1year": "eqpt:EgrPkts1year",
+                "CDeqptEgrPkts5min": "eqpt:EgrPkts5min",
+                "CDeqptEgrTotal15min": "eqpt:EgrTotal15min",
+                "CDeqptEgrTotal1d": "eqpt:EgrTotal1d",
+                "CDeqptEgrTotal1h": "eqpt:EgrTotal1h",
+                "CDeqptEgrTotal1mo": "eqpt:EgrTotal1mo",
+                "CDeqptEgrTotal1qtr": "eqpt:EgrTotal1qtr",
+                "CDeqptEgrTotal1w": "eqpt:EgrTotal1w",
+                "CDeqptEgrTotal1year": "eqpt:EgrTotal1year",
+                "CDeqptEgrTotal5min": "eqpt:EgrTotal5min",
+                "CDeqptIngrBytes15min": "eqpt:IngrBytes15min",
+                "CDeqptIngrBytes1d": "eqpt:IngrBytes1d",
+                "CDeqptIngrBytes1h": "eqpt:IngrBytes1h",
+                "CDeqptIngrBytes1mo": "eqpt:IngrBytes1mo",
+                "CDeqptIngrBytes1qtr": "eqpt:IngrBytes1qtr",
+                "CDeqptIngrBytes1w": "eqpt:IngrBytes1w",
+                "CDeqptIngrBytes1year": "eqpt:IngrBytes1year",
+                "CDeqptIngrBytes5min": "eqpt:IngrBytes5min",
+                "CDeqptIngrPkts15min": "eqpt:IngrPkts15min",
+                "CDeqptIngrPkts1d": "eqpt:IngrPkts1d",
+                "CDeqptIngrPkts1h": "eqpt:IngrPkts1h",
+                "CDeqptIngrPkts1mo": "eqpt:IngrPkts1mo",
+                "CDeqptIngrPkts1qtr": "eqpt:IngrPkts1qtr",
+                "CDeqptIngrPkts1w": "eqpt:IngrPkts1w",
+                "CDeqptIngrPkts1year": "eqpt:IngrPkts1year",
+                "CDeqptIngrPkts5min": "eqpt:IngrPkts5min",
+                "CDeqptIngrTotal15min": "eqpt:IngrTotal15min",
+                "CDeqptIngrTotal1d": "eqpt:IngrTotal1d",
+                "CDeqptIngrTotal1h": "eqpt:IngrTotal1h",
+                "CDeqptIngrTotal1mo": "eqpt:IngrTotal1mo",
+                "CDeqptIngrTotal1qtr": "eqpt:IngrTotal1qtr",
+                "CDeqptIngrTotal1w": "eqpt:IngrTotal1w",
+                "CDeqptIngrTotal1year": "eqpt:IngrTotal1year",
+                "CDeqptIngrTotal5min": "eqpt:IngrTotal5min",
+                "CDeqptIngrUnkBytes15min": "eqpt:IngrUnkBytes15min",
+                "CDeqptIngrUnkBytes1d": "eqpt:IngrUnkBytes1d",
+                "CDeqptIngrUnkBytes1h": "eqpt:IngrUnkBytes1h",
+                "CDeqptIngrUnkBytes1mo": "eqpt:IngrUnkBytes1mo",
+                "CDeqptIngrUnkBytes1qtr": "eqpt:IngrUnkBytes1qtr",
+                "CDeqptIngrUnkBytes1w": "eqpt:IngrUnkBytes1w",
+                "CDeqptIngrUnkBytes1year": "eqpt:IngrUnkBytes1year",
+                "CDeqptIngrUnkBytes5min": "eqpt:IngrUnkBytes5min",
+                "CDeqptIngrUnkPkts15min": "eqpt:IngrUnkPkts15min",
+                "CDeqptIngrUnkPkts1d": "eqpt:IngrUnkPkts1d",
+                "CDeqptIngrUnkPkts1h": "eqpt:IngrUnkPkts1h",
+                "CDeqptIngrUnkPkts1mo": "eqpt:IngrUnkPkts1mo",
+                "CDeqptIngrUnkPkts1qtr": "eqpt:IngrUnkPkts1qtr",
+                "CDeqptIngrUnkPkts1w": "eqpt:IngrUnkPkts1w",
+                "CDeqptIngrUnkPkts1year": "eqpt:IngrUnkPkts1year",
+                "CDeqptIngrUnkPkts5min": "eqpt:IngrUnkPkts5min",
+                "HDeqptEgrBytes15min-": "eqpt:EgrBytesHist15min",
+                "HDeqptEgrBytes1d-": "eqpt:EgrBytesHist1d",
+                "HDeqptEgrBytes1h-": "eqpt:EgrBytesHist1h",
+                "HDeqptEgrBytes1mo-": "eqpt:EgrBytesHist1mo",
+                "HDeqptEgrBytes1qtr-": "eqpt:EgrBytesHist1qtr",
+                "HDeqptEgrBytes1w-": "eqpt:EgrBytesHist1w",
+                "HDeqptEgrBytes1year-": "eqpt:EgrBytesHist1year",
+                "HDeqptEgrBytes5min-": "eqpt:EgrBytesHist5min",
+                "HDeqptEgrPkts15min-": "eqpt:EgrPktsHist15min",
+                "HDeqptEgrPkts1d-": "eqpt:EgrPktsHist1d",
+                "HDeqptEgrPkts1h-": "eqpt:EgrPktsHist1h",
+                "HDeqptEgrPkts1mo-": "eqpt:EgrPktsHist1mo",
+                "HDeqptEgrPkts1qtr-": "eqpt:EgrPktsHist1qtr",
+                "HDeqptEgrPkts1w-": "eqpt:EgrPktsHist1w",
+                "HDeqptEgrPkts1year-": "eqpt:EgrPktsHist1year",
+                "HDeqptEgrPkts5min-": "eqpt:EgrPktsHist5min",
+                "HDeqptEgrTotal15min-": "eqpt:EgrTotalHist15min",
+                "HDeqptEgrTotal1d-": "eqpt:EgrTotalHist1d",
+                "HDeqptEgrTotal1h-": "eqpt:EgrTotalHist1h",
+                "HDeqptEgrTotal1mo-": "eqpt:EgrTotalHist1mo",
+                "HDeqptEgrTotal1qtr-": "eqpt:EgrTotalHist1qtr",
+                "HDeqptEgrTotal1w-": "eqpt:EgrTotalHist1w",
+                "HDeqptEgrTotal1year-": "eqpt:EgrTotalHist1year",
+                "HDeqptEgrTotal5min-": "eqpt:EgrTotalHist5min",
+                "HDeqptIngrBytes15min-": "eqpt:IngrBytesHist15min",
+                "HDeqptIngrBytes1d-": "eqpt:IngrBytesHist1d",
+                "HDeqptIngrBytes1h-": "eqpt:IngrBytesHist1h",
+                "HDeqptIngrBytes1mo-": "eqpt:IngrBytesHist1mo",
+                "HDeqptIngrBytes1qtr-": "eqpt:IngrBytesHist1qtr",
+                "HDeqptIngrBytes1w-": "eqpt:IngrBytesHist1w",
+                "HDeqptIngrBytes1year-": "eqpt:IngrBytesHist1year",
+                "HDeqptIngrBytes5min-": "eqpt:IngrBytesHist5min",
+                "HDeqptIngrPkts15min-": "eqpt:IngrPktsHist15min",
+                "HDeqptIngrPkts1d-": "eqpt:IngrPktsHist1d",
+                "HDeqptIngrPkts1h-": "eqpt:IngrPktsHist1h",
+                "HDeqptIngrPkts1mo-": "eqpt:IngrPktsHist1mo",
+                "HDeqptIngrPkts1qtr-": "eqpt:IngrPktsHist1qtr",
+                "HDeqptIngrPkts1w-": "eqpt:IngrPktsHist1w",
+                "HDeqptIngrPkts1year-": "eqpt:IngrPktsHist1year",
+                "HDeqptIngrPkts5min-": "eqpt:IngrPktsHist5min",
+                "HDeqptIngrTotal15min-": "eqpt:IngrTotalHist15min",
+                "HDeqptIngrTotal1d-": "eqpt:IngrTotalHist1d",
+                "HDeqptIngrTotal1h-": "eqpt:IngrTotalHist1h",
+                "HDeqptIngrTotal1mo-": "eqpt:IngrTotalHist1mo",
+                "HDeqptIngrTotal1qtr-": "eqpt:IngrTotalHist1qtr",
+                "HDeqptIngrTotal1w-": "eqpt:IngrTotalHist1w",
+                "HDeqptIngrTotal1year-": "eqpt:IngrTotalHist1year",
+                "HDeqptIngrTotal5min-": "eqpt:IngrTotalHist5min",
+                "HDeqptIngrUnkBytes15min-": "eqpt:IngrUnkBytesHist15min",
+                "HDeqptIngrUnkBytes1d-": "eqpt:IngrUnkBytesHist1d",
+                "HDeqptIngrUnkBytes1h-": "eqpt:IngrUnkBytesHist1h",
+                "HDeqptIngrUnkBytes1mo-": "eqpt:IngrUnkBytesHist1mo",
+                "HDeqptIngrUnkBytes1qtr-": "eqpt:IngrUnkBytesHist1qtr",
+                "HDeqptIngrUnkBytes1w-": "eqpt:IngrUnkBytesHist1w",
+                "HDeqptIngrUnkBytes1year-": "eqpt:IngrUnkBytesHist1year",
+                "HDeqptIngrUnkBytes5min-": "eqpt:IngrUnkBytesHist5min",
+                "HDeqptIngrUnkPkts15min-": "eqpt:IngrUnkPktsHist15min",
+                "HDeqptIngrUnkPkts1d-": "eqpt:IngrUnkPktsHist1d",
+                "HDeqptIngrUnkPkts1h-": "eqpt:IngrUnkPktsHist1h",
+                "HDeqptIngrUnkPkts1mo-": "eqpt:IngrUnkPktsHist1mo",
+                "HDeqptIngrUnkPkts1qtr-": "eqpt:IngrUnkPktsHist1qtr",
+                "HDeqptIngrUnkPkts1w-": "eqpt:IngrUnkPktsHist1w",
+                "HDeqptIngrUnkPkts1year-": "eqpt:IngrUnkPktsHist1year",
+                "HDeqptIngrUnkPkts5min-": "eqpt:IngrUnkPktsHist5min",
+                "fault-": "fault:Inst",
+                "fltCnts": "fault:Counts",
+                "health": "health:Inst",
+                "lport": "eqpt:LPort"
+            },
+            "identifiedBy": [
+                "id"
+            ],
+            "rnFormat": "cpuport-{id}",
+            "containedBy": {
+                "eqpt:FC": "",
+                "eqpt:SupC": ""
+            },
+            "superClasses": [
+                "eqpt:IntP",
+                "eqpt:Port",
+                "eqpt:Cont",
+                "eqpt:Item",
+                "nw:Item"
+            ],
+            "subClasses": {
+
+            },
+            "relationFrom": {
+
+            },
+            "relationTo": {
+
+            },
+            "dnFormats": [
+                "topology/pod-{id}/node-{id}/sys/ch/fcslot-{id}/fc/cpuport-{id}",
+                "sys/ch/fcslot-{id}/fc/cpuport-{id}",
+                "topology/pod-{id}/node-{id}/sys/ch/supslot-{id}/sup/cpuport-{id}",
+                "sys/ch/supslot-{id}/sup/cpuport-{id}"
+            ],
+            "writeAccess": [
+
+            ],
+            "readAccess": [
+                "access-equipment",
+                "admin",
+                "fabric-equipment"
+            ],
+            "faults": {
+
+            },
+            "events": {
+
+            },
+            "stats": {
+                "eqpt:EgrBytes15min": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Egress  Bytes in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "eqpt:EgrBytes1d": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Egress  Bytes in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "eqpt:EgrBytes1h": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Egress  Bytes in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "eqpt:EgrBytes1mo": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Egress  Bytes in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:EgrBytes1qtr": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Egress  Bytes in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:EgrBytes1w": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Egress  Bytes in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:EgrBytes1year": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Egress  Bytes in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:EgrBytes5min": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Egress  Bytes in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "eqpt:EgrBytesHist15min": {
+                    "comment": [
+                         "A class that represents historical statistics for  Egress  Bytes in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "eqpt:EgrBytesHist1d": {
+                    "comment": [
+                         "A class that represents historical statistics for  Egress  Bytes in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "eqpt:EgrBytesHist1h": {
+                    "comment": [
+                         "A class that represents historical statistics for  Egress  Bytes in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "eqpt:EgrBytesHist1mo": {
+                    "comment": [
+                         "A class that represents historical statistics for  Egress  Bytes in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:EgrBytesHist1qtr": {
+                    "comment": [
+                         "A class that represents historical statistics for  Egress  Bytes in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:EgrBytesHist1w": {
+                    "comment": [
+                         "A class that represents historical statistics for  Egress  Bytes in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:EgrBytesHist1year": {
+                    "comment": [
+                         "A class that represents historical statistics for  Egress  Bytes in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:EgrBytesHist5min": {
+                    "comment": [
+                         "A class that represents historical statistics for  Egress  Bytes in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "eqpt:EgrPkts15min": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Egress  Packets in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "eqpt:EgrPkts1d": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Egress  Packets in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "eqpt:EgrPkts1h": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Egress  Packets in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "eqpt:EgrPkts1mo": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Egress  Packets in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:EgrPkts1qtr": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Egress  Packets in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:EgrPkts1w": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Egress  Packets in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:EgrPkts1year": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Egress  Packets in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:EgrPkts5min": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Egress  Packets in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "eqpt:EgrPktsHist15min": {
+                    "comment": [
+                         "A class that represents historical statistics for  Egress  Packets in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "eqpt:EgrPktsHist1d": {
+                    "comment": [
+                         "A class that represents historical statistics for  Egress  Packets in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "eqpt:EgrPktsHist1h": {
+                    "comment": [
+                         "A class that represents historical statistics for  Egress  Packets in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "eqpt:EgrPktsHist1mo": {
+                    "comment": [
+                         "A class that represents historical statistics for  Egress  Packets in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:EgrPktsHist1qtr": {
+                    "comment": [
+                         "A class that represents historical statistics for  Egress  Packets in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:EgrPktsHist1w": {
+                    "comment": [
+                         "A class that represents historical statistics for  Egress  Packets in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:EgrPktsHist1year": {
+                    "comment": [
+                         "A class that represents historical statistics for  Egress  Packets in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:EgrPktsHist5min": {
+                    "comment": [
+                         "A class that represents historical statistics for  Egress  Packets in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "eqpt:EgrTotal15min": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Egress in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "eqpt:EgrTotal1d": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Egress in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "eqpt:EgrTotal1h": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Egress in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "eqpt:EgrTotal1mo": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Egress in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:EgrTotal1qtr": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Egress in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:EgrTotal1w": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Egress in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:EgrTotal1year": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Egress in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:EgrTotal5min": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Egress in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "eqpt:EgrTotalHist15min": {
+                    "comment": [
+                         "A class that represents historical statistics for  Egress in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "eqpt:EgrTotalHist1d": {
+                    "comment": [
+                         "A class that represents historical statistics for  Egress in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "eqpt:EgrTotalHist1h": {
+                    "comment": [
+                         "A class that represents historical statistics for  Egress in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "eqpt:EgrTotalHist1mo": {
+                    "comment": [
+                         "A class that represents historical statistics for  Egress in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:EgrTotalHist1qtr": {
+                    "comment": [
+                         "A class that represents historical statistics for  Egress in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:EgrTotalHist1w": {
+                    "comment": [
+                         "A class that represents historical statistics for  Egress in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:EgrTotalHist1year": {
+                    "comment": [
+                         "A class that represents historical statistics for  Egress in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:EgrTotalHist5min": {
+                    "comment": [
+                         "A class that represents historical statistics for  Egress in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "eqpt:IngrBytes15min": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Bytes in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "eqpt:IngrBytes1d": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Bytes in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "eqpt:IngrBytes1h": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Bytes in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "eqpt:IngrBytes1mo": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Bytes in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrBytes1qtr": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Bytes in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrBytes1w": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Bytes in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrBytes1year": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Bytes in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrBytes5min": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Bytes in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "eqpt:IngrBytesHist15min": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Bytes in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "eqpt:IngrBytesHist1d": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Bytes in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "eqpt:IngrBytesHist1h": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Bytes in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "eqpt:IngrBytesHist1mo": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Bytes in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrBytesHist1qtr": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Bytes in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrBytesHist1w": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Bytes in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrBytesHist1year": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Bytes in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrBytesHist5min": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Bytes in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "eqpt:IngrPkts15min": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Packets in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "eqpt:IngrPkts1d": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Packets in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "eqpt:IngrPkts1h": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Packets in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "eqpt:IngrPkts1mo": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Packets in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrPkts1qtr": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Packets in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrPkts1w": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Packets in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrPkts1year": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Packets in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrPkts5min": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Packets in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "eqpt:IngrPktsHist15min": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Packets in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "eqpt:IngrPktsHist1d": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Packets in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "eqpt:IngrPktsHist1h": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Packets in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "eqpt:IngrPktsHist1mo": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Packets in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrPktsHist1qtr": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Packets in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrPktsHist1w": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Packets in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrPktsHist1year": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Packets in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrPktsHist5min": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Packets in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "eqpt:IngrTotal15min": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "eqpt:IngrTotal1d": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "eqpt:IngrTotal1h": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "eqpt:IngrTotal1mo": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrTotal1qtr": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrTotal1w": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrTotal1year": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrTotal5min": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "eqpt:IngrTotalHist15min": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "eqpt:IngrTotalHist1d": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "eqpt:IngrTotalHist1h": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "eqpt:IngrTotalHist1mo": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrTotalHist1qtr": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrTotalHist1w": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrTotalHist1year": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrTotalHist5min": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "eqpt:IngrUnkBytes15min": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Unknown  Bytes in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "eqpt:IngrUnkBytes1d": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Unknown  Bytes in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "eqpt:IngrUnkBytes1h": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Unknown  Bytes in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "eqpt:IngrUnkBytes1mo": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Unknown  Bytes in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrUnkBytes1qtr": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Unknown  Bytes in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrUnkBytes1w": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Unknown  Bytes in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrUnkBytes1year": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Unknown  Bytes in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrUnkBytes5min": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Unknown  Bytes in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "eqpt:IngrUnkBytesHist15min": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Unknown  Bytes in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "eqpt:IngrUnkBytesHist1d": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Unknown  Bytes in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "eqpt:IngrUnkBytesHist1h": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Unknown  Bytes in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "eqpt:IngrUnkBytesHist1mo": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Unknown  Bytes in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrUnkBytesHist1qtr": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Unknown  Bytes in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrUnkBytesHist1w": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Unknown  Bytes in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrUnkBytesHist1year": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Unknown  Bytes in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrUnkBytesHist5min": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Unknown  Bytes in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "eqpt:IngrUnkPkts15min": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Unknown  Packets in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "eqpt:IngrUnkPkts1d": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Unknown  Packets in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "eqpt:IngrUnkPkts1h": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Unknown  Packets in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "eqpt:IngrUnkPkts1mo": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Unknown  Packets in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrUnkPkts1qtr": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Unknown  Packets in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrUnkPkts1w": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Unknown  Packets in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrUnkPkts1year": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Unknown  Packets in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrUnkPkts5min": {
+                    "comment": [
+                         "A class that represents the most current statistics for  Ingress  Unknown  Packets in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "eqpt:IngrUnkPktsHist15min": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Unknown  Packets in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "eqpt:IngrUnkPktsHist1d": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Unknown  Packets in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "eqpt:IngrUnkPktsHist1h": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Unknown  Packets in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "eqpt:IngrUnkPktsHist1mo": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Unknown  Packets in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrUnkPktsHist1qtr": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Unknown  Packets in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrUnkPktsHist1w": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Unknown  Packets in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrUnkPktsHist1year": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Unknown  Packets in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:IngrUnkPktsHist5min": {
+                    "comment": [
+                         "A class that represents historical statistics for  Ingress  Unknown  Packets in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                }
+            },
+            "isAbstract": false,
+            "isConfigurable": false,
+            "isContextRoot": false,
+            "isDeprecated": false,
+            "isEncrypted": false,
+            "isExportable": false,
+            "isPersistent": false,
+            "isSubjectToQuota": false,
+            "isObservable": true,
+            "hasStats": true,
+            "isStat": false,
+            "isFaultable": true,
+            "isDomainable": false,
+            "isHealthScorable": true,
+            "shouldCollectHealthStats": false,
+            "healthCollectionSource": "faults",
+            "hasEventRules": false,
+            "abstractionLayer": "concrete",
+            "apicNxProcessing": false,
+            "monitoringPolicySource": "Parent",
+            "isCreatableDeletable": "never",
+            "platformFlavors": [
+
+            ],
+            "classId": "2996",
+            "className": "CpuP",
+            "classPkg": "eqpt",
+            "featureTag": "",
+            "moCategory": "Regular",
+            "label": "Cpu Port",
+            "comment": [
+                "The CPU bound traffic port."
+            ],
+            "properties": {
+                "childAction": {
+                    "comment": [
+                         "Delete or ignore. For internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "4",
+                    "propLocalId": "5",
+                    "label": "childAction",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationChildAction",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "16384", "localName": "deleteAll",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteAll "},
+                         { "value": "8192", "localName": "deleteNonPresent",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteNonPresent "},
+                         { "value": "4096", "localName": "ignore",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "ignore "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "descr": {
+                    "comment": [
+                         "Additional descriptive information about the object."
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "5598",
+                    "propLocalId": "28",
+                    "label": "Description",
+                    "baseType": "string:Basic",
+                    "modelType": "naming:Descr",
+                    "needsPropDelimiters": false,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": true,
+                    "readOnly": false,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "naming:Described:descr",
+                    "validators": [
+                         {"min" : 0, "max": 128,
+                             "regexs": [
+                                 {"regex" : "^[a-zA-Z0-9\\\\!#$%()*,-./:;@ _{|}~?&+]+$", "type": "include"}
+                             ]
+                         }
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "dn": {
+                    "comment": [
+                         "A tag or metadata is a non-hierarchical keyword or term assigned to the fabric module."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "1",
+                    "propLocalId": "2",
+                    "label": "dn",
+                    "baseType": "reference:BinRef",
+                    "modelType": "reference:BinRef",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "id": {
+                    "comment": [
+                         "The CPU bound traffic port ID."
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "6193",
+                    "propLocalId": "12",
+                    "label": "ID",
+                    "baseType": "scalar:Uint32",
+                    "modelType": "eqpt:Id",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": false,
+                    "isNaming": true,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": true,
+                    "isLike": false,
+                    "validators": [
+                         {"min" : 0, "max": 127 }
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "modTs": {
+                    "comment": [
+                         "The time when this object was last modified."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "7",
+                    "propLocalId": "7",
+                    "label": "modTs",
+                    "baseType": "scalar:Date",
+                    "modelType": "mo:TStamp",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "never", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "never",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "never "}
+                    ],
+                    "default": "never",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "monPolDn": {
+                    "comment": [
+                         "The monitoring policy attached to this observable object."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "14506",
+                    "propLocalId": "228",
+                    "label": "Monitoring policy attached to this observable object",
+                    "baseType": "reference:BinRef",
+                    "modelType": "reference:BinRef",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rn": {
+                    "comment": [
+                         "Identifies an object from its siblings within the context of its parent object. The distinguished name contains a sequence of relative names."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2",
+                    "propLocalId": "3",
+                    "label": "rn",
+                    "baseType": "reference:BinRN",
+                    "modelType": "reference:BinRN",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "status": {
+                    "comment": [
+                         "The upgrade status. This property is for internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3",
+                    "propLocalId": "4",
+                    "label": "status",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationStatus",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "2", "localName": "created",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be created. An error is returned if the object already exists.  \nIn the return value of a setter method: indicates that an object has been created.  \n"
+                             ],
+                             "label": "created "},
+                         { "value": "8", "localName": "deleted",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be deleted.  \nIn the return value of a setter method: indicates that an object has been deleted.\n"
+                             ],
+                             "label": "deleted "},
+                         { "value": "4", "localName": "modified",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be modified  \nIn the return value of a setter method: indicates that an object has been modified.\n"
+                             ],
+                             "label": "modified "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "type": {
+                    "comment": [
+                         "The type."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3311",
+                    "propLocalId": "33",
+                    "label": "Type",
+                    "baseType": "scalar:Enum16",
+                    "modelType": "eqpt:PortT",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "unknown", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "1", "localName": "eobc",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Internal EOBC port"
+                             ],
+                             "label": "EOBC "},
+                         { "value": "6", "localName": "extchfp",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Extended chassis fabric(uplink) port"
+                             ],
+                             "label": "Extended Chassis Fabric Port "},
+                         { "value": "5", "localName": "extchhp",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Extended chassis host port"
+                             ],
+                             "label": "Extended Chassis Host Port "},
+                         { "value": "3", "localName": "fab",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Fabric port"
+                             ],
+                             "label": "Fabric Port "},
+                         { "value": "4", "localName": "leaf",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Front panel port"
+                             ],
+                             "label": "Access Port "},
+                         { "value": "2", "localName": "mgmt",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Management port"
+                             ],
+                             "label": "Management Port "},
+                         { "value": "0", "localName": "unknown",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Invalid port type"
+                             ],
+                             "label": "Unknown "}
+                    ],
+                    "default": "unknown",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                }
+            }
+        }
+}

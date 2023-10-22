@@ -1,41 +1,69 @@
+use super::{client_endpoint, static_path, subnet};
 use crate::{AciObject, ConfigStatus, Configurable, EndpointScheme};
 use serde::{Deserialize, Serialize};
-
-use super::subnet;
 
 #[derive(Debug, Clone, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase", default)]
 pub struct Attributes {
+    #[serde(skip_serializing_if = "String::is_empty")]
     annotation: String,
+    #[serde(skip_serializing_if = "String::is_empty")]
     child_action: String,
+    #[serde(skip_serializing)]
     config_issues: String,
+    #[serde(skip_serializing_if = "String::is_empty")]
     config_st: String,
+    #[serde(skip_serializing_if = "String::is_empty")]
     descr: String,
+    #[serde(skip_serializing_if = "String::is_empty")]
     dn: String,
+    #[serde(skip_serializing_if = "String::is_empty")]
     exception_tag: String,
+    #[serde(skip_serializing)]
     ext_mngd_by: String,
+    #[serde(skip_serializing_if = "String::is_empty")]
     flood_on_encap: String,
+    #[serde(skip_serializing_if = "String::is_empty")]
     fwd_ctrl: String,
+    #[serde(skip_serializing_if = "String::is_empty")]
     has_mcast_source: String,
+    #[serde(skip_serializing)]
     is_attr_based_epg: String,
+    #[serde(skip_serializing)]
     is_shared_srv_msite_e_pg: String,
+    #[serde(skip_serializing_if = "String::is_empty")]
     lc_own: String,
+    #[serde(skip_serializing_if = "String::is_empty")]
     match_t: String,
+    #[serde(skip_serializing_if = "String::is_empty")]
     mod_ts: String,
+    #[serde(skip_serializing)]
     mon_pol_dn: String,
     name: String,
+    #[serde(skip_serializing_if = "String::is_empty")]
     name_alias: String,
+    #[serde(skip_serializing_if = "String::is_empty")]
     pc_enf_pref: String,
+    #[serde(skip_serializing_if = "String::is_empty")]
     pc_tag: String,
+    #[serde(skip_serializing_if = "String::is_empty")]
     pref_gr_memb: String,
+    #[serde(skip_serializing_if = "String::is_empty")]
     prio: String,
+    #[serde(skip_serializing_if = "String::is_empty")]
     rn: String,
+    #[serde(skip_serializing_if = "String::is_empty")]
     scope: String,
+    #[serde(skip_serializing_if = "String::is_empty")]
     shutdown: String,
     status: ConfigStatus,
+    #[serde(skip_serializing_if = "String::is_empty")]
     trigger_st: String,
+    #[serde(skip_serializing_if = "String::is_empty")]
     tx_id: String,
+    #[serde(skip_serializing_if = "String::is_empty")]
     uid: String,
+    #[serde(skip_serializing_if = "String::is_empty")]
     userdom: String,
 }
 
@@ -54,7 +82,7 @@ pub enum ChildItem {
     FaultDelegate {},
     FaultInst {},
     FvAEPgBkProp {},
-    FvCEp {},
+    FvCEp(client_endpoint::FvCEp),
     FvCrtrn {},
     FvCtrctCtxDefCont {},
     FvFltCounter15min {},
@@ -87,7 +115,7 @@ pub enum ChildItem {
     FvRsGraphDef {},
     FvRsIntraEpg {},
     FvRsNodeAtt {},
-    FvRsPathAtt {},
+    FvRsPathAtt(static_path::FvRsPathAtt),
     FvRsProtBy {},
     FvRsProv {},
     FvRsProvDef {},

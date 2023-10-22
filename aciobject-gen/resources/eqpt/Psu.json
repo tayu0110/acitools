@@ -1,0 +1,1085 @@
+{
+        "eqpt:Psu": {
+            "contains": {
+                "eqpt:Fan": "",
+                "eqpt:IndLed": "",
+                "eqpt:PsPower15min": "",
+                "eqpt:PsPower1d": "",
+                "eqpt:PsPower1h": "",
+                "eqpt:PsPower1mo": "",
+                "eqpt:PsPower1qtr": "",
+                "eqpt:PsPower1w": "",
+                "eqpt:PsPower1year": "",
+                "eqpt:PsPower5min": "",
+                "eqpt:PsPowerHist15min": "",
+                "eqpt:PsPowerHist1d": "",
+                "eqpt:PsPowerHist1h": "",
+                "eqpt:PsPowerHist1mo": "",
+                "eqpt:PsPowerHist1qtr": "",
+                "eqpt:PsPowerHist1w": "",
+                "eqpt:PsPowerHist1year": "",
+                "eqpt:PsPowerHist5min": "",
+                "eqpt:SpromPsu": "",
+                "fault:Counts": "",
+                "fault:Inst": "",
+                "health:Inst": ""
+            },
+            "rnMap": {
+                "CDeqptPsPower15min": "eqpt:PsPower15min",
+                "CDeqptPsPower1d": "eqpt:PsPower1d",
+                "CDeqptPsPower1h": "eqpt:PsPower1h",
+                "CDeqptPsPower1mo": "eqpt:PsPower1mo",
+                "CDeqptPsPower1qtr": "eqpt:PsPower1qtr",
+                "CDeqptPsPower1w": "eqpt:PsPower1w",
+                "CDeqptPsPower1year": "eqpt:PsPower1year",
+                "CDeqptPsPower5min": "eqpt:PsPower5min",
+                "HDeqptPsPower15min-": "eqpt:PsPowerHist15min",
+                "HDeqptPsPower1d-": "eqpt:PsPowerHist1d",
+                "HDeqptPsPower1h-": "eqpt:PsPowerHist1h",
+                "HDeqptPsPower1mo-": "eqpt:PsPowerHist1mo",
+                "HDeqptPsPower1qtr-": "eqpt:PsPowerHist1qtr",
+                "HDeqptPsPower1w-": "eqpt:PsPowerHist1w",
+                "HDeqptPsPower1year-": "eqpt:PsPowerHist1year",
+                "HDeqptPsPower5min-": "eqpt:PsPowerHist5min",
+                "fan-": "eqpt:Fan",
+                "fault-": "fault:Inst",
+                "fltCnts": "fault:Counts",
+                "health": "health:Inst",
+                "indled-": "eqpt:IndLed",
+                "sppsu": "eqpt:SpromPsu"
+            },
+            "identifiedBy": [
+
+            ],
+            "rnFormat": "psu",
+            "containedBy": {
+                "eqpt:PsuSlot": ""
+            },
+            "superClasses": [
+                "eqpt:Fru",
+                "eqpt:Comp",
+                "eqpt:Item",
+                "nw:Item"
+            ],
+            "subClasses": {
+
+            },
+            "relationFrom": {
+
+            },
+            "relationTo": {
+
+            },
+            "dnFormats": [
+                "topology/pod-{id}/node-{id}/sys/extch-{id}/psuslot-{id}/psu",
+                "sys/extch-{id}/psuslot-{id}/psu",
+                "topology/pod-{id}/node-{id}/sys/ch/psuslot-{id}/psu",
+                "sys/ch/psuslot-{id}/psu"
+            ],
+            "writeAccess": [
+
+            ],
+            "readAccess": [
+                "access-equipment",
+                "admin",
+                "fabric-equipment"
+            ],
+            "faults": {
+                "F1940": "fltEqptPsuPsuFailed",
+                "F3848": "fltEqptPsuPsuShut",
+                "F0411": "fltEqptPsuFailed",
+                "F0412": "fltEqptPsuFanFailed",
+                "F1451": "fltEqptPsuShut"
+            },
+            "events": {
+                "E4205093": "state-transition|psuFanOperSt|eqpt:Psu",
+                "E4208228": "state-transition|operStChange|eqpt:Psu",
+                "E4208229": "creation|detected|eqpt:Psu",
+                "E4208230": "deletion|removed|eqpt:Psu",
+                "E4209645": "state-transition|operStChange|eqpt:Psu",
+                "E4209687": "creation|detected|eqpt:Psu",
+                "E4209688": "deletion|removed|eqpt:Psu"
+            },
+            "stats": {
+                "eqpt:PsPower15min": {
+                    "comment": [
+                         "A class that represents the most current statistics for power supply in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "eqpt:PsPower1d": {
+                    "comment": [
+                         "A class that represents the most current statistics for power supply in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "eqpt:PsPower1h": {
+                    "comment": [
+                         "A class that represents the most current statistics for power supply in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "eqpt:PsPower1mo": {
+                    "comment": [
+                         "A class that represents the most current statistics for power supply in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:PsPower1qtr": {
+                    "comment": [
+                         "A class that represents the most current statistics for power supply in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:PsPower1w": {
+                    "comment": [
+                         "A class that represents the most current statistics for power supply in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:PsPower1year": {
+                    "comment": [
+                         "A class that represents the most current statistics for power supply in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:PsPower5min": {
+                    "comment": [
+                         "A class that represents the most current statistics for power supply in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "eqpt:PsPowerHist15min": {
+                    "comment": [
+                         "A class that represents historical statistics for power supply in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "eqpt:PsPowerHist1d": {
+                    "comment": [
+                         "A class that represents historical statistics for power supply in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "eqpt:PsPowerHist1h": {
+                    "comment": [
+                         "A class that represents historical statistics for power supply in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "eqpt:PsPowerHist1mo": {
+                    "comment": [
+                         "A class that represents historical statistics for power supply in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:PsPowerHist1qtr": {
+                    "comment": [
+                         "A class that represents historical statistics for power supply in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:PsPowerHist1w": {
+                    "comment": [
+                         "A class that represents historical statistics for power supply in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:PsPowerHist1year": {
+                    "comment": [
+                         "A class that represents historical statistics for power supply in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:PsPowerHist5min": {
+                    "comment": [
+                         "A class that represents historical statistics for power supply in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                }
+            },
+            "isAbstract": false,
+            "isConfigurable": false,
+            "isContextRoot": false,
+            "isDeprecated": false,
+            "isEncrypted": false,
+            "isExportable": false,
+            "isPersistent": false,
+            "isSubjectToQuota": false,
+            "isObservable": true,
+            "hasStats": true,
+            "isStat": false,
+            "isFaultable": true,
+            "isDomainable": false,
+            "isHealthScorable": true,
+            "shouldCollectHealthStats": false,
+            "healthCollectionSource": "faults",
+            "hasEventRules": true,
+            "abstractionLayer": "concrete",
+            "apicNxProcessing": false,
+            "monitoringPolicySource": "Parent",
+            "isCreatableDeletable": "never",
+            "platformFlavors": [
+
+            ],
+            "classId": "2989",
+            "className": "Psu",
+            "classPkg": "eqpt",
+            "featureTag": "",
+            "moCategory": "Regular",
+            "label": "Power Supply Unit",
+            "comment": [
+                "The power supply unit."
+            ],
+            "properties": {
+                "almReg": {
+                    "comment": [
+                         "The power supply alarm register."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3297",
+                    "propLocalId": "1652",
+                    "label": "Alarm Reg",
+                    "baseType": "scalar:Uint16",
+                    "modelType": "scalar:Uint16",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "cap": {
+                    "comment": [
+                         "The power supply capacity in milli amps."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3293",
+                    "propLocalId": "1294",
+                    "label": "Capacity",
+                    "baseType": "scalar:Float",
+                    "modelType": "eqpt:Amps",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "childAction": {
+                    "comment": [
+                         "Delete or ignore. For internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "4",
+                    "propLocalId": "5",
+                    "label": "childAction",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationChildAction",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "16384", "localName": "deleteAll",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteAll "},
+                         { "value": "8192", "localName": "deleteNonPresent",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteNonPresent "},
+                         { "value": "4096", "localName": "ignore",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "ignore "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "cimcVersion": {
+                    "isConfigurable": false,
+                    "propGlobalId": "56701",
+                    "propLocalId": "12836",
+                    "label": "CIMC version",
+                    "baseType": "string:Basic",
+                    "modelType": "string:Basic",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Dev:cimcVersion",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "descr": {
+                    "comment": [
+                         "Additional descriptive information about the object."
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "5597",
+                    "propLocalId": "28",
+                    "label": "Description",
+                    "baseType": "string:Basic",
+                    "modelType": "naming:Descr",
+                    "needsPropDelimiters": false,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": true,
+                    "readOnly": false,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "naming:Described:descr",
+                    "validators": [
+                         {"min" : 0, "max": 128,
+                             "regexs": [
+                                 {"regex" : "^[a-zA-Z0-9\\\\!#$%()*,-./:;@ _{|}~?&+]+$", "type": "include"}
+                             ]
+                         }
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "dn": {
+                    "comment": [
+                         "A tag or metadata is a non-hierarchical keyword or term assigned to the fabric module."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "1",
+                    "propLocalId": "2",
+                    "label": "dn",
+                    "baseType": "reference:BinRef",
+                    "modelType": "reference:BinRef",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "drawnCurr": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3294",
+                    "propLocalId": "1649",
+                    "label": "Capacity",
+                    "baseType": "scalar:Float",
+                    "modelType": "eqpt:Amps",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "fanOpSt": {
+                    "comment": [
+                         "The power supply fan's operational status."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3298",
+                    "propLocalId": "1653",
+                    "label": "Fan Operational State",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "eqpt:OpSt",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "3", "localName": "absent",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "absent state"
+                             ],
+                             "label": "Absent "},
+                         { "value": "unknown", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "2", "localName": "fail",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Failed state"
+                             ],
+                             "label": "Fail "},
+                         { "value": "5", "localName": "mismatch",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "mismatch state e.g, mismatched fans"
+                             ],
+                             "label": "mismatch "},
+                         { "value": "1", "localName": "ok",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Working"
+                             ],
+                             "label": "OK "},
+                         { "value": "4", "localName": "shut",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "shutdown state"
+                             ],
+                             "label": "Shut "},
+                         { "value": "0", "localName": "unknown",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unknown state"
+                             ],
+                             "label": "Unknown "}
+                    ],
+                    "default": "unknown",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "hwVer": {
+                    "comment": [
+                         "The hardware version of a card."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "15577",
+                    "propLocalId": "1669",
+                    "label": "Hardware Version",
+                    "baseType": "string:Basic",
+                    "modelType": "cap:Version",
+                    "needsPropDelimiters": false,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "id": {
+                    "comment": [
+                         "The item identifier."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3505",
+                    "propLocalId": "12",
+                    "label": "ID",
+                    "baseType": "scalar:Uint32",
+                    "modelType": "eqpt:Id",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "mfgTm": {
+                    "comment": [
+                         "The manufacturing time."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "5596",
+                    "propLocalId": "1755",
+                    "label": "Manufacturing Time",
+                    "baseType": "scalar:Date",
+                    "modelType": "scalar:Date",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Mfg:mfgTm",
+                    "validValues": [
+                         { "value": "not-applicable", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "not-applicable",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "N/A "}
+                    ],
+                    "default": "not-applicable",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "modTs": {
+                    "comment": [
+                         "The time when this object was last modified."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "7",
+                    "propLocalId": "7",
+                    "label": "modTs",
+                    "baseType": "scalar:Date",
+                    "modelType": "mo:TStamp",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "never", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "never",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "never "}
+                    ],
+                    "default": "never",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "model": {
+                    "comment": [
+                         "The model of the component."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "5592",
+                    "propLocalId": "360",
+                    "label": "Model",
+                    "baseType": "string:Basic",
+                    "modelType": "eqpt:Model",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Dev:model",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "monPolDn": {
+                    "comment": [
+                         "The monitoring policy associated with the power supply."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "14504",
+                    "propLocalId": "228",
+                    "label": "Monitoring policy attached to this observable object",
+                    "baseType": "reference:BinRef",
+                    "modelType": "reference:BinRef",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "operSt": {
+                    "comment": [
+                         "The power supply status."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3292",
+                    "propLocalId": "29",
+                    "label": "Operational State",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "eqpt:OpSt",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "3", "localName": "absent",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "absent state"
+                             ],
+                             "label": "Absent "},
+                         { "value": "unknown", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "2", "localName": "fail",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Failed state"
+                             ],
+                             "label": "Fail "},
+                         { "value": "5", "localName": "mismatch",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "mismatch state e.g, mismatched fans"
+                             ],
+                             "label": "mismatch "},
+                         { "value": "1", "localName": "ok",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Working"
+                             ],
+                             "label": "OK "},
+                         { "value": "4", "localName": "shut",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "shutdown state"
+                             ],
+                             "label": "Shut "},
+                         { "value": "0", "localName": "unknown",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unknown state"
+                             ],
+                             "label": "Unknown "}
+                    ],
+                    "default": "unknown",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rev": {
+                    "comment": [
+                         "The revision number."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "5593",
+                    "propLocalId": "403",
+                    "label": "Revision",
+                    "baseType": "string:Basic",
+                    "modelType": "eqpt:Revision",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Dev:rev",
+                    "validValues": [
+                         { "value": "0", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": "0",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rn": {
+                    "comment": [
+                         "Identifies an object from its siblings within the context of its parent object. The distinguished name contains a sequence of relative names."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2",
+                    "propLocalId": "3",
+                    "label": "rn",
+                    "baseType": "reference:BinRN",
+                    "modelType": "reference:BinRN",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "ser": {
+                    "comment": [
+                         "The serial number."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "5594",
+                    "propLocalId": "1754",
+                    "label": "Serial Number",
+                    "baseType": "",
+                    "modelType": "eqpt:Serial",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Dev:ser",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "status": {
+                    "comment": [
+                         "The upgrade status. This property is for internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3",
+                    "propLocalId": "4",
+                    "label": "status",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationStatus",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "2", "localName": "created",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be created. An error is returned if the object already exists.  \nIn the return value of a setter method: indicates that an object has been created.  \n"
+                             ],
+                             "label": "created "},
+                         { "value": "8", "localName": "deleted",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be deleted.  \nIn the return value of a setter method: indicates that an object has been deleted.\n"
+                             ],
+                             "label": "deleted "},
+                         { "value": "4", "localName": "modified",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be modified  \nIn the return value of a setter method: indicates that an object has been modified.\n"
+                             ],
+                             "label": "modified "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "tc": {
+                    "comment": [
+                         "The total power capacity in watts."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "55174",
+                    "propLocalId": "1656",
+                    "label": "Total Capacity",
+                    "baseType": "scalar:Uint32",
+                    "modelType": "eqpt:Watts",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "vId": {
+                    "comment": [
+                         "version or vendor ID"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "63660",
+                    "propLocalId": "13973",
+                    "label": "Version or Vendor ID",
+                    "baseType": "string:Basic",
+                    "modelType": "string:Basic",
+                    "needsPropDelimiters": false,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "vSrc": {
+                    "comment": [
+                         "The power supply voltage source."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3295",
+                    "propLocalId": "1650",
+                    "label": "Voltage Source",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "eqpt:VSrc",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "1", "localName": "110v",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "110v"
+                             ],
+                             "label": "110v "},
+                         { "value": "2", "localName": "220v",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "220v"
+                             ],
+                             "label": "220v "},
+                         { "value": "unknown", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "unknown",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "unknown"
+                             ],
+                             "label": "Unknown "}
+                    ],
+                    "default": "unknown",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "vendor": {
+                    "comment": [
+                         "The vendor."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "5595",
+                    "propLocalId": "168",
+                    "label": "Vendor",
+                    "baseType": "string:Basic",
+                    "modelType": "eqpt:Vendor",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Dev:vendor",
+                    "validValues": [
+                         { "value": "Cisco Systems, Inc", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": "Cisco Systems, Inc",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "volt": {
+                    "comment": [
+                         "The power supply voltage."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3296",
+                    "propLocalId": "1651",
+                    "label": "Voltage",
+                    "baseType": "scalar:Float",
+                    "modelType": "eqpt:Volts",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                }
+            }
+        }
+}

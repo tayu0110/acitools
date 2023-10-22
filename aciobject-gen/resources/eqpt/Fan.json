@@ -1,0 +1,898 @@
+{
+        "eqpt:Fan": {
+            "contains": {
+                "eqpt:FanStats15min": "",
+                "eqpt:FanStats1d": "",
+                "eqpt:FanStats1h": "",
+                "eqpt:FanStats1mo": "",
+                "eqpt:FanStats1qtr": "",
+                "eqpt:FanStats1w": "",
+                "eqpt:FanStats1year": "",
+                "eqpt:FanStats5min": "",
+                "eqpt:FanStatsHist15min": "",
+                "eqpt:FanStatsHist1d": "",
+                "eqpt:FanStatsHist1h": "",
+                "eqpt:FanStatsHist1mo": "",
+                "eqpt:FanStatsHist1qtr": "",
+                "eqpt:FanStatsHist1w": "",
+                "eqpt:FanStatsHist1year": "",
+                "eqpt:FanStatsHist5min": "",
+                "fault:Counts": "",
+                "fault:Inst": "",
+                "health:Inst": ""
+            },
+            "rnMap": {
+                "CDeqptFanStats15min": "eqpt:FanStats15min",
+                "CDeqptFanStats1d": "eqpt:FanStats1d",
+                "CDeqptFanStats1h": "eqpt:FanStats1h",
+                "CDeqptFanStats1mo": "eqpt:FanStats1mo",
+                "CDeqptFanStats1qtr": "eqpt:FanStats1qtr",
+                "CDeqptFanStats1w": "eqpt:FanStats1w",
+                "CDeqptFanStats1year": "eqpt:FanStats1year",
+                "CDeqptFanStats5min": "eqpt:FanStats5min",
+                "HDeqptFanStats15min-": "eqpt:FanStatsHist15min",
+                "HDeqptFanStats1d-": "eqpt:FanStatsHist1d",
+                "HDeqptFanStats1h-": "eqpt:FanStatsHist1h",
+                "HDeqptFanStats1mo-": "eqpt:FanStatsHist1mo",
+                "HDeqptFanStats1qtr-": "eqpt:FanStatsHist1qtr",
+                "HDeqptFanStats1w-": "eqpt:FanStatsHist1w",
+                "HDeqptFanStats1year-": "eqpt:FanStatsHist1year",
+                "HDeqptFanStats5min-": "eqpt:FanStatsHist5min",
+                "fault-": "fault:Inst",
+                "fltCnts": "fault:Counts",
+                "health": "health:Inst"
+            },
+            "identifiedBy": [
+                "id"
+            ],
+            "rnFormat": "fan-{id}",
+            "containedBy": {
+                "eqpt:Ft": "",
+                "eqpt:Psu": ""
+            },
+            "superClasses": [
+                "eqpt:Comp",
+                "eqpt:Item",
+                "nw:Item"
+            ],
+            "subClasses": {
+
+            },
+            "relationFrom": {
+
+            },
+            "relationTo": {
+
+            },
+            "dnFormats": [
+                "topology/pod-{id}/node-{id}/sys/extch-{id}/ftslot-{id}/ft/fan-{id}",
+                "sys/extch-{id}/ftslot-{id}/ft/fan-{id}",
+                "topology/pod-{id}/node-{id}/sys/ch/ftslot-{id}/ft/fan-{id}",
+                "sys/ch/ftslot-{id}/ft/fan-{id}",
+                "topology/pod-{id}/node-{id}/sys/extch-{id}/psuslot-{id}/psu/fan-{id}",
+                "sys/extch-{id}/psuslot-{id}/psu/fan-{id}",
+                "topology/pod-{id}/node-{id}/sys/ch/psuslot-{id}/psu/fan-{id}",
+                "sys/ch/psuslot-{id}/psu/fan-{id}"
+            ],
+            "writeAccess": [
+
+            ],
+            "readAccess": [
+                "access-equipment",
+                "admin",
+                "fabric-equipment"
+            ],
+            "faults": {
+                "F1322": "fltEqptFanFanFailed"
+            },
+            "events": {
+                "E4205106": "creation|fanDetected|eqpt:Fan",
+                "E4205107": "deletion|fanRemoved|eqpt:Fan"
+            },
+            "stats": {
+                "eqpt:FanStats15min": {
+                    "comment": [
+                         "A class that represents the most current statistics for fan in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "eqpt:FanStats1d": {
+                    "comment": [
+                         "A class that represents the most current statistics for fan in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "eqpt:FanStats1h": {
+                    "comment": [
+                         "A class that represents the most current statistics for fan in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "eqpt:FanStats1mo": {
+                    "comment": [
+                         "A class that represents the most current statistics for fan in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:FanStats1qtr": {
+                    "comment": [
+                         "A class that represents the most current statistics for fan in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:FanStats1w": {
+                    "comment": [
+                         "A class that represents the most current statistics for fan in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:FanStats1year": {
+                    "comment": [
+                         "A class that represents the most current statistics for fan in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:FanStats5min": {
+                    "comment": [
+                         "A class that represents the most current statistics for fan in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "eqpt:FanStatsHist15min": {
+                    "comment": [
+                         "A class that represents historical statistics for fan in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "eqpt:FanStatsHist1d": {
+                    "comment": [
+                         "A class that represents historical statistics for fan in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "eqpt:FanStatsHist1h": {
+                    "comment": [
+                         "A class that represents historical statistics for fan in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "eqpt:FanStatsHist1mo": {
+                    "comment": [
+                         "A class that represents historical statistics for fan in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:FanStatsHist1qtr": {
+                    "comment": [
+                         "A class that represents historical statistics for fan in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:FanStatsHist1w": {
+                    "comment": [
+                         "A class that represents historical statistics for fan in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:FanStatsHist1year": {
+                    "comment": [
+                         "A class that represents historical statistics for fan in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:FanStatsHist5min": {
+                    "comment": [
+                         "A class that represents historical statistics for fan in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                }
+            },
+            "isAbstract": false,
+            "isConfigurable": false,
+            "isContextRoot": false,
+            "isDeprecated": false,
+            "isEncrypted": false,
+            "isExportable": false,
+            "isPersistent": false,
+            "isSubjectToQuota": false,
+            "isObservable": true,
+            "hasStats": true,
+            "isStat": false,
+            "isFaultable": true,
+            "isDomainable": false,
+            "isHealthScorable": true,
+            "shouldCollectHealthStats": false,
+            "healthCollectionSource": "faults",
+            "hasEventRules": true,
+            "abstractionLayer": "concrete",
+            "apicNxProcessing": false,
+            "monitoringPolicySource": "Parent",
+            "isCreatableDeletable": "never",
+            "platformFlavors": [
+
+            ],
+            "classId": "3279",
+            "className": "Fan",
+            "classPkg": "eqpt",
+            "featureTag": "",
+            "moCategory": "Regular",
+            "label": "Equipment Fan",
+            "comment": [
+                "The fan in a fan tray."
+            ],
+            "properties": {
+                "childAction": {
+                    "comment": [
+                         "Delete or ignore. For internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "4",
+                    "propLocalId": "5",
+                    "label": "childAction",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationChildAction",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "16384", "localName": "deleteAll",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteAll "},
+                         { "value": "8192", "localName": "deleteNonPresent",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteNonPresent "},
+                         { "value": "4096", "localName": "ignore",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "ignore "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "cimcVersion": {
+                    "isConfigurable": false,
+                    "propGlobalId": "56701",
+                    "propLocalId": "12836",
+                    "label": "CIMC version",
+                    "baseType": "string:Basic",
+                    "modelType": "string:Basic",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Dev:cimcVersion",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "descr": {
+                    "comment": [
+                         "Additional descriptive information about the object."
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "5597",
+                    "propLocalId": "28",
+                    "label": "Description",
+                    "baseType": "string:Basic",
+                    "modelType": "naming:Descr",
+                    "needsPropDelimiters": false,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": true,
+                    "readOnly": false,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "naming:Described:descr",
+                    "validators": [
+                         {"min" : 0, "max": 128,
+                             "regexs": [
+                                 {"regex" : "^[a-zA-Z0-9\\\\!#$%()*,-./:;@ _{|}~?&+]+$", "type": "include"}
+                             ]
+                         }
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "dir": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3451",
+                    "propLocalId": "128",
+                    "label": "Operational State",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "eqpt:AirDir",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "2", "localName": "back2front",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "back2front"
+                             ],
+                             "label": "back2front "},
+                         { "value": "unknown", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "1", "localName": "front2back",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "front2back"
+                             ],
+                             "label": "front2back "},
+                         { "value": "0", "localName": "unknown",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Invalid slot type"
+                             ],
+                             "label": "Unknown "}
+                    ],
+                    "default": "unknown",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "dn": {
+                    "comment": [
+                         "A tag or metadata is a non-hierarchical keyword or term assigned to the fabric module."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "1",
+                    "propLocalId": "2",
+                    "label": "dn",
+                    "baseType": "reference:BinRef",
+                    "modelType": "reference:BinRef",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "id": {
+                    "comment": [
+                         "The fan identifier."
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "3449",
+                    "propLocalId": "12",
+                    "label": "ID",
+                    "baseType": "scalar:Uint32",
+                    "modelType": "eqpt:Id",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": false,
+                    "isNaming": true,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": true,
+                    "isLike": false,
+                    "validators": [
+                         {"min" : 1, "max": 10 }
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "maxSpeed": {
+                    "comment": [
+                         "The nominal bitrate in MBits per sec."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "53362",
+                    "propLocalId": "2018",
+                    "label": "max Speed",
+                    "baseType": "scalar:Uint16",
+                    "modelType": "scalar:Uint16",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "mfgTm": {
+                    "comment": [
+                         "The manufacturing time."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "5596",
+                    "propLocalId": "1755",
+                    "label": "Manufacturing Time",
+                    "baseType": "scalar:Date",
+                    "modelType": "scalar:Date",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Mfg:mfgTm",
+                    "validValues": [
+                         { "value": "not-applicable", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "not-applicable",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "N/A "}
+                    ],
+                    "default": "not-applicable",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "modTs": {
+                    "comment": [
+                         "The time when this object was last modified."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "7",
+                    "propLocalId": "7",
+                    "label": "modTs",
+                    "baseType": "scalar:Date",
+                    "modelType": "mo:TStamp",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "never", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "never",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "never "}
+                    ],
+                    "default": "never",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "model": {
+                    "comment": [
+                         "The model of the component."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "5592",
+                    "propLocalId": "360",
+                    "label": "Model",
+                    "baseType": "string:Basic",
+                    "modelType": "eqpt:Model",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Dev:model",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "monPolDn": {
+                    "comment": [
+                         "The monitoring policy associated with the fan."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "14523",
+                    "propLocalId": "228",
+                    "label": "Monitoring policy attached to this observable object",
+                    "baseType": "reference:BinRef",
+                    "modelType": "reference:BinRef",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "operSt": {
+                    "comment": [
+                         "The fan operational status."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3450",
+                    "propLocalId": "29",
+                    "label": "Operational State",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "eqpt:OpSt",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "3", "localName": "absent",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "absent state"
+                             ],
+                             "label": "Absent "},
+                         { "value": "unknown", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "2", "localName": "fail",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Failed state"
+                             ],
+                             "label": "Fail "},
+                         { "value": "5", "localName": "mismatch",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "mismatch state e.g, mismatched fans"
+                             ],
+                             "label": "mismatch "},
+                         { "value": "1", "localName": "ok",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Working"
+                             ],
+                             "label": "OK "},
+                         { "value": "4", "localName": "shut",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "shutdown state"
+                             ],
+                             "label": "Shut "},
+                         { "value": "0", "localName": "unknown",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unknown state"
+                             ],
+                             "label": "Unknown "}
+                    ],
+                    "default": "unknown",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rev": {
+                    "comment": [
+                         "The revision number."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "5593",
+                    "propLocalId": "403",
+                    "label": "Revision",
+                    "baseType": "string:Basic",
+                    "modelType": "eqpt:Revision",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Dev:rev",
+                    "validValues": [
+                         { "value": "0", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": "0",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rn": {
+                    "comment": [
+                         "Identifies an object from its siblings within the context of its parent object. The distinguished name contains a sequence of relative names."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2",
+                    "propLocalId": "3",
+                    "label": "rn",
+                    "baseType": "reference:BinRN",
+                    "modelType": "reference:BinRN",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "ser": {
+                    "comment": [
+                         "The serial number."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "5594",
+                    "propLocalId": "1754",
+                    "label": "Serial Number",
+                    "baseType": "",
+                    "modelType": "eqpt:Serial",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Dev:ser",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "speed": {
+                    "comment": [
+                         "The CPU or port speed."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "53361",
+                    "propLocalId": "468",
+                    "label": "Speed",
+                    "baseType": "scalar:Float",
+                    "modelType": "eqpt:Speed",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "0", "localName": "unspecified",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "speed "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "status": {
+                    "comment": [
+                         "The upgrade status. This property is for internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3",
+                    "propLocalId": "4",
+                    "label": "status",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationStatus",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "2", "localName": "created",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be created. An error is returned if the object already exists.  \nIn the return value of a setter method: indicates that an object has been created.  \n"
+                             ],
+                             "label": "created "},
+                         { "value": "8", "localName": "deleted",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be deleted.  \nIn the return value of a setter method: indicates that an object has been deleted.\n"
+                             ],
+                             "label": "deleted "},
+                         { "value": "4", "localName": "modified",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be modified  \nIn the return value of a setter method: indicates that an object has been modified.\n"
+                             ],
+                             "label": "modified "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "vId": {
+                    "comment": [
+                         "version or vendor ID"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "63659",
+                    "propLocalId": "13973",
+                    "label": "Version or Vendor ID",
+                    "baseType": "string:Basic",
+                    "modelType": "string:Basic",
+                    "needsPropDelimiters": false,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "vendor": {
+                    "comment": [
+                         "The vendor."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "5595",
+                    "propLocalId": "168",
+                    "label": "Vendor",
+                    "baseType": "string:Basic",
+                    "modelType": "eqpt:Vendor",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Dev:vendor",
+                    "validValues": [
+                         { "value": "Cisco Systems, Inc", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": "Cisco Systems, Inc",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                }
+            }
+        }
+}

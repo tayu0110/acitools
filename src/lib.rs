@@ -8,6 +8,7 @@ mod error;
 mod ethpm;
 mod fabric;
 mod fault;
+mod firmware;
 mod fv;
 mod l1;
 mod l3ext;
@@ -15,6 +16,8 @@ mod lldp;
 mod ospf;
 mod rtctrl;
 mod top;
+mod uribv4;
+mod uribv6;
 
 use std::borrow::Cow;
 use std::fmt::Display;
@@ -27,6 +30,7 @@ pub use client::*;
 pub use error::*;
 pub use fabric::pod::{FabricPod, FabricPodEndpoint};
 pub use fault::FaultInst;
+pub use fv::aepg::{FvAEPg, FvAEPgEndpoint};
 pub use fv::ap::{FvAp, FvApEndpoint, QoSClass};
 pub use fv::bd::{
     FvBD, FvBDEndpoint, L2UnknownUnicast, L3UnknownMulticast, MultiDestinationFlooding,

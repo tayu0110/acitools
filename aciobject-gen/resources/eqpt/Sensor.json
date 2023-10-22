@@ -1,0 +1,994 @@
+{
+        "eqpt:Sensor": {
+            "contains": {
+                "eqpt:Temp15min": "",
+                "eqpt:Temp1d": "",
+                "eqpt:Temp1h": "",
+                "eqpt:Temp1mo": "",
+                "eqpt:Temp1qtr": "",
+                "eqpt:Temp1w": "",
+                "eqpt:Temp1year": "",
+                "eqpt:Temp5min": "",
+                "eqpt:TempHist15min": "",
+                "eqpt:TempHist1d": "",
+                "eqpt:TempHist1h": "",
+                "eqpt:TempHist1mo": "",
+                "eqpt:TempHist1qtr": "",
+                "eqpt:TempHist1w": "",
+                "eqpt:TempHist1year": "",
+                "eqpt:TempHist5min": "",
+                "fault:Counts": "",
+                "fault:Inst": "",
+                "health:Inst": ""
+            },
+            "rnMap": {
+                "CDeqptTemp15min": "eqpt:Temp15min",
+                "CDeqptTemp1d": "eqpt:Temp1d",
+                "CDeqptTemp1h": "eqpt:Temp1h",
+                "CDeqptTemp1mo": "eqpt:Temp1mo",
+                "CDeqptTemp1qtr": "eqpt:Temp1qtr",
+                "CDeqptTemp1w": "eqpt:Temp1w",
+                "CDeqptTemp1year": "eqpt:Temp1year",
+                "CDeqptTemp5min": "eqpt:Temp5min",
+                "HDeqptTemp15min-": "eqpt:TempHist15min",
+                "HDeqptTemp1d-": "eqpt:TempHist1d",
+                "HDeqptTemp1h-": "eqpt:TempHist1h",
+                "HDeqptTemp1mo-": "eqpt:TempHist1mo",
+                "HDeqptTemp1qtr-": "eqpt:TempHist1qtr",
+                "HDeqptTemp1w-": "eqpt:TempHist1w",
+                "HDeqptTemp1year-": "eqpt:TempHist1year",
+                "HDeqptTemp5min-": "eqpt:TempHist5min",
+                "fault-": "fault:Inst",
+                "fltCnts": "fault:Counts",
+                "health": "health:Inst"
+            },
+            "identifiedBy": [
+                "id"
+            ],
+            "rnFormat": "sensor-{id}",
+            "containedBy": {
+                "eqpt:Board": "",
+                "eqpt:ExtChCard": "",
+                "eqpt:FC": "",
+                "eqpt:LC": "",
+                "eqpt:Nic": "",
+                "eqpt:SupC": "",
+                "eqpt:SysC": ""
+            },
+            "superClasses": [
+                "eqpt:Silicon",
+                "eqpt:Comp",
+                "eqpt:Item",
+                "nw:Item"
+            ],
+            "subClasses": {
+
+            },
+            "relationFrom": {
+
+            },
+            "relationTo": {
+
+            },
+            "dnFormats": [
+                "topology/pod-{id}/node-{id}/sys/extch-{id}/extchslot-{id}/extchc/sensor-{id}",
+                "sys/extch-{id}/extchslot-{id}/extchc/sensor-{id}",
+                "topology/pod-{id}/node-{id}/sys/ch/scslot-{id}/sc/sensor-{id}",
+                "sys/ch/scslot-{id}/sc/sensor-{id}",
+                "topology/pod-{id}/node-{id}/sys/ch/fcslot-{id}/fc/sensor-{id}",
+                "sys/ch/fcslot-{id}/fc/sensor-{id}",
+                "topology/pod-{id}/node-{id}/sys/ch/lcslot-{id}/lc/sensor-{id}",
+                "sys/ch/lcslot-{id}/lc/sensor-{id}",
+                "topology/pod-{id}/node-{id}/sys/ch/supslot-{id}/sup/sensor-{id}",
+                "sys/ch/supslot-{id}/sup/sensor-{id}",
+                "topology/pod-{id}/node-{id}/sys/ch/nslot-{id}/nic-{id}/sensor-{id}",
+                "sys/ch/nslot-{id}/nic-{id}/sensor-{id}",
+                "topology/pod-{id}/node-{id}/sys/ch/bslot/board/sensor-{id}",
+                "sys/ch/bslot/board/sensor-{id}"
+            ],
+            "writeAccess": [
+
+            ],
+            "readAccess": [
+                "access-equipment",
+                "admin",
+                "fabric-equipment"
+            ],
+            "faults": {
+                "F0449": "fltEqptSensorFailed"
+            },
+            "events": {
+                "E4209206": "state-transition|sensorThresholdCrossed|eqpt:Sensor",
+                "E4209646": "state-transition|sensorThresholdCrossed|eqpt:Sensor"
+            },
+            "stats": {
+                "eqpt:Temp15min": {
+                    "comment": [
+                         "A class that represents the most current statistics for temperature in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "eqpt:Temp1d": {
+                    "comment": [
+                         "A class that represents the most current statistics for temperature in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "eqpt:Temp1h": {
+                    "comment": [
+                         "A class that represents the most current statistics for temperature in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "eqpt:Temp1mo": {
+                    "comment": [
+                         "A class that represents the most current statistics for temperature in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:Temp1qtr": {
+                    "comment": [
+                         "A class that represents the most current statistics for temperature in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:Temp1w": {
+                    "comment": [
+                         "A class that represents the most current statistics for temperature in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:Temp1year": {
+                    "comment": [
+                         "A class that represents the most current statistics for temperature in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:Temp5min": {
+                    "comment": [
+                         "A class that represents the most current statistics for temperature in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "eqpt:TempHist15min": {
+                    "comment": [
+                         "A class that represents historical statistics for temperature in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "eqpt:TempHist1d": {
+                    "comment": [
+                         "A class that represents historical statistics for temperature in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "eqpt:TempHist1h": {
+                    "comment": [
+                         "A class that represents historical statistics for temperature in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "eqpt:TempHist1mo": {
+                    "comment": [
+                         "A class that represents historical statistics for temperature in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:TempHist1qtr": {
+                    "comment": [
+                         "A class that represents historical statistics for temperature in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:TempHist1w": {
+                    "comment": [
+                         "A class that represents historical statistics for temperature in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:TempHist1year": {
+                    "comment": [
+                         "A class that represents historical statistics for temperature in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "eqpt:TempHist5min": {
+                    "comment": [
+                         "A class that represents historical statistics for temperature in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                }
+            },
+            "isAbstract": false,
+            "isConfigurable": false,
+            "isContextRoot": false,
+            "isDeprecated": false,
+            "isEncrypted": false,
+            "isExportable": false,
+            "isPersistent": false,
+            "isSubjectToQuota": false,
+            "isObservable": true,
+            "hasStats": true,
+            "isStat": false,
+            "isFaultable": true,
+            "isDomainable": false,
+            "isHealthScorable": true,
+            "shouldCollectHealthStats": false,
+            "healthCollectionSource": "faults",
+            "hasEventRules": true,
+            "abstractionLayer": "concrete",
+            "apicNxProcessing": false,
+            "monitoringPolicySource": "Parent",
+            "isCreatableDeletable": "never",
+            "platformFlavors": [
+
+            ],
+            "classId": "3255",
+            "className": "Sensor",
+            "classPkg": "eqpt",
+            "featureTag": "",
+            "moCategory": "Regular",
+            "label": "Equipment Sensor",
+            "comment": [
+                "A temperature sensor monitors the on-board temperature on the chassis. The temperatures are an input into the fan control algorithm. The chassis software adjusts fan speed to keep all sensors within normal operating conditions."
+            ],
+            "properties": {
+                "childAction": {
+                    "comment": [
+                         "Delete or ignore. For internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "4",
+                    "propLocalId": "5",
+                    "label": "childAction",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationChildAction",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "16384", "localName": "deleteAll",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteAll "},
+                         { "value": "8192", "localName": "deleteNonPresent",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteNonPresent "},
+                         { "value": "4096", "localName": "ignore",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "ignore "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "cimcVersion": {
+                    "isConfigurable": false,
+                    "propGlobalId": "56701",
+                    "propLocalId": "12836",
+                    "label": "CIMC version",
+                    "baseType": "string:Basic",
+                    "modelType": "string:Basic",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Dev:cimcVersion",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "descr": {
+                    "comment": [
+                         "Additional descriptive information about the object."
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "5597",
+                    "propLocalId": "28",
+                    "label": "Description",
+                    "baseType": "string:Basic",
+                    "modelType": "naming:Descr",
+                    "needsPropDelimiters": false,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": true,
+                    "readOnly": false,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "naming:Described:descr",
+                    "validators": [
+                         {"min" : 0, "max": 128,
+                             "regexs": [
+                                 {"regex" : "^[a-zA-Z0-9\\\\!#$%()*,-./:;@ _{|}~?&+]+$", "type": "include"}
+                             ]
+                         }
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "dn": {
+                    "comment": [
+                         "A tag or metadata is a non-hierarchical keyword or term assigned to the fabric module."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "1",
+                    "propLocalId": "2",
+                    "label": "dn",
+                    "baseType": "reference:BinRef",
+                    "modelType": "reference:BinRef",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "id": {
+                    "comment": [
+                         "The sensor identifier."
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "3440",
+                    "propLocalId": "12",
+                    "label": "ID",
+                    "baseType": "scalar:Uint32",
+                    "modelType": "eqpt:Id",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": false,
+                    "isNaming": true,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": true,
+                    "isLike": false,
+                    "validators": [
+                         {"min" : 1, "max": 32 }
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "majorThresh": {
+                    "comment": [
+                         "The maximum threshold of the sensor in celsius."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3442",
+                    "propLocalId": "1737",
+                    "label": "Major Threshold",
+                    "baseType": "scalar:Sint16",
+                    "modelType": "eqpt:TempThresh",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "mfgTm": {
+                    "comment": [
+                         "The manufacturing time."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "5596",
+                    "propLocalId": "1755",
+                    "label": "Manufacturing Time",
+                    "baseType": "scalar:Date",
+                    "modelType": "scalar:Date",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Mfg:mfgTm",
+                    "validValues": [
+                         { "value": "not-applicable", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "not-applicable",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "N/A "}
+                    ],
+                    "default": "not-applicable",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "minorThresh": {
+                    "comment": [
+                         "The minimum threshold of the sensor in celsius."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3443",
+                    "propLocalId": "1738",
+                    "label": "Minor Threshold",
+                    "baseType": "scalar:Sint16",
+                    "modelType": "eqpt:TempThresh",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "modTs": {
+                    "comment": [
+                         "The time when this object was last modified."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "7",
+                    "propLocalId": "7",
+                    "label": "modTs",
+                    "baseType": "scalar:Date",
+                    "modelType": "mo:TStamp",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "never", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "never",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "never "}
+                    ],
+                    "default": "never",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "model": {
+                    "comment": [
+                         "The model of the component."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "5592",
+                    "propLocalId": "360",
+                    "label": "Model",
+                    "baseType": "string:Basic",
+                    "modelType": "eqpt:Model",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Dev:model",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "monPolDn": {
+                    "comment": [
+                         "The monitoring policy attached to this observable object."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "14521",
+                    "propLocalId": "228",
+                    "label": "Monitoring policy attached to this observable object",
+                    "baseType": "reference:BinRef",
+                    "modelType": "reference:BinRef",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "operSt": {
+                    "comment": [
+                         "The runtime state."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3444",
+                    "propLocalId": "29",
+                    "label": "OperSt",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "eqpt:SensorOpSt",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "4", "localName": "absent",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Absent state"
+                             ],
+                             "label": "Absent "},
+                         { "value": "5", "localName": "bad-asic",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Bad Asic"
+                             ],
+                             "label": "Bad Asic "},
+                         { "value": "absent", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "fail",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Failure state"
+                             ],
+                             "label": "Fail "},
+                         { "value": "3", "localName": "major",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Major alarm state"
+                             ],
+                             "label": "Major Alarm "},
+                         { "value": "2", "localName": "minor",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Minor alarm tstate"
+                             ],
+                             "label": "Minor Alarm "},
+                         { "value": "1", "localName": "normal",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Normal state"
+                             ],
+                             "label": "Normal "}
+                    ],
+                    "default": "absent",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rev": {
+                    "comment": [
+                         "The revision number."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "5593",
+                    "propLocalId": "403",
+                    "label": "Revision",
+                    "baseType": "string:Basic",
+                    "modelType": "eqpt:Revision",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Dev:rev",
+                    "validValues": [
+                         { "value": "0", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": "0",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rn": {
+                    "comment": [
+                         "Identifies an object from its siblings within the context of its parent object. The distinguished name contains a sequence of relative names."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2",
+                    "propLocalId": "3",
+                    "label": "rn",
+                    "baseType": "reference:BinRN",
+                    "modelType": "reference:BinRN",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "ser": {
+                    "comment": [
+                         "The serial number."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "5594",
+                    "propLocalId": "1754",
+                    "label": "Serial Number",
+                    "baseType": "",
+                    "modelType": "eqpt:Serial",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Dev:ser",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "status": {
+                    "comment": [
+                         "The upgrade status. This property is for internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3",
+                    "propLocalId": "4",
+                    "label": "status",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationStatus",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "2", "localName": "created",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be created. An error is returned if the object already exists.  \nIn the return value of a setter method: indicates that an object has been created.  \n"
+                             ],
+                             "label": "created "},
+                         { "value": "8", "localName": "deleted",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be deleted.  \nIn the return value of a setter method: indicates that an object has been deleted.\n"
+                             ],
+                             "label": "deleted "},
+                         { "value": "4", "localName": "modified",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be modified  \nIn the return value of a setter method: indicates that an object has been modified.\n"
+                             ],
+                             "label": "modified "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "type": {
+                    "comment": [
+                         "The type of sensor."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3441",
+                    "propLocalId": "33",
+                    "label": "Type",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "eqpt:SensorT",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "19", "localName": "arm",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "arm processor"
+                             ],
+                             "label": "arm cpu "},
+                         { "value": "9", "localName": "asic",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Asic sensor"
+                             ],
+                             "label": "Asic sensor "},
+                         { "value": "12", "localName": "asic-vrm",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Asic vrm sensor"
+                             ],
+                             "label": "Asic VRM "},
+                         { "value": "1", "localName": "cpu",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "CPU sensor"
+                             ],
+                             "label": "CPU sensor "},
+                         { "value": "11", "localName": "cpu-crm",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "cpu voltage regulator module"
+                             ],
+                             "label": "cpu VRM "},
+                         { "value": "asic", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Default value is cpu"
+                             ],
+                             "label": " "},
+                         { "value": "5", "localName": "dimm",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Dimm sensor"
+                             ],
+                             "label": "DIMM sensor "},
+                         { "value": "4", "localName": "hotswap",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Hotswap sensor"
+                             ],
+                             "label": "Hotswap sensor "},
+                         { "value": "2", "localName": "inlet",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Inlet sensor"
+                             ],
+                             "label": "Inlet sensor "},
+                         { "value": "3", "localName": "outlet",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Outlet sensor"
+                             ],
+                             "label": "Outlet sensor "},
+                         { "value": "10", "localName": "pch",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Platform controller Hub sensor"
+                             ],
+                             "label": "PCH "},
+                         { "value": "6", "localName": "phy",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Phy sensor"
+                             ],
+                             "label": "Phy sensor "},
+                         { "value": "8", "localName": "qsfp",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "QSfp sensor"
+                             ],
+                             "label": "QSFP sensor "},
+                         { "value": "7", "localName": "sfp",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Sfp sensor"
+                             ],
+                             "label": "SFP sensor "},
+                         { "value": "18", "localName": "x86",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "x86 processor"
+                             ],
+                             "label": "x86 cpu "}
+                    ],
+                    "default": "asic",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "value": {
+                    "comment": [
+                         "The value of the property."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "24869",
+                    "propLocalId": "1631",
+                    "label": "Sensor Value",
+                    "baseType": "scalar:Sint16",
+                    "modelType": "eqpt:TempThresh",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "vendor": {
+                    "comment": [
+                         "The vendor."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "5595",
+                    "propLocalId": "168",
+                    "label": "Vendor",
+                    "baseType": "string:Basic",
+                    "modelType": "eqpt:Vendor",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Dev:vendor",
+                    "validValues": [
+                         { "value": "Cisco Systems, Inc", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": "Cisco Systems, Inc",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                }
+            }
+        }
+}

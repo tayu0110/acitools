@@ -1,4 +1,4 @@
-use crate::{eqpt, l1, lldp, AciObject, EndpointScheme};
+use crate::{eqpt, l1, lldp, uribv4, uribv6, AciObject, EndpointScheme};
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
@@ -305,8 +305,8 @@ pub enum ChildItem {
     TwampEntity {},
     UdldEntity {},
     UnifiedportsEntity {},
-    Uribv4Entity {},
-    Uribv6Entity {},
+    Uribv4Entity(uribv4::entity::Uribv4Entity),
+    Uribv6Entity(uribv6::entity::Uribv6Entity),
     UsrcallhomeRecord {},
     UsrsyslogRecord {},
     VethEntity {},

@@ -2,6 +2,8 @@ use crate::{AciObject, ConfigStatus, Configurable, EndpointScheme};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
+use super::{client_endpoint, related_context};
+
 #[derive(Debug, Deserialize, Clone, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Attributes {
@@ -189,7 +191,7 @@ pub enum ChildItem {
     FaultCounts {},
     FaultDelegate {},
     FaultInst {},
-    FvCEp {},
+    FvCEp(client_endpoint::FvCEp),
     FvFltCounter15min {},
     FvFltCounter1d {},
     FvFltCounter1h {},
@@ -224,7 +226,7 @@ pub enum ChildItem {
     FvRtCloudEPgCtx {},
     FvRtContext {},
     FvRtCopyCtx {},
-    FvRtCtx {},
+    FvRtCtx(related_context::FvRtCtx),
     FvRtEctx {},
     FvRtEpTagCtx {},
     FvRtExporterToCtx {},

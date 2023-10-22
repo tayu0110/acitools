@@ -1,0 +1,890 @@
+{
+        "eqpt:LocLed": {
+            "contains": {
+
+            },
+            "rnMap": {
+
+            },
+            "identifiedBy": [
+                "id"
+            ],
+            "rnFormat": "locled-{id}",
+            "containedBy": {
+                "eqpt:Ch": "",
+                "eqpt:FC": "",
+                "eqpt:FabP": "",
+                "eqpt:Ft": "",
+                "eqpt:LC": "",
+                "eqpt:LeafP": "",
+                "eqpt:MgmtP": "",
+                "eqpt:SupC": "",
+                "eqpt:SysC": ""
+            },
+            "superClasses": [
+                "eqpt:ALocLed",
+                "eqpt:Led",
+                "eqpt:Comp",
+                "eqpt:Item",
+                "nw:Item"
+            ],
+            "subClasses": {
+
+            },
+            "relationFrom": {
+
+            },
+            "relationTo": {
+
+            },
+            "dnFormats": [
+                "topology/pod-{id}/node-{id}/sys/ch/locled-{id}",
+                "sys/ch/locled-{id}",
+                "topology/pod-{id}/node-{id}/sys/extch-{id}/ftslot-{id}/ft/locled-{id}",
+                "sys/extch-{id}/ftslot-{id}/ft/locled-{id}",
+                "topology/pod-{id}/node-{id}/sys/ch/ftslot-{id}/ft/locled-{id}",
+                "sys/ch/ftslot-{id}/ft/locled-{id}",
+                "topology/pod-{id}/node-{id}/sys/ch/scslot-{id}/sc/locled-{id}",
+                "sys/ch/scslot-{id}/sc/locled-{id}",
+                "topology/pod-{id}/node-{id}/sys/ch/fcslot-{id}/fc/locled-{id}",
+                "sys/ch/fcslot-{id}/fc/locled-{id}",
+                "topology/pod-{id}/node-{id}/sys/ch/lcslot-{id}/lc/locled-{id}",
+                "sys/ch/lcslot-{id}/lc/locled-{id}",
+                "topology/pod-{id}/node-{id}/sys/ch/supslot-{id}/sup/locled-{id}",
+                "sys/ch/supslot-{id}/sup/locled-{id}",
+                "topology/pod-{id}/node-{id}/sys/ch/lcslot-{id}/lc/leafport-{id}/locled-{id}",
+                "sys/ch/lcslot-{id}/lc/leafport-{id}/locled-{id}",
+                "topology/pod-{id}/node-{id}/sys/ch/lcslot-{id}/lc/fabport-{id}/locled-{id}",
+                "sys/ch/lcslot-{id}/lc/fabport-{id}/locled-{id}",
+                "topology/pod-{id}/node-{id}/sys/ch/supslot-{id}/sup/mgmt-{id}/locled-{id}",
+                "sys/ch/supslot-{id}/sup/mgmt-{id}/locled-{id}"
+            ],
+            "writeAccess": [
+
+            ],
+            "readAccess": [
+                "access-equipment",
+                "admin",
+                "fabric-equipment"
+            ],
+            "faults": {
+
+            },
+            "events": {
+
+            },
+            "stats": {
+
+            },
+            "isAbstract": false,
+            "isConfigurable": false,
+            "isContextRoot": false,
+            "isDeprecated": false,
+            "isEncrypted": false,
+            "isExportable": false,
+            "isPersistent": false,
+            "isSubjectToQuota": false,
+            "isObservable": false,
+            "hasStats": false,
+            "isStat": false,
+            "isFaultable": false,
+            "isDomainable": false,
+            "isHealthScorable": false,
+            "shouldCollectHealthStats": false,
+            "healthCollectionSource": "faults",
+            "hasEventRules": false,
+            "abstractionLayer": "concrete",
+            "apicNxProcessing": false,
+            "monitoringPolicySource": "Parent",
+            "isCreatableDeletable": "never",
+            "platformFlavors": [
+
+            ],
+            "classId": "3356",
+            "className": "LocLed",
+            "classPkg": "eqpt",
+            "featureTag": "",
+            "moCategory": "Regular",
+            "label": "Locator LED",
+            "comment": [
+                "A locator LED on chassis components."
+            ],
+            "properties": {
+                "adminSt": {
+                    "comment": [
+                         "The locator LED administrative status."
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "3499",
+                    "propLocalId": "46",
+                    "label": "Admin State",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "eqpt:AdSt",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": true,
+                    "readOnly": false,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "enabled", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "2", "localName": "disabled",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Disabled"
+                             ],
+                             "label": "Disabled "},
+                         { "value": "1", "localName": "enabled",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Enabled"
+                             ],
+                             "label": "Enabled "},
+                         { "value": "0", "localName": "unknown",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unknown admin state"
+                             ],
+                             "label": "Unknown "}
+                    ],
+                    "default": "enabled",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "childAction": {
+                    "comment": [
+                         "Delete or ignore. For internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "4",
+                    "propLocalId": "5",
+                    "label": "childAction",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationChildAction",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "16384", "localName": "deleteAll",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteAll "},
+                         { "value": "8192", "localName": "deleteNonPresent",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteNonPresent "},
+                         { "value": "4096", "localName": "ignore",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "ignore "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "cimcVersion": {
+                    "isConfigurable": false,
+                    "propGlobalId": "56701",
+                    "propLocalId": "12836",
+                    "label": "CIMC version",
+                    "baseType": "string:Basic",
+                    "modelType": "string:Basic",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Dev:cimcVersion",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "color": {
+                    "comment": [
+                         "Color status of an LED"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3494",
+                    "propLocalId": "746",
+                    "label": "Color",
+                    "baseType": "scalar:Enum16",
+                    "modelType": "eqpt:Color",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "3", "localName": "amber",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Amber"
+                             ],
+                             "label": "Amber "},
+                         { "value": "5", "localName": "blue",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Blue"
+                             ],
+                             "label": "Blue "},
+                         { "value": "no-color", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "1", "localName": "green",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Green"
+                             ],
+                             "label": "Green "},
+                         { "value": "0", "localName": "no-color",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "No color "},
+                         { "value": "4", "localName": "red",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Red"
+                             ],
+                             "label": "Red "},
+                         { "value": "0", "localName": "unknown",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "No-color"
+                             ],
+                             "label": "Unknown "},
+                         { "value": "2", "localName": "yellow",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Yellow"
+                             ],
+                             "label": "Yellow "}
+                    ],
+                    "default": "no-color",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "descr": {
+                    "comment": [
+                         "Additional descriptive information about the object."
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "5597",
+                    "propLocalId": "28",
+                    "label": "Description",
+                    "baseType": "string:Basic",
+                    "modelType": "naming:Descr",
+                    "needsPropDelimiters": false,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": true,
+                    "readOnly": false,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "naming:Described:descr",
+                    "validators": [
+                         {"min" : 0, "max": 128,
+                             "regexs": [
+                                 {"regex" : "^[a-zA-Z0-9\\\\!#$%()*,-./:;@ _{|}~?&+]+$", "type": "include"}
+                             ]
+                         }
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "dn": {
+                    "comment": [
+                         "A tag or metadata is a non-hierarchical keyword or term assigned to the fabric module."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "1",
+                    "propLocalId": "2",
+                    "label": "dn",
+                    "baseType": "reference:BinRef",
+                    "modelType": "reference:BinRef",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "id": {
+                    "comment": [
+                         "The locator LED identifier."
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "6303",
+                    "propLocalId": "12",
+                    "label": "ID",
+                    "baseType": "scalar:Uint32",
+                    "modelType": "eqpt:Id",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": false,
+                    "isNaming": true,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": true,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "mfgTm": {
+                    "comment": [
+                         "The manufacturing time."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "5596",
+                    "propLocalId": "1755",
+                    "label": "Manufacturing Time",
+                    "baseType": "scalar:Date",
+                    "modelType": "scalar:Date",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Mfg:mfgTm",
+                    "validValues": [
+                         { "value": "not-applicable", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "not-applicable",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "N/A "}
+                    ],
+                    "default": "not-applicable",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "modTs": {
+                    "comment": [
+                         "The time when this object was last modified."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "7",
+                    "propLocalId": "7",
+                    "label": "modTs",
+                    "baseType": "scalar:Date",
+                    "modelType": "mo:TStamp",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "never", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "never",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "never "}
+                    ],
+                    "default": "never",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "model": {
+                    "comment": [
+                         "The model of the component."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "5592",
+                    "propLocalId": "360",
+                    "label": "Model",
+                    "baseType": "string:Basic",
+                    "modelType": "eqpt:Model",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Dev:model",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "operSt": {
+                    "comment": [
+                         "Operational status of an LED"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3495",
+                    "propLocalId": "29",
+                    "label": "Operational State",
+                    "baseType": "scalar:Enum32",
+                    "modelType": "eqpt:LedOpSt",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "3", "localName": "blinking",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Blinking state"
+                             ],
+                             "label": "Blinking "},
+                         { "value": "unknown", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "4", "localName": "fail",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Failed state"
+                             ],
+                             "label": "Fail "},
+                         { "value": "1", "localName": "off",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Off state"
+                             ],
+                             "label": "Off "},
+                         { "value": "2", "localName": "on",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "On state"
+                             ],
+                             "label": "On "},
+                         { "value": "0", "localName": "unknown",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unknown state"
+                             ],
+                             "label": "Unknown "}
+                    ],
+                    "default": "unknown",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rev": {
+                    "comment": [
+                         "The revision number."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "5593",
+                    "propLocalId": "403",
+                    "label": "Revision",
+                    "baseType": "string:Basic",
+                    "modelType": "eqpt:Revision",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Dev:rev",
+                    "validValues": [
+                         { "value": "0", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": "0",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rn": {
+                    "comment": [
+                         "Identifies an object from its siblings within the context of its parent object. The distinguished name contains a sequence of relative names."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2",
+                    "propLocalId": "3",
+                    "label": "rn",
+                    "baseType": "reference:BinRN",
+                    "modelType": "reference:BinRN",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "ser": {
+                    "comment": [
+                         "The serial number."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "5594",
+                    "propLocalId": "1754",
+                    "label": "Serial Number",
+                    "baseType": "",
+                    "modelType": "eqpt:Serial",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Dev:ser",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "status": {
+                    "comment": [
+                         "The upgrade status. This property is for internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3",
+                    "propLocalId": "4",
+                    "label": "status",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationStatus",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "2", "localName": "created",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be created. An error is returned if the object already exists.  \nIn the return value of a setter method: indicates that an object has been created.  \n"
+                             ],
+                             "label": "created "},
+                         { "value": "8", "localName": "deleted",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be deleted.  \nIn the return value of a setter method: indicates that an object has been deleted.\n"
+                             ],
+                             "label": "deleted "},
+                         { "value": "4", "localName": "modified",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be modified  \nIn the return value of a setter method: indicates that an object has been modified.\n"
+                             ],
+                             "label": "modified "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "type": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3497",
+                    "propLocalId": "33",
+                    "label": "Type",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "eqpt:LedType",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "3", "localName": "active",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "active"
+                             ],
+                             "label": "active "},
+                         { "value": "5", "localName": "battery",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "battery"
+                             ],
+                             "label": "battery "},
+                         { "value": "unknown", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "9", "localName": "fan-status",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Fan status"
+                             ],
+                             "label": "Fan status "},
+                         { "value": "8", "localName": "fc-status",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "FC status"
+                             ],
+                             "label": "Fabric status "},
+                         { "value": "6", "localName": "lc-status",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "LC status"
+                             ],
+                             "label": "LC status "},
+                         { "value": "4", "localName": "power",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "power"
+                             ],
+                             "label": "power "},
+                         { "value": "10", "localName": "pwr-status",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "pwr status"
+                             ],
+                             "label": "power status "},
+                         { "value": "1", "localName": "status",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "status"
+                             ],
+                             "label": "status "},
+                         { "value": "7", "localName": "sup-status",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "SUP status"
+                             ],
+                             "label": "SUP status "},
+                         { "value": "2", "localName": "system",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "system"
+                             ],
+                             "label": "system "},
+                         { "value": "0", "localName": "unknown",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "unknown"
+                             ],
+                             "label": "Unknown "}
+                    ],
+                    "default": "unknown",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "vendor": {
+                    "comment": [
+                         "The vendor."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "5595",
+                    "propLocalId": "168",
+                    "label": "Vendor",
+                    "baseType": "string:Basic",
+                    "modelType": "eqpt:Vendor",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Dev:vendor",
+                    "validValues": [
+                         { "value": "Cisco Systems, Inc", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": "Cisco Systems, Inc",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                }
+            }
+        }
+}

@@ -1,0 +1,751 @@
+{
+        "eqpt:CPU": {
+            "contains": {
+                "eqpt:Core": ""
+            },
+            "rnMap": {
+                "core-": "eqpt:Core"
+            },
+            "identifiedBy": [
+                "id"
+            ],
+            "rnFormat": "cpu-{id}",
+            "containedBy": {
+                "eqpt:Board": "",
+                "eqpt:ExtChCard": "",
+                "eqpt:FC": "",
+                "eqpt:LC": "",
+                "eqpt:Nic": "",
+                "eqpt:SupC": "",
+                "eqpt:SysC": ""
+            },
+            "superClasses": [
+                "eqpt:ACPU",
+                "eqpt:Silicon",
+                "eqpt:Comp",
+                "eqpt:Item",
+                "nw:Item"
+            ],
+            "subClasses": {
+
+            },
+            "relationFrom": {
+
+            },
+            "relationTo": {
+
+            },
+            "dnFormats": [
+                "topology/pod-{id}/node-{id}/sys/extch-{id}/extchslot-{id}/extchc/cpu-{id}",
+                "sys/extch-{id}/extchslot-{id}/extchc/cpu-{id}",
+                "topology/pod-{id}/node-{id}/sys/ch/scslot-{id}/sc/cpu-{id}",
+                "sys/ch/scslot-{id}/sc/cpu-{id}",
+                "topology/pod-{id}/node-{id}/sys/ch/fcslot-{id}/fc/cpu-{id}",
+                "sys/ch/fcslot-{id}/fc/cpu-{id}",
+                "topology/pod-{id}/node-{id}/sys/ch/lcslot-{id}/lc/cpu-{id}",
+                "sys/ch/lcslot-{id}/lc/cpu-{id}",
+                "topology/pod-{id}/node-{id}/sys/ch/supslot-{id}/sup/cpu-{id}",
+                "sys/ch/supslot-{id}/sup/cpu-{id}",
+                "topology/pod-{id}/node-{id}/sys/ch/nslot-{id}/nic-{id}/cpu-{id}",
+                "sys/ch/nslot-{id}/nic-{id}/cpu-{id}",
+                "topology/pod-{id}/node-{id}/sys/ch/bslot/board/cpu-{id}",
+                "sys/ch/bslot/board/cpu-{id}"
+            ],
+            "writeAccess": [
+
+            ],
+            "readAccess": [
+                "access-equipment",
+                "admin",
+                "fabric-equipment"
+            ],
+            "faults": {
+
+            },
+            "events": {
+
+            },
+            "stats": {
+
+            },
+            "isAbstract": false,
+            "isConfigurable": false,
+            "isContextRoot": false,
+            "isDeprecated": false,
+            "isEncrypted": false,
+            "isExportable": false,
+            "isPersistent": false,
+            "isSubjectToQuota": false,
+            "isObservable": false,
+            "hasStats": false,
+            "isStat": false,
+            "isFaultable": false,
+            "isDomainable": false,
+            "isHealthScorable": false,
+            "shouldCollectHealthStats": false,
+            "healthCollectionSource": "faults",
+            "hasEventRules": false,
+            "abstractionLayer": "concrete",
+            "apicNxProcessing": false,
+            "monitoringPolicySource": "Parent",
+            "isCreatableDeletable": "never",
+            "platformFlavors": [
+
+            ],
+            "classId": "3349",
+            "className": "CPU",
+            "classPkg": "eqpt",
+            "featureTag": "",
+            "moCategory": "Regular",
+            "label": "CPU",
+            "comment": [
+                "A CPU information container."
+            ],
+            "properties": {
+                "arch": {
+                    "comment": [
+                         "The internal architecture of the CPU including features and services."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3489",
+                    "propLocalId": "1749",
+                    "label": "Architecture",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "eqpt:Arch",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "0", "localName": "any",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "any "},
+                         { "value": "1", "localName": "x86_32",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "x86 32 bit"
+                             ],
+                             "label": "x86_32 "},
+                         { "value": "2", "localName": "x86_64",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "x86 64 bit"
+                             ],
+                             "label": "x86_64 "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "childAction": {
+                    "comment": [
+                         "Delete or ignore. For internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "4",
+                    "propLocalId": "5",
+                    "label": "childAction",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationChildAction",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "16384", "localName": "deleteAll",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteAll "},
+                         { "value": "8192", "localName": "deleteNonPresent",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteNonPresent "},
+                         { "value": "4096", "localName": "ignore",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "ignore "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "cimcVersion": {
+                    "isConfigurable": false,
+                    "propGlobalId": "56701",
+                    "propLocalId": "12836",
+                    "label": "CIMC version",
+                    "baseType": "string:Basic",
+                    "modelType": "string:Basic",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Dev:cimcVersion",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "cores": {
+                    "comment": [
+                         "The number of processing cores on the CPU."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3491",
+                    "propLocalId": "1750",
+                    "label": "Cores",
+                    "baseType": "scalar:Uint16",
+                    "modelType": "eqpt:Cores",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "0", "localName": "unspecified",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "number of cores "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "coresEn": {
+                    "comment": [
+                         "The number of enabled processing cores on the CPU."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3492",
+                    "propLocalId": "1751",
+                    "label": "Cores Enabled",
+                    "baseType": "scalar:Uint16",
+                    "modelType": "eqpt:Cores",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "0", "localName": "unspecified",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "number of cores "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "descr": {
+                    "comment": [
+                         "Additional descriptive information about the object."
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "5597",
+                    "propLocalId": "28",
+                    "label": "Description",
+                    "baseType": "string:Basic",
+                    "modelType": "naming:Descr",
+                    "needsPropDelimiters": false,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": true,
+                    "readOnly": false,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "naming:Described:descr",
+                    "validators": [
+                         {"min" : 0, "max": 128,
+                             "regexs": [
+                                 {"regex" : "^[a-zA-Z0-9\\\\!#$%()*,-./:;@ _{|}~?&+]+$", "type": "include"}
+                             ]
+                         }
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "dn": {
+                    "comment": [
+                         "A tag or metadata is a non-hierarchical keyword or term assigned to the fabric module."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "1",
+                    "propLocalId": "2",
+                    "label": "dn",
+                    "baseType": "reference:BinRef",
+                    "modelType": "reference:BinRef",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "id": {
+                    "comment": [
+                         "The CPU ID."
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "6190",
+                    "propLocalId": "12",
+                    "label": "ID",
+                    "baseType": "scalar:Uint32",
+                    "modelType": "eqpt:Id",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": false,
+                    "isNaming": true,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": true,
+                    "isLike": false,
+                    "validators": [
+                         {"min" : 1, "max": 1 }
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "mfgTm": {
+                    "comment": [
+                         "The manufacturing time."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "5596",
+                    "propLocalId": "1755",
+                    "label": "Manufacturing Time",
+                    "baseType": "scalar:Date",
+                    "modelType": "scalar:Date",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Mfg:mfgTm",
+                    "validValues": [
+                         { "value": "not-applicable", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "not-applicable",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "N/A "}
+                    ],
+                    "default": "not-applicable",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "modTs": {
+                    "comment": [
+                         "The time when this object was last modified."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "7",
+                    "propLocalId": "7",
+                    "label": "modTs",
+                    "baseType": "scalar:Date",
+                    "modelType": "mo:TStamp",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "never", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "never",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "never "}
+                    ],
+                    "default": "never",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "model": {
+                    "comment": [
+                         "The model of the component."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "5592",
+                    "propLocalId": "360",
+                    "label": "Model",
+                    "baseType": "string:Basic",
+                    "modelType": "eqpt:Model",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Dev:model",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rev": {
+                    "comment": [
+                         "The revision number."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "5593",
+                    "propLocalId": "403",
+                    "label": "Revision",
+                    "baseType": "string:Basic",
+                    "modelType": "eqpt:Revision",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Dev:rev",
+                    "validValues": [
+                         { "value": "0", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": "0",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rn": {
+                    "comment": [
+                         "Identifies an object from its siblings within the context of its parent object. The distinguished name contains a sequence of relative names."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2",
+                    "propLocalId": "3",
+                    "label": "rn",
+                    "baseType": "reference:BinRN",
+                    "modelType": "reference:BinRN",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "ser": {
+                    "comment": [
+                         "The serial number."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "5594",
+                    "propLocalId": "1754",
+                    "label": "Serial Number",
+                    "baseType": "",
+                    "modelType": "eqpt:Serial",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Dev:ser",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "sock": {
+                    "comment": [
+                         "The CPU socket designation."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3488",
+                    "propLocalId": "1748",
+                    "label": "Socket",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "eqpt:Sock",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "0", "localName": "unspecified",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "socket "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "speed": {
+                    "comment": [
+                         "The CPU speed."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3490",
+                    "propLocalId": "468",
+                    "label": "Speed",
+                    "baseType": "scalar:Float",
+                    "modelType": "eqpt:Speed",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "0", "localName": "unspecified",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "speed "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "status": {
+                    "comment": [
+                         "The upgrade status. This property is for internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3",
+                    "propLocalId": "4",
+                    "label": "status",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationStatus",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "2", "localName": "created",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be created. An error is returned if the object already exists.  \nIn the return value of a setter method: indicates that an object has been created.  \n"
+                             ],
+                             "label": "created "},
+                         { "value": "8", "localName": "deleted",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be deleted.  \nIn the return value of a setter method: indicates that an object has been deleted.\n"
+                             ],
+                             "label": "deleted "},
+                         { "value": "4", "localName": "modified",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be modified  \nIn the return value of a setter method: indicates that an object has been modified.\n"
+                             ],
+                             "label": "modified "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "thrds": {
+                    "comment": [
+                         "The number of threads that can be executed in parallel within each CPU."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3493",
+                    "propLocalId": "1752",
+                    "label": "Threads",
+                    "baseType": "scalar:Uint16",
+                    "modelType": "scalar:Uint16",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "vendor": {
+                    "comment": [
+                         "The vendor."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "5595",
+                    "propLocalId": "168",
+                    "label": "Vendor",
+                    "baseType": "string:Basic",
+                    "modelType": "eqpt:Vendor",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Dev:vendor",
+                    "validValues": [
+                         { "value": "Cisco Systems, Inc", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": "Cisco Systems, Inc",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                }
+            }
+        }
+}

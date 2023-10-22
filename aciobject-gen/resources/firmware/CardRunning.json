@@ -1,0 +1,926 @@
+{
+        "firmware:CardRunning": {
+            "contains": {
+                "fault:Counts": "",
+                "fault:Inst": "",
+                "health:Inst": ""
+            },
+            "rnMap": {
+                "fault-": "fault:Inst",
+                "fltCnts": "fault:Counts",
+                "health": "health:Inst"
+            },
+            "identifiedBy": [
+
+            ],
+            "rnFormat": "running",
+            "containedBy": {
+                "eqpt:FC": "",
+                "eqpt:LC": "",
+                "eqpt:SupC": "",
+                "eqpt:SysC": ""
+            },
+            "superClasses": [
+                "firmware:ARunning"
+            ],
+            "subClasses": {
+
+            },
+            "relationFrom": {
+
+            },
+            "relationTo": {
+
+            },
+            "dnFormats": [
+                "topology/pod-{id}/node-{id}/sys/ch/scslot-{id}/sc/running",
+                "sys/ch/scslot-{id}/sc/running",
+                "topology/pod-{id}/node-{id}/sys/ch/fcslot-{id}/fc/running",
+                "sys/ch/fcslot-{id}/fc/running",
+                "topology/pod-{id}/node-{id}/sys/ch/lcslot-{id}/lc/running",
+                "sys/ch/lcslot-{id}/lc/running",
+                "topology/pod-{id}/node-{id}/sys/ch/supslot-{id}/sup/running",
+                "sys/ch/supslot-{id}/sup/running"
+            ],
+            "writeAccess": [
+
+            ],
+            "readAccess": [
+                "admin",
+                "ops"
+            ],
+            "faults": {
+                "F1583": "fltFirmwareCardRunningOperStFailed"
+            },
+            "events": {
+
+            },
+            "stats": {
+
+            },
+            "isAbstract": false,
+            "isConfigurable": false,
+            "isContextRoot": false,
+            "isDeprecated": false,
+            "isEncrypted": false,
+            "isExportable": false,
+            "isPersistent": true,
+            "isSubjectToQuota": false,
+            "isObservable": true,
+            "hasStats": false,
+            "isStat": false,
+            "isFaultable": true,
+            "isDomainable": false,
+            "isHealthScorable": true,
+            "shouldCollectHealthStats": false,
+            "healthCollectionSource": "faults",
+            "hasEventRules": false,
+            "abstractionLayer": "concrete",
+            "apicNxProcessing": false,
+            "monitoringPolicySource": "Parent",
+            "isCreatableDeletable": "always",
+            "platformFlavors": [
+
+            ],
+            "classId": "2983",
+            "className": "CardRunning",
+            "classPkg": "firmware",
+            "featureTag": "",
+            "moCategory": "Regular",
+            "label": "Card Running Status",
+            "comment": [
+                "Information about each card firmware that is running."
+            ],
+            "properties": {
+                "biosUpgSt": {
+                    "comment": [
+                         "Auto Bios upgrade Status"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "61193",
+                    "propLocalId": "13389",
+                    "label": "Auto Bios Upgrade Status",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "firmware:RunningAutoBiosEpldUpgSt",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "1", "localName": "upg-done",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Epld Upg Done"
+                             ],
+                             "label": "Auto Epld Upgrade done "},
+                         { "value": "2", "localName": "upg-failed",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Epld Upg Failed"
+                             ],
+                             "label": "Auto Epld Upgrade failed "},
+                         { "value": "0", "localName": "upg-not-req",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Epld Upg Not Required"
+                             ],
+                             "label": "Upgrade not required "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "biosVer": {
+                    "comment": [
+                         "The currently running BIOS firmware verion."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3286",
+                    "propLocalId": "1641",
+                    "label": "Loader Version",
+                    "baseType": "string:Basic",
+                    "modelType": "cap:Version",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "childAction": {
+                    "comment": [
+                         "Delete or ignore. For internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "4",
+                    "propLocalId": "5",
+                    "label": "childAction",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationChildAction",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "16384", "localName": "deleteAll",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteAll "},
+                         { "value": "8192", "localName": "deleteNonPresent",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteNonPresent "},
+                         { "value": "4096", "localName": "ignore",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "ignore "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "descr": {
+                    "comment": [
+                         "The description of the running firmware."
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "5615",
+                    "propLocalId": "28",
+                    "label": "Description",
+                    "baseType": "string:Basic",
+                    "modelType": "naming:Descr",
+                    "needsPropDelimiters": false,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": true,
+                    "readOnly": false,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "naming:Described:descr",
+                    "validators": [
+                         {"min" : 0, "max": 128,
+                             "regexs": [
+                                 {"regex" : "^[a-zA-Z0-9\\\\!#$%()*,-./:;@ _{|}~?&+]+$", "type": "include"}
+                             ]
+                         }
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "dn": {
+                    "comment": [
+                         "A tag or metadata is a non-hierarchical keyword or term assigned to the fabric module."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "1",
+                    "propLocalId": "2",
+                    "label": "dn",
+                    "baseType": "reference:BinRef",
+                    "modelType": "reference:BinRef",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "expectedVer": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "17919",
+                    "propLocalId": "4654",
+                    "label": "Expected Loader Version",
+                    "baseType": "string:Basic",
+                    "modelType": "cap:Version",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "interimVer": {
+                    "comment": [
+                         "The firmware version running between updates."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3287",
+                    "propLocalId": "1646",
+                    "label": "Interim Version",
+                    "baseType": "string:Basic",
+                    "modelType": "cap:Version",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "internalLabel": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "603",
+                    "propLocalId": "326",
+                    "label": "Internal Label",
+                    "baseType": "string:Basic",
+                    "modelType": "string:Basic",
+                    "needsPropDelimiters": false,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": true,
+                    "readOnly": false,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validators": [
+                         {"min" : 0, "max": 512 }
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "modTs": {
+                    "comment": [
+                         "The time when this object was last modified."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "7",
+                    "propLocalId": "7",
+                    "label": "modTs",
+                    "baseType": "scalar:Date",
+                    "modelType": "mo:TStamp",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "never", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "never",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "never "}
+                    ],
+                    "default": "never",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "mode": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "605",
+                    "propLocalId": "14",
+                    "label": "Mode",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "firmware:RunningMode",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "normal", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "normal",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Normal"
+                             ],
+                             "label": "Normal "},
+                         { "value": "1", "localName": "recovery",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Recovery"
+                             ],
+                             "label": "Reovery "}
+                    ],
+                    "default": "normal",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "monPolDn": {
+                    "comment": [
+                         "The monitoring policy attached to this observable object."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "17923",
+                    "propLocalId": "228",
+                    "label": "Monitoring policy attached to this observable object",
+                    "baseType": "reference:BinRef",
+                    "modelType": "reference:BinRef",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "operSt": {
+                    "comment": [
+                         "The runtime state of the object or policy."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "17920",
+                    "propLocalId": "29",
+                    "label": "Operational State",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "firmware:RunningOperSt",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "0", "localName": "ok",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Running version match"
+                             ],
+                             "label": "Version Match "},
+                         { "value": "1", "localName": "ver-mismatch",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Running version mismatch"
+                             ],
+                             "label": "Version Mismatch "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rn": {
+                    "comment": [
+                         "Identifies an object from its siblings within the context of its parent object. The distinguished name contains a sequence of relative names."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2",
+                    "propLocalId": "3",
+                    "label": "rn",
+                    "baseType": "reference:BinRN",
+                    "modelType": "reference:BinRN",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "srFwFlashRecVer": {
+                    "comment": [
+                         "Silent Roll Firmware Flash recovery version"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "55341",
+                    "propLocalId": "12525",
+                    "label": "SR Firmware Flash Recovery Version",
+                    "baseType": "string:Basic",
+                    "modelType": "cap:Version",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "srFwFlashVer": {
+                    "comment": [
+                         "Silent Roll Firmware Flash primary version"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "53303",
+                    "propLocalId": "12273",
+                    "label": "SR FW Flash Primary Version",
+                    "baseType": "string:Basic",
+                    "modelType": "cap:Version",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "srFwImageVer": {
+                    "comment": [
+                         "Silent Roll Firmware Image version"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "53302",
+                    "propLocalId": "12272",
+                    "label": "SR FW Image Version",
+                    "baseType": "string:Basic",
+                    "modelType": "cap:Version",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "srFwRunningSrc": {
+                    "comment": [
+                         "Silent Roll Running Firmware source"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "55342",
+                    "propLocalId": "12526",
+                    "label": "SR Firmware Flash Version",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "firmware:RunningSrFwSrc",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "2", "localName": "flash-primary",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "flash primary Fw"
+                             ],
+                             "label": "FW source flash primary "},
+                         { "value": "3", "localName": "flash-recovery",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "flash recovery Fw"
+                             ],
+                             "label": "FW source flash recovery "},
+                         { "value": "1", "localName": "image",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "image packaged Fw"
+                             ],
+                             "label": "FW source image "},
+                         { "value": "0", "localName": "unknown",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "unknown Fw"
+                             ],
+                             "label": "FW source unknown "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "srFwRunningVer": {
+                    "comment": [
+                         "Silent Roll Firmware Running version"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "53301",
+                    "propLocalId": "12271",
+                    "label": "SR FW Running Version",
+                    "baseType": "string:Basic",
+                    "modelType": "cap:Version",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "status": {
+                    "comment": [
+                         "The upgrade status. This property is for internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3",
+                    "propLocalId": "4",
+                    "label": "status",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationStatus",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "2", "localName": "created",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be created. An error is returned if the object already exists.  \nIn the return value of a setter method: indicates that an object has been created.  \n"
+                             ],
+                             "label": "created "},
+                         { "value": "8", "localName": "deleted",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be deleted.  \nIn the return value of a setter method: indicates that an object has been deleted.\n"
+                             ],
+                             "label": "deleted "},
+                         { "value": "4", "localName": "modified",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be modified  \nIn the return value of a setter method: indicates that an object has been modified.\n"
+                             ],
+                             "label": "modified "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "ts": {
+                    "comment": [
+                         "A property that indicates the firmware installation timestamp."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "606",
+                    "propLocalId": "39",
+                    "label": "Timestamp",
+                    "baseType": "scalar:Date",
+                    "modelType": "scalar:Date",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "type": {
+                    "comment": [
+                         "A property that indicates the running firmware type."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "604",
+                    "propLocalId": "33",
+                    "label": "Type",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "firmware:Type",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "9", "localName": "cApicPatch",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "cAPIC Patch"
+                             ],
+                             "label": "cApicPatch "},
+                         { "value": "2", "localName": "catalog",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Catalog"
+                             ],
+                             "label": "Catalog "},
+                         { "value": "5", "localName": "config",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "ConfigFile"
+                             ],
+                             "label": "Config "},
+                         { "value": "0", "localName": "controller",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Controller software"
+                             ],
+                             "label": "Controller "},
+                         { "value": "8", "localName": "controllerPatch",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "APIC Patch"
+                             ],
+                             "label": "ControllerPatch "},
+                         { "value": "switch", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "3", "localName": "plugin",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Plugin"
+                             ],
+                             "label": "Plugin "},
+                         { "value": "4", "localName": "pluginPackage",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "PluginPackage"
+                             ],
+                             "label": "PluginPackage "},
+                         { "value": "1", "localName": "switch",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Switch software"
+                             ],
+                             "label": "Switch "},
+                         { "value": "7", "localName": "switchPatch",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Switch Patch"
+                             ],
+                             "label": "SwitchPatch "},
+                         { "value": "6", "localName": "vpod",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "VPod (vspine/vleaf software )"
+                             ],
+                             "label": "vPod "}
+                    ],
+                    "default": "switch",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "version": {
+                    "comment": [
+                         "A property that indicates the running firmware version."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "602",
+                    "propLocalId": "167",
+                    "label": "Version",
+                    "baseType": "string:Basic",
+                    "modelType": "cap:Version",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                }
+            }
+        }
+}

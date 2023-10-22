@@ -1,0 +1,681 @@
+{
+        "eqpt:FtSlot": {
+            "contains": {
+                "eqpt:Ft": "",
+                "eqpt:RtOosSlot": "",
+                "fault:Counts": "",
+                "fault:Inst": "",
+                "health:Inst": ""
+            },
+            "rnMap": {
+                "fault-": "fault:Inst",
+                "fltCnts": "fault:Counts",
+                "ft": "eqpt:Ft",
+                "health": "health:Inst",
+                "rtoosSlot": "eqpt:RtOosSlot"
+            },
+            "identifiedBy": [
+                "id"
+            ],
+            "rnFormat": "ftslot-{id}",
+            "containedBy": {
+                "eqpt:Ch": "",
+                "eqpt:ExtCh": ""
+            },
+            "superClasses": [
+                "eqpt:Slot",
+                "eqpt:Cont",
+                "eqpt:Item",
+                "nw:Item"
+            ],
+            "subClasses": {
+
+            },
+            "relationFrom": {
+                "eqpt:RtOosSlot": "fabric:OOServicePol"
+            },
+            "relationTo": {
+
+            },
+            "dnFormats": [
+                "topology/pod-{id}/node-{id}/sys/extch-{id}/ftslot-{id}",
+                "sys/extch-{id}/ftslot-{id}",
+                "topology/pod-{id}/node-{id}/sys/ch/ftslot-{id}",
+                "sys/ch/ftslot-{id}"
+            ],
+            "writeAccess": [
+
+            ],
+            "readAccess": [
+                "access-equipment",
+                "admin",
+                "fabric-equipment"
+            ],
+            "faults": {
+                "F1323": "fltEqptFtSlotFanTrayMissing"
+            },
+            "events": {
+                "E4208237": "state-transition|fruRemoved|eqpt:Slot",
+                "E4208238": "state-transition|fruInserted|eqpt:Slot"
+            },
+            "stats": {
+
+            },
+            "isAbstract": false,
+            "isConfigurable": false,
+            "isContextRoot": false,
+            "isDeprecated": false,
+            "isEncrypted": false,
+            "isExportable": false,
+            "isPersistent": false,
+            "isSubjectToQuota": false,
+            "isObservable": true,
+            "hasStats": false,
+            "isStat": false,
+            "isFaultable": true,
+            "isDomainable": false,
+            "isHealthScorable": true,
+            "shouldCollectHealthStats": false,
+            "healthCollectionSource": "faults",
+            "hasEventRules": true,
+            "abstractionLayer": "concrete",
+            "apicNxProcessing": false,
+            "monitoringPolicySource": "Parent",
+            "isCreatableDeletable": "never",
+            "platformFlavors": [
+
+            ],
+            "classId": "3346",
+            "className": "FtSlot",
+            "classPkg": "eqpt",
+            "featureTag": "",
+            "moCategory": "Regular",
+            "label": "Fan Tray Slot",
+            "comment": [
+                "A fan tray slot."
+            ],
+            "properties": {
+                "cardOperSt": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "17784",
+                    "propLocalId": "4619",
+                    "label": "Card Operational State",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "eqpt:SlotCardOpSt",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "unknown", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "1", "localName": "mismatch",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Wrong card inserted in the slot"
+                             ],
+                             "label": "Mis matched "},
+                         { "value": "0", "localName": "unknown",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Card state is unknown at slot. Check the status of the card object"
+                             ],
+                             "label": "Unknown "},
+                         { "value": "2", "localName": "unrecoverable",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unrecoverable Error (runtime diag failure etc.,)"
+                             ],
+                             "label": "Unrecoverable Error "}
+                    ],
+                    "default": "unknown",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "childAction": {
+                    "comment": [
+                         "Delete or ignore. For internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "4",
+                    "propLocalId": "5",
+                    "label": "childAction",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationChildAction",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "16384", "localName": "deleteAll",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteAll "},
+                         { "value": "8192", "localName": "deleteNonPresent",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteNonPresent "},
+                         { "value": "4096", "localName": "ignore",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "ignore "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "descr": {
+                    "comment": [
+                         "Additional descriptive information about the object."
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "5598",
+                    "propLocalId": "28",
+                    "label": "Description",
+                    "baseType": "string:Basic",
+                    "modelType": "naming:Descr",
+                    "needsPropDelimiters": false,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": true,
+                    "readOnly": false,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "naming:Described:descr",
+                    "validators": [
+                         {"min" : 0, "max": 128,
+                             "regexs": [
+                                 {"regex" : "^[a-zA-Z0-9\\\\!#$%()*,-./:;@ _{|}~?&+]+$", "type": "include"}
+                             ]
+                         }
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "dn": {
+                    "comment": [
+                         "A tag or metadata is a non-hierarchical keyword or term assigned to the fabric module."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "1",
+                    "propLocalId": "2",
+                    "label": "dn",
+                    "baseType": "reference:BinRef",
+                    "modelType": "reference:BinRef",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "id": {
+                    "comment": [
+                         "A fan tray slot identifier."
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "3482",
+                    "propLocalId": "12",
+                    "label": "ID",
+                    "baseType": "scalar:Uint32",
+                    "modelType": "eqpt:Id",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": false,
+                    "isNaming": true,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": true,
+                    "isLike": false,
+                    "validators": [
+                         {"min" : 1, "max": 6 }
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "loc": {
+                    "comment": [
+                         "location of the slot in the chassis (front/back)"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3470",
+                    "propLocalId": "810",
+                    "label": "Location",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "eqpt:SlotLoc",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "unknown", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "1", "localName": "front",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Front"
+                             ],
+                             "label": "Front "},
+                         { "value": "2", "localName": "rear",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Rear"
+                             ],
+                             "label": "Rear "},
+                         { "value": "0", "localName": "unknown",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unknown"
+                             ],
+                             "label": "Unknown "}
+                    ],
+                    "default": "unknown",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "modTs": {
+                    "comment": [
+                         "The time when this object was last modified."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "7",
+                    "propLocalId": "7",
+                    "label": "modTs",
+                    "baseType": "scalar:Date",
+                    "modelType": "mo:TStamp",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "never", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "never",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "never "}
+                    ],
+                    "default": "never",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "monPolDn": {
+                    "comment": [
+                         "The monitoring policy attached to this observable object."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "14532",
+                    "propLocalId": "228",
+                    "label": "Monitoring policy attached to this observable object",
+                    "baseType": "reference:BinRef",
+                    "modelType": "reference:BinRef",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "operSt": {
+                    "comment": [
+                         "slot status: is it empty or if there's a card or mismatch or..."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3469",
+                    "propLocalId": "29",
+                    "label": "Operational State",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "eqpt:SlotOpSt",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "empty", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "empty",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Empty slot"
+                             ],
+                             "label": "empty "},
+                         { "value": "1", "localName": "inserted",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Card inserted in the slot"
+                             ],
+                             "label": "Inserted "}
+                    ],
+                    "default": "empty",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "physId": {
+                    "comment": [
+                         "Physical Slot ID"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3467",
+                    "propLocalId": "1745",
+                    "label": "Physical Slot",
+                    "baseType": "scalar:Uint32",
+                    "modelType": "eqpt:Id",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rn": {
+                    "comment": [
+                         "Identifies an object from its siblings within the context of its parent object. The distinguished name contains a sequence of relative names."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2",
+                    "propLocalId": "3",
+                    "label": "rn",
+                    "baseType": "reference:BinRN",
+                    "modelType": "reference:BinRN",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "status": {
+                    "comment": [
+                         "The upgrade status. This property is for internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3",
+                    "propLocalId": "4",
+                    "label": "status",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationStatus",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "2", "localName": "created",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be created. An error is returned if the object already exists.  \nIn the return value of a setter method: indicates that an object has been created.  \n"
+                             ],
+                             "label": "created "},
+                         { "value": "8", "localName": "deleted",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be deleted.  \nIn the return value of a setter method: indicates that an object has been deleted.\n"
+                             ],
+                             "label": "deleted "},
+                         { "value": "4", "localName": "modified",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be modified  \nIn the return value of a setter method: indicates that an object has been modified.\n"
+                             ],
+                             "label": "modified "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "type": {
+                    "comment": [
+                         "The type."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3483",
+                    "propLocalId": "33",
+                    "label": "Type",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "eqpt:SlotT",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": true,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "8", "localName": "bslot",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Board slot type"
+                             ],
+                             "label": "Board Slot "},
+                         { "value": "fantray", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "5", "localName": "extchslot",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Extension chassis card slot type"
+                             ],
+                             "label": "Extension chassis slot "},
+                         { "value": "7", "localName": "fantray",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Fan tray slot type"
+                             ],
+                             "label": "Fan tray "},
+                         { "value": "3", "localName": "fcslot",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Fabric card slot type"
+                             ],
+                             "label": "Fabric card slot "},
+                         { "value": "2", "localName": "lcslot",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Linecard slot type"
+                             ],
+                             "label": "Line card slot "},
+                         { "value": "9", "localName": "nslot",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Nic slot type"
+                             ],
+                             "label": "Nic Slot "},
+                         { "value": "6", "localName": "psuslot",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Power supply slot type"
+                             ],
+                             "label": "Power supply slot "},
+                         { "value": "4", "localName": "scslot",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "System control card slot type"
+                             ],
+                             "label": "System control card slot "},
+                         { "value": "1", "localName": "supslot",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Supervisor slot type"
+                             ],
+                             "label": "Supervisor slot "},
+                         { "value": "0", "localName": "unknown",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Invalid slot type"
+                             ],
+                             "label": "Unknown "}
+                    ],
+                    "default": "fantray",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                }
+            }
+        }
+}

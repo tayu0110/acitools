@@ -1,0 +1,1126 @@
+{
+        "uribv6:Nexthop": {
+            "contains": {
+
+            },
+            "rnMap": {
+
+            },
+            "identifiedBy": [
+                "owner",
+                "addr",
+                "if",
+                "vrf"
+            ],
+            "rnFormat": "nh-[{owner}]-[{addr}]-[{if}]-[{vrf}]",
+            "containedBy": {
+                "uribv6:Route": "",
+                "uribv6:RouteOwner": ""
+            },
+            "superClasses": [
+                "rib:DbRec",
+                "l3:DbRec",
+                "nw:DbRec",
+                "nw:GEp",
+                "nw:Conn",
+                "nw:Item"
+            ],
+            "subClasses": {
+
+            },
+            "relationFrom": {
+
+            },
+            "relationTo": {
+
+            },
+            "dnFormats": [
+                "topology/pod-{id}/node-{id}/sys/uribv6/dom-{name}/db-{type}/rt-[{prefix}]/owner-[{owner}]/nh-[{owner}]-[{addr}]-[{if}]-[{vrf}]",
+                "sys/uribv6/dom-{name}/db-{type}/rt-[{prefix}]/owner-[{owner}]/nh-[{owner}]-[{addr}]-[{if}]-[{vrf}]",
+                "topology/pod-{id}/node-{id}/sys/uribv6/dom-{name}/db-{type}/rt-[{prefix}]/nh-[{owner}]-[{addr}]-[{if}]-[{vrf}]",
+                "sys/uribv6/dom-{name}/db-{type}/rt-[{prefix}]/nh-[{owner}]-[{addr}]-[{if}]-[{vrf}]"
+            ],
+            "writeAccess": [
+
+            ],
+            "readAccess": [
+                "access-protocol",
+                "admin",
+                "fabric-connectivity",
+                "fabric-protocol",
+                "tenant-connectivity",
+                "tenant-ext-connectivity",
+                "tenant-ext-protocol",
+                "tenant-protocol"
+            ],
+            "faults": {
+
+            },
+            "events": {
+
+            },
+            "stats": {
+
+            },
+            "isAbstract": false,
+            "isConfigurable": false,
+            "isContextRoot": false,
+            "isDeprecated": false,
+            "isEncrypted": false,
+            "isExportable": false,
+            "isPersistent": false,
+            "isSubjectToQuota": false,
+            "isObservable": false,
+            "hasStats": false,
+            "isStat": false,
+            "isFaultable": false,
+            "isDomainable": false,
+            "isHealthScorable": false,
+            "shouldCollectHealthStats": false,
+            "healthCollectionSource": "faults",
+            "hasEventRules": false,
+            "abstractionLayer": "concrete",
+            "apicNxProcessing": false,
+            "monitoringPolicySource": "Parent",
+            "isCreatableDeletable": "never",
+            "platformFlavors": [
+                "apic"
+            ],
+            "classId": "5876",
+            "className": "Nexthop",
+            "classPkg": "uribv6",
+            "featureTag": "",
+            "moCategory": "Regular",
+            "label": "Nexthop record",
+            "comment": [
+                "URIB next-hop database record"
+            ],
+            "properties": {
+                "Nhmetric": {
+                    "comment": [
+                         "NH Metric"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "19831",
+                    "propLocalId": "4907",
+                    "label": "NhMetric",
+                    "baseType": "scalar:Uint32",
+                    "modelType": "rib:NhMetric",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "1", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": 1,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "Nhtag": {
+                    "comment": [
+                         "NH Tag"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "19837",
+                    "propLocalId": "4908",
+                    "label": "NhTag",
+                    "baseType": "scalar:Uint32",
+                    "modelType": "rib:NhTag",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "0", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": 0,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "active": {
+                    "comment": [
+                         "NH active or backup"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "19835",
+                    "propLocalId": "1834",
+                    "label": "active",
+                    "baseType": "scalar:Bool",
+                    "modelType": "scalar:Bool",
+                    "needsPropDelimiters": false,
+                    "uitype": "boolean",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "false", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "false", "localName": "no",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "No "},
+                         { "value": "true", "localName": "yes",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "Yes "}
+                    ],
+                    "default": "false",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "addr": {
+                    "comment": [
+                         "Nexthop addr"
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "17498",
+                    "propLocalId": "149",
+                    "label": "Nexthop Address",
+                    "baseType": "address:Ip",
+                    "modelType": "address:Ip",
+                    "needsPropDelimiters": true,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": false,
+                    "isNaming": true,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validateAsIPv4OrIPv6": true,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "childAction": {
+                    "comment": [
+                         "Delete or ignore. For internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "4",
+                    "propLocalId": "5",
+                    "label": "childAction",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationChildAction",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "16384", "localName": "deleteAll",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteAll "},
+                         { "value": "8192", "localName": "deleteNonPresent",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteNonPresent "},
+                         { "value": "4096", "localName": "ignore",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "ignore "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "createTs": {
+                    "comment": [
+                         "NH uptime"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "19834",
+                    "propLocalId": "955",
+                    "label": "createTs",
+                    "baseType": "scalar:Date",
+                    "modelType": "rib:CreateTs",
+                    "needsPropDelimiters": false,
+                    "uitype": "date",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "dn": {
+                    "comment": [
+                         "A tag or metadata is a non-hierarchical keyword or term assigned to the fabric module."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "1",
+                    "propLocalId": "2",
+                    "label": "dn",
+                    "baseType": "reference:BinRef",
+                    "modelType": "reference:BinRef",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "if": {
+                    "comment": [
+                         "Nexthop interface"
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "17499",
+                    "propLocalId": "1396",
+                    "label": "Nexthop Interface",
+                    "baseType": "base:IfIndex",
+                    "modelType": "nw:IfId",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": false,
+                    "isNaming": true,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "metric": {
+                    "comment": [
+                         "Metric"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "19830",
+                    "propLocalId": "418",
+                    "label": "Metric",
+                    "baseType": "scalar:Uint32",
+                    "modelType": "rib:Metric",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "1", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": 1,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "modTs": {
+                    "comment": [
+                         "The time when this object was last modified."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "7",
+                    "propLocalId": "7",
+                    "label": "modTs",
+                    "baseType": "scalar:Date",
+                    "modelType": "mo:TStamp",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "never", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "never",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "never "}
+                    ],
+                    "default": "never",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "mplsLabel": {
+                    "comment": [
+                         "MPLS LABEL"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "58946",
+                    "propLocalId": "12988",
+                    "label": "mplsLabel",
+                    "baseType": "scalar:Uint32",
+                    "modelType": "rib:MplsLabel",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "0", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": 0,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "name": {
+                    "comment": [
+                         "The name of the object."
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "16437",
+                    "propLocalId": "13",
+                    "label": "Name",
+                    "baseType": "string:Basic",
+                    "modelType": "naming:Name",
+                    "needsPropDelimiters": false,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": true,
+                    "readOnly": false,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": true,
+                    "isLike": false,
+                    "validators": [
+                         {"min" : 1, "max": 128 }
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "owner": {
+                    "comment": [
+                         "Owner"
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "17501",
+                    "propLocalId": "597",
+                    "label": "Nexthop Owner",
+                    "baseType": "string:Basic",
+                    "modelType": "rib:OwnerT",
+                    "needsPropDelimiters": true,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": false,
+                    "isNaming": true,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validators": [
+                         {"min" : 1, "max": 512 }
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "pref": {
+                    "comment": [
+                         "Preference"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "19829",
+                    "propLocalId": "1604",
+                    "label": "Preference",
+                    "baseType": "scalar:Uint16",
+                    "modelType": "rib:Pref",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "1", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": 1,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rn": {
+                    "comment": [
+                         "Identifies an object from its siblings within the context of its parent object. The distinguished name contains a sequence of relative names."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2",
+                    "propLocalId": "3",
+                    "label": "rn",
+                    "baseType": "reference:BinRN",
+                    "modelType": "reference:BinRN",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "routeType": {
+                    "comment": [
+                         "NH route type"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "19832",
+                    "propLocalId": "2226",
+                    "label": "routeType",
+                    "baseType": "scalar:Enum32",
+                    "modelType": "rib:RouteT",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "30", "localName": "coop",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Coop"
+                             ],
+                             "label": "Coop "},
+                         { "value": "direct", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Default is direct"
+                             ],
+                             "label": " "},
+                         { "value": "1", "localName": "direct",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Direct"
+                             ],
+                             "label": "Direct "},
+                         { "value": "23", "localName": "discard",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Discard"
+                             ],
+                             "label": "Discard "},
+                         { "value": "20", "localName": "ebgp",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "EBGP"
+                             ],
+                             "label": "EBGP "},
+                         { "value": "25", "localName": "eigrp-external",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "EIGRP external"
+                             ],
+                             "label": "EIGRP External "},
+                         { "value": "24", "localName": "eigrp-internal",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "EIGRP internal"
+                             ],
+                             "label": "EIGRP Internal "},
+                         { "value": "22", "localName": "embgp",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "EMBGP"
+                             ],
+                             "label": "EMBGP "},
+                         { "value": "19", "localName": "ibgp",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "IBGP"
+                             ],
+                             "label": "IBGP "},
+                         { "value": "21", "localName": "imbgp",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "IMBGP"
+                             ],
+                             "label": "IMBGP "},
+                         { "value": "5", "localName": "isis-l1",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "ISIS L1"
+                             ],
+                             "label": "ISIS L1 "},
+                         { "value": "32", "localName": "isis-l1-ext",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "ISIS L1 EXT"
+                             ],
+                             "label": "ISIS L1 EXT "},
+                         { "value": "31", "localName": "isis-l1-int",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "ISIS L1 INT"
+                             ],
+                             "label": "ISIS L1 INT "},
+                         { "value": "6", "localName": "isis-l2",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "ISIS L2"
+                             ],
+                             "label": "ISIS L2 "},
+                         { "value": "33", "localName": "local",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Local"
+                             ],
+                             "label": "Local "},
+                         { "value": "3", "localName": "mcast-static",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Multicast static"
+                             ],
+                             "label": "Multicast Static "},
+                         { "value": "8", "localName": "ospf-inter",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "OSPF inter"
+                             ],
+                             "label": "OSPF Inter "},
+                         { "value": "7", "localName": "ospf-intra",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "OSPF intra"
+                             ],
+                             "label": "OSPF Intra "},
+                         { "value": "11", "localName": "ospf-nssa-type1",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "OSPF NSSA type1"
+                             ],
+                             "label": "OSPF NSSA Type1 "},
+                         { "value": "12", "localName": "ospf-nssa-type2",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "OSPF NSSA type2"
+                             ],
+                             "label": "OSPF NSSA Type2 "},
+                         { "value": "9", "localName": "ospf-type1",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "OSPF type1"
+                             ],
+                             "label": "OSPF Type1 "},
+                         { "value": "10", "localName": "ospf-type2",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "OSPF type2"
+                             ],
+                             "label": "OSPF Type2 "},
+                         { "value": "14", "localName": "ospfv3-inter",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "OSPFv3 inter"
+                             ],
+                             "label": "OSPFv3 Inter "},
+                         { "value": "13", "localName": "ospfv3-intra",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "OSPFv3 intra"
+                             ],
+                             "label": "OSPFv3 Intra "},
+                         { "value": "17", "localName": "ospfv3-nssa-type1",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "OSPFv3 NSSA type1"
+                             ],
+                             "label": "OSPFv3 NSSA Type1 "},
+                         { "value": "18", "localName": "ospfv3-nssa-type2",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "OSPFv3 NSSA type2"
+                             ],
+                             "label": "OSPFv3 NSSA Type2 "},
+                         { "value": "15", "localName": "ospfv3-type1",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "OSPFv3 type1"
+                             ],
+                             "label": "OSPFv3 Type1 "},
+                         { "value": "16", "localName": "ospfv3-type2",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "OSPFv3 type2"
+                             ],
+                             "label": "OSPFv3 Type2 "},
+                         { "value": "4", "localName": "rip",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "RIP"
+                             ],
+                             "label": "RIP "},
+                         { "value": "2", "localName": "static",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Static"
+                             ],
+                             "label": "Static "}
+                    ],
+                    "default": "direct",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rwVnid": {
+                    "comment": [
+                         "RW VNID"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "54907",
+                    "propLocalId": "12471",
+                    "label": "rwVnid",
+                    "baseType": "base:Encap",
+                    "modelType": "base:Encap",
+                    "needsPropDelimiters": true,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "status": {
+                    "comment": [
+                         "The upgrade status. This property is for internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3",
+                    "propLocalId": "4",
+                    "label": "status",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationStatus",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "2", "localName": "created",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be created. An error is returned if the object already exists.  \nIn the return value of a setter method: indicates that an object has been created.  \n"
+                             ],
+                             "label": "created "},
+                         { "value": "8", "localName": "deleted",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be deleted.  \nIn the return value of a setter method: indicates that an object has been deleted.\n"
+                             ],
+                             "label": "deleted "},
+                         { "value": "4", "localName": "modified",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be modified  \nIn the return value of a setter method: indicates that an object has been modified.\n"
+                             ],
+                             "label": "modified "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "tag": {
+                    "comment": [
+                         "Tag"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "19836",
+                    "propLocalId": "416",
+                    "label": "Tag",
+                    "baseType": "scalar:Uint32",
+                    "modelType": "rib:Tag",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "0", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": 0,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "type": {
+                    "comment": [
+                         "NH type"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "19833",
+                    "propLocalId": "33",
+                    "label": "type",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "uribv6:NhT",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "128", "localName": "aa_req",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "AA_Req"
+                             ],
+                             "label": "AA_Req "},
+                         { "value": "4", "localName": "attached",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Attached"
+                             ],
+                             "label": "Attached "},
+                         { "value": "attached", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "16", "localName": "direct",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Direct"
+                             ],
+                             "label": "Direct "},
+                         { "value": "8192", "localName": "ext_l3intf",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Ext_L3intf"
+                             ],
+                             "label": "Ext_L3intf "},
+                         { "value": "32", "localName": "hidden",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Hidden"
+                             ],
+                             "label": "Hidden "},
+                         { "value": "8", "localName": "local",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Local"
+                             ],
+                             "label": "Local "},
+                         { "value": "2048", "localName": "nh_condition",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "NH_Condition"
+                             ],
+                             "label": "NH_Condition "},
+                         { "value": "4096", "localName": "pervasive",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Pervasive"
+                             ],
+                             "label": "pervasive "},
+                         { "value": "1", "localName": "recursive",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Recursive"
+                             ],
+                             "label": "Recursive "},
+                         { "value": "65536", "localName": "redist-only",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Redist-only"
+                             ],
+                             "label": "Redist-only "},
+                         { "value": "2", "localName": "table",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Table"
+                             ],
+                             "label": "Table "},
+                         { "value": "64", "localName": "wildcard",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Wildcard"
+                             ],
+                             "label": "Wildcard "}
+                    ],
+                    "default": "attached",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "vrf": {
+                    "comment": [
+                         "Nexthop vrf"
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "17500",
+                    "propLocalId": "956",
+                    "label": "Nexthop VRF",
+                    "baseType": "string:Basic",
+                    "modelType": "l3:VrfName",
+                    "needsPropDelimiters": true,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": false,
+                    "isNaming": true,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validators": [
+                         {"min" : 1, "max": 512 }
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                }
+            }
+        }
+}

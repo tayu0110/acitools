@@ -1,0 +1,1266 @@
+{
+        "eqpt:Nic": {
+            "contains": {
+                "eqpt:Asic": "",
+                "eqpt:CPU": "",
+                "eqpt:Dimm": "",
+                "eqpt:ExtAP": "",
+                "eqpt:Flash": "",
+                "eqpt:Fpga": "",
+                "eqpt:Obfl": "",
+                "eqpt:RsMonPolModulePolCons": "",
+                "eqpt:Sensor": "",
+                "fault:Counts": "",
+                "fault:Inst": "",
+                "health:Inst": "",
+                "tag:AliasDelInst": "",
+                "tag:AliasInst": "",
+                "tag:Annotation": "",
+                "tag:ExtMngdInst": "",
+                "tag:Inst": "",
+                "tag:Tag": ""
+            },
+            "rnMap": {
+                "alias": "tag:AliasInst",
+                "aliasdel-": "tag:AliasDelInst",
+                "annotationKey-": "tag:Annotation",
+                "asic-": "eqpt:Asic",
+                "cpu-": "eqpt:CPU",
+                "dimm-": "eqpt:Dimm",
+                "eaport-": "eqpt:ExtAP",
+                "extmngd": "tag:ExtMngdInst",
+                "fault-": "fault:Inst",
+                "flash": "eqpt:Flash",
+                "fltCnts": "fault:Counts",
+                "fpga-": "eqpt:Fpga",
+                "health": "health:Inst",
+                "obfl": "eqpt:Obfl",
+                "rsmonPolModulePolCons": "eqpt:RsMonPolModulePolCons",
+                "sensor-": "eqpt:Sensor",
+                "tag-": "tag:Inst",
+                "tagKey-": "tag:Tag"
+            },
+            "identifiedBy": [
+                "id"
+            ],
+            "rnFormat": "nic-{id}",
+            "containedBy": {
+                "eqpt:NSlot": ""
+            },
+            "superClasses": [
+                "eqpt:Card",
+                "eqpt:Fru",
+                "eqpt:Comp",
+                "eqpt:Item",
+                "nw:Item"
+            ],
+            "subClasses": {
+
+            },
+            "relationFrom": {
+
+            },
+            "relationTo": {
+                "eqpt:RsMonPolModulePolCons": "mon:Pol"
+            },
+            "dnFormats": [
+                "topology/pod-{id}/node-{id}/sys/ch/nslot-{id}/nic-{id}",
+                "sys/ch/nslot-{id}/nic-{id}"
+            ],
+            "writeAccess": [
+
+            ],
+            "readAccess": [
+                "access-equipment",
+                "admin",
+                "fabric-equipment",
+                "ops"
+            ],
+            "faults": {
+
+            },
+            "events": {
+                "E4208231": "state-transition|powerStChange|eqpt:Card",
+                "E4208232": "state-transition|operStChange|eqpt:Card",
+                "E4208233": "state-transition|redunStChange|eqpt:Card",
+                "E4208234": "creation|detected|eqpt:Card",
+                "E4208235": "deletion|removed|eqpt:Card",
+                "E4209643": "state-transition|operStChange|eqpt:Card",
+                "E4209644": "state-transition|powerStChange|eqpt:Card"
+            },
+            "stats": {
+
+            },
+            "isAbstract": false,
+            "isConfigurable": false,
+            "isContextRoot": false,
+            "isDeprecated": false,
+            "isEncrypted": false,
+            "isExportable": false,
+            "isPersistent": false,
+            "isSubjectToQuota": false,
+            "isObservable": true,
+            "hasStats": false,
+            "isStat": false,
+            "isFaultable": true,
+            "isDomainable": false,
+            "isHealthScorable": true,
+            "shouldCollectHealthStats": false,
+            "healthCollectionSource": "faults",
+            "hasEventRules": true,
+            "abstractionLayer": "concrete",
+            "apicNxProcessing": false,
+            "monitoringPolicySource": "Explicit",
+            "isCreatableDeletable": "never",
+            "platformFlavors": [
+
+            ],
+            "classId": "513",
+            "className": "Nic",
+            "classPkg": "eqpt",
+            "featureTag": "",
+            "moCategory": "Regular",
+            "label": "Nic",
+            "comment": [
+                "A NIC card."
+            ],
+            "properties": {
+                "childAction": {
+                    "comment": [
+                         "Delete or ignore. For internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "4",
+                    "propLocalId": "5",
+                    "label": "childAction",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationChildAction",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "16384", "localName": "deleteAll",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteAll "},
+                         { "value": "8192", "localName": "deleteNonPresent",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteNonPresent "},
+                         { "value": "4096", "localName": "ignore",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "ignore "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "cimcVersion": {
+                    "isConfigurable": false,
+                    "propGlobalId": "56701",
+                    "propLocalId": "12836",
+                    "label": "CIMC version",
+                    "baseType": "string:Basic",
+                    "modelType": "string:Basic",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Dev:cimcVersion",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "descr": {
+                    "comment": [
+                         "Additional descriptive information about the object."
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "5597",
+                    "propLocalId": "28",
+                    "label": "Description",
+                    "baseType": "string:Basic",
+                    "modelType": "naming:Descr",
+                    "needsPropDelimiters": false,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": true,
+                    "readOnly": false,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "naming:Described:descr",
+                    "validators": [
+                         {"min" : 0, "max": 128,
+                             "regexs": [
+                                 {"regex" : "^[a-zA-Z0-9\\\\!#$%()*,-./:;@ _{|}~?&+]+$", "type": "include"}
+                             ]
+                         }
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "dn": {
+                    "comment": [
+                         "A tag or metadata is a non-hierarchical keyword or term assigned to the fabric module."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "1",
+                    "propLocalId": "2",
+                    "label": "dn",
+                    "baseType": "reference:BinRef",
+                    "modelType": "reference:BinRef",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "hwVer": {
+                    "comment": [
+                         "The hardware version of a card."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "15577",
+                    "propLocalId": "1669",
+                    "label": "Hardware Version",
+                    "baseType": "string:Basic",
+                    "modelType": "cap:Version",
+                    "needsPropDelimiters": false,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "id": {
+                    "comment": [
+                         "A NIC identifier."
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "6306",
+                    "propLocalId": "12",
+                    "label": "ID",
+                    "baseType": "scalar:Uint32",
+                    "modelType": "eqpt:Id",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": false,
+                    "isNaming": true,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": true,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "lcOwn": {
+                    "comment": [
+                         "A value that indicates how this object was created. For internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "9",
+                    "propLocalId": "9",
+                    "label": "lcOwn",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "mo:Owner",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "local", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "4", "localName": "implicit",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "Implicit "},
+                         { "value": "0", "localName": "local",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "Local "},
+                         { "value": "1", "localName": "policy",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "Policy "},
+                         { "value": "2", "localName": "replica",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "Replica "},
+                         { "value": "3", "localName": "resolveOnBehalf",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "ResolvedOnBehalf "}
+                    ],
+                    "default": "local",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "macB": {
+                    "comment": [
+                         "The MAC address base."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3324",
+                    "propLocalId": "1670",
+                    "label": "MAC Address Base",
+                    "baseType": "string:Basic",
+                    "modelType": "eqpt:MacAddr",
+                    "needsPropDelimiters": false,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "macL": {
+                    "comment": [
+                         "The MAC address length."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3325",
+                    "propLocalId": "1671",
+                    "label": "MAC Address Length",
+                    "baseType": "scalar:Uint16",
+                    "modelType": "eqpt:MacAddrLen",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "mfgTm": {
+                    "comment": [
+                         "The manufacturing time."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "5596",
+                    "propLocalId": "1755",
+                    "label": "Manufacturing Time",
+                    "baseType": "scalar:Date",
+                    "modelType": "scalar:Date",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Mfg:mfgTm",
+                    "validValues": [
+                         { "value": "not-applicable", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "not-applicable",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "N/A "}
+                    ],
+                    "default": "not-applicable",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "modTs": {
+                    "comment": [
+                         "The time when this object was last modified."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "7",
+                    "propLocalId": "7",
+                    "label": "modTs",
+                    "baseType": "scalar:Date",
+                    "modelType": "mo:TStamp",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "never", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "never",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "never "}
+                    ],
+                    "default": "never",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "model": {
+                    "comment": [
+                         "The model of the component."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "5592",
+                    "propLocalId": "360",
+                    "label": "Model",
+                    "baseType": "string:Basic",
+                    "modelType": "eqpt:Model",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Dev:model",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "monPolDn": {
+                    "comment": [
+                         "The monitoring policy attached to this observable object."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "13868",
+                    "propLocalId": "228",
+                    "label": "Monitoring policy attached to this observable object",
+                    "baseType": "reference:BinRef",
+                    "modelType": "reference:BinRef",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "numP": {
+                    "comment": [
+                         "The number of ports on the card."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3320",
+                    "propLocalId": "1667",
+                    "label": "Number of Ports",
+                    "baseType": "scalar:Uint16",
+                    "modelType": "eqpt:CardNumPorts",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "0", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": "0",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "operSt": {
+                    "comment": [
+                         "The operational status."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3317",
+                    "propLocalId": "29",
+                    "label": "Operational State",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "eqpt:COpSt",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "2", "localName": "absent",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Absent"
+                             ],
+                             "label": "Absent "},
+                         { "value": "unknown", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "FIXME look at lcmcli.cmd to add more"
+                             ],
+                             "label": " "},
+                         { "value": "15", "localName": "dnld",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "downloading state"
+                             ],
+                             "label": "Downloading "},
+                         { "value": "11", "localName": "err-pwr-down",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "err-powered-down state"
+                             ],
+                             "label": "Errored powered down "},
+                         { "value": "4", "localName": "fail",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Fail state"
+                             ],
+                             "label": "Failed "},
+                         { "value": "18", "localName": "ha-seq-fail",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "HA SEQNO failure state"
+                             ],
+                             "label": "HA Sequence number failed "},
+                         { "value": "13", "localName": "init",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "initializing state"
+                             ],
+                             "label": "Initializing "},
+                         { "value": "1", "localName": "inserted",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Inserted"
+                             ],
+                             "label": "Inserted "},
+                         { "value": "3", "localName": "mismatch",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Mismatch slot"
+                             ],
+                             "label": "Mismatch "},
+                         { "value": "8", "localName": "offline",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Offline state"
+                             ],
+                             "label": "Offline "},
+                         { "value": "7", "localName": "online",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Online state"
+                             ],
+                             "label": "Online "},
+                         { "value": "5", "localName": "present",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Present state"
+                             ],
+                             "label": "Present "},
+                         { "value": "10", "localName": "pwr-down",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "powered-down state"
+                             ],
+                             "label": "Powered down "},
+                         { "value": "9", "localName": "pwr-up",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "powered-up state"
+                             ],
+                             "label": "Powered up "},
+                         { "value": "14", "localName": "reg-failure",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "registration failure state"
+                             ],
+                             "label": "Registration failed "},
+                         { "value": "6", "localName": "removed",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Removed state"
+                             ],
+                             "label": "Removed "},
+                         { "value": "17", "localName": "srg-fail",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "srg failure state"
+                             ],
+                             "label": "SRG failed "},
+                         { "value": "12", "localName": "testing",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "waiting for diag results state"
+                             ],
+                             "label": "Testing "},
+                         { "value": "0", "localName": "unknown",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unknown"
+                             ],
+                             "label": "Unknown "},
+                         { "value": "16", "localName": "upg",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "upgrading state"
+                             ],
+                             "label": "Upgrading "}
+                    ],
+                    "default": "unknown",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "pwrSt": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3327",
+                    "propLocalId": "1672",
+                    "label": "Power State",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "eqpt:PwrState",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "unknown", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "3", "localName": "deny",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "oper power deny"
+                             ],
+                             "label": "Deny "},
+                         { "value": "4", "localName": "multi-boot-fail",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "oper powered off due to multiple bootup\n                     attempt failures"
+                             ],
+                             "label": "Multiple boot failure "},
+                         { "value": "1", "localName": "off",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "admin powered off"
+                             ],
+                             "label": "Off "},
+                         { "value": "2", "localName": "on",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "admin powered on"
+                             ],
+                             "label": "On "},
+                         { "value": "0", "localName": "unknown",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unknown"
+                             ],
+                             "label": "Unknown "}
+                    ],
+                    "default": "unknown",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rdSt": {
+                    "comment": [
+                         "The redundancy state."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3318",
+                    "propLocalId": "1665",
+                    "label": "Redundancy State",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "eqpt:RdSt",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "1", "localName": "active",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Active state"
+                             ],
+                             "label": "Active "},
+                         { "value": "unknown", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "2", "localName": "standby",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Standby state"
+                             ],
+                             "label": "Standby "},
+                         { "value": "0", "localName": "unknown",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unknown"
+                             ],
+                             "label": "Unknown "}
+                    ],
+                    "default": "unknown",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rev": {
+                    "comment": [
+                         "The revision number."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "5593",
+                    "propLocalId": "403",
+                    "label": "Revision",
+                    "baseType": "string:Basic",
+                    "modelType": "eqpt:Revision",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Dev:rev",
+                    "validValues": [
+                         { "value": "0", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": "0",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rn": {
+                    "comment": [
+                         "Identifies an object from its siblings within the context of its parent object. The distinguished name contains a sequence of relative names."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2",
+                    "propLocalId": "3",
+                    "label": "rn",
+                    "baseType": "reference:BinRN",
+                    "modelType": "reference:BinRN",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "ser": {
+                    "comment": [
+                         "The serial number."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "5594",
+                    "propLocalId": "1754",
+                    "label": "Serial Number",
+                    "baseType": "",
+                    "modelType": "eqpt:Serial",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Dev:ser",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "status": {
+                    "comment": [
+                         "The upgrade status. This property is for internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3",
+                    "propLocalId": "4",
+                    "label": "status",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationStatus",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "2", "localName": "created",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be created. An error is returned if the object already exists.  \nIn the return value of a setter method: indicates that an object has been created.  \n"
+                             ],
+                             "label": "created "},
+                         { "value": "8", "localName": "deleted",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be deleted.  \nIn the return value of a setter method: indicates that an object has been deleted.\n"
+                             ],
+                             "label": "deleted "},
+                         { "value": "4", "localName": "modified",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be modified  \nIn the return value of a setter method: indicates that an object has been modified.\n"
+                             ],
+                             "label": "modified "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "swCId": {
+                    "comment": [
+                         "The software card ID"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3319",
+                    "propLocalId": "1666",
+                    "label": "Software Module ID",
+                    "baseType": "scalar:Uint32",
+                    "modelType": "eqpt:CardId",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "type": {
+                    "comment": [
+                         "The type of card."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3315",
+                    "propLocalId": "33",
+                    "label": "Type",
+                    "baseType": "scalar:Enum16",
+                    "modelType": "eqpt:CardT",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "unknown", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "5", "localName": "extchcard",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Extension chassis card type"
+                             ],
+                             "label": "Extension chassis card "},
+                         { "value": "3", "localName": "fabriccard",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Fabric card type"
+                             ],
+                             "label": "Fabric card "},
+                         { "value": "6", "localName": "fan-tray",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "fan-tray FRU type"
+                             ],
+                             "label": "fan tray "},
+                         { "value": "2", "localName": "linecard",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Linecard card type"
+                             ],
+                             "label": "Line card "},
+                         { "value": "8", "localName": "motherboard",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "motherboard type"
+                             ],
+                             "label": "motherboard "},
+                         { "value": "7", "localName": "power-supply",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "power-supply FRU type"
+                             ],
+                             "label": "power supply "},
+                         { "value": "1", "localName": "supervisor",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Supervisor card type"
+                             ],
+                             "label": "Supervisor "},
+                         { "value": "4", "localName": "sysctrlcard",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "System control card type"
+                             ],
+                             "label": "System control card "},
+                         { "value": "0", "localName": "unknown",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Invalid card type"
+                             ],
+                             "label": "Unknown "}
+                    ],
+                    "default": "unknown",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "upTs": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3326",
+                    "propLocalId": "1459",
+                    "label": "Up Timestamp",
+                    "baseType": "scalar:Date",
+                    "modelType": "scalar:Date",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "vId": {
+                    "comment": [
+                         "version or vendor ID"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "63657",
+                    "propLocalId": "13973",
+                    "label": "Version or Vendor ID",
+                    "baseType": "string:Basic",
+                    "modelType": "string:Basic",
+                    "needsPropDelimiters": false,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "vendor": {
+                    "comment": [
+                         "The vendor."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "5595",
+                    "propLocalId": "168",
+                    "label": "Vendor",
+                    "baseType": "string:Basic",
+                    "modelType": "eqpt:Vendor",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": true,
+                    "likeProp": "eqpt:Dev:vendor",
+                    "validValues": [
+                         { "value": "Cisco Systems, Inc", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": "Cisco Systems, Inc",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                }
+            }
+        }
+}
