@@ -1,0 +1,1836 @@
+{
+        "bgp:PeerEntry": {
+            "contains": {
+                "bgp:GrSt": "",
+                "bgp:PeerAfEntry": "",
+                "bgp:PeerEntryStats": "",
+                "bgp:PeerEvents": "",
+                "fault:Counts": "",
+                "fault:Inst": "",
+                "health:Inst": ""
+            },
+            "rnMap": {
+                "af-": "bgp:PeerAfEntry",
+                "ev": "bgp:PeerEvents",
+                "fault-": "fault:Inst",
+                "fltCnts": "fault:Counts",
+                "gr": "bgp:GrSt",
+                "health": "health:Inst",
+                "peerstats": "bgp:PeerEntryStats"
+            },
+            "identifiedBy": [
+                "addr"
+            ],
+            "rnFormat": "ent-[{addr}]",
+            "containedBy": {
+                "bgp:Peer": ""
+            },
+            "superClasses": [
+                "l3:ProtAdjEp",
+                "nw:ProtAdjEp",
+                "nw:AdjEp",
+                "nw:ConnEp",
+                "nw:Ep",
+                "nw:Conn",
+                "nw:Item"
+            ],
+            "subClasses": {
+
+            },
+            "relationFrom": {
+
+            },
+            "relationTo": {
+
+            },
+            "dnFormats": [
+                "topology/pod-{id}/node-{id}/sys/bgp/inst/dom-{name}/peer-[{addr}]/ent-[{addr}]",
+                "sys/bgp/inst/dom-{name}/peer-[{addr}]/ent-[{addr}]"
+            ],
+            "writeAccess": [
+
+            ],
+            "readAccess": [
+                "access-protocol",
+                "admin",
+                "fabric-protocol",
+                "tenant-ext-protocol",
+                "tenant-protocol"
+            ],
+            "faults": {
+                "F0299": "fltBgpPeerEntryFailed",
+                "F1214": "fltBgpPeerEntryOperStShut"
+            },
+            "events": {
+                "E4208055": "state-transition|operStChange|bgp:PeerEntry",
+                "E4208056": "state-transition|operStBackward|bgp:PeerEntry",
+                "E4208093": "state-transition|operStEst|bgp:PeerEntry",
+                "E4208094": "state-transition|operStShut|bgp:PeerEntry"
+            },
+            "stats": {
+
+            },
+            "isAbstract": false,
+            "isConfigurable": false,
+            "isContextRoot": false,
+            "isDeprecated": false,
+            "isEncrypted": false,
+            "isExportable": false,
+            "isPersistent": true,
+            "isSubjectToQuota": false,
+            "isObservable": true,
+            "hasStats": false,
+            "isStat": false,
+            "isFaultable": true,
+            "isDomainable": false,
+            "isHealthScorable": true,
+            "shouldCollectHealthStats": false,
+            "healthCollectionSource": "faults",
+            "hasEventRules": true,
+            "abstractionLayer": "concrete",
+            "apicNxProcessing": false,
+            "monitoringPolicySource": "Parent",
+            "isCreatableDeletable": "never",
+            "platformFlavors": [
+                "apic"
+            ],
+            "classId": "2609",
+            "className": "PeerEntry",
+            "classPkg": "bgp",
+            "featureTag": "",
+            "moCategory": "Regular",
+            "label": "BGP Peer Entry",
+            "comment": [
+                "The BGP peer status specifies the status of a relationship between BGP speakers. A BGP speaker does not discover another BGP speaker automatically.  You must configure the relationships between BGP speakers. A BGP peer is a BGP speaker that has an active TCP connection to another BGP speaker."
+            ],
+            "properties": {
+                "addr": {
+                    "comment": [
+                         "The peer address."
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "2587",
+                    "propLocalId": "149",
+                    "label": "Address",
+                    "baseType": "address:Ip",
+                    "modelType": "address:Ip",
+                    "needsPropDelimiters": true,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": false,
+                    "isNaming": true,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validateAsIPv4OrIPv6": true,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "advCap": {
+                    "comment": [
+                         "Advertised capability"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2594",
+                    "propLocalId": "1219",
+                    "label": "Advertised Capability",
+                    "baseType": "scalar:Bitmask64",
+                    "modelType": "bgp:CapT",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "128", "localName": "as4",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "AS4"
+                             ],
+                             "label": "AS4 capable "},
+                         { "value": "2048", "localName": "cap",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Capability"
+                             ],
+                             "label": "Capability parameter "},
+                         { "value": "1", "localName": "dynamic",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Dynamic"
+                             ],
+                             "label": "Dynamic "},
+                         { "value": "4", "localName": "dynamic-gr",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Dynamic graceful restart"
+                             ],
+                             "label": "Dynamic graceful restart "},
+                         { "value": "2", "localName": "dynamic-mp",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Dynamic multi protocol"
+                             ],
+                             "label": "Dynamic multiprotocol "},
+                         { "value": "16", "localName": "dynamic-old",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Dynamic old"
+                             ],
+                             "label": "Dynamic old "},
+                         { "value": "8", "localName": "dynamic-refresh",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Dynamic refresh"
+                             ],
+                             "label": "Dynamic refresh "},
+                         { "value": "256", "localName": "gr",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Graceful restart"
+                             ],
+                             "label": "Graceful restart "},
+                         { "value": "16384", "localName": "gr-helper",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Graceful restart Helper only"
+                             ],
+                             "label": "Graceful restart helper "},
+                         { "value": "524288", "localName": "ipv4-lu",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "IPv4 label unicast"
+                             ],
+                             "label": "IPv4 label unicast "},
+                         { "value": "32768", "localName": "ipv4-mcast",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "IPv4 multicast"
+                             ],
+                             "label": "IPv4 multicast "},
+                         { "value": "512", "localName": "ipv4-ucast",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "IPv4 unicast"
+                             ],
+                             "label": "IPv4 unicast "},
+                         { "value": "1048576", "localName": "ipv6-lu",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "IPv6 label unicast"
+                             ],
+                             "label": "IPv6 label unicast "},
+                         { "value": "65536", "localName": "ipv6-mcast",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "IPv6 multicast"
+                             ],
+                             "label": "IPv6 multicast "},
+                         { "value": "4096", "localName": "ipv6-ucast",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "IPv6 unicast"
+                             ],
+                             "label": "IPv6 unicast "},
+                         { "value": "131072", "localName": "l2vpn-evpn",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "l2vpn evpn"
+                             ],
+                             "label": "L2VPN EVPN address family "},
+                         { "value": "32", "localName": "refresh",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Refresh"
+                             ],
+                             "label": "Refresh "},
+                         { "value": "64", "localName": "refresh-old",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Refresh old"
+                             ],
+                             "label": "Refresh "},
+                         { "value": "262144", "localName": "rtfilter-ucast",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "rtfilter unicast"
+                             ],
+                             "label": "IPv4 route-target filter address family "},
+                         { "value": "1024", "localName": "vpnv4-ucast",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Vpnv4 unicast"
+                             ],
+                             "label": "VPNv4 unicast "},
+                         { "value": "8192", "localName": "vpnv6-ucast",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Vpnv6 unicast"
+                             ],
+                             "label": "VPNv6 unicast "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "childAction": {
+                    "comment": [
+                         "Delete or ignore. For internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "4",
+                    "propLocalId": "5",
+                    "label": "childAction",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationChildAction",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "16384", "localName": "deleteAll",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteAll "},
+                         { "value": "8192", "localName": "deleteNonPresent",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteNonPresent "},
+                         { "value": "4096", "localName": "ignore",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "ignore "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "connAttempts": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2610",
+                    "propLocalId": "1232",
+                    "label": "Connection Attempts",
+                    "baseType": "scalar:Uint32",
+                    "modelType": "bgp:ConnAttempts",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "na", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "na",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": "na",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "connDrop": {
+                    "comment": [
+                         "Number of times that a connection dropped."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2604",
+                    "propLocalId": "1226",
+                    "label": "Connections Dropped",
+                    "baseType": "scalar:Uint16",
+                    "modelType": "cap:Quant",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "0", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": 0,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "connEst": {
+                    "comment": [
+                         "Number of times connections established"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2603",
+                    "propLocalId": "1225",
+                    "label": "Connections Established",
+                    "baseType": "scalar:Uint16",
+                    "modelType": "cap:Quant",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "0", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": 0,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "connIf": {
+                    "comment": [
+                         "Connected interface"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2596",
+                    "propLocalId": "1221",
+                    "label": "Directly Attached Interface",
+                    "baseType": "base:IfIndex",
+                    "modelType": "nw:IfId",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "dn": {
+                    "comment": [
+                         "A tag or metadata is a non-hierarchical keyword or term assigned to the fabric module."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "1",
+                    "propLocalId": "2",
+                    "label": "dn",
+                    "baseType": "reference:BinRef",
+                    "modelType": "reference:BinRef",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "fd": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2606",
+                    "propLocalId": "1228",
+                    "label": "FD to Connect to Peer",
+                    "baseType": "scalar:Uint32",
+                    "modelType": "bgp:SockFD",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "flags": {
+                    "comment": [
+                         "Flags"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2593",
+                    "propLocalId": "50",
+                    "label": "Flags",
+                    "baseType": "scalar:Bitmask16",
+                    "modelType": "bgp:PeerFlags",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "2", "localName": "cap-neg",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Capability negotiated"
+                             ],
+                             "label": "Capability negotiated "},
+                         { "value": "16", "localName": "cfg-peer",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Configuration peer"
+                             ],
+                             "label": "Configuration Peer "},
+                         { "value": "1", "localName": "direct-connect",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Directly connected"
+                             ],
+                             "label": "Administratively down "},
+                         { "value": "4", "localName": "gr-enabled",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Graceful restart enabled"
+                             ],
+                             "label": "Graceful restart enabled "},
+                         { "value": "8", "localName": "no-mem",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Memory Alert condition forbidding peer session to come up"
+                             ],
+                             "label": "Memory Alert "},
+                         { "value": "32", "localName": "peer-restarted",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Flag to indicate if peer restarted"
+                             ],
+                             "label": "Peer restarted "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "holdIntvl": {
+                    "comment": [
+                         "The time period to wait before declaring the neighbor device down."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2597",
+                    "propLocalId": "426",
+                    "label": "Hold Interval",
+                    "baseType": "scalar:Uint16",
+                    "modelType": "bgp:HoldIntvl",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "180", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": 180,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "kaIntvl": {
+                    "comment": [
+                         "The interval time between sending keepalive messages."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2598",
+                    "propLocalId": "425",
+                    "label": "Keepalive Interval",
+                    "baseType": "scalar:Uint16",
+                    "modelType": "bgp:KaIntvl",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "60", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": 60,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "lastFlapTs": {
+                    "comment": [
+                         "The latest time at which the state of the peer was flapping."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2592",
+                    "propLocalId": "1218",
+                    "label": "Last Flap Timestamp",
+                    "baseType": "scalar:Date",
+                    "modelType": "scalar:Date",
+                    "needsPropDelimiters": false,
+                    "uitype": "date",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "localIp": {
+                    "comment": [
+                         "The local IP address of the peer."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2600",
+                    "propLocalId": "1223",
+                    "label": "Local IP",
+                    "baseType": "address:Ip",
+                    "modelType": "address:Ip",
+                    "needsPropDelimiters": true,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "localPort": {
+                    "comment": [
+                         "The layer 4 port of the peer."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2601",
+                    "propLocalId": "1224",
+                    "label": "Local Port",
+                    "baseType": "scalar:Uint16",
+                    "modelType": "l4:Port",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "unspecified", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "53", "localName": "dns",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "DNS "},
+                         { "value": "20", "localName": "ftpData",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "FTP data "},
+                         { "value": "80", "localName": "http",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "HTTP "},
+                         { "value": "443", "localName": "https",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "HTTPS "},
+                         { "value": "110", "localName": "pop3",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "POP3 "},
+                         { "value": "554", "localName": "rtsp",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "RTSP "},
+                         { "value": "25", "localName": "smtp",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "SMTP "},
+                         { "value": "22", "localName": "ssh",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "SSH "},
+                         { "value": "0", "localName": "unspecified",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "Unspecified "}
+                    ],
+                    "default": "unspecified",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "modTs": {
+                    "comment": [
+                         "The time when this object was last modified."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "7",
+                    "propLocalId": "7",
+                    "label": "modTs",
+                    "baseType": "scalar:Date",
+                    "modelType": "mo:TStamp",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "never", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "never",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "never "}
+                    ],
+                    "default": "never",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "monPolDn": {
+                    "comment": [
+                         "The monitoring policy attached to this observable object."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "14450",
+                    "propLocalId": "228",
+                    "label": "Monitoring policy attached to this observable object",
+                    "baseType": "reference:BinRef",
+                    "modelType": "reference:BinRef",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "name": {
+                    "comment": [
+                         "The name of the object."
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "16432",
+                    "propLocalId": "13",
+                    "label": "Name",
+                    "baseType": "string:Basic",
+                    "modelType": "naming:Name",
+                    "needsPropDelimiters": false,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": true,
+                    "readOnly": false,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": true,
+                    "isLike": false,
+                    "validators": [
+                         {"min" : 1, "max": 128 }
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "operSt": {
+                    "comment": [
+                         "The operational state of the peer entry."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2589",
+                    "propLocalId": "29",
+                    "label": "Operational State",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "bgp:PeerOperSt",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "5", "localName": "active",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Active"
+                             ],
+                             "label": "Active "},
+                         { "value": "9", "localName": "closing",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Closing"
+                             ],
+                             "label": "Closing "},
+                         { "value": "4", "localName": "connect",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Connect"
+                             ],
+                             "label": "Connect "},
+                         { "value": "unspecified", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "10", "localName": "error",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Error"
+                             ],
+                             "label": "Error "},
+                         { "value": "8", "localName": "established",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Established"
+                             ],
+                             "label": "Established "},
+                         { "value": "3", "localName": "idle",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Idle"
+                             ],
+                             "label": "Idle "},
+                         { "value": "1", "localName": "illegal",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Illegal"
+                             ],
+                             "label": "Illegal "},
+                         { "value": "7", "localName": "open-confirm",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Open confirm"
+                             ],
+                             "label": "Open confirm "},
+                         { "value": "6", "localName": "open-sent",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Open sent"
+                             ],
+                             "label": "Open sent "},
+                         { "value": "2", "localName": "shut",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Shut"
+                             ],
+                             "label": "Shut "},
+                         { "value": "11", "localName": "unknown",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unknown"
+                             ],
+                             "label": "Unknown "},
+                         { "value": "0", "localName": "unspecified",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unspecified"
+                             ],
+                             "label": "Unspecified "}
+                    ],
+                    "default": "unspecified",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "passwdSet": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2612",
+                    "propLocalId": "1234",
+                    "label": "TCP MD5 Authentication",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "bgp:PasswdSet",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "disabled", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "disabled",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "1", "localName": "enabled",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "Enabled "}
+                    ],
+                    "default": "disabled",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "peerIdx": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2607",
+                    "propLocalId": "1229",
+                    "label": "Peer Index",
+                    "baseType": "scalar:Uint16",
+                    "modelType": "bgp:PeerIdx",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "prevOperSt": {
+                    "comment": [
+                         "The previous operational state of the peer entry."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2590",
+                    "propLocalId": "1216",
+                    "label": "Previous Operational State",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "bgp:PeerOperSt",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "5", "localName": "active",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Active"
+                             ],
+                             "label": "Active "},
+                         { "value": "9", "localName": "closing",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Closing"
+                             ],
+                             "label": "Closing "},
+                         { "value": "4", "localName": "connect",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Connect"
+                             ],
+                             "label": "Connect "},
+                         { "value": "unspecified", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "10", "localName": "error",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Error"
+                             ],
+                             "label": "Error "},
+                         { "value": "8", "localName": "established",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Established"
+                             ],
+                             "label": "Established "},
+                         { "value": "3", "localName": "idle",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Idle"
+                             ],
+                             "label": "Idle "},
+                         { "value": "1", "localName": "illegal",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Illegal"
+                             ],
+                             "label": "Illegal "},
+                         { "value": "7", "localName": "open-confirm",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Open confirm"
+                             ],
+                             "label": "Open confirm "},
+                         { "value": "6", "localName": "open-sent",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Open sent"
+                             ],
+                             "label": "Open sent "},
+                         { "value": "2", "localName": "shut",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Shut"
+                             ],
+                             "label": "Shut "},
+                         { "value": "11", "localName": "unknown",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unknown"
+                             ],
+                             "label": "Unknown "},
+                         { "value": "0", "localName": "unspecified",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unspecified"
+                             ],
+                             "label": "Unspecified "}
+                    ],
+                    "default": "unspecified",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rcvCap": {
+                    "comment": [
+                         "Received capability"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2595",
+                    "propLocalId": "1220",
+                    "label": "Received Capability",
+                    "baseType": "scalar:Bitmask64",
+                    "modelType": "bgp:CapT",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "128", "localName": "as4",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "AS4"
+                             ],
+                             "label": "AS4 capable "},
+                         { "value": "2048", "localName": "cap",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Capability"
+                             ],
+                             "label": "Capability parameter "},
+                         { "value": "1", "localName": "dynamic",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Dynamic"
+                             ],
+                             "label": "Dynamic "},
+                         { "value": "4", "localName": "dynamic-gr",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Dynamic graceful restart"
+                             ],
+                             "label": "Dynamic graceful restart "},
+                         { "value": "2", "localName": "dynamic-mp",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Dynamic multi protocol"
+                             ],
+                             "label": "Dynamic multiprotocol "},
+                         { "value": "16", "localName": "dynamic-old",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Dynamic old"
+                             ],
+                             "label": "Dynamic old "},
+                         { "value": "8", "localName": "dynamic-refresh",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Dynamic refresh"
+                             ],
+                             "label": "Dynamic refresh "},
+                         { "value": "256", "localName": "gr",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Graceful restart"
+                             ],
+                             "label": "Graceful restart "},
+                         { "value": "16384", "localName": "gr-helper",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Graceful restart Helper only"
+                             ],
+                             "label": "Graceful restart helper "},
+                         { "value": "524288", "localName": "ipv4-lu",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "IPv4 label unicast"
+                             ],
+                             "label": "IPv4 label unicast "},
+                         { "value": "32768", "localName": "ipv4-mcast",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "IPv4 multicast"
+                             ],
+                             "label": "IPv4 multicast "},
+                         { "value": "512", "localName": "ipv4-ucast",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "IPv4 unicast"
+                             ],
+                             "label": "IPv4 unicast "},
+                         { "value": "1048576", "localName": "ipv6-lu",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "IPv6 label unicast"
+                             ],
+                             "label": "IPv6 label unicast "},
+                         { "value": "65536", "localName": "ipv6-mcast",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "IPv6 multicast"
+                             ],
+                             "label": "IPv6 multicast "},
+                         { "value": "4096", "localName": "ipv6-ucast",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "IPv6 unicast"
+                             ],
+                             "label": "IPv6 unicast "},
+                         { "value": "131072", "localName": "l2vpn-evpn",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "l2vpn evpn"
+                             ],
+                             "label": "L2VPN EVPN address family "},
+                         { "value": "32", "localName": "refresh",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Refresh"
+                             ],
+                             "label": "Refresh "},
+                         { "value": "64", "localName": "refresh-old",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Refresh old"
+                             ],
+                             "label": "Refresh "},
+                         { "value": "262144", "localName": "rtfilter-ucast",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "rtfilter unicast"
+                             ],
+                             "label": "IPv4 route-target filter address family "},
+                         { "value": "1024", "localName": "vpnv4-ucast",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Vpnv4 unicast"
+                             ],
+                             "label": "VPNv4 unicast "},
+                         { "value": "8192", "localName": "vpnv6-ucast",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Vpnv6 unicast"
+                             ],
+                             "label": "VPNv6 unicast "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "remotePort": {
+                    "comment": [
+                         "Remote L4 port"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2602",
+                    "propLocalId": "803",
+                    "label": "Remote Port",
+                    "baseType": "scalar:Uint16",
+                    "modelType": "l4:Port",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "unspecified", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "53", "localName": "dns",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "DNS "},
+                         { "value": "20", "localName": "ftpData",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "FTP data "},
+                         { "value": "80", "localName": "http",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "HTTP "},
+                         { "value": "443", "localName": "https",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "HTTPS "},
+                         { "value": "110", "localName": "pop3",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "POP3 "},
+                         { "value": "554", "localName": "rtsp",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "RTSP "},
+                         { "value": "25", "localName": "smtp",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "SMTP "},
+                         { "value": "22", "localName": "ssh",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "SSH "},
+                         { "value": "0", "localName": "unspecified",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "Unspecified "}
+                    ],
+                    "default": "unspecified",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rn": {
+                    "comment": [
+                         "Identifies an object from its siblings within the context of its parent object. The distinguished name contains a sequence of relative names."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2",
+                    "propLocalId": "3",
+                    "label": "rn",
+                    "baseType": "reference:BinRN",
+                    "modelType": "reference:BinRN",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rtrId": {
+                    "comment": [
+                         "Peer router id"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2588",
+                    "propLocalId": "908",
+                    "label": "Router ID",
+                    "baseType": "address:IPv4",
+                    "modelType": "ip:RtrId",
+                    "needsPropDelimiters": false,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "shutStQual": {
+                    "comment": [
+                         "Shut state qualifier"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2591",
+                    "propLocalId": "1217",
+                    "label": "Shut State Qualifier",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "bgp:ShutStQual",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "1", "localName": "admin",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Admin"
+                             ],
+                             "label": "Administratively down "},
+                         { "value": "unspecified", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "3", "localName": "exceeded-pfxlimit",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "When prefix limit is exceeded, the neighbor is \n                     shut down"
+                             ],
+                             "label": "Exceeded prefix limit "},
+                         { "value": "2", "localName": "no-mem",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "No memory"
+                             ],
+                             "label": "No memory "},
+                         { "value": "0", "localName": "unspecified",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unspecified"
+                             ],
+                             "label": "Unspecified "}
+                    ],
+                    "default": "unspecified",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "stReason": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2611",
+                    "propLocalId": "1233",
+                    "label": "State Reason",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "bgp:StReason",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "none", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Default is no reason"
+                             ],
+                             "label": " "},
+                         { "value": "1", "localName": "no-mem",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Reason: No memory"
+                             ],
+                             "label": "NoMem "},
+                         { "value": "0", "localName": "none",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "No reason defined"
+                             ],
+                             "label": " "}
+                    ],
+                    "default": "none",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "status": {
+                    "comment": [
+                         "The upgrade status. This property is for internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3",
+                    "propLocalId": "4",
+                    "label": "status",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationStatus",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "2", "localName": "created",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be created. An error is returned if the object already exists.  \nIn the return value of a setter method: indicates that an object has been created.  \n"
+                             ],
+                             "label": "created "},
+                         { "value": "8", "localName": "deleted",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be deleted.  \nIn the return value of a setter method: indicates that an object has been deleted.\n"
+                             ],
+                             "label": "deleted "},
+                         { "value": "4", "localName": "modified",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be modified  \nIn the return value of a setter method: indicates that an object has been modified.\n"
+                             ],
+                             "label": "modified "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "type": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2586",
+                    "propLocalId": "33",
+                    "label": "Session Type",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "bgp:SessionType",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "ibgp", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Default is Internal BGP"
+                             ],
+                             "label": " "},
+                         { "value": "2", "localName": "ebgp",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "External BGP"
+                             ],
+                             "label": "ebgp "},
+                         { "value": "1", "localName": "ibgp",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Internal BGP"
+                             ],
+                             "label": "ibgp "}
+                    ],
+                    "default": "ibgp",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "updateElapsedTs": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2605",
+                    "propLocalId": "1227",
+                    "label": "Last Update Received Timestamp",
+                    "baseType": "scalar:Date",
+                    "modelType": "scalar:Date",
+                    "needsPropDelimiters": false,
+                    "uitype": "date",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                }
+            }
+        }
+}

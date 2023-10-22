@@ -1,0 +1,547 @@
+{
+        "bgp:DampeningCtrl": {
+            "contains": {
+
+            },
+            "rnMap": {
+
+            },
+            "identifiedBy": [
+
+            ],
+            "rnFormat": "dampening",
+            "containedBy": {
+                "bgp:DomAf": ""
+            },
+            "superClasses": [
+
+            ],
+            "subClasses": {
+
+            },
+            "relationFrom": {
+
+            },
+            "relationTo": {
+
+            },
+            "dnFormats": [
+                "topology/pod-{id}/node-{id}/sys/bgp/inst/dom-{name}/af-{type}/dampening",
+                "sys/bgp/inst/dom-{name}/af-{type}/dampening"
+            ],
+            "writeAccess": [
+
+            ],
+            "readAccess": [
+                "access-protocol",
+                "admin",
+                "fabric-protocol",
+                "tenant-ext-protocol",
+                "tenant-protocol"
+            ],
+            "faults": {
+
+            },
+            "events": {
+
+            },
+            "stats": {
+
+            },
+            "isAbstract": false,
+            "isConfigurable": false,
+            "isContextRoot": false,
+            "isDeprecated": false,
+            "isEncrypted": false,
+            "isExportable": false,
+            "isPersistent": true,
+            "isSubjectToQuota": false,
+            "isObservable": false,
+            "hasStats": false,
+            "isStat": false,
+            "isFaultable": false,
+            "isDomainable": false,
+            "isHealthScorable": false,
+            "shouldCollectHealthStats": false,
+            "healthCollectionSource": "faults",
+            "hasEventRules": false,
+            "abstractionLayer": "concrete",
+            "apicNxProcessing": false,
+            "monitoringPolicySource": "Parent",
+            "isCreatableDeletable": "always",
+            "platformFlavors": [
+                "apic"
+            ],
+            "classId": "7650",
+            "className": "DampeningCtrl",
+            "classPkg": "bgp",
+            "featureTag": "",
+            "moCategory": "Regular",
+            "label": "Dampening Control",
+            "comment": [
+                "Route dampening parameters"
+            ],
+            "properties": {
+                "childAction": {
+                    "comment": [
+                         "Delete or ignore. For internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "4",
+                    "propLocalId": "5",
+                    "label": "childAction",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationChildAction",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "16384", "localName": "deleteAll",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteAll "},
+                         { "value": "8192", "localName": "deleteNonPresent",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteNonPresent "},
+                         { "value": "4096", "localName": "ignore",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "ignore "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "dn": {
+                    "comment": [
+                         "A tag or metadata is a non-hierarchical keyword or term assigned to the fabric module."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "1",
+                    "propLocalId": "2",
+                    "label": "dn",
+                    "baseType": "reference:BinRef",
+                    "modelType": "reference:BinRef",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "halfLife": {
+                    "comment": [
+                         "Below parametes applicable when type is \"global\"Half Life"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "22641",
+                    "propLocalId": "5640",
+                    "label": "Half Life",
+                    "baseType": "scalar:Uint16",
+                    "modelType": "rtmap:DampHalfLife",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "15", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": "15",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "lcOwn": {
+                    "comment": [
+                         "A value that indicates how this object was created. For internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "9",
+                    "propLocalId": "9",
+                    "label": "lcOwn",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "mo:Owner",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "local", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "4", "localName": "implicit",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "Implicit "},
+                         { "value": "0", "localName": "local",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "Local "},
+                         { "value": "1", "localName": "policy",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "Policy "},
+                         { "value": "2", "localName": "replica",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "Replica "},
+                         { "value": "3", "localName": "resolveOnBehalf",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "ResolvedOnBehalf "}
+                    ],
+                    "default": "local",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "maxSuppressTime": {
+                    "comment": [
+                         "Max Suppress Time"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "22644",
+                    "propLocalId": "5643",
+                    "label": "Max Suppress Time",
+                    "baseType": "scalar:Uint16",
+                    "modelType": "rtmap:DampMaxSuppressTime",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "60", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": "60",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "modTs": {
+                    "comment": [
+                         "The time when this object was last modified."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "7",
+                    "propLocalId": "7",
+                    "label": "modTs",
+                    "baseType": "scalar:Date",
+                    "modelType": "mo:TStamp",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "never", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "never",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "never "}
+                    ],
+                    "default": "never",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "reuse": {
+                    "comment": [
+                         "Reuse Limit"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "22642",
+                    "propLocalId": "5641",
+                    "label": "Reuse Limit",
+                    "baseType": "scalar:Uint16",
+                    "modelType": "rtmap:DampReuse",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "750", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": "750",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rn": {
+                    "comment": [
+                         "Identifies an object from its siblings within the context of its parent object. The distinguished name contains a sequence of relative names."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2",
+                    "propLocalId": "3",
+                    "label": "rn",
+                    "baseType": "reference:BinRN",
+                    "modelType": "reference:BinRN",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rtMap": {
+                    "comment": [
+                         "The name of the route map. This route map name is used to control distribution."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "22640",
+                    "propLocalId": "1269",
+                    "label": "Route Map",
+                    "baseType": "string:Basic",
+                    "modelType": "string:Basic",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "status": {
+                    "comment": [
+                         "The upgrade status. This property is for internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3",
+                    "propLocalId": "4",
+                    "label": "status",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationStatus",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "2", "localName": "created",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be created. An error is returned if the object already exists.  \nIn the return value of a setter method: indicates that an object has been created.  \n"
+                             ],
+                             "label": "created "},
+                         { "value": "8", "localName": "deleted",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be deleted.  \nIn the return value of a setter method: indicates that an object has been deleted.\n"
+                             ],
+                             "label": "deleted "},
+                         { "value": "4", "localName": "modified",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be modified  \nIn the return value of a setter method: indicates that an object has been modified.\n"
+                             ],
+                             "label": "modified "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "suppress": {
+                    "comment": [
+                         "Suppress Limit"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "22643",
+                    "propLocalId": "5642",
+                    "label": "Suppress Limit",
+                    "baseType": "scalar:Uint16",
+                    "modelType": "rtmap:DampSuppress",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "2000", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": "2000",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "type": {
+                    "comment": [
+                         "The specific type of the object or component."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "22639",
+                    "propLocalId": "33",
+                    "label": "Config Type",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "bgp:DampConfigType",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "global", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Default is Global Config"
+                             ],
+                             "label": " "},
+                         { "value": "1", "localName": "global",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Dampening Global Config"
+                             ],
+                             "label": "Global Config "},
+                         { "value": "2", "localName": "route-map",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Dampening Route Map Config"
+                             ],
+                             "label": "Route map config "}
+                    ],
+                    "default": "global",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                }
+            }
+        }
+}

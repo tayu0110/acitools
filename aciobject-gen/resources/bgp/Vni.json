@@ -1,0 +1,702 @@
+{
+        "bgp:Vni": {
+            "contains": {
+                "bgp:RtP": ""
+            },
+            "rnMap": {
+                "rtp-": "bgp:RtP"
+            },
+            "identifiedBy": [
+                "type",
+                "vrfVnid",
+                "bdVnid",
+                "epgVnid"
+            ],
+            "rnFormat": "vni-{type}-vrf-[{vrfVnid}]-bd-[{bdVnid}]-epg-[{epgVnid}]",
+            "containedBy": {
+                "bgp:EncapGroupEvi": ""
+            },
+            "superClasses": [
+                "bgp:EviBase",
+                "nw:CpDom",
+                "nw:GEp",
+                "nw:Conn",
+                "nw:Item"
+            ],
+            "subClasses": {
+
+            },
+            "relationFrom": {
+
+            },
+            "relationTo": {
+
+            },
+            "dnFormats": [
+                "topology/pod-{id}/node-{id}/sys/bgp/inst/encapgroupevi-{id}/vni-{type}-vrf-[{vrfVnid}]-bd-[{bdVnid}]-epg-[{epgVnid}]",
+                "sys/bgp/inst/encapgroupevi-{id}/vni-{type}-vrf-[{vrfVnid}]-bd-[{bdVnid}]-epg-[{epgVnid}]"
+            ],
+            "writeAccess": [
+
+            ],
+            "readAccess": [
+                "access-protocol",
+                "admin",
+                "fabric-protocol",
+                "tenant-ext-protocol",
+                "tenant-protocol"
+            ],
+            "faults": {
+
+            },
+            "events": {
+
+            },
+            "stats": {
+
+            },
+            "isAbstract": false,
+            "isConfigurable": false,
+            "isContextRoot": false,
+            "isDeprecated": false,
+            "isEncrypted": false,
+            "isExportable": false,
+            "isPersistent": true,
+            "isSubjectToQuota": false,
+            "isObservable": false,
+            "hasStats": false,
+            "isStat": false,
+            "isFaultable": false,
+            "isDomainable": false,
+            "isHealthScorable": false,
+            "shouldCollectHealthStats": false,
+            "healthCollectionSource": "faults",
+            "hasEventRules": false,
+            "abstractionLayer": "concrete",
+            "apicNxProcessing": false,
+            "monitoringPolicySource": "Parent",
+            "isCreatableDeletable": "never",
+            "platformFlavors": [
+                "apic"
+            ],
+            "classId": "9801",
+            "className": "Vni",
+            "classPkg": "bgp",
+            "featureTag": "",
+            "moCategory": "Regular",
+            "label": "EncapGroup Ethernet VPN Instance",
+            "comment": [
+                "This object holds VNI information for multi-site routes"
+            ],
+            "properties": {
+                "bdVnid": {
+                    "comment": [
+                         "BD VNID"
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "28828",
+                    "propLocalId": "5349",
+                    "label": "BD VNI Identifier",
+                    "baseType": "base:Encap",
+                    "modelType": "base:Encap",
+                    "needsPropDelimiters": true,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": false,
+                    "isNaming": true,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "bgpCfgFailedBmp": {
+                    "comment": [
+                         "A config failed bitmap."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "29949",
+                    "propLocalId": "4062",
+                    "label": "bgpCfgFailedBmp",
+                    "baseType": "scalar:Bitmask64",
+                    "modelType": "scalar:Bitmask64",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "4", "localName": "bgp:VnibdVnid_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "64", "localName": "bgp:VniepgVnid_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "128", "localName": "bgp:Vnil2Stretch_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "-9223372036854775808", "localName": "bgp:VnilcOwn_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "1152921504606846976", "localName": "bgp:VnimodTs_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "1", "localName": "bgp:Vniname_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "2", "localName": "bgp:Vnird_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "256", "localName": "bgp:Vnitype_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "512", "localName": "bgp:VnivrfVnid_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "bgpCfgFailedTs": {
+                    "comment": [
+                         "A config failed timestamp."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "29951",
+                    "propLocalId": "4064",
+                    "label": "bgpCfgFailedTs",
+                    "baseType": "scalar:Time",
+                    "modelType": "scalar:Time",
+                    "needsPropDelimiters": false,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "bgpCfgState": {
+                    "comment": [
+                         "The config state."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "29950",
+                    "propLocalId": "4063",
+                    "label": "bgpCfgState",
+                    "baseType": "scalar:UByte",
+                    "modelType": "scalar:UByte",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "childAction": {
+                    "comment": [
+                         "Delete or ignore. For internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "4",
+                    "propLocalId": "5",
+                    "label": "childAction",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationChildAction",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "16384", "localName": "deleteAll",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteAll "},
+                         { "value": "8192", "localName": "deleteNonPresent",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteNonPresent "},
+                         { "value": "4096", "localName": "ignore",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "ignore "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "dn": {
+                    "comment": [
+                         "A tag or metadata is a non-hierarchical keyword or term assigned to the fabric module."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "1",
+                    "propLocalId": "2",
+                    "label": "dn",
+                    "baseType": "reference:BinRef",
+                    "modelType": "reference:BinRef",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "epgVnid": {
+                    "comment": [
+                         "EPG VNI Identifier"
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "28829",
+                    "propLocalId": "6912",
+                    "label": "EPG VNI Identifier",
+                    "baseType": "base:Encap",
+                    "modelType": "base:Encap",
+                    "needsPropDelimiters": true,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": false,
+                    "isNaming": true,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "l2Stretch": {
+                    "comment": [
+                         "L2 Stretch Mode"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "33142",
+                    "propLocalId": "7910",
+                    "label": "L2 Stretch Mode",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "bgp:L2Stretch",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "disabled", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "disabled",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "L2 Stretch Disabled "},
+                         { "value": "1", "localName": "enabled",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "L2 Stretch Enabled "}
+                    ],
+                    "default": "disabled",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "lcOwn": {
+                    "comment": [
+                         "A value that indicates how this object was created. For internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "9",
+                    "propLocalId": "9",
+                    "label": "lcOwn",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "mo:Owner",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "local", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "4", "localName": "implicit",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "Implicit "},
+                         { "value": "0", "localName": "local",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "Local "},
+                         { "value": "1", "localName": "policy",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "Policy "},
+                         { "value": "2", "localName": "replica",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "Replica "},
+                         { "value": "3", "localName": "resolveOnBehalf",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "ResolvedOnBehalf "}
+                    ],
+                    "default": "local",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "modTs": {
+                    "comment": [
+                         "The time when this object was last modified."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "7",
+                    "propLocalId": "7",
+                    "label": "modTs",
+                    "baseType": "scalar:Date",
+                    "modelType": "mo:TStamp",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "never", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "never",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "never "}
+                    ],
+                    "default": "never",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "name": {
+                    "comment": [
+                         "The name of the object."
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "16434",
+                    "propLocalId": "13",
+                    "label": "Name",
+                    "baseType": "string:Basic",
+                    "modelType": "naming:Name",
+                    "needsPropDelimiters": false,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": true,
+                    "readOnly": false,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": true,
+                    "isLike": false,
+                    "validators": [
+                         {"min" : 1, "max": 128 }
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rd": {
+                    "comment": [
+                         "The BGP domain route distinguisher."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "20636",
+                    "propLocalId": "1182",
+                    "label": "Route Distinguisher",
+                    "baseType": "base:Community",
+                    "modelType": "base:Community",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rn": {
+                    "comment": [
+                         "Identifies an object from its siblings within the context of its parent object. The distinguished name contains a sequence of relative names."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2",
+                    "propLocalId": "3",
+                    "label": "rn",
+                    "baseType": "reference:BinRN",
+                    "modelType": "reference:BinRN",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "status": {
+                    "comment": [
+                         "The upgrade status. This property is for internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3",
+                    "propLocalId": "4",
+                    "label": "status",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationStatus",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "2", "localName": "created",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be created. An error is returned if the object already exists.  \nIn the return value of a setter method: indicates that an object has been created.  \n"
+                             ],
+                             "label": "created "},
+                         { "value": "8", "localName": "deleted",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be deleted.  \nIn the return value of a setter method: indicates that an object has been deleted.\n"
+                             ],
+                             "label": "deleted "},
+                         { "value": "4", "localName": "modified",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be modified  \nIn the return value of a setter method: indicates that an object has been modified.\n"
+                             ],
+                             "label": "modified "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "type": {
+                    "comment": [
+                         "The specific type of the object or component."
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "28830",
+                    "propLocalId": "33",
+                    "label": "VNI type",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "bgp:VniType",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": false,
+                    "isNaming": true,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "2", "localName": "bd",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "BD Vnid"
+                             ],
+                             "label": "BD Vnid "},
+                         { "value": "bd", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Default is BD Vnid"
+                             ],
+                             "label": " "},
+                         { "value": "3", "localName": "epg",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "EPG Vnid"
+                             ],
+                             "label": "EPG Vnid "},
+                         { "value": "1", "localName": "vrf",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "VRF Vnid"
+                             ],
+                             "label": "VRF Vnid "}
+                    ],
+                    "default": "bd",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "vrfVnid": {
+                    "comment": [
+                         "VRF VNID"
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "28827",
+                    "propLocalId": "1160",
+                    "label": "VRF VNI Identifier",
+                    "baseType": "base:Encap",
+                    "modelType": "base:Encap",
+                    "needsPropDelimiters": true,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": false,
+                    "isNaming": true,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                }
+            }
+        }
+}

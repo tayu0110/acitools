@@ -1,4 +1,4 @@
-use crate::{eqpt, l1, lldp, uribv4, uribv6, AciObject, EndpointScheme};
+use crate::{bgp, eqpt, l1, lldp, uribv4, uribv6, AciObject, EndpointScheme};
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
@@ -78,7 +78,7 @@ pub enum ChildItem {
     ArpEntity {},
     BdEnforceExpCont {},
     BfdEntity {},
-    BgpEntity {},
+    BgpEntity(bgp::entity::BgpEntity),
     CapCat {},
     CdpEntity {},
     CertEntity {},

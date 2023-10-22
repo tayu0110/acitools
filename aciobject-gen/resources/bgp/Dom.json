@@ -1,0 +1,1328 @@
+{
+        "bgp:Dom": {
+            "contains": {
+                "bgp:BDEvi": "",
+                "bgp:Db": "",
+                "bgp:DomAf": "",
+                "bgp:DomEvi": "",
+                "bgp:Gr": "",
+                "bgp:InfraL3out": "",
+                "bgp:PathCtrl": "",
+                "bgp:Peer": "",
+                "fault:Counts": "",
+                "fault:Inst": "",
+                "health:Inst": ""
+            },
+            "rnMap": {
+                "af-": "bgp:DomAf",
+                "bdevi-": "bgp:BDEvi",
+                "db-": "bgp:Db",
+                "evi": "bgp:DomEvi",
+                "fault-": "fault:Inst",
+                "fltCnts": "fault:Counts",
+                "gr": "bgp:Gr",
+                "health": "health:Inst",
+                "infraL3out-": "bgp:InfraL3out",
+                "pathctrl": "bgp:PathCtrl",
+                "peer-": "bgp:Peer"
+            },
+            "identifiedBy": [
+                "name"
+            ],
+            "rnFormat": "dom-{name}",
+            "containedBy": {
+                "bgp:Inst": ""
+            },
+            "superClasses": [
+                "l3:ProtDom",
+                "nw:ProtDom",
+                "nw:CpDom",
+                "nw:GEp",
+                "nw:Conn",
+                "nw:Item"
+            ],
+            "subClasses": {
+
+            },
+            "relationFrom": {
+
+            },
+            "relationTo": {
+
+            },
+            "dnFormats": [
+                "topology/pod-{id}/node-{id}/sys/bgp/inst/dom-{name}",
+                "sys/bgp/inst/dom-{name}"
+            ],
+            "writeAccess": [
+
+            ],
+            "readAccess": [
+                "access-protocol",
+                "admin",
+                "fabric-protocol",
+                "tenant-ext-protocol",
+                "tenant-protocol"
+            ],
+            "faults": {
+                "F3080": "fltBgpDomBGPSessionFlap"
+            },
+            "events": {
+                "E4208053": "state-transition|operStChange|bgp:Dom",
+                "E4208054": "state-transition|noRd|bgp:Dom"
+            },
+            "stats": {
+
+            },
+            "isAbstract": false,
+            "isConfigurable": false,
+            "isContextRoot": false,
+            "isDeprecated": false,
+            "isEncrypted": false,
+            "isExportable": false,
+            "isPersistent": true,
+            "isSubjectToQuota": false,
+            "isObservable": true,
+            "hasStats": false,
+            "isStat": false,
+            "isFaultable": true,
+            "isDomainable": false,
+            "isHealthScorable": true,
+            "shouldCollectHealthStats": false,
+            "healthCollectionSource": "faults",
+            "hasEventRules": true,
+            "abstractionLayer": "concrete",
+            "apicNxProcessing": false,
+            "monitoringPolicySource": "Parent",
+            "isCreatableDeletable": "never",
+            "platformFlavors": [
+                "apic"
+            ],
+            "classId": "2605",
+            "className": "Dom",
+            "classPkg": "bgp",
+            "featureTag": "",
+            "moCategory": "Regular",
+            "label": "Domain",
+            "comment": [
+                "The object that represents all the BGP domain (VRF) information."
+            ],
+            "properties": {
+                "bgpCfgFailedBmp": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "14981",
+                    "propLocalId": "4062",
+                    "label": "bgpCfgFailedBmp",
+                    "baseType": "scalar:Bitmask64",
+                    "modelType": "scalar:Bitmask64",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "16", "localName": "bgp:DomclusterId_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "32", "localName": "bgp:Domctrl_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "64", "localName": "bgp:Domencap_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "128", "localName": "bgp:DomevpnRd_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "256", "localName": "bgp:DomfirstBestPathDelay_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "2048", "localName": "bgp:DomholdIntvl_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "4096", "localName": "bgp:DominternalDomainId_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "8192", "localName": "bgp:DomkaIntvl_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "-9223372036854775808", "localName": "bgp:DomlcOwn_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "16384", "localName": "bgp:DommaxAsLimit_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "1152921504606846976", "localName": "bgp:DommodTs_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "32768", "localName": "bgp:Dommode_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "65536", "localName": "bgp:DommonPolDn_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "131072", "localName": "bgp:DommplsVPNLabelIndex_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "262144", "localName": "bgp:DommsiteClusterId_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "1", "localName": "bgp:Domname_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "8388608", "localName": "bgp:Domrd_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "16777216", "localName": "bgp:DomrtrId_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "33554432", "localName": "bgp:Domtype_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "bgpCfgFailedTs": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "14983",
+                    "propLocalId": "4064",
+                    "label": "bgpCfgFailedTs",
+                    "baseType": "scalar:Time",
+                    "modelType": "scalar:Time",
+                    "needsPropDelimiters": false,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "bgpCfgState": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "14982",
+                    "propLocalId": "4063",
+                    "label": "bgpCfgState",
+                    "baseType": "scalar:UByte",
+                    "modelType": "scalar:UByte",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "childAction": {
+                    "comment": [
+                         "Delete or ignore. For internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "4",
+                    "propLocalId": "5",
+                    "label": "childAction",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationChildAction",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "16384", "localName": "deleteAll",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteAll "},
+                         { "value": "8192", "localName": "deleteNonPresent",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteNonPresent "},
+                         { "value": "4096", "localName": "ignore",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "ignore "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "clusterId": {
+                    "comment": [
+                         "The BGP route reflector ID (Cluster ID) that identifies the cluster of the route reflector domain."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2543",
+                    "propLocalId": "1181",
+                    "label": "Cluster ID",
+                    "baseType": "scalar:Uint32",
+                    "modelType": "bgp:ClusterId",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "unspecified", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "unspecified",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "Unspecified "}
+                    ],
+                    "default": "unspecified",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "ctrl": {
+                    "comment": [
+                         "The control state."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "49935",
+                    "propLocalId": "182",
+                    "label": "Control",
+                    "baseType": "scalar:Bitmask8",
+                    "modelType": "bgp:DomControl",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "2", "localName": "encapMPLS",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "VRF has MPLS encapsulation"
+                             ],
+                             "label": "MPLS encapsulation "},
+                         { "value": "1", "localName": "intersiteL3out",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "L3out is stretched across sites"
+                             ],
+                             "label": "L3out stretch across sites "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "dn": {
+                    "comment": [
+                         "A tag or metadata is a non-hierarchical keyword or term assigned to the fabric module."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "1",
+                    "propLocalId": "2",
+                    "label": "dn",
+                    "baseType": "reference:BinRef",
+                    "modelType": "reference:BinRef",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "encap": {
+                    "comment": [
+                         "The port encapsulation."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "20641",
+                    "propLocalId": "143",
+                    "label": "Encapsulation",
+                    "baseType": "base:Encap",
+                    "modelType": "base:Encap",
+                    "needsPropDelimiters": true,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "evpnRd": {
+                    "comment": [
+                         "EVPN Route distinguisher"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "57400",
+                    "propLocalId": "12916",
+                    "label": "EVPN Route Distinguisher",
+                    "baseType": "base:Community",
+                    "modelType": "base:Community",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "firstBestPathDelay": {
+                    "comment": [
+                         "Value of timer to trigger first BGP bestpath"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "20985",
+                    "propLocalId": "5391",
+                    "label": "First Best Path Delay Time",
+                    "baseType": "scalar:Uint16",
+                    "modelType": "bgp:BestPathDelayTime",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "1", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": "1",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "firstPeerUpTs": {
+                    "comment": [
+                         "Indicates the BGP domain timestamp of the first peer up."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2549",
+                    "propLocalId": "1184",
+                    "label": "First Peer Up Timestamp",
+                    "baseType": "scalar:Date",
+                    "modelType": "scalar:Date",
+                    "needsPropDelimiters": false,
+                    "uitype": "date",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "flags": {
+                    "comment": [
+                         "The IP address flags."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "41028",
+                    "propLocalId": "50",
+                    "label": "Dom Flags",
+                    "baseType": "scalar:Bitmask16",
+                    "modelType": "bgp:DomFlags",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "unspecified", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "1", "localName": "rtr-id-change",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Router Id Changed"
+                             ],
+                             "label": "Router Id Change "},
+                         { "value": "0", "localName": "unspecified",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unspecified"
+                             ],
+                             "label": "Unspecified "}
+                    ],
+                    "default": "unspecified",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "holdIntvl": {
+                    "comment": [
+                         "The time period to wait before declaring the neighbor device down."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2545",
+                    "propLocalId": "426",
+                    "label": "Hold Interval",
+                    "baseType": "scalar:Uint16",
+                    "modelType": "bgp:HoldIntvl",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "180", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": "180",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "internalDomainId": {
+                    "comment": [
+                         "internalDomainId for BGP loop prevention feature"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "62462",
+                    "propLocalId": "13646",
+                    "label": "internal Domain ID",
+                    "baseType": "base:Community",
+                    "modelType": "base:Community",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "kaIntvl": {
+                    "comment": [
+                         "The interval time between sending keepalive messages."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2544",
+                    "propLocalId": "425",
+                    "label": "Keepalive Interval",
+                    "baseType": "scalar:Uint16",
+                    "modelType": "bgp:KaIntvl",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "60", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": "60",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "lcOwn": {
+                    "comment": [
+                         "A value that indicates how this object was created. For internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "9",
+                    "propLocalId": "9",
+                    "label": "lcOwn",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "mo:Owner",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "local", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "4", "localName": "implicit",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "Implicit "},
+                         { "value": "0", "localName": "local",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "Local "},
+                         { "value": "1", "localName": "policy",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "Policy "},
+                         { "value": "2", "localName": "replica",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "Replica "},
+                         { "value": "3", "localName": "resolveOnBehalf",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "ResolvedOnBehalf "}
+                    ],
+                    "default": "local",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "maxAsLimit": {
+                    "comment": [
+                         "The maximum autonomous system (AS) limit is used to discard routes that have excessive AS numbers."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "16991",
+                    "propLocalId": "4375",
+                    "label": "Max AS Limit",
+                    "baseType": "scalar:Uint16",
+                    "modelType": "bgp:MaxAsLimit",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "0", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": "0",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "modTs": {
+                    "comment": [
+                         "The time when this object was last modified."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "7",
+                    "propLocalId": "7",
+                    "label": "modTs",
+                    "baseType": "scalar:Date",
+                    "modelType": "mo:TStamp",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "never", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "never",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "never "}
+                    ],
+                    "default": "never",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "mode": {
+                    "comment": [
+                         "The BGP Domain mode."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2541",
+                    "propLocalId": "14",
+                    "label": "Mode",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "bgp:Mode",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "fabric", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Default is fabric"
+                             ],
+                             "label": " "},
+                         { "value": "2", "localName": "external",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "BGP with external connected routers"
+                             ],
+                             "label": "External "},
+                         { "value": "1", "localName": "fabric",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "BGP running in fabric"
+                             ],
+                             "label": "Fabric "},
+                         { "value": "3", "localName": "proxy",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "BGP mode with multi-protocol AFs only"
+                             ],
+                             "label": "Proxy "}
+                    ],
+                    "default": "fabric",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "monPolDn": {
+                    "comment": [
+                         "The object that represents the BGP domain monitoring policy information."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "14448",
+                    "propLocalId": "228",
+                    "label": "Monitoring policy attached to this observable object",
+                    "baseType": "reference:BinRef",
+                    "modelType": "reference:BinRef",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "mplsVPNLabelIndex": {
+                    "isConfigurable": false,
+                    "propGlobalId": "56725",
+                    "propLocalId": "12806",
+                    "label": "MPLS VPN Label Index",
+                    "baseType": "scalar:Uint32",
+                    "modelType": "scalar:Uint32",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "msiteClusterId": {
+                    "comment": [
+                         "Route reflector id (cluster id) identifies the cluster\n                     of the multi-site route reflector domain"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "30378",
+                    "propLocalId": "7542",
+                    "label": "Multi-Site Cluster ID",
+                    "baseType": "scalar:Uint32",
+                    "modelType": "bgp:ClusterId",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "unspecified", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "unspecified",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "Unspecified "}
+                    ],
+                    "default": "unspecified",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "name": {
+                    "comment": [
+                         "The BGP Domain name. This name can be up to 64 alphanumeric characters. Note that you cannot change this name after the object has been saved."
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "5874",
+                    "propLocalId": "13",
+                    "label": "Name",
+                    "baseType": "string:Basic",
+                    "modelType": "naming:Name",
+                    "needsPropDelimiters": false,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": false,
+                    "isNaming": true,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": true,
+                    "isLike": false,
+                    "validators": [
+                         {"min" : 1, "max": 128 }
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "numEstPeers": {
+                    "comment": [
+                         "Number of established peers"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2551",
+                    "propLocalId": "1186",
+                    "label": "Number of Established Peers",
+                    "baseType": "scalar:Uint32",
+                    "modelType": "bgp:NumPeers",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "numPeers": {
+                    "comment": [
+                         "Number of peers."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2550",
+                    "propLocalId": "1185",
+                    "label": "Number of Peers",
+                    "baseType": "scalar:Uint32",
+                    "modelType": "bgp:NumPeers",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "operRtrId": {
+                    "comment": [
+                         "The domain operational router ID."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2548",
+                    "propLocalId": "1183",
+                    "label": "Operational Router ID",
+                    "baseType": "address:IPv4",
+                    "modelType": "ip:RtrId",
+                    "needsPropDelimiters": false,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "operSt": {
+                    "comment": [
+                         "The graceful restart helper enabled for a specific domain."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2547",
+                    "propLocalId": "29",
+                    "label": "Operational State",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "bgp:DomOperSt",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "unknown", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Default is unknown"
+                             ],
+                             "label": " "},
+                         { "value": "2", "localName": "down",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Down"
+                             ],
+                             "label": "Down "},
+                         { "value": "0", "localName": "unknown",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unknown"
+                             ],
+                             "label": "Unknown "},
+                         { "value": "1", "localName": "up",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Up"
+                             ],
+                             "label": "Up "}
+                    ],
+                    "default": "unknown",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rd": {
+                    "comment": [
+                         "A unique value that extends the formal network address for all routes in a particular VRF, making the route unique within the entire BGP table."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2546",
+                    "propLocalId": "1182",
+                    "label": "Route Distinguisher",
+                    "baseType": "base:Community",
+                    "modelType": "base:Community",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rn": {
+                    "comment": [
+                         "Identifies an object from its siblings within the context of its parent object. The distinguished name contains a sequence of relative names."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2",
+                    "propLocalId": "3",
+                    "label": "rn",
+                    "baseType": "reference:BinRN",
+                    "modelType": "reference:BinRN",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rtrId": {
+                    "comment": [
+                         "The BGP router ID."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2542",
+                    "propLocalId": "908",
+                    "label": "Router ID",
+                    "baseType": "address:IPv4",
+                    "modelType": "ip:RtrId",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "status": {
+                    "comment": [
+                         "The upgrade status. This property is for internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3",
+                    "propLocalId": "4",
+                    "label": "status",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationStatus",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "2", "localName": "created",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be created. An error is returned if the object already exists.  \nIn the return value of a setter method: indicates that an object has been created.  \n"
+                             ],
+                             "label": "created "},
+                         { "value": "8", "localName": "deleted",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be deleted.  \nIn the return value of a setter method: indicates that an object has been deleted.\n"
+                             ],
+                             "label": "deleted "},
+                         { "value": "4", "localName": "modified",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be modified  \nIn the return value of a setter method: indicates that an object has been modified.\n"
+                             ],
+                             "label": "modified "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "type": {
+                    "comment": [
+                         "The specific type of the object or component."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "20640",
+                    "propLocalId": "33",
+                    "label": "Domain Type",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "bgp:DomType",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "system", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Default is system domain"
+                             ],
+                             "label": " "},
+                         { "value": "2", "localName": "limited",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Domain Limited to BGP"
+                             ],
+                             "label": "Limited Domain "},
+                         { "value": "1", "localName": "system",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "System Domain"
+                             ],
+                             "label": "System Domain "}
+                    ],
+                    "default": "system",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                }
+            }
+        }
+}

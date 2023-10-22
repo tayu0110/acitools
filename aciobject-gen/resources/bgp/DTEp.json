@@ -1,0 +1,751 @@
+{
+        "bgp:DTEp": {
+            "contains": {
+
+            },
+            "rnMap": {
+
+            },
+            "identifiedBy": [
+                "id"
+            ],
+            "rnFormat": "dtep-[{id}]",
+            "containedBy": {
+                "bgp:Db": ""
+            },
+            "superClasses": [
+                "tunnel:DEp",
+                "tunnel:Ep",
+                "nw:ConnEp",
+                "nw:Ep",
+                "nw:Conn",
+                "nw:Item"
+            ],
+            "subClasses": {
+
+            },
+            "relationFrom": {
+
+            },
+            "relationTo": {
+
+            },
+            "dnFormats": [
+                "topology/pod-{id}/node-{id}/sys/bgp/inst/dom-{name}/db-{type}/dtep-[{id}]",
+                "sys/bgp/inst/dom-{name}/db-{type}/dtep-[{id}]"
+            ],
+            "writeAccess": [
+
+            ],
+            "readAccess": [
+                "access-connectivity",
+                "access-protocol",
+                "admin",
+                "fabric-connectivity",
+                "fabric-protocol",
+                "tenant-connectivity",
+                "tenant-ext-protocol",
+                "tenant-protocol"
+            ],
+            "faults": {
+
+            },
+            "events": {
+
+            },
+            "stats": {
+
+            },
+            "isAbstract": false,
+            "isConfigurable": false,
+            "isContextRoot": false,
+            "isDeprecated": false,
+            "isEncrypted": false,
+            "isExportable": false,
+            "isPersistent": true,
+            "isSubjectToQuota": false,
+            "isObservable": false,
+            "hasStats": false,
+            "isStat": false,
+            "isFaultable": false,
+            "isDomainable": false,
+            "isHealthScorable": false,
+            "shouldCollectHealthStats": false,
+            "healthCollectionSource": "faults",
+            "hasEventRules": false,
+            "abstractionLayer": "concrete",
+            "apicNxProcessing": false,
+            "monitoringPolicySource": "Parent",
+            "isCreatableDeletable": "never",
+            "platformFlavors": [
+                "apic"
+            ],
+            "classId": "6942",
+            "className": "DTEp",
+            "classPkg": "bgp",
+            "featureTag": "",
+            "moCategory": "Regular",
+            "label": "Discovered Tunnel Endpoint",
+            "comment": [
+                "Tunnel endpoints discovered through bgp"
+            ],
+            "properties": {
+                "childAction": {
+                    "comment": [
+                         "Delete or ignore. For internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "4",
+                    "propLocalId": "5",
+                    "label": "childAction",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationChildAction",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "16384", "localName": "deleteAll",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteAll "},
+                         { "value": "8192", "localName": "deleteNonPresent",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteNonPresent "},
+                         { "value": "4096", "localName": "ignore",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "ignore "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "dn": {
+                    "comment": [
+                         "A tag or metadata is a non-hierarchical keyword or term assigned to the fabric module."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "1",
+                    "propLocalId": "2",
+                    "label": "dn",
+                    "baseType": "reference:BinRef",
+                    "modelType": "reference:BinRef",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "encapt": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "4116",
+                    "propLocalId": "2119",
+                    "label": "Encapsulation Type",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "tunnel:EncapT",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "ivxlan", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "2", "localName": "ivxlan",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "ivxlan"
+                             ],
+                             "label": "iVXLAN encap "},
+                         { "value": "3", "localName": "nvgre",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "nvgre"
+                             ],
+                             "label": "NV-GRE encap "},
+                         { "value": "0", "localName": "unknown",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unknown"
+                             ],
+                             "label": "unknown "},
+                         { "value": "1", "localName": "vxlan",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "vxlan"
+                             ],
+                             "label": "VXLAN encap "}
+                    ],
+                    "default": "ivxlan",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "id": {
+                    "comment": [
+                         "An object identifier."
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "20697",
+                    "propLocalId": "12",
+                    "label": "ID",
+                    "baseType": "address:Ip",
+                    "modelType": "tunnel:EpId",
+                    "needsPropDelimiters": true,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": false,
+                    "isNaming": true,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": true,
+                    "isLike": false,
+                    "validateAsIPv4OrIPv6": true,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "modTs": {
+                    "comment": [
+                         "The time when this object was last modified."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "7",
+                    "propLocalId": "7",
+                    "label": "modTs",
+                    "baseType": "scalar:Date",
+                    "modelType": "mo:TStamp",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "never", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "never",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "never "}
+                    ],
+                    "default": "never",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "name": {
+                    "comment": [
+                         "The name of the object."
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "16432",
+                    "propLocalId": "13",
+                    "label": "Name",
+                    "baseType": "string:Basic",
+                    "modelType": "naming:Name",
+                    "needsPropDelimiters": false,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": true,
+                    "readOnly": false,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": true,
+                    "isLike": false,
+                    "validators": [
+                         {"min" : 1, "max": 128 }
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rn": {
+                    "comment": [
+                         "Identifies an object from its siblings within the context of its parent object. The distinguished name contains a sequence of relative names."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2",
+                    "propLocalId": "3",
+                    "label": "rn",
+                    "baseType": "reference:BinRN",
+                    "modelType": "reference:BinRN",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "role": {
+                    "comment": [
+                         "The remote end point role type."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "4118",
+                    "propLocalId": "18",
+                    "label": "Role",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "top:NodeRole",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "1", "localName": "controller",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Controller"
+                             ],
+                             "label": "controller "},
+                         { "value": "unsupported", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "2", "localName": "leaf",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Leaf"
+                             ],
+                             "label": "leaf "},
+                         { "value": "6", "localName": "protection-chain",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Protection chain IP"
+                             ],
+                             "label": "protection-chain "},
+                         { "value": "3", "localName": "spine",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Spine"
+                             ],
+                             "label": "spine "},
+                         { "value": "0", "localName": "unsupported",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "unknown "},
+                         { "value": "5", "localName": "vip",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "VPC IP address"
+                             ],
+                             "label": "vip "},
+                         { "value": "4", "localName": "vleaf",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "vLeaf"
+                             ],
+                             "label": "vleaf "}
+                    ],
+                    "default": "unsupported",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "status": {
+                    "comment": [
+                         "The upgrade status. This property is for internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3",
+                    "propLocalId": "4",
+                    "label": "status",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationStatus",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "2", "localName": "created",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be created. An error is returned if the object already exists.  \nIn the return value of a setter method: indicates that an object has been created.  \n"
+                             ],
+                             "label": "created "},
+                         { "value": "8", "localName": "deleted",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be deleted.  \nIn the return value of a setter method: indicates that an object has been deleted.\n"
+                             ],
+                             "label": "deleted "},
+                         { "value": "4", "localName": "modified",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be modified  \nIn the return value of a setter method: indicates that an object has been modified.\n"
+                             ],
+                             "label": "modified "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "type": {
+                    "comment": [
+                         "The specific type of the routed vlan interface."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "4117",
+                    "propLocalId": "33",
+                    "label": "Type",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "tunnel:EpT",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "512", "localName": "dci-mcast-hrep",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Tunnel to remote site's dci mcast tep"
+                             ],
+                             "label": "Remote Site Dci Mcast "},
+                         { "value": "256", "localName": "dci-ucast",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Tunnel to remote pod's dci ucast tep"
+                             ],
+                             "label": "Remote Pod Dci Unicast "},
+                         { "value": "physical", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Tunnel to RL VPC peer"
+                             ],
+                             "label": " "},
+                         { "value": "32", "localName": "fabric-ext",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Fabric external mode"
+                             ],
+                             "label": "Fabric External "},
+                         { "value": "1048576", "localName": "ivleaf",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "ivleaf"
+                             ],
+                             "label": "ivleaf "},
+                         { "value": "1024", "localName": "learn-disabled",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Learn Disabled"
+                             ],
+                             "label": "Learn Disabled "},
+                         { "value": "33554432", "localName": "multidomain-anycast-v4-tep",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "All local v4 endpoints hosted on MDP leafs point towards this tunnel"
+                             ],
+                             "label": "Local Loopback tunnel allocated from rtep pool created on Campus BLs "},
+                         { "value": "67108864", "localName": "multidomain-anycast-v6-tep",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "All local v6 endpoints hosted on MDP leafs point towards this tunnel"
+                             ],
+                             "label": "Local Loopback tunnel allocated from rtep pool created on Campus BLs "},
+                         { "value": "4194304", "localName": "multidomain-ext-tep",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "CS-TEP loopback (allocated on Spines in POD which has Campus BLs)\n                     Value comes from POD TEP Pool. All Campus endpoints are learnt against\n                     this tunnel. This tunnel will be created as DCI tunnel internally\n                     to achieve VNID/SCLASS translations. Only one CS-TEP per site."
+                             ],
+                             "label": "Local Loopback Tunenl allocated from POD tep pool to support SDA integration "},
+                         { "value": "8388608", "localName": "multidomain-int-tep",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "IS-TEP loopback (allocated on Spines in POD which has Campus BLs)\n                     Value comes from POD TEP Pool. Traffic from Campus entering the Campus BLs\n                     are redirected to this tunnel. This tunnel will also be created as DCI\n                     tunnel internally to trigger VNID/SCLASS translations. Only one IS-TEP per site."
+                             ],
+                             "label": "Local Loopback tunnel allocated from POD tep pool to support SDA integration "},
+                         { "value": "16777216", "localName": "multidomain-remote-dp-tep",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Multidomain Remote TEP dynamicall created by BGP when\n                     EVPN routes are learnt against the given Tunnel Endpoint."
+                             ],
+                             "label": "SDA Remote Tunnels dynamically created on Campus BLs "},
+                         { "value": "4096", "localName": "non-fabric-golf",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Non Fabric Golf"
+                             ],
+                             "label": "Non Fabric Golf "},
+                         { "value": "64", "localName": "non-fabric-untrusted",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Non Fabric Untrusted nodes"
+                             ],
+                             "label": "Non Fabric Untrusted Node "},
+                         { "value": "1", "localName": "physical",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Physical endpoint"
+                             ],
+                             "label": "Physical Ep "},
+                         { "value": "16", "localName": "proxy-acast-mac",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Proxy anycast mac tunnel endpoint"
+                             ],
+                             "label": "Proxy Anycast MAC Ep "},
+                         { "value": "4", "localName": "proxy-acast-v4",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Proxy anycast v4 tunnel endpoint"
+                             ],
+                             "label": "Proxy Anycast IPv4 Ep "},
+                         { "value": "8", "localName": "proxy-acast-v6",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Proxy anycast v6 tunnel endpoint"
+                             ],
+                             "label": "Proxy Anycast IPv6 Ep "},
+                         { "value": "262144", "localName": "rl-direct",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "RL Direct"
+                             ],
+                             "label": "RL direct switching "},
+                         { "value": "524288", "localName": "rl-direct-pod",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "RL Direct Pod"
+                             ],
+                             "label": "RL direct switching interpod "},
+                         { "value": "134217728", "localName": "rl-direct-rt-ptep",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "RL Direct RT-PTEP"
+                             ],
+                             "label": "Direct tunnel from RL to LL for copy service and BGP "},
+                         { "value": "16384", "localName": "rl-mcast-hrep",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "RL mcast"
+                             ],
+                             "label": "Remote Leaf Multicast "},
+                         { "value": "2097152", "localName": "rl-routable",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "RL Routable"
+                             ],
+                             "label": "RL Routable "},
+                         { "value": "2048", "localName": "rl-ss",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Tunnel to remote leaf's tep for shared service"
+                             ],
+                             "label": "Remote Leaf Shared Service "},
+                         { "value": "8192", "localName": "rl-ucast",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "RL ucast"
+                             ],
+                             "label": "Remote Leaf Unicast "},
+                         { "value": "32768", "localName": "rl-vpc",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Tunnel to RL VPC peer"
+                             ],
+                             "label": "Remote Leaf VPC "},
+                         { "value": "128", "localName": "underlay-mcast",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Underlay Muticast Interface used for multicast routing"
+                             ],
+                             "label": "Underlay Multicast "},
+                         { "value": "2", "localName": "virtual",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Virtual endpoint"
+                             ],
+                             "label": "Virtual Ep "},
+                         { "value": "131072", "localName": "vpod-mcast-hrep",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "VPOD mcast"
+                             ],
+                             "label": "Vpod Leaf Multicast "},
+                         { "value": "65536", "localName": "vpod-ucast",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "VPOD ucast"
+                             ],
+                             "label": "Vpod Leaf Unicast "}
+                    ],
+                    "default": "physical",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                }
+            }
+        }
+}

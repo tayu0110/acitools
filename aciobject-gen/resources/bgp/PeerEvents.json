@@ -1,0 +1,1771 @@
+{
+        "bgp:PeerEvents": {
+            "contains": {
+
+            },
+            "rnMap": {
+
+            },
+            "identifiedBy": [
+
+            ],
+            "rnFormat": "ev",
+            "containedBy": {
+                "bgp:PeerEntry": ""
+            },
+            "superClasses": [
+
+            ],
+            "subClasses": {
+
+            },
+            "relationFrom": {
+
+            },
+            "relationTo": {
+
+            },
+            "dnFormats": [
+                "topology/pod-{id}/node-{id}/sys/bgp/inst/dom-{name}/peer-[{addr}]/ent-[{addr}]/ev",
+                "sys/bgp/inst/dom-{name}/peer-[{addr}]/ent-[{addr}]/ev"
+            ],
+            "writeAccess": [
+
+            ],
+            "readAccess": [
+                "access-protocol",
+                "admin",
+                "fabric-protocol",
+                "tenant-ext-protocol",
+                "tenant-protocol"
+            ],
+            "faults": {
+
+            },
+            "events": {
+                "E4208095": "state-transition|lastResetReason|bgp:PeerEvents"
+            },
+            "stats": {
+
+            },
+            "isAbstract": false,
+            "isConfigurable": false,
+            "isContextRoot": false,
+            "isDeprecated": false,
+            "isEncrypted": false,
+            "isExportable": false,
+            "isPersistent": true,
+            "isSubjectToQuota": false,
+            "isObservable": true,
+            "hasStats": false,
+            "isStat": false,
+            "isFaultable": false,
+            "isDomainable": false,
+            "isHealthScorable": false,
+            "shouldCollectHealthStats": false,
+            "healthCollectionSource": "faults",
+            "hasEventRules": true,
+            "abstractionLayer": "concrete",
+            "apicNxProcessing": false,
+            "monitoringPolicySource": "Parent",
+            "isCreatableDeletable": "always",
+            "platformFlavors": [
+                "apic"
+            ],
+            "classId": "2610",
+            "className": "PeerEvents",
+            "classPkg": "bgp",
+            "featureTag": "",
+            "moCategory": "Regular",
+            "label": "Peer Events",
+            "comment": [
+                "Peer event information."
+            ],
+            "properties": {
+                "childAction": {
+                    "comment": [
+                         "Delete or ignore. For internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "4",
+                    "propLocalId": "5",
+                    "label": "childAction",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationChildAction",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "16384", "localName": "deleteAll",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteAll "},
+                         { "value": "8192", "localName": "deleteNonPresent",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteNonPresent "},
+                         { "value": "4096", "localName": "ignore",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "ignore "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "dn": {
+                    "comment": [
+                         "A tag or metadata is a non-hierarchical keyword or term assigned to the fabric module."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "1",
+                    "propLocalId": "2",
+                    "label": "dn",
+                    "baseType": "reference:BinRef",
+                    "modelType": "reference:BinRef",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "lastErrDataRsvd": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2623",
+                    "propLocalId": "1245",
+                    "label": "Last Error Data Received",
+                    "baseType": "string:Basic",
+                    "modelType": "string:Basic",
+                    "needsPropDelimiters": false,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "lastErrDataSent": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2624",
+                    "propLocalId": "1246",
+                    "label": "Last Error Data Sent",
+                    "baseType": "string:Basic",
+                    "modelType": "string:Basic",
+                    "needsPropDelimiters": false,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "lastErrLenRsvd": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2621",
+                    "propLocalId": "1243",
+                    "label": "Last Error Length Received",
+                    "baseType": "scalar:UByte",
+                    "modelType": "bgp:LastErrLen",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "lastErrLenSent": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2622",
+                    "propLocalId": "1244",
+                    "label": "Last Error Length Sent",
+                    "baseType": "scalar:UByte",
+                    "modelType": "bgp:LastErrLen",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "lastErrValRsvd": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2619",
+                    "propLocalId": "1241",
+                    "label": "Last Error Value Received",
+                    "baseType": "scalar:Uint32",
+                    "modelType": "bgp:LastErrVal",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "lastErrValSent": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2615",
+                    "propLocalId": "1237",
+                    "label": "Last Error Value Sent",
+                    "baseType": "scalar:Uint32",
+                    "modelType": "bgp:LastErrVal",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "majErrRstRsvd": {
+                    "comment": [
+                         "Major error during last reset received"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2617",
+                    "propLocalId": "1239",
+                    "label": "Major Error During Last Reset Received",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "bgp:MajNotifErr",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "7", "localName": "cap-msg-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Capability message error"
+                             ],
+                             "label": "Capability Message Error "},
+                         { "value": "6", "localName": "cease-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Cease error"
+                             ],
+                             "label": "Cease Error "},
+                         { "value": "107", "localName": "dyn-cap-no-buf",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Dynamic capability no buffer"
+                             ],
+                             "label": "Dynamic Capability no Buffer "},
+                         { "value": "103", "localName": "fd-ioctl-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "FD ioctl error"
+                             ],
+                             "label": "FD Ioctl Error "},
+                         { "value": "102", "localName": "fd-read-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "FD read error"
+                             ],
+                             "label": "FD Read Error "},
+                         { "value": "5", "localName": "fsm-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "FSM error"
+                             ],
+                             "label": "FSM Error "},
+                         { "value": "1", "localName": "hdr-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Header error"
+                             ],
+                             "label": "Header Error "},
+                         { "value": "4", "localName": "hold-timer-exp",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Holdtimer expired"
+                             ],
+                             "label": "Holdtimer Expired "},
+                         { "value": "0", "localName": "none",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "None"
+                             ],
+                             "label": "None "},
+                         { "value": "2", "localName": "open-msg-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Open message error"
+                             ],
+                             "label": "Open Message Error "},
+                         { "value": "104", "localName": "peer-close-sess-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Peer closed session error"
+                             ],
+                             "label": "Peer Closed Session Error "},
+                         { "value": "101", "localName": "process-restart-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Process restart error"
+                             ],
+                             "label": "Process Restart Error "},
+                         { "value": "106", "localName": "rcvd-dup-conn-req",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Received duplicate connection request"
+                             ],
+                             "label": "Received Duplicate Connection Request "},
+                         { "value": "105", "localName": "rcvd-notif-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Received notification error"
+                             ],
+                             "label": "Peer Received Notification Error "},
+                         { "value": "3", "localName": "upd-msg-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Update message error"
+                             ],
+                             "label": "Update Message Error "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "majErrRstSent": {
+                    "comment": [
+                         "Major error during last reset sent"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2613",
+                    "propLocalId": "1235",
+                    "label": "Major Error During Last Resent Sent",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "bgp:MajNotifErr",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "7", "localName": "cap-msg-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Capability message error"
+                             ],
+                             "label": "Capability Message Error "},
+                         { "value": "6", "localName": "cease-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Cease error"
+                             ],
+                             "label": "Cease Error "},
+                         { "value": "107", "localName": "dyn-cap-no-buf",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Dynamic capability no buffer"
+                             ],
+                             "label": "Dynamic Capability no Buffer "},
+                         { "value": "103", "localName": "fd-ioctl-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "FD ioctl error"
+                             ],
+                             "label": "FD Ioctl Error "},
+                         { "value": "102", "localName": "fd-read-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "FD read error"
+                             ],
+                             "label": "FD Read Error "},
+                         { "value": "5", "localName": "fsm-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "FSM error"
+                             ],
+                             "label": "FSM Error "},
+                         { "value": "1", "localName": "hdr-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Header error"
+                             ],
+                             "label": "Header Error "},
+                         { "value": "4", "localName": "hold-timer-exp",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Holdtimer expired"
+                             ],
+                             "label": "Holdtimer Expired "},
+                         { "value": "0", "localName": "none",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "None"
+                             ],
+                             "label": "None "},
+                         { "value": "2", "localName": "open-msg-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Open message error"
+                             ],
+                             "label": "Open Message Error "},
+                         { "value": "104", "localName": "peer-close-sess-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Peer closed session error"
+                             ],
+                             "label": "Peer Closed Session Error "},
+                         { "value": "101", "localName": "process-restart-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Process restart error"
+                             ],
+                             "label": "Process Restart Error "},
+                         { "value": "106", "localName": "rcvd-dup-conn-req",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Received duplicate connection request"
+                             ],
+                             "label": "Received Duplicate Connection Request "},
+                         { "value": "105", "localName": "rcvd-notif-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Received notification error"
+                             ],
+                             "label": "Peer Received Notification Error "},
+                         { "value": "3", "localName": "upd-msg-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Update message error"
+                             ],
+                             "label": "Update Message Error "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "minErrRstRsvd": {
+                    "comment": [
+                         "Minor error during last reset received"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2618",
+                    "propLocalId": "1240",
+                    "label": "Minor Error During Last Reset Received",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "bgp:MinNotifErr",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "30", "localName": "admin-shut",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Administratively shutdown"
+                             ],
+                             "label": "Administratively Shutdown "},
+                         { "value": "41", "localName": "af-cfg-chg",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Address-family configuration change"
+                             ],
+                             "label": "Address-family Configuration Change "},
+                         { "value": "22", "localName": "as-loop-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Bgp as routing loop error"
+                             ],
+                             "label": "Bgp AS Routing Loop Error "},
+                         { "value": "19", "localName": "attr-flags-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Attribute flags error"
+                             ],
+                             "label": "Attribute Flags Error "},
+                         { "value": "20", "localName": "attr-len-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Attribute length error"
+                             ],
+                             "label": "Attribute Length Error "},
+                         { "value": "11", "localName": "auth-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Authentication Error"
+                             ],
+                             "label": "Authentication Error "},
+                         { "value": "26", "localName": "bad-as-path",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Malformed as path error"
+                             ],
+                             "label": "Malformed AS Path "},
+                         { "value": "54", "localName": "bad-cap-val",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Malformed capability value error"
+                             ],
+                             "label": "Malformed Capability Value "},
+                         { "value": "12", "localName": "bad-holdtime",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unacceptable Holdtime"
+                             ],
+                             "label": "Unacceptable Holdtime "},
+                         { "value": "3", "localName": "bad-msg-len",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Bad message length"
+                             ],
+                             "label": "Bad Message Length "},
+                         { "value": "4", "localName": "bad-msg-type",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Bad message type"
+                             ],
+                             "label": "Bad Message Type "},
+                         { "value": "8", "localName": "bad-peer-as",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Bad Peer AS"
+                             ],
+                             "label": "Bad Peer AS "},
+                         { "value": "9", "localName": "bad-peer-rtrid",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Bad Peer Router ID"
+                             ],
+                             "label": "Bad Peer Router ID "},
+                         { "value": "44", "localName": "confed-id-chg",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "confederation id change"
+                             ],
+                             "label": "Confederation Id Change "},
+                         { "value": "45", "localName": "confed-membership-change",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "confederation membership change"
+                             ],
+                             "label": "Confederation Membership Change "},
+                         { "value": "35", "localName": "conn-coll-resolution",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Connection collision resolution error"
+                             ],
+                             "label": "Connection Collision Resolution "},
+                         { "value": "2", "localName": "conn-not-synced",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Connection not sync'ed"
+                             ],
+                             "label": "Connection not Synchronized "},
+                         { "value": "33", "localName": "conn-rej",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Connection Rejected"
+                             ],
+                             "label": "Connection Rejected "},
+                         { "value": "37", "localName": "dyn-cap-cfg-chg",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Dynamic capability configuration change"
+                             ],
+                             "label": "Dynamic Capability Configuration Change "},
+                         { "value": "46", "localName": "gr-cfg-chg",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "graceful-restart configuration change"
+                             ],
+                             "label": "Graceful-restart Configuration Change "},
+                         { "value": "53", "localName": "invalid-cap-len",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Invalid capability length error"
+                             ],
+                             "label": "Invalid Capability Length "},
+                         { "value": "23", "localName": "invalid-nh-attr",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Invalid next-hop attribute error"
+                             ],
+                             "label": "Invalid Next-hop Attribute "},
+                         { "value": "25", "localName": "invalid-nw-field",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Invalid network field error"
+                             ],
+                             "label": "Invalid Network Field "},
+                         { "value": "21", "localName": "invalid-origin-attr",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Invalid origin attribute error"
+                             ],
+                             "label": "Invalid Origin Attribute "},
+                         { "value": "49", "localName": "localas-chg",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "local-as change"
+                             ],
+                             "label": "Local-as Change "},
+                         { "value": "16", "localName": "malformed-attr-list",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Malformed attribute list"
+                             ],
+                             "label": "Malformed Attribute List "},
+                         { "value": "29", "localName": "max-pfx-count-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Maximum prefix count"
+                             ],
+                             "label": "Maximum Prefix Count "},
+                         { "value": "18", "localName": "missing-wellknown-attr",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Missing well-known attribute error"
+                             ],
+                             "label": "Missing Well-known Attribute "},
+                         { "value": "0", "localName": "none",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "None"
+                             ],
+                             "label": "None "},
+                         { "value": "24", "localName": "opt-attr-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Optional attribute error"
+                             ],
+                             "label": "Optional Attribute Error "},
+                         { "value": "34", "localName": "other-cfg-chg",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Other configuration change error"
+                             ],
+                             "label": "Other Configuration Change Error "},
+                         { "value": "36", "localName": "out-of-rsrc",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Out of resource"
+                             ],
+                             "label": "Out of Resource "},
+                         { "value": "40", "localName": "passive-neighbor-cfg-chg",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Passive neighbor configuration change"
+                             ],
+                             "label": "Passive Neighbor Configuration Change "},
+                         { "value": "31", "localName": "peer-decfg",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Peer deconfigured"
+                             ],
+                             "label": "Peer Deconfigured "},
+                         { "value": "42", "localName": "rr-cfg-chg",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Route-reflector configuration change"
+                             ],
+                             "label": "Route-reflector Configuration Change "},
+                         { "value": "43", "localName": "rtrid-cfg-chg",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "router-id configuration change"
+                             ],
+                             "label": "Router-id Configuration Change "},
+                         { "value": "32", "localName": "session-cleared",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Session cleared"
+                             ],
+                             "label": "Session Cleared "},
+                         { "value": "47", "localName": "soft-recfg-chg",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "soft-reconfiguration change"
+                             ],
+                             "label": "Soft-reconfiguration Change "},
+                         { "value": "38", "localName": "ttl-cfg-chg",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "TTL configuration change"
+                             ],
+                             "label": "TTL Configuration Change "},
+                         { "value": "39", "localName": "ttl-security-cfg-chg",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "TTL security configuration change"
+                             ],
+                             "label": "TTL Security Configuration Change "},
+                         { "value": "56", "localName": "unknown-cap-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unknown capability error"
+                             ],
+                             "label": "Unknown Capability Error "},
+                         { "value": "50", "localName": "unknown-cease-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unknown cease error"
+                             ],
+                             "label": "Unknown Cease Error "},
+                         { "value": "5", "localName": "unknown-msg-hdr-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unknown message header error"
+                             ],
+                             "label": "Unknown Message Header Error "},
+                         { "value": "14", "localName": "unknown-open-hdr-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unknown open message error"
+                             ],
+                             "label": "Unknown Open Header Error "},
+                         { "value": "52", "localName": "unknown-seq-num",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unknown sequence number error"
+                             ],
+                             "label": "Unknown Sequence Number "},
+                         { "value": "27", "localName": "unknown-update-hdr-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unknown update header error"
+                             ],
+                             "label": "Unknown Update Header Error "},
+                         { "value": "17", "localName": "unrecognized-wellknown-attr",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unrecognized Wellknown Attr"
+                             ],
+                             "label": "Unrecognized Wellknown Attr "},
+                         { "value": "51", "localName": "unspecified-cap-msg-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Capability message error"
+                             ],
+                             "label": "Unspecified Cappability Message Error "},
+                         { "value": "28", "localName": "unspecified-cease-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Cease error"
+                             ],
+                             "label": "Unspecified Cease Error "},
+                         { "value": "1", "localName": "unspecified-msg-hdr-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Msg Header Errors"
+                             ],
+                             "label": "Unspecified Msg Header Error "},
+                         { "value": "6", "localName": "unspecified-open-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Open Msg Errors"
+                             ],
+                             "label": "Unspecified Open Error "},
+                         { "value": "15", "localName": "unspecified-update-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Update Message Error"
+                             ],
+                             "label": "Unspecified Update Error "},
+                         { "value": "13", "localName": "unsupp-cap",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unsupported Capability"
+                             ],
+                             "label": "Unsupported Capability "},
+                         { "value": "55", "localName": "unsupp-cap-code",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unsupported capability code error"
+                             ],
+                             "label": "Unsupported Capability Code "},
+                         { "value": "10", "localName": "unsupp-opt-param",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unsupported Optional Parameter"
+                             ],
+                             "label": "Unsupported Optional Parameter "},
+                         { "value": "7", "localName": "unsupp-version",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unsupported Version"
+                             ],
+                             "label": "Unsupported Version "},
+                         { "value": "48", "localName": "updatesrc-if-chg",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "update-source interface change"
+                             ],
+                             "label": "Update-source Interface Change "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "minErrRstSent": {
+                    "comment": [
+                         "Minor error during last reset sent"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2614",
+                    "propLocalId": "1236",
+                    "label": "Minor Error During Last Reset Sent",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "bgp:MinNotifErr",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "30", "localName": "admin-shut",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Administratively shutdown"
+                             ],
+                             "label": "Administratively Shutdown "},
+                         { "value": "41", "localName": "af-cfg-chg",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Address-family configuration change"
+                             ],
+                             "label": "Address-family Configuration Change "},
+                         { "value": "22", "localName": "as-loop-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Bgp as routing loop error"
+                             ],
+                             "label": "Bgp AS Routing Loop Error "},
+                         { "value": "19", "localName": "attr-flags-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Attribute flags error"
+                             ],
+                             "label": "Attribute Flags Error "},
+                         { "value": "20", "localName": "attr-len-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Attribute length error"
+                             ],
+                             "label": "Attribute Length Error "},
+                         { "value": "11", "localName": "auth-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Authentication Error"
+                             ],
+                             "label": "Authentication Error "},
+                         { "value": "26", "localName": "bad-as-path",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Malformed as path error"
+                             ],
+                             "label": "Malformed AS Path "},
+                         { "value": "54", "localName": "bad-cap-val",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Malformed capability value error"
+                             ],
+                             "label": "Malformed Capability Value "},
+                         { "value": "12", "localName": "bad-holdtime",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unacceptable Holdtime"
+                             ],
+                             "label": "Unacceptable Holdtime "},
+                         { "value": "3", "localName": "bad-msg-len",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Bad message length"
+                             ],
+                             "label": "Bad Message Length "},
+                         { "value": "4", "localName": "bad-msg-type",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Bad message type"
+                             ],
+                             "label": "Bad Message Type "},
+                         { "value": "8", "localName": "bad-peer-as",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Bad Peer AS"
+                             ],
+                             "label": "Bad Peer AS "},
+                         { "value": "9", "localName": "bad-peer-rtrid",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Bad Peer Router ID"
+                             ],
+                             "label": "Bad Peer Router ID "},
+                         { "value": "44", "localName": "confed-id-chg",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "confederation id change"
+                             ],
+                             "label": "Confederation Id Change "},
+                         { "value": "45", "localName": "confed-membership-change",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "confederation membership change"
+                             ],
+                             "label": "Confederation Membership Change "},
+                         { "value": "35", "localName": "conn-coll-resolution",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Connection collision resolution error"
+                             ],
+                             "label": "Connection Collision Resolution "},
+                         { "value": "2", "localName": "conn-not-synced",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Connection not sync'ed"
+                             ],
+                             "label": "Connection not Synchronized "},
+                         { "value": "33", "localName": "conn-rej",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Connection Rejected"
+                             ],
+                             "label": "Connection Rejected "},
+                         { "value": "37", "localName": "dyn-cap-cfg-chg",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Dynamic capability configuration change"
+                             ],
+                             "label": "Dynamic Capability Configuration Change "},
+                         { "value": "46", "localName": "gr-cfg-chg",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "graceful-restart configuration change"
+                             ],
+                             "label": "Graceful-restart Configuration Change "},
+                         { "value": "53", "localName": "invalid-cap-len",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Invalid capability length error"
+                             ],
+                             "label": "Invalid Capability Length "},
+                         { "value": "23", "localName": "invalid-nh-attr",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Invalid next-hop attribute error"
+                             ],
+                             "label": "Invalid Next-hop Attribute "},
+                         { "value": "25", "localName": "invalid-nw-field",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Invalid network field error"
+                             ],
+                             "label": "Invalid Network Field "},
+                         { "value": "21", "localName": "invalid-origin-attr",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Invalid origin attribute error"
+                             ],
+                             "label": "Invalid Origin Attribute "},
+                         { "value": "49", "localName": "localas-chg",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "local-as change"
+                             ],
+                             "label": "Local-as Change "},
+                         { "value": "16", "localName": "malformed-attr-list",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Malformed attribute list"
+                             ],
+                             "label": "Malformed Attribute List "},
+                         { "value": "29", "localName": "max-pfx-count-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Maximum prefix count"
+                             ],
+                             "label": "Maximum Prefix Count "},
+                         { "value": "18", "localName": "missing-wellknown-attr",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Missing well-known attribute error"
+                             ],
+                             "label": "Missing Well-known Attribute "},
+                         { "value": "0", "localName": "none",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "None"
+                             ],
+                             "label": "None "},
+                         { "value": "24", "localName": "opt-attr-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Optional attribute error"
+                             ],
+                             "label": "Optional Attribute Error "},
+                         { "value": "34", "localName": "other-cfg-chg",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Other configuration change error"
+                             ],
+                             "label": "Other Configuration Change Error "},
+                         { "value": "36", "localName": "out-of-rsrc",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Out of resource"
+                             ],
+                             "label": "Out of Resource "},
+                         { "value": "40", "localName": "passive-neighbor-cfg-chg",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Passive neighbor configuration change"
+                             ],
+                             "label": "Passive Neighbor Configuration Change "},
+                         { "value": "31", "localName": "peer-decfg",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Peer deconfigured"
+                             ],
+                             "label": "Peer Deconfigured "},
+                         { "value": "42", "localName": "rr-cfg-chg",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Route-reflector configuration change"
+                             ],
+                             "label": "Route-reflector Configuration Change "},
+                         { "value": "43", "localName": "rtrid-cfg-chg",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "router-id configuration change"
+                             ],
+                             "label": "Router-id Configuration Change "},
+                         { "value": "32", "localName": "session-cleared",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Session cleared"
+                             ],
+                             "label": "Session Cleared "},
+                         { "value": "47", "localName": "soft-recfg-chg",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "soft-reconfiguration change"
+                             ],
+                             "label": "Soft-reconfiguration Change "},
+                         { "value": "38", "localName": "ttl-cfg-chg",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "TTL configuration change"
+                             ],
+                             "label": "TTL Configuration Change "},
+                         { "value": "39", "localName": "ttl-security-cfg-chg",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "TTL security configuration change"
+                             ],
+                             "label": "TTL Security Configuration Change "},
+                         { "value": "56", "localName": "unknown-cap-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unknown capability error"
+                             ],
+                             "label": "Unknown Capability Error "},
+                         { "value": "50", "localName": "unknown-cease-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unknown cease error"
+                             ],
+                             "label": "Unknown Cease Error "},
+                         { "value": "5", "localName": "unknown-msg-hdr-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unknown message header error"
+                             ],
+                             "label": "Unknown Message Header Error "},
+                         { "value": "14", "localName": "unknown-open-hdr-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unknown open message error"
+                             ],
+                             "label": "Unknown Open Header Error "},
+                         { "value": "52", "localName": "unknown-seq-num",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unknown sequence number error"
+                             ],
+                             "label": "Unknown Sequence Number "},
+                         { "value": "27", "localName": "unknown-update-hdr-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unknown update header error"
+                             ],
+                             "label": "Unknown Update Header Error "},
+                         { "value": "17", "localName": "unrecognized-wellknown-attr",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unrecognized Wellknown Attr"
+                             ],
+                             "label": "Unrecognized Wellknown Attr "},
+                         { "value": "51", "localName": "unspecified-cap-msg-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Capability message error"
+                             ],
+                             "label": "Unspecified Cappability Message Error "},
+                         { "value": "28", "localName": "unspecified-cease-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Cease error"
+                             ],
+                             "label": "Unspecified Cease Error "},
+                         { "value": "1", "localName": "unspecified-msg-hdr-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Msg Header Errors"
+                             ],
+                             "label": "Unspecified Msg Header Error "},
+                         { "value": "6", "localName": "unspecified-open-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Open Msg Errors"
+                             ],
+                             "label": "Unspecified Open Error "},
+                         { "value": "15", "localName": "unspecified-update-err",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Update Message Error"
+                             ],
+                             "label": "Unspecified Update Error "},
+                         { "value": "13", "localName": "unsupp-cap",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unsupported Capability"
+                             ],
+                             "label": "Unsupported Capability "},
+                         { "value": "55", "localName": "unsupp-cap-code",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unsupported capability code error"
+                             ],
+                             "label": "Unsupported Capability Code "},
+                         { "value": "10", "localName": "unsupp-opt-param",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unsupported Optional Parameter"
+                             ],
+                             "label": "Unsupported Optional Parameter "},
+                         { "value": "7", "localName": "unsupp-version",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unsupported Version"
+                             ],
+                             "label": "Unsupported Version "},
+                         { "value": "48", "localName": "updatesrc-if-chg",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "update-source interface change"
+                             ],
+                             "label": "Update-source Interface Change "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "modTs": {
+                    "comment": [
+                         "The time when this object was last modified."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "7",
+                    "propLocalId": "7",
+                    "label": "modTs",
+                    "baseType": "scalar:Date",
+                    "modelType": "mo:TStamp",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "never", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "never",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "never "}
+                    ],
+                    "default": "never",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "monPolDn": {
+                    "comment": [
+                         "The monitoring policy attached to this observable object."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "15783",
+                    "propLocalId": "228",
+                    "label": "Monitoring policy attached to this observable object",
+                    "baseType": "reference:BinRef",
+                    "modelType": "reference:BinRef",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rn": {
+                    "comment": [
+                         "Identifies an object from its siblings within the context of its parent object. The distinguished name contains a sequence of relative names."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2",
+                    "propLocalId": "3",
+                    "label": "rn",
+                    "baseType": "reference:BinRN",
+                    "modelType": "reference:BinRN",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rstRsvdTs": {
+                    "comment": [
+                         "Timestamp of last reset received"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2620",
+                    "propLocalId": "1242",
+                    "label": "Reset Received Timestamp",
+                    "baseType": "scalar:Date",
+                    "modelType": "scalar:Date",
+                    "needsPropDelimiters": false,
+                    "uitype": "date",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rstSentTs": {
+                    "comment": [
+                         "Timestamp of last reset sent"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2616",
+                    "propLocalId": "1238",
+                    "label": "Reset Sent Timestamp",
+                    "baseType": "scalar:Date",
+                    "modelType": "scalar:Date",
+                    "needsPropDelimiters": false,
+                    "uitype": "date",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "status": {
+                    "comment": [
+                         "The upgrade status. This property is for internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3",
+                    "propLocalId": "4",
+                    "label": "status",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationStatus",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "2", "localName": "created",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be created. An error is returned if the object already exists.  \nIn the return value of a setter method: indicates that an object has been created.  \n"
+                             ],
+                             "label": "created "},
+                         { "value": "8", "localName": "deleted",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be deleted.  \nIn the return value of a setter method: indicates that an object has been deleted.\n"
+                             ],
+                             "label": "deleted "},
+                         { "value": "4", "localName": "modified",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be modified  \nIn the return value of a setter method: indicates that an object has been modified.\n"
+                             ],
+                             "label": "modified "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                }
+            }
+        }
+}

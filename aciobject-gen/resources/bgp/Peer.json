@@ -1,0 +1,1909 @@
+{
+        "bgp:Peer": {
+            "contains": {
+                "bgp:LocalAsn": "",
+                "bgp:PeerAf": "",
+                "bgp:PeerBytes15min": "",
+                "bgp:PeerBytes1d": "",
+                "bgp:PeerBytes1h": "",
+                "bgp:PeerBytes1mo": "",
+                "bgp:PeerBytes1qtr": "",
+                "bgp:PeerBytes1w": "",
+                "bgp:PeerBytes1year": "",
+                "bgp:PeerBytes5min": "",
+                "bgp:PeerBytesHist15min": "",
+                "bgp:PeerBytesHist1d": "",
+                "bgp:PeerBytesHist1h": "",
+                "bgp:PeerBytesHist1mo": "",
+                "bgp:PeerBytesHist1qtr": "",
+                "bgp:PeerBytesHist1w": "",
+                "bgp:PeerBytesHist1year": "",
+                "bgp:PeerBytesHist5min": "",
+                "bgp:PeerEntry": "",
+                "bgp:PeerFallOver": "",
+                "bgp:PeerIntervals": "",
+                "bgp:PeerKeepAlive15min": "",
+                "bgp:PeerKeepAlive1d": "",
+                "bgp:PeerKeepAlive1h": "",
+                "bgp:PeerKeepAlive1mo": "",
+                "bgp:PeerKeepAlive1qtr": "",
+                "bgp:PeerKeepAlive1w": "",
+                "bgp:PeerKeepAlive1year": "",
+                "bgp:PeerKeepAlive5min": "",
+                "bgp:PeerKeepAliveHist15min": "",
+                "bgp:PeerKeepAliveHist1d": "",
+                "bgp:PeerKeepAliveHist1h": "",
+                "bgp:PeerKeepAliveHist1mo": "",
+                "bgp:PeerKeepAliveHist1qtr": "",
+                "bgp:PeerKeepAliveHist1w": "",
+                "bgp:PeerKeepAliveHist1year": "",
+                "bgp:PeerKeepAliveHist5min": "",
+                "bgp:PeerMsg15min": "",
+                "bgp:PeerMsg1d": "",
+                "bgp:PeerMsg1h": "",
+                "bgp:PeerMsg1mo": "",
+                "bgp:PeerMsg1qtr": "",
+                "bgp:PeerMsg1w": "",
+                "bgp:PeerMsg1year": "",
+                "bgp:PeerMsg5min": "",
+                "bgp:PeerMsgHist15min": "",
+                "bgp:PeerMsgHist1d": "",
+                "bgp:PeerMsgHist1h": "",
+                "bgp:PeerMsgHist1mo": "",
+                "bgp:PeerMsgHist1qtr": "",
+                "bgp:PeerMsgHist1w": "",
+                "bgp:PeerMsgHist1year": "",
+                "bgp:PeerMsgHist5min": "",
+                "bgp:PeerOpen15min": "",
+                "bgp:PeerOpen1d": "",
+                "bgp:PeerOpen1h": "",
+                "bgp:PeerOpen1mo": "",
+                "bgp:PeerOpen1qtr": "",
+                "bgp:PeerOpen1w": "",
+                "bgp:PeerOpen1year": "",
+                "bgp:PeerOpen5min": "",
+                "bgp:PeerOpenHist15min": "",
+                "bgp:PeerOpenHist1d": "",
+                "bgp:PeerOpenHist1h": "",
+                "bgp:PeerOpenHist1mo": "",
+                "bgp:PeerOpenHist1qtr": "",
+                "bgp:PeerOpenHist1w": "",
+                "bgp:PeerOpenHist1year": "",
+                "bgp:PeerOpenHist5min": "",
+                "bgp:PeerRoute15min": "",
+                "bgp:PeerRoute1d": "",
+                "bgp:PeerRoute1h": "",
+                "bgp:PeerRoute1mo": "",
+                "bgp:PeerRoute1qtr": "",
+                "bgp:PeerRoute1w": "",
+                "bgp:PeerRoute1year": "",
+                "bgp:PeerRoute5min": "",
+                "bgp:PeerRouteHist15min": "",
+                "bgp:PeerRouteHist1d": "",
+                "bgp:PeerRouteHist1h": "",
+                "bgp:PeerRouteHist1mo": "",
+                "bgp:PeerRouteHist1qtr": "",
+                "bgp:PeerRouteHist1w": "",
+                "bgp:PeerRouteHist1year": "",
+                "bgp:PeerRouteHist5min": "",
+                "fault:Counts": "",
+                "fault:Inst": "",
+                "health:Inst": ""
+            },
+            "rnMap": {
+                "CDbgpPeerBytes15min": "bgp:PeerBytes15min",
+                "CDbgpPeerBytes1d": "bgp:PeerBytes1d",
+                "CDbgpPeerBytes1h": "bgp:PeerBytes1h",
+                "CDbgpPeerBytes1mo": "bgp:PeerBytes1mo",
+                "CDbgpPeerBytes1qtr": "bgp:PeerBytes1qtr",
+                "CDbgpPeerBytes1w": "bgp:PeerBytes1w",
+                "CDbgpPeerBytes1year": "bgp:PeerBytes1year",
+                "CDbgpPeerBytes5min": "bgp:PeerBytes5min",
+                "CDbgpPeerKeepAlive15min": "bgp:PeerKeepAlive15min",
+                "CDbgpPeerKeepAlive1d": "bgp:PeerKeepAlive1d",
+                "CDbgpPeerKeepAlive1h": "bgp:PeerKeepAlive1h",
+                "CDbgpPeerKeepAlive1mo": "bgp:PeerKeepAlive1mo",
+                "CDbgpPeerKeepAlive1qtr": "bgp:PeerKeepAlive1qtr",
+                "CDbgpPeerKeepAlive1w": "bgp:PeerKeepAlive1w",
+                "CDbgpPeerKeepAlive1year": "bgp:PeerKeepAlive1year",
+                "CDbgpPeerKeepAlive5min": "bgp:PeerKeepAlive5min",
+                "CDbgpPeerMsg15min": "bgp:PeerMsg15min",
+                "CDbgpPeerMsg1d": "bgp:PeerMsg1d",
+                "CDbgpPeerMsg1h": "bgp:PeerMsg1h",
+                "CDbgpPeerMsg1mo": "bgp:PeerMsg1mo",
+                "CDbgpPeerMsg1qtr": "bgp:PeerMsg1qtr",
+                "CDbgpPeerMsg1w": "bgp:PeerMsg1w",
+                "CDbgpPeerMsg1year": "bgp:PeerMsg1year",
+                "CDbgpPeerMsg5min": "bgp:PeerMsg5min",
+                "CDbgpPeerOpen15min": "bgp:PeerOpen15min",
+                "CDbgpPeerOpen1d": "bgp:PeerOpen1d",
+                "CDbgpPeerOpen1h": "bgp:PeerOpen1h",
+                "CDbgpPeerOpen1mo": "bgp:PeerOpen1mo",
+                "CDbgpPeerOpen1qtr": "bgp:PeerOpen1qtr",
+                "CDbgpPeerOpen1w": "bgp:PeerOpen1w",
+                "CDbgpPeerOpen1year": "bgp:PeerOpen1year",
+                "CDbgpPeerOpen5min": "bgp:PeerOpen5min",
+                "CDbgpPeerRoute15min": "bgp:PeerRoute15min",
+                "CDbgpPeerRoute1d": "bgp:PeerRoute1d",
+                "CDbgpPeerRoute1h": "bgp:PeerRoute1h",
+                "CDbgpPeerRoute1mo": "bgp:PeerRoute1mo",
+                "CDbgpPeerRoute1qtr": "bgp:PeerRoute1qtr",
+                "CDbgpPeerRoute1w": "bgp:PeerRoute1w",
+                "CDbgpPeerRoute1year": "bgp:PeerRoute1year",
+                "CDbgpPeerRoute5min": "bgp:PeerRoute5min",
+                "HDbgpPeerBytes15min-": "bgp:PeerBytesHist15min",
+                "HDbgpPeerBytes1d-": "bgp:PeerBytesHist1d",
+                "HDbgpPeerBytes1h-": "bgp:PeerBytesHist1h",
+                "HDbgpPeerBytes1mo-": "bgp:PeerBytesHist1mo",
+                "HDbgpPeerBytes1qtr-": "bgp:PeerBytesHist1qtr",
+                "HDbgpPeerBytes1w-": "bgp:PeerBytesHist1w",
+                "HDbgpPeerBytes1year-": "bgp:PeerBytesHist1year",
+                "HDbgpPeerBytes5min-": "bgp:PeerBytesHist5min",
+                "HDbgpPeerKeepAlive15min-": "bgp:PeerKeepAliveHist15min",
+                "HDbgpPeerKeepAlive1d-": "bgp:PeerKeepAliveHist1d",
+                "HDbgpPeerKeepAlive1h-": "bgp:PeerKeepAliveHist1h",
+                "HDbgpPeerKeepAlive1mo-": "bgp:PeerKeepAliveHist1mo",
+                "HDbgpPeerKeepAlive1qtr-": "bgp:PeerKeepAliveHist1qtr",
+                "HDbgpPeerKeepAlive1w-": "bgp:PeerKeepAliveHist1w",
+                "HDbgpPeerKeepAlive1year-": "bgp:PeerKeepAliveHist1year",
+                "HDbgpPeerKeepAlive5min-": "bgp:PeerKeepAliveHist5min",
+                "HDbgpPeerMsg15min-": "bgp:PeerMsgHist15min",
+                "HDbgpPeerMsg1d-": "bgp:PeerMsgHist1d",
+                "HDbgpPeerMsg1h-": "bgp:PeerMsgHist1h",
+                "HDbgpPeerMsg1mo-": "bgp:PeerMsgHist1mo",
+                "HDbgpPeerMsg1qtr-": "bgp:PeerMsgHist1qtr",
+                "HDbgpPeerMsg1w-": "bgp:PeerMsgHist1w",
+                "HDbgpPeerMsg1year-": "bgp:PeerMsgHist1year",
+                "HDbgpPeerMsg5min-": "bgp:PeerMsgHist5min",
+                "HDbgpPeerOpen15min-": "bgp:PeerOpenHist15min",
+                "HDbgpPeerOpen1d-": "bgp:PeerOpenHist1d",
+                "HDbgpPeerOpen1h-": "bgp:PeerOpenHist1h",
+                "HDbgpPeerOpen1mo-": "bgp:PeerOpenHist1mo",
+                "HDbgpPeerOpen1qtr-": "bgp:PeerOpenHist1qtr",
+                "HDbgpPeerOpen1w-": "bgp:PeerOpenHist1w",
+                "HDbgpPeerOpen1year-": "bgp:PeerOpenHist1year",
+                "HDbgpPeerOpen5min-": "bgp:PeerOpenHist5min",
+                "HDbgpPeerRoute15min-": "bgp:PeerRouteHist15min",
+                "HDbgpPeerRoute1d-": "bgp:PeerRouteHist1d",
+                "HDbgpPeerRoute1h-": "bgp:PeerRouteHist1h",
+                "HDbgpPeerRoute1mo-": "bgp:PeerRouteHist1mo",
+                "HDbgpPeerRoute1qtr-": "bgp:PeerRouteHist1qtr",
+                "HDbgpPeerRoute1w-": "bgp:PeerRouteHist1w",
+                "HDbgpPeerRoute1year-": "bgp:PeerRouteHist1year",
+                "HDbgpPeerRoute5min-": "bgp:PeerRouteHist5min",
+                "af-": "bgp:PeerAf",
+                "ent-": "bgp:PeerEntry",
+                "fault-": "fault:Inst",
+                "fltCnts": "fault:Counts",
+                "health": "health:Inst",
+                "localasn": "bgp:LocalAsn",
+                "peerfallover": "bgp:PeerFallOver",
+                "peerintervals": "bgp:PeerIntervals"
+            },
+            "identifiedBy": [
+                "addr"
+            ],
+            "rnFormat": "peer-[{addr}]",
+            "containedBy": {
+                "bgp:Dom": ""
+            },
+            "superClasses": [
+                "l3:ProtAdjEp",
+                "nw:ProtAdjEp",
+                "nw:AdjEp",
+                "nw:ConnEp",
+                "nw:Ep",
+                "nw:Conn",
+                "nw:Item"
+            ],
+            "subClasses": {
+
+            },
+            "relationFrom": {
+
+            },
+            "relationTo": {
+
+            },
+            "dnFormats": [
+                "topology/pod-{id}/node-{id}/sys/bgp/inst/dom-{name}/peer-[{addr}]",
+                "sys/bgp/inst/dom-{name}/peer-[{addr}]"
+            ],
+            "writeAccess": [
+
+            ],
+            "readAccess": [
+                "access-protocol",
+                "admin",
+                "fabric-protocol",
+                "tenant-ext-protocol",
+                "tenant-protocol"
+            ],
+            "faults": {
+
+            },
+            "events": {
+
+            },
+            "stats": {
+                "bgp:PeerBytes15min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents the most current statistics for BGP  Peer  Bytes in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "bgp:PeerBytes1d": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents the most current statistics for BGP  Peer  Bytes in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "bgp:PeerBytes1h": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents the most current statistics for BGP  Peer  Bytes in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "bgp:PeerBytes1mo": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents the most current statistics for BGP  Peer  Bytes in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerBytes1qtr": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents the most current statistics for BGP  Peer  Bytes in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerBytes1w": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents the most current statistics for BGP  Peer  Bytes in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerBytes1year": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents the most current statistics for BGP  Peer  Bytes in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerBytes5min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents the most current statistics for BGP  Peer  Bytes in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "bgp:PeerBytesHist15min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents historical statistics for BGP  Peer  Bytes in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "bgp:PeerBytesHist1d": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents historical statistics for BGP  Peer  Bytes in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "bgp:PeerBytesHist1h": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents historical statistics for BGP  Peer  Bytes in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "bgp:PeerBytesHist1mo": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents historical statistics for BGP  Peer  Bytes in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerBytesHist1qtr": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents historical statistics for BGP  Peer  Bytes in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerBytesHist1w": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents historical statistics for BGP  Peer  Bytes in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerBytesHist1year": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents historical statistics for BGP  Peer  Bytes in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerBytesHist5min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents historical statistics for BGP  Peer  Bytes in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "bgp:PeerKeepAlive15min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents the most current statistics for BGP  Peer  Keepalive in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "bgp:PeerKeepAlive1d": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents the most current statistics for BGP  Peer  Keepalive in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "bgp:PeerKeepAlive1h": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents the most current statistics for BGP  Peer  Keepalive in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "bgp:PeerKeepAlive1mo": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents the most current statistics for BGP  Peer  Keepalive in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerKeepAlive1qtr": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents the most current statistics for BGP  Peer  Keepalive in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerKeepAlive1w": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents the most current statistics for BGP  Peer  Keepalive in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerKeepAlive1year": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents the most current statistics for BGP  Peer  Keepalive in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerKeepAlive5min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents the most current statistics for BGP  Peer  Keepalive in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "bgp:PeerKeepAliveHist15min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents historical statistics for BGP  Peer  Keepalive in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "bgp:PeerKeepAliveHist1d": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents historical statistics for BGP  Peer  Keepalive in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "bgp:PeerKeepAliveHist1h": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents historical statistics for BGP  Peer  Keepalive in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "bgp:PeerKeepAliveHist1mo": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents historical statistics for BGP  Peer  Keepalive in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerKeepAliveHist1qtr": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents historical statistics for BGP  Peer  Keepalive in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerKeepAliveHist1w": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents historical statistics for BGP  Peer  Keepalive in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerKeepAliveHist1year": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents historical statistics for BGP  Peer  Keepalive in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerKeepAliveHist5min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents historical statistics for BGP  Peer  Keepalive in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "bgp:PeerMsg15min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents the most current statistics for BGP  Peer  Msg in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "bgp:PeerMsg1d": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents the most current statistics for BGP  Peer  Msg in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "bgp:PeerMsg1h": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents the most current statistics for BGP  Peer  Msg in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "bgp:PeerMsg1mo": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents the most current statistics for BGP  Peer  Msg in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerMsg1qtr": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents the most current statistics for BGP  Peer  Msg in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerMsg1w": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents the most current statistics for BGP  Peer  Msg in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerMsg1year": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents the most current statistics for BGP  Peer  Msg in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerMsg5min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents the most current statistics for BGP  Peer  Msg in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "bgp:PeerMsgHist15min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents historical statistics for BGP  Peer  Msg in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "bgp:PeerMsgHist1d": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents historical statistics for BGP  Peer  Msg in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "bgp:PeerMsgHist1h": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents historical statistics for BGP  Peer  Msg in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "bgp:PeerMsgHist1mo": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents historical statistics for BGP  Peer  Msg in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerMsgHist1qtr": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents historical statistics for BGP  Peer  Msg in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerMsgHist1w": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents historical statistics for BGP  Peer  Msg in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerMsgHist1year": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents historical statistics for BGP  Peer  Msg in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerMsgHist5min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents historical statistics for BGP  Peer  Msg in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "bgp:PeerOpen15min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents the most current statistics for BGP  Peer  Open in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "bgp:PeerOpen1d": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents the most current statistics for BGP  Peer  Open in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "bgp:PeerOpen1h": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents the most current statistics for BGP  Peer  Open in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "bgp:PeerOpen1mo": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents the most current statistics for BGP  Peer  Open in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerOpen1qtr": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents the most current statistics for BGP  Peer  Open in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerOpen1w": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents the most current statistics for BGP  Peer  Open in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerOpen1year": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents the most current statistics for BGP  Peer  Open in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerOpen5min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents the most current statistics for BGP  Peer  Open in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "bgp:PeerOpenHist15min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents historical statistics for BGP  Peer  Open in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "bgp:PeerOpenHist1d": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents historical statistics for BGP  Peer  Open in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "bgp:PeerOpenHist1h": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents historical statistics for BGP  Peer  Open in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "bgp:PeerOpenHist1mo": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents historical statistics for BGP  Peer  Open in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerOpenHist1qtr": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents historical statistics for BGP  Peer  Open in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerOpenHist1w": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents historical statistics for BGP  Peer  Open in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerOpenHist1year": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents historical statistics for BGP  Peer  Open in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerOpenHist5min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents historical statistics for BGP  Peer  Open in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "bgp:PeerRoute15min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents the most current statistics for BGP  Peer  Route in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "bgp:PeerRoute1d": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents the most current statistics for BGP  Peer  Route in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "bgp:PeerRoute1h": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents the most current statistics for BGP  Peer  Route in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "bgp:PeerRoute1mo": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents the most current statistics for BGP  Peer  Route in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerRoute1qtr": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents the most current statistics for BGP  Peer  Route in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerRoute1w": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents the most current statistics for BGP  Peer  Route in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerRoute1year": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents the most current statistics for BGP  Peer  Route in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerRoute5min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents the most current statistics for BGP  Peer  Route in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "bgp:PeerRouteHist15min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents historical statistics for BGP  Peer  Route in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "bgp:PeerRouteHist1d": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents historical statistics for BGP  Peer  Route in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "bgp:PeerRouteHist1h": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents historical statistics for BGP  Peer  Route in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "bgp:PeerRouteHist1mo": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents historical statistics for BGP  Peer  Route in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerRouteHist1qtr": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents historical statistics for BGP  Peer  Route in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerRouteHist1w": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents historical statistics for BGP  Peer  Route in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerRouteHist1year": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents historical statistics for BGP  Peer  Route in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:PeerRouteHist5min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents historical statistics for BGP  Peer  Route in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                }
+            },
+            "isAbstract": false,
+            "isConfigurable": false,
+            "isContextRoot": false,
+            "isDeprecated": false,
+            "isEncrypted": true,
+            "isExportable": false,
+            "isPersistent": true,
+            "isSubjectToQuota": false,
+            "isObservable": true,
+            "hasStats": true,
+            "isStat": false,
+            "isFaultable": true,
+            "isDomainable": false,
+            "isHealthScorable": true,
+            "shouldCollectHealthStats": false,
+            "healthCollectionSource": "faults",
+            "hasEventRules": false,
+            "abstractionLayer": "concrete",
+            "apicNxProcessing": false,
+            "monitoringPolicySource": "Parent",
+            "isCreatableDeletable": "never",
+            "platformFlavors": [
+                "apic"
+            ],
+            "classId": "2608",
+            "className": "Peer",
+            "classPkg": "bgp",
+            "featureTag": "",
+            "moCategory": "Regular",
+            "label": "BGP Peer",
+            "comment": [
+                "The BGP information pertaining to a peer."
+            ],
+            "properties": {
+                "activePfxPeers": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2583",
+                    "propLocalId": "1213",
+                    "label": "Active Prefix Peers",
+                    "baseType": "scalar:Uint64",
+                    "modelType": "bgp:PfxPeerCounts",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "addr": {
+                    "comment": [
+                         "Peer address"
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "2576",
+                    "propLocalId": "149",
+                    "label": "Address",
+                    "baseType": "address:Ip",
+                    "modelType": "address:Ip",
+                    "needsPropDelimiters": true,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": false,
+                    "isNaming": true,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validateAsIPv4OrIPv6": true,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "adminSt": {
+                    "comment": [
+                         "Administrative state of the peer."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2577",
+                    "propLocalId": "46",
+                    "label": "Administrative State",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "nw:AdminSt",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "enabled", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "2", "localName": "disabled",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Disabled"
+                             ],
+                             "label": "Disabled "},
+                         { "value": "1", "localName": "enabled",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Enabled"
+                             ],
+                             "label": "Enabled "}
+                    ],
+                    "default": "enabled",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "asn": {
+                    "comment": [
+                         "Remote ASN"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2578",
+                    "propLocalId": "422",
+                    "label": "Autonomous System Number",
+                    "baseType": "scalar:Uint32",
+                    "modelType": "rtcom:AS",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "bgpCfgFailedBmp": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "14984",
+                    "propLocalId": "4062",
+                    "label": "bgpCfgFailedBmp",
+                    "baseType": "scalar:Bitmask64",
+                    "modelType": "scalar:Bitmask64",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "4", "localName": "bgp:Peeraddr_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "8", "localName": "bgp:PeeradminSt_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "16", "localName": "bgp:Peerasn_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "256", "localName": "bgp:Peerctrl_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "1024", "localName": "bgp:PeerexternalDomainId_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "2048", "localName": "bgp:PeerinfraL3outName_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "4096", "localName": "bgp:Peerl3outInTag_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "-9223372036854775808", "localName": "bgp:PeerlcOwn_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "1152921504606846976", "localName": "bgp:PeermodTs_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "32768", "localName": "bgp:PeermonPolDn_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "1", "localName": "bgp:Peername_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "65536", "localName": "bgp:PeerpasswdSet_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "131072", "localName": "bgp:Peerpassword_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "262144", "localName": "bgp:PeerpeerRole_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "524288", "localName": "bgp:PeerprivateASctrl_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "1048576", "localName": "bgp:PeersrcIf_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "4194304", "localName": "bgp:Peerttl_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "16777216", "localName": "bgp:PeertypeExt_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "8388608", "localName": "bgp:Peertype_failed_flag",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "bgpCfgFailedTs": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "14986",
+                    "propLocalId": "4064",
+                    "label": "bgpCfgFailedTs",
+                    "baseType": "scalar:Time",
+                    "modelType": "scalar:Time",
+                    "needsPropDelimiters": false,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "bgpCfgState": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "14985",
+                    "propLocalId": "4063",
+                    "label": "bgpCfgState",
+                    "baseType": "scalar:UByte",
+                    "modelType": "scalar:UByte",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "childAction": {
+                    "comment": [
+                         "Delete or ignore. For internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "4",
+                    "propLocalId": "5",
+                    "label": "childAction",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationChildAction",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "16384", "localName": "deleteAll",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteAll "},
+                         { "value": "8192", "localName": "deleteNonPresent",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteNonPresent "},
+                         { "value": "4096", "localName": "ignore",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "ignore "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "ctrl": {
+                    "comment": [
+                         "The control state."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "16995",
+                    "propLocalId": "182",
+                    "label": "Control",
+                    "baseType": "scalar:Bitmask8",
+                    "modelType": "bgp:PeerControl",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "1", "localName": "bfd",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Bidirectional Forwarding Detection"
+                             ],
+                             "label": "BFD "},
+                         { "value": "2", "localName": "dis-conn-check",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Disable checking whether single-hop\n                     eBGP peer is directly connected"
+                             ],
+                             "label": "Disable Connected Check "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "curPfxPeers": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2582",
+                    "propLocalId": "1212",
+                    "label": "Current Prefix Peers",
+                    "baseType": "scalar:Uint64",
+                    "modelType": "bgp:PfxPeerCounts",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "dn": {
+                    "comment": [
+                         "A tag or metadata is a non-hierarchical keyword or term assigned to the fabric module."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "1",
+                    "propLocalId": "2",
+                    "label": "dn",
+                    "baseType": "reference:BinRef",
+                    "modelType": "reference:BinRef",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "externalDomainId": {
+                    "comment": [
+                         "externalDomainId for BGP loop prevention feature"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "62466",
+                    "propLocalId": "13648",
+                    "label": "External Domain ID",
+                    "baseType": "base:Community",
+                    "modelType": "base:Community",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "infraL3outName": {
+                    "comment": [
+                         "Infra L3out name"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "62467",
+                    "propLocalId": "13647",
+                    "label": "Infra L3out name",
+                    "baseType": "string:Basic",
+                    "modelType": "string:Basic",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "l3outInTag": {
+                    "comment": [
+                         "Implicit tag allocated for the associated L3out"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "61898",
+                    "propLocalId": "13553",
+                    "label": "L3out In Tag",
+                    "baseType": "scalar:Uint32",
+                    "modelType": "rtmap:RouteTag",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "lcOwn": {
+                    "comment": [
+                         "A value that indicates how this object was created. For internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "9",
+                    "propLocalId": "9",
+                    "label": "lcOwn",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "mo:Owner",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "local", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "4", "localName": "implicit",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "Implicit "},
+                         { "value": "0", "localName": "local",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "Local "},
+                         { "value": "1", "localName": "policy",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "Policy "},
+                         { "value": "2", "localName": "replica",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "Replica "},
+                         { "value": "3", "localName": "resolveOnBehalf",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "ResolvedOnBehalf "}
+                    ],
+                    "default": "local",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "maxCurPeers": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2584",
+                    "propLocalId": "1214",
+                    "label": "Maximum Current Peers",
+                    "baseType": "scalar:Uint64",
+                    "modelType": "bgp:PfxPeerCounts",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "maxPfxPeers": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2581",
+                    "propLocalId": "1211",
+                    "label": "Maximum Prefix Peers",
+                    "baseType": "scalar:Uint64",
+                    "modelType": "bgp:PfxPeerCounts",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "modTs": {
+                    "comment": [
+                         "The time when this object was last modified."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "7",
+                    "propLocalId": "7",
+                    "label": "modTs",
+                    "baseType": "scalar:Date",
+                    "modelType": "mo:TStamp",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "never", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "never",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "never "}
+                    ],
+                    "default": "never",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "monPolDn": {
+                    "comment": [
+                         "The monitoring policy attached to this observable object."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "14449",
+                    "propLocalId": "228",
+                    "label": "Monitoring policy attached to this observable object",
+                    "baseType": "reference:BinRef",
+                    "modelType": "reference:BinRef",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "name": {
+                    "comment": [
+                         "The name of the object."
+                    ],
+                    "isConfigurable": true,
+                    "propGlobalId": "16432",
+                    "propLocalId": "13",
+                    "label": "Name",
+                    "baseType": "string:Basic",
+                    "modelType": "naming:Name",
+                    "needsPropDelimiters": false,
+                    "uitype": "string",
+                    "createOnly": false,
+                    "readWrite": true,
+                    "readOnly": false,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": false,
+                    "mandatory": false,
+                    "isOverride": true,
+                    "isLike": false,
+                    "validators": [
+                         {"min" : 1, "max": 128 }
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "passwdSet": {
+                    "comment": [
+                         "A value to indicate if a password is set."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "43408",
+                    "propLocalId": "1234",
+                    "label": "TCP MD5 Authentication",
+                    "baseType": "scalar:Enum8",
+                    "modelType": "bgp:PasswdSet",
+                    "needsPropDelimiters": false,
+                    "uitype": "enum",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "disabled", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "disabled",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "1", "localName": "enabled",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "Enabled "}
+                    ],
+                    "default": "disabled",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "password": {
+                    "comment": [
+                         "Password"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2580",
+                    "propLocalId": "310",
+                    "label": "Password",
+                    "baseType": "string:Password",
+                    "modelType": "string:Password",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": true,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "peerRole": {
+                    "comment": [
+                         "Peer role"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "28831",
+                    "propLocalId": "6913",
+                    "label": "Peer's Role",
+                    "baseType": "scalar:Bitmask8",
+                    "modelType": "bgp:SpineRoleType",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "unspecified", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Default"
+                             ],
+                             "label": " "},
+                         { "value": "2", "localName": "inter-pod",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Inter-Pod (MPOD) Spine"
+                             ],
+                             "label": "Inter-Pod Spine "},
+                         { "value": "8", "localName": "msite-forwarder",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Multi-Site Forwarder"
+                             ],
+                             "label": "Multi-Site Forwarder "},
+                         { "value": "4", "localName": "msite-speaker",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Multi-Site Speaker"
+                             ],
+                             "label": "Multi-Site Speaker "},
+                         { "value": "0", "localName": "unspecified",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Unspecified"
+                             ],
+                             "label": "Unspecified "},
+                         { "value": "1", "localName": "wan",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "WAN (GOLF) Spine"
+                             ],
+                             "label": "WAN Spine "}
+                    ],
+                    "default": "unspecified",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "privateASctrl": {
+                    "comment": [
+                         "remove-private-as controls"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "22637",
+                    "propLocalId": "5644",
+                    "label": "Private AS Control",
+                    "baseType": "scalar:Bitmask8",
+                    "modelType": "bgp:PrivateASControl",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "0", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Default is disabled"
+                             ],
+                             "label": " "},
+                         { "value": "2", "localName": "remove-all",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Remove private AS even if public AS's exist"
+                             ],
+                             "label": "Remove all private AS "},
+                         { "value": "1", "localName": "remove-exclusive",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Enable removal of private AS exclusively if no public AS exist"
+                             ],
+                             "label": "Remove private AS "},
+                         { "value": "4", "localName": "replace-as",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Replace private AS with local AS"
+                             ],
+                             "label": "Replace private AS with local AS "}
+                    ],
+                    "default": "0",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rn": {
+                    "comment": [
+                         "Identifies an object from its siblings within the context of its parent object. The distinguished name contains a sequence of relative names."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2",
+                    "propLocalId": "3",
+                    "label": "rn",
+                    "baseType": "reference:BinRN",
+                    "modelType": "reference:BinRN",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "srcIf": {
+                    "comment": [
+                         "Source interface"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2579",
+                    "propLocalId": "1210",
+                    "label": "Source Interface",
+                    "baseType": "base:IfIndex",
+                    "modelType": "nw:IfId",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "status": {
+                    "comment": [
+                         "The upgrade status. This property is for internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3",
+                    "propLocalId": "4",
+                    "label": "status",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationStatus",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "2", "localName": "created",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be created. An error is returned if the object already exists.  \nIn the return value of a setter method: indicates that an object has been created.  \n"
+                             ],
+                             "label": "created "},
+                         { "value": "8", "localName": "deleted",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be deleted.  \nIn the return value of a setter method: indicates that an object has been deleted.\n"
+                             ],
+                             "label": "deleted "},
+                         { "value": "4", "localName": "modified",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be modified  \nIn the return value of a setter method: indicates that an object has been modified.\n"
+                             ],
+                             "label": "modified "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "totalPfxPeers": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2585",
+                    "propLocalId": "1215",
+                    "label": "Total Prefix Peers",
+                    "baseType": "scalar:Uint64",
+                    "modelType": "bgp:PfxPeerCounts",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "ttl": {
+                    "comment": [
+                         "Specifies time to live (TTL)."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "16996",
+                    "propLocalId": "976",
+                    "label": "eBGP Multihop",
+                    "baseType": "scalar:Uint16",
+                    "modelType": "bgp:TtlVal",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "1", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "}
+                    ],
+                    "default": "1",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "type": {
+                    "comment": [
+                         "The specific type of the object or component."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "20642",
+                    "propLocalId": "33",
+                    "label": "Type",
+                    "baseType": "scalar:Bitmask8",
+                    "modelType": "bgp:PeerType",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "local", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Default is local.\n                     By default every infra peer is a Local peer"
+                             ],
+                             "label": " "},
+                         { "value": "128", "localName": "inter-pod-rl",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Inter POD RL Peer"
+                             ],
+                             "label": "Peer for Inter-POD-RL Connectivity from Ext RR Spine "},
+                         { "value": "32", "localName": "inter-site",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Inter Site Peer"
+                             ],
+                             "label": "Peer for Inter-Site Connectivity "},
+                         { "value": "64", "localName": "intra-pod",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Intra POD Peer"
+                             ],
+                             "label": "Peer for Intra-POD Connectivity in case of Multi-Site "},
+                         { "value": "1", "localName": "intra-site",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Intra Site Peer"
+                             ],
+                             "label": "Peer for Intra-Site Connectivity "},
+                         { "value": "4", "localName": "local",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Local"
+                             ],
+                             "label": "Peer for Local POD Connectivity "},
+                         { "value": "8", "localName": "manual",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Manual"
+                             ],
+                             "label": "Peer Configured Manually "},
+                         { "value": "16", "localName": "trusted-cloud",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "AVS Cloud"
+                             ],
+                             "label": "Peer for trusted cloud AVS connectivity "},
+                         { "value": "2", "localName": "wan",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "WAN"
+                             ],
+                             "label": "Peer for WAN Connectivity "}
+                    ],
+                    "default": "local",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "typeExt": {
+                    "comment": [
+                         "Peer type extension"
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "56503",
+                    "propLocalId": "12815",
+                    "label": "Type Extension",
+                    "baseType": "scalar:Bitmask16",
+                    "modelType": "bgp:PeerTypeExt",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "1", "localName": "multi-domain",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "Multi Domain peer"
+                             ],
+                             "label": "Peer for multi domain WAN connectivity "},
+                         { "value": "2", "localName": "sr-mpls",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "SR - MPLS peer"
+                             ],
+                             "label": "Peer over SR MPLS underlay "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                }
+            }
+        }
+}

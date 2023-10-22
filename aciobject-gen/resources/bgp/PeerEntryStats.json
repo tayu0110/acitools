@@ -1,0 +1,1494 @@
+{
+        "bgp:PeerEntryStats": {
+            "contains": {
+                "bgp:BgpPeerBytes15min": "",
+                "bgp:BgpPeerBytes1d": "",
+                "bgp:BgpPeerBytes1h": "",
+                "bgp:BgpPeerBytes1mo": "",
+                "bgp:BgpPeerBytes1qtr": "",
+                "bgp:BgpPeerBytes1w": "",
+                "bgp:BgpPeerBytes1year": "",
+                "bgp:BgpPeerBytes5min": "",
+                "bgp:BgpPeerBytesHist15min": "",
+                "bgp:BgpPeerBytesHist1d": "",
+                "bgp:BgpPeerBytesHist1h": "",
+                "bgp:BgpPeerBytesHist1mo": "",
+                "bgp:BgpPeerBytesHist1qtr": "",
+                "bgp:BgpPeerBytesHist1w": "",
+                "bgp:BgpPeerBytesHist1year": "",
+                "bgp:BgpPeerBytesHist5min": "",
+                "bgp:BgpPeerKeepAlive15min": "",
+                "bgp:BgpPeerKeepAlive1d": "",
+                "bgp:BgpPeerKeepAlive1h": "",
+                "bgp:BgpPeerKeepAlive1mo": "",
+                "bgp:BgpPeerKeepAlive1qtr": "",
+                "bgp:BgpPeerKeepAlive1w": "",
+                "bgp:BgpPeerKeepAlive1year": "",
+                "bgp:BgpPeerKeepAlive5min": "",
+                "bgp:BgpPeerKeepAliveHist15min": "",
+                "bgp:BgpPeerKeepAliveHist1d": "",
+                "bgp:BgpPeerKeepAliveHist1h": "",
+                "bgp:BgpPeerKeepAliveHist1mo": "",
+                "bgp:BgpPeerKeepAliveHist1qtr": "",
+                "bgp:BgpPeerKeepAliveHist1w": "",
+                "bgp:BgpPeerKeepAliveHist1year": "",
+                "bgp:BgpPeerKeepAliveHist5min": "",
+                "bgp:BgpPeerMsg15min": "",
+                "bgp:BgpPeerMsg1d": "",
+                "bgp:BgpPeerMsg1h": "",
+                "bgp:BgpPeerMsg1mo": "",
+                "bgp:BgpPeerMsg1qtr": "",
+                "bgp:BgpPeerMsg1w": "",
+                "bgp:BgpPeerMsg1year": "",
+                "bgp:BgpPeerMsg5min": "",
+                "bgp:BgpPeerMsgHist15min": "",
+                "bgp:BgpPeerMsgHist1d": "",
+                "bgp:BgpPeerMsgHist1h": "",
+                "bgp:BgpPeerMsgHist1mo": "",
+                "bgp:BgpPeerMsgHist1qtr": "",
+                "bgp:BgpPeerMsgHist1w": "",
+                "bgp:BgpPeerMsgHist1year": "",
+                "bgp:BgpPeerMsgHist5min": "",
+                "bgp:BgpPeerOpen15min": "",
+                "bgp:BgpPeerOpen1d": "",
+                "bgp:BgpPeerOpen1h": "",
+                "bgp:BgpPeerOpen1mo": "",
+                "bgp:BgpPeerOpen1qtr": "",
+                "bgp:BgpPeerOpen1w": "",
+                "bgp:BgpPeerOpen1year": "",
+                "bgp:BgpPeerOpen5min": "",
+                "bgp:BgpPeerOpenHist15min": "",
+                "bgp:BgpPeerOpenHist1d": "",
+                "bgp:BgpPeerOpenHist1h": "",
+                "bgp:BgpPeerOpenHist1mo": "",
+                "bgp:BgpPeerOpenHist1qtr": "",
+                "bgp:BgpPeerOpenHist1w": "",
+                "bgp:BgpPeerOpenHist1year": "",
+                "bgp:BgpPeerOpenHist5min": "",
+                "bgp:BgpPeerRoute15min": "",
+                "bgp:BgpPeerRoute1d": "",
+                "bgp:BgpPeerRoute1h": "",
+                "bgp:BgpPeerRoute1mo": "",
+                "bgp:BgpPeerRoute1qtr": "",
+                "bgp:BgpPeerRoute1w": "",
+                "bgp:BgpPeerRoute1year": "",
+                "bgp:BgpPeerRoute5min": "",
+                "bgp:BgpPeerRouteHist15min": "",
+                "bgp:BgpPeerRouteHist1d": "",
+                "bgp:BgpPeerRouteHist1h": "",
+                "bgp:BgpPeerRouteHist1mo": "",
+                "bgp:BgpPeerRouteHist1qtr": "",
+                "bgp:BgpPeerRouteHist1w": "",
+                "bgp:BgpPeerRouteHist1year": "",
+                "bgp:BgpPeerRouteHist5min": "",
+                "bgp:BgpRtPrefixCount15min": "",
+                "bgp:BgpRtPrefixCount1d": "",
+                "bgp:BgpRtPrefixCount1h": "",
+                "bgp:BgpRtPrefixCount1mo": "",
+                "bgp:BgpRtPrefixCount1qtr": "",
+                "bgp:BgpRtPrefixCount1w": "",
+                "bgp:BgpRtPrefixCount1year": "",
+                "bgp:BgpRtPrefixCount5min": "",
+                "bgp:BgpRtPrefixCountHist15min": "",
+                "bgp:BgpRtPrefixCountHist1d": "",
+                "bgp:BgpRtPrefixCountHist1h": "",
+                "bgp:BgpRtPrefixCountHist1mo": "",
+                "bgp:BgpRtPrefixCountHist1qtr": "",
+                "bgp:BgpRtPrefixCountHist1w": "",
+                "bgp:BgpRtPrefixCountHist1year": "",
+                "bgp:BgpRtPrefixCountHist5min": "",
+                "fault:Counts": "",
+                "fault:Inst": "",
+                "health:Inst": ""
+            },
+            "rnMap": {
+                "CDbgpBgpPeerBytes15min": "bgp:BgpPeerBytes15min",
+                "CDbgpBgpPeerBytes1d": "bgp:BgpPeerBytes1d",
+                "CDbgpBgpPeerBytes1h": "bgp:BgpPeerBytes1h",
+                "CDbgpBgpPeerBytes1mo": "bgp:BgpPeerBytes1mo",
+                "CDbgpBgpPeerBytes1qtr": "bgp:BgpPeerBytes1qtr",
+                "CDbgpBgpPeerBytes1w": "bgp:BgpPeerBytes1w",
+                "CDbgpBgpPeerBytes1year": "bgp:BgpPeerBytes1year",
+                "CDbgpBgpPeerBytes5min": "bgp:BgpPeerBytes5min",
+                "CDbgpBgpPeerKeepAlive15min": "bgp:BgpPeerKeepAlive15min",
+                "CDbgpBgpPeerKeepAlive1d": "bgp:BgpPeerKeepAlive1d",
+                "CDbgpBgpPeerKeepAlive1h": "bgp:BgpPeerKeepAlive1h",
+                "CDbgpBgpPeerKeepAlive1mo": "bgp:BgpPeerKeepAlive1mo",
+                "CDbgpBgpPeerKeepAlive1qtr": "bgp:BgpPeerKeepAlive1qtr",
+                "CDbgpBgpPeerKeepAlive1w": "bgp:BgpPeerKeepAlive1w",
+                "CDbgpBgpPeerKeepAlive1year": "bgp:BgpPeerKeepAlive1year",
+                "CDbgpBgpPeerKeepAlive5min": "bgp:BgpPeerKeepAlive5min",
+                "CDbgpBgpPeerMsg15min": "bgp:BgpPeerMsg15min",
+                "CDbgpBgpPeerMsg1d": "bgp:BgpPeerMsg1d",
+                "CDbgpBgpPeerMsg1h": "bgp:BgpPeerMsg1h",
+                "CDbgpBgpPeerMsg1mo": "bgp:BgpPeerMsg1mo",
+                "CDbgpBgpPeerMsg1qtr": "bgp:BgpPeerMsg1qtr",
+                "CDbgpBgpPeerMsg1w": "bgp:BgpPeerMsg1w",
+                "CDbgpBgpPeerMsg1year": "bgp:BgpPeerMsg1year",
+                "CDbgpBgpPeerMsg5min": "bgp:BgpPeerMsg5min",
+                "CDbgpBgpPeerOpen15min": "bgp:BgpPeerOpen15min",
+                "CDbgpBgpPeerOpen1d": "bgp:BgpPeerOpen1d",
+                "CDbgpBgpPeerOpen1h": "bgp:BgpPeerOpen1h",
+                "CDbgpBgpPeerOpen1mo": "bgp:BgpPeerOpen1mo",
+                "CDbgpBgpPeerOpen1qtr": "bgp:BgpPeerOpen1qtr",
+                "CDbgpBgpPeerOpen1w": "bgp:BgpPeerOpen1w",
+                "CDbgpBgpPeerOpen1year": "bgp:BgpPeerOpen1year",
+                "CDbgpBgpPeerOpen5min": "bgp:BgpPeerOpen5min",
+                "CDbgpBgpPeerRoute15min": "bgp:BgpPeerRoute15min",
+                "CDbgpBgpPeerRoute1d": "bgp:BgpPeerRoute1d",
+                "CDbgpBgpPeerRoute1h": "bgp:BgpPeerRoute1h",
+                "CDbgpBgpPeerRoute1mo": "bgp:BgpPeerRoute1mo",
+                "CDbgpBgpPeerRoute1qtr": "bgp:BgpPeerRoute1qtr",
+                "CDbgpBgpPeerRoute1w": "bgp:BgpPeerRoute1w",
+                "CDbgpBgpPeerRoute1year": "bgp:BgpPeerRoute1year",
+                "CDbgpBgpPeerRoute5min": "bgp:BgpPeerRoute5min",
+                "CDbgpBgpRtPrefixCount15min": "bgp:BgpRtPrefixCount15min",
+                "CDbgpBgpRtPrefixCount1d": "bgp:BgpRtPrefixCount1d",
+                "CDbgpBgpRtPrefixCount1h": "bgp:BgpRtPrefixCount1h",
+                "CDbgpBgpRtPrefixCount1mo": "bgp:BgpRtPrefixCount1mo",
+                "CDbgpBgpRtPrefixCount1qtr": "bgp:BgpRtPrefixCount1qtr",
+                "CDbgpBgpRtPrefixCount1w": "bgp:BgpRtPrefixCount1w",
+                "CDbgpBgpRtPrefixCount1year": "bgp:BgpRtPrefixCount1year",
+                "CDbgpBgpRtPrefixCount5min": "bgp:BgpRtPrefixCount5min",
+                "HDbgpBgpPeerBytes15min-": "bgp:BgpPeerBytesHist15min",
+                "HDbgpBgpPeerBytes1d-": "bgp:BgpPeerBytesHist1d",
+                "HDbgpBgpPeerBytes1h-": "bgp:BgpPeerBytesHist1h",
+                "HDbgpBgpPeerBytes1mo-": "bgp:BgpPeerBytesHist1mo",
+                "HDbgpBgpPeerBytes1qtr-": "bgp:BgpPeerBytesHist1qtr",
+                "HDbgpBgpPeerBytes1w-": "bgp:BgpPeerBytesHist1w",
+                "HDbgpBgpPeerBytes1year-": "bgp:BgpPeerBytesHist1year",
+                "HDbgpBgpPeerBytes5min-": "bgp:BgpPeerBytesHist5min",
+                "HDbgpBgpPeerKeepAlive15min-": "bgp:BgpPeerKeepAliveHist15min",
+                "HDbgpBgpPeerKeepAlive1d-": "bgp:BgpPeerKeepAliveHist1d",
+                "HDbgpBgpPeerKeepAlive1h-": "bgp:BgpPeerKeepAliveHist1h",
+                "HDbgpBgpPeerKeepAlive1mo-": "bgp:BgpPeerKeepAliveHist1mo",
+                "HDbgpBgpPeerKeepAlive1qtr-": "bgp:BgpPeerKeepAliveHist1qtr",
+                "HDbgpBgpPeerKeepAlive1w-": "bgp:BgpPeerKeepAliveHist1w",
+                "HDbgpBgpPeerKeepAlive1year-": "bgp:BgpPeerKeepAliveHist1year",
+                "HDbgpBgpPeerKeepAlive5min-": "bgp:BgpPeerKeepAliveHist5min",
+                "HDbgpBgpPeerMsg15min-": "bgp:BgpPeerMsgHist15min",
+                "HDbgpBgpPeerMsg1d-": "bgp:BgpPeerMsgHist1d",
+                "HDbgpBgpPeerMsg1h-": "bgp:BgpPeerMsgHist1h",
+                "HDbgpBgpPeerMsg1mo-": "bgp:BgpPeerMsgHist1mo",
+                "HDbgpBgpPeerMsg1qtr-": "bgp:BgpPeerMsgHist1qtr",
+                "HDbgpBgpPeerMsg1w-": "bgp:BgpPeerMsgHist1w",
+                "HDbgpBgpPeerMsg1year-": "bgp:BgpPeerMsgHist1year",
+                "HDbgpBgpPeerMsg5min-": "bgp:BgpPeerMsgHist5min",
+                "HDbgpBgpPeerOpen15min-": "bgp:BgpPeerOpenHist15min",
+                "HDbgpBgpPeerOpen1d-": "bgp:BgpPeerOpenHist1d",
+                "HDbgpBgpPeerOpen1h-": "bgp:BgpPeerOpenHist1h",
+                "HDbgpBgpPeerOpen1mo-": "bgp:BgpPeerOpenHist1mo",
+                "HDbgpBgpPeerOpen1qtr-": "bgp:BgpPeerOpenHist1qtr",
+                "HDbgpBgpPeerOpen1w-": "bgp:BgpPeerOpenHist1w",
+                "HDbgpBgpPeerOpen1year-": "bgp:BgpPeerOpenHist1year",
+                "HDbgpBgpPeerOpen5min-": "bgp:BgpPeerOpenHist5min",
+                "HDbgpBgpPeerRoute15min-": "bgp:BgpPeerRouteHist15min",
+                "HDbgpBgpPeerRoute1d-": "bgp:BgpPeerRouteHist1d",
+                "HDbgpBgpPeerRoute1h-": "bgp:BgpPeerRouteHist1h",
+                "HDbgpBgpPeerRoute1mo-": "bgp:BgpPeerRouteHist1mo",
+                "HDbgpBgpPeerRoute1qtr-": "bgp:BgpPeerRouteHist1qtr",
+                "HDbgpBgpPeerRoute1w-": "bgp:BgpPeerRouteHist1w",
+                "HDbgpBgpPeerRoute1year-": "bgp:BgpPeerRouteHist1year",
+                "HDbgpBgpPeerRoute5min-": "bgp:BgpPeerRouteHist5min",
+                "HDbgpBgpRtPrefixCount15min-": "bgp:BgpRtPrefixCountHist15min",
+                "HDbgpBgpRtPrefixCount1d-": "bgp:BgpRtPrefixCountHist1d",
+                "HDbgpBgpRtPrefixCount1h-": "bgp:BgpRtPrefixCountHist1h",
+                "HDbgpBgpRtPrefixCount1mo-": "bgp:BgpRtPrefixCountHist1mo",
+                "HDbgpBgpRtPrefixCount1qtr-": "bgp:BgpRtPrefixCountHist1qtr",
+                "HDbgpBgpRtPrefixCount1w-": "bgp:BgpRtPrefixCountHist1w",
+                "HDbgpBgpRtPrefixCount1year-": "bgp:BgpRtPrefixCountHist1year",
+                "HDbgpBgpRtPrefixCount5min-": "bgp:BgpRtPrefixCountHist5min",
+                "fault-": "fault:Inst",
+                "fltCnts": "fault:Counts",
+                "health": "health:Inst"
+            },
+            "identifiedBy": [
+
+            ],
+            "rnFormat": "peerstats",
+            "containedBy": {
+                "bgp:PeerEntry": ""
+            },
+            "superClasses": [
+
+            ],
+            "subClasses": {
+
+            },
+            "relationFrom": {
+
+            },
+            "relationTo": {
+
+            },
+            "dnFormats": [
+                "topology/pod-{id}/node-{id}/sys/bgp/inst/dom-{name}/peer-[{addr}]/ent-[{addr}]/peerstats",
+                "sys/bgp/inst/dom-{name}/peer-[{addr}]/ent-[{addr}]/peerstats"
+            ],
+            "writeAccess": [
+
+            ],
+            "readAccess": [
+                "access-protocol",
+                "admin",
+                "fabric-protocol",
+                "tenant-ext-protocol",
+                "tenant-protocol"
+            ],
+            "faults": {
+
+            },
+            "events": {
+
+            },
+            "stats": {
+                "bgp:BgpPeerBytes15min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents the most current statistics for BGP  Peer  Bytes in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "bgp:BgpPeerBytes1d": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents the most current statistics for BGP  Peer  Bytes in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "bgp:BgpPeerBytes1h": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents the most current statistics for BGP  Peer  Bytes in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "bgp:BgpPeerBytes1mo": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents the most current statistics for BGP  Peer  Bytes in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerBytes1qtr": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents the most current statistics for BGP  Peer  Bytes in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerBytes1w": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents the most current statistics for BGP  Peer  Bytes in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerBytes1year": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents the most current statistics for BGP  Peer  Bytes in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerBytes5min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents the most current statistics for BGP  Peer  Bytes in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "bgp:BgpPeerBytesHist15min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents historical statistics for BGP  Peer  Bytes in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "bgp:BgpPeerBytesHist1d": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents historical statistics for BGP  Peer  Bytes in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "bgp:BgpPeerBytesHist1h": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents historical statistics for BGP  Peer  Bytes in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "bgp:BgpPeerBytesHist1mo": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents historical statistics for BGP  Peer  Bytes in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerBytesHist1qtr": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents historical statistics for BGP  Peer  Bytes in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerBytesHist1w": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents historical statistics for BGP  Peer  Bytes in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerBytesHist1year": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents historical statistics for BGP  Peer  Bytes in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerBytesHist5min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on bytes.A class that represents historical statistics for BGP  Peer  Bytes in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "bgp:BgpPeerKeepAlive15min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents the most current statistics for BGP  Peer  Keepalive in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "bgp:BgpPeerKeepAlive1d": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents the most current statistics for BGP  Peer  Keepalive in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "bgp:BgpPeerKeepAlive1h": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents the most current statistics for BGP  Peer  Keepalive in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "bgp:BgpPeerKeepAlive1mo": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents the most current statistics for BGP  Peer  Keepalive in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerKeepAlive1qtr": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents the most current statistics for BGP  Peer  Keepalive in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerKeepAlive1w": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents the most current statistics for BGP  Peer  Keepalive in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerKeepAlive1year": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents the most current statistics for BGP  Peer  Keepalive in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerKeepAlive5min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents the most current statistics for BGP  Peer  Keepalive in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "bgp:BgpPeerKeepAliveHist15min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents historical statistics for BGP  Peer  Keepalive in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "bgp:BgpPeerKeepAliveHist1d": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents historical statistics for BGP  Peer  Keepalive in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "bgp:BgpPeerKeepAliveHist1h": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents historical statistics for BGP  Peer  Keepalive in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "bgp:BgpPeerKeepAliveHist1mo": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents historical statistics for BGP  Peer  Keepalive in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerKeepAliveHist1qtr": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents historical statistics for BGP  Peer  Keepalive in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerKeepAliveHist1w": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents historical statistics for BGP  Peer  Keepalive in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerKeepAliveHist1year": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents historical statistics for BGP  Peer  Keepalive in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerKeepAliveHist5min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on keepalive.A class that represents historical statistics for BGP  Peer  Keepalive in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "bgp:BgpPeerMsg15min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents the most current statistics for BGP  Peer  Msg in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "bgp:BgpPeerMsg1d": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents the most current statistics for BGP  Peer  Msg in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "bgp:BgpPeerMsg1h": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents the most current statistics for BGP  Peer  Msg in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "bgp:BgpPeerMsg1mo": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents the most current statistics for BGP  Peer  Msg in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerMsg1qtr": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents the most current statistics for BGP  Peer  Msg in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerMsg1w": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents the most current statistics for BGP  Peer  Msg in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerMsg1year": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents the most current statistics for BGP  Peer  Msg in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerMsg5min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents the most current statistics for BGP  Peer  Msg in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "bgp:BgpPeerMsgHist15min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents historical statistics for BGP  Peer  Msg in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "bgp:BgpPeerMsgHist1d": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents historical statistics for BGP  Peer  Msg in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "bgp:BgpPeerMsgHist1h": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents historical statistics for BGP  Peer  Msg in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "bgp:BgpPeerMsgHist1mo": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents historical statistics for BGP  Peer  Msg in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerMsgHist1qtr": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents historical statistics for BGP  Peer  Msg in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerMsgHist1w": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents historical statistics for BGP  Peer  Msg in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerMsgHist1year": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents historical statistics for BGP  Peer  Msg in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerMsgHist5min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on message and notif.A class that represents historical statistics for BGP  Peer  Msg in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "bgp:BgpPeerOpen15min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents the most current statistics for BGP  Peer  Open in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "bgp:BgpPeerOpen1d": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents the most current statistics for BGP  Peer  Open in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "bgp:BgpPeerOpen1h": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents the most current statistics for BGP  Peer  Open in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "bgp:BgpPeerOpen1mo": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents the most current statistics for BGP  Peer  Open in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerOpen1qtr": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents the most current statistics for BGP  Peer  Open in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerOpen1w": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents the most current statistics for BGP  Peer  Open in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerOpen1year": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents the most current statistics for BGP  Peer  Open in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerOpen5min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents the most current statistics for BGP  Peer  Open in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "bgp:BgpPeerOpenHist15min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents historical statistics for BGP  Peer  Open in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "bgp:BgpPeerOpenHist1d": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents historical statistics for BGP  Peer  Open in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "bgp:BgpPeerOpenHist1h": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents historical statistics for BGP  Peer  Open in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "bgp:BgpPeerOpenHist1mo": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents historical statistics for BGP  Peer  Open in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerOpenHist1qtr": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents historical statistics for BGP  Peer  Open in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerOpenHist1w": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents historical statistics for BGP  Peer  Open in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerOpenHist1year": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents historical statistics for BGP  Peer  Open in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerOpenHist5min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on open and update.A class that represents historical statistics for BGP  Peer  Open in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "bgp:BgpPeerRoute15min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents the most current statistics for BGP  Peer  Route in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "bgp:BgpPeerRoute1d": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents the most current statistics for BGP  Peer  Route in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "bgp:BgpPeerRoute1h": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents the most current statistics for BGP  Peer  Route in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "bgp:BgpPeerRoute1mo": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents the most current statistics for BGP  Peer  Route in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerRoute1qtr": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents the most current statistics for BGP  Peer  Route in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerRoute1w": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents the most current statistics for BGP  Peer  Route in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerRoute1year": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents the most current statistics for BGP  Peer  Route in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerRoute5min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents the most current statistics for BGP  Peer  Route in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "bgp:BgpPeerRouteHist15min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents historical statistics for BGP  Peer  Route in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "bgp:BgpPeerRouteHist1d": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents historical statistics for BGP  Peer  Route in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "bgp:BgpPeerRouteHist1h": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents historical statistics for BGP  Peer  Route in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "bgp:BgpPeerRouteHist1mo": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents historical statistics for BGP  Peer  Route in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerRouteHist1qtr": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents historical statistics for BGP  Peer  Route in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerRouteHist1w": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents historical statistics for BGP  Peer  Route in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerRouteHist1year": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents historical statistics for BGP  Peer  Route in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpPeerRouteHist5min": {
+                    "comment": [
+                         "This object holds bgp peer statistics on route and capability.A class that represents historical statistics for BGP  Peer  Route in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "bgp:BgpRtPrefixCount15min": {
+                    "comment": [
+                         "This object holds bgp peer route prefix count. A class that represents the most current statistics for BGP  Route  Prefix  Count in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "bgp:BgpRtPrefixCount1d": {
+                    "comment": [
+                         "This object holds bgp peer route prefix count. A class that represents the most current statistics for BGP  Route  Prefix  Count in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "bgp:BgpRtPrefixCount1h": {
+                    "comment": [
+                         "This object holds bgp peer route prefix count. A class that represents the most current statistics for BGP  Route  Prefix  Count in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "bgp:BgpRtPrefixCount1mo": {
+                    "comment": [
+                         "This object holds bgp peer route prefix count. A class that represents the most current statistics for BGP  Route  Prefix  Count in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpRtPrefixCount1qtr": {
+                    "comment": [
+                         "This object holds bgp peer route prefix count. A class that represents the most current statistics for BGP  Route  Prefix  Count in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpRtPrefixCount1w": {
+                    "comment": [
+                         "This object holds bgp peer route prefix count. A class that represents the most current statistics for BGP  Route  Prefix  Count in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpRtPrefixCount1year": {
+                    "comment": [
+                         "This object holds bgp peer route prefix count. A class that represents the most current statistics for BGP  Route  Prefix  Count in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpRtPrefixCount5min": {
+                    "comment": [
+                         "This object holds bgp peer route prefix count. A class that represents the most current statistics for BGP  Route  Prefix  Count in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                },
+                "bgp:BgpRtPrefixCountHist15min": {
+                    "comment": [
+                         "This object holds bgp peer route prefix count. A class that represents historical statistics for BGP  Route  Prefix  Count in a 15 minute sampling interval.  This class updates every 5 minutes."
+                    ]
+                },
+                "bgp:BgpRtPrefixCountHist1d": {
+                    "comment": [
+                         "This object holds bgp peer route prefix count. A class that represents historical statistics for BGP  Route  Prefix  Count in a 1 day sampling interval.  This class updates every hour."
+                    ]
+                },
+                "bgp:BgpRtPrefixCountHist1h": {
+                    "comment": [
+                         "This object holds bgp peer route prefix count. A class that represents historical statistics for BGP  Route  Prefix  Count in a 1 hour sampling interval.  This class updates every 15 minutes."
+                    ]
+                },
+                "bgp:BgpRtPrefixCountHist1mo": {
+                    "comment": [
+                         "This object holds bgp peer route prefix count. A class that represents historical statistics for BGP  Route  Prefix  Count in a 1 month sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpRtPrefixCountHist1qtr": {
+                    "comment": [
+                         "This object holds bgp peer route prefix count. A class that represents historical statistics for BGP  Route  Prefix  Count in a 1 quarter sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpRtPrefixCountHist1w": {
+                    "comment": [
+                         "This object holds bgp peer route prefix count. A class that represents historical statistics for BGP  Route  Prefix  Count in a 1 week sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpRtPrefixCountHist1year": {
+                    "comment": [
+                         "This object holds bgp peer route prefix count. A class that represents historical statistics for BGP  Route  Prefix  Count in a 1 year sampling interval.  This class updates every day."
+                    ]
+                },
+                "bgp:BgpRtPrefixCountHist5min": {
+                    "comment": [
+                         "This object holds bgp peer route prefix count. A class that represents historical statistics for BGP  Route  Prefix  Count in a 5 minute sampling interval.  This class updates every 10 seconds."
+                    ]
+                }
+            },
+            "isAbstract": false,
+            "isConfigurable": false,
+            "isContextRoot": false,
+            "isDeprecated": false,
+            "isEncrypted": false,
+            "isExportable": false,
+            "isPersistent": true,
+            "isSubjectToQuota": false,
+            "isObservable": true,
+            "hasStats": true,
+            "isStat": false,
+            "isFaultable": true,
+            "isDomainable": false,
+            "isHealthScorable": true,
+            "shouldCollectHealthStats": false,
+            "healthCollectionSource": "faults",
+            "hasEventRules": false,
+            "abstractionLayer": "concrete",
+            "apicNxProcessing": false,
+            "monitoringPolicySource": "Parent",
+            "isCreatableDeletable": "always",
+            "platformFlavors": [
+                "apic"
+            ],
+            "classId": "2607",
+            "className": "PeerEntryStats",
+            "classPkg": "bgp",
+            "featureTag": "",
+            "moCategory": "Regular",
+            "label": "Peer Entry Statistics",
+            "comment": [
+                "The BGP peer statistics operational information."
+            ],
+            "properties": {
+                "byteInRecvQ": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2575",
+                    "propLocalId": "1209",
+                    "label": "Bytes in Receive Queue",
+                    "baseType": "scalar:Uint64",
+                    "modelType": "bgp:PeerCount",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "byteInSendQ": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2574",
+                    "propLocalId": "1208",
+                    "label": "Bytes in Send Queue",
+                    "baseType": "scalar:Uint64",
+                    "modelType": "bgp:PeerCount",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "byteRcvd": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2573",
+                    "propLocalId": "1207",
+                    "label": "Number of Bytes Received",
+                    "baseType": "scalar:Uint64",
+                    "modelType": "bgp:PeerCount",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "byteSent": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2572",
+                    "propLocalId": "1206",
+                    "label": "Number of Bytes Sent",
+                    "baseType": "scalar:Uint64",
+                    "modelType": "bgp:PeerCount",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "capRcvd": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2567",
+                    "propLocalId": "1201",
+                    "label": "Number of Capability Messages Received",
+                    "baseType": "scalar:Uint64",
+                    "modelType": "bgp:PeerCount",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "capSent": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2566",
+                    "propLocalId": "1200",
+                    "label": "Number of Capability Messages Sent",
+                    "baseType": "scalar:Uint64",
+                    "modelType": "bgp:PeerCount",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "childAction": {
+                    "comment": [
+                         "Delete or ignore. For internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "4",
+                    "propLocalId": "5",
+                    "label": "childAction",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationChildAction",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "16384", "localName": "deleteAll",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteAll "},
+                         { "value": "8192", "localName": "deleteNonPresent",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "deleteNonPresent "},
+                         { "value": "4096", "localName": "ignore",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "ignore "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "connectRetryTs": {
+                    "comment": [
+                         "The connect retry timestamp."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "15857",
+                    "propLocalId": "1230",
+                    "label": "Connect Retry Timestamp",
+                    "baseType": "scalar:Date",
+                    "modelType": "scalar:Date",
+                    "needsPropDelimiters": false,
+                    "uitype": "date",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "dn": {
+                    "comment": [
+                         "A tag or metadata is a non-hierarchical keyword or term assigned to the fabric module."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "1",
+                    "propLocalId": "2",
+                    "label": "dn",
+                    "baseType": "reference:BinRef",
+                    "modelType": "reference:BinRef",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "kaRcvd": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2563",
+                    "propLocalId": "1197",
+                    "label": "Number of Keepalive Messages Received",
+                    "baseType": "scalar:Uint64",
+                    "modelType": "bgp:PeerCount",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "kaSent": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2562",
+                    "propLocalId": "1196",
+                    "label": "Number of Keepalive Messages Sent",
+                    "baseType": "scalar:Uint64",
+                    "modelType": "bgp:PeerCount",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "kaTs": {
+                    "comment": [
+                         "The keep alive timestamp."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "15858",
+                    "propLocalId": "1231",
+                    "label": "Keepalive Timestamp",
+                    "baseType": "scalar:Date",
+                    "modelType": "scalar:Date",
+                    "needsPropDelimiters": false,
+                    "uitype": "date",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "modTs": {
+                    "comment": [
+                         "The time when this object was last modified."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "7",
+                    "propLocalId": "7",
+                    "label": "modTs",
+                    "baseType": "scalar:Date",
+                    "modelType": "mo:TStamp",
+                    "needsPropDelimiters": false,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "never", "localName": "defaultValue",
+                             "platformFlavors": [
+
+                             ],
+                             "label": " "},
+                         { "value": "0", "localName": "never",
+                             "platformFlavors": [
+
+                             ],
+                             "label": "never "}
+                    ],
+                    "default": "never",
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "monPolDn": {
+                    "comment": [
+                         "The monitoring policy attached to this observable object."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "52316",
+                    "propLocalId": "228",
+                    "label": "Monitoring policy attached to this observable object",
+                    "baseType": "reference:BinRef",
+                    "modelType": "reference:BinRef",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "msgRcvd": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2571",
+                    "propLocalId": "1205",
+                    "label": "Number of Messages Received",
+                    "baseType": "scalar:Uint64",
+                    "modelType": "bgp:PeerCount",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "msgSent": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2570",
+                    "propLocalId": "1204",
+                    "label": "Number of Messages Sent",
+                    "baseType": "scalar:Uint64",
+                    "modelType": "bgp:PeerCount",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "notifRcvd": {
+                    "comment": [
+                         "Number of BGP notification messages received."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2569",
+                    "propLocalId": "1203",
+                    "label": "Number of Notification Messages Received",
+                    "baseType": "scalar:Uint64",
+                    "modelType": "bgp:PeerCount",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "notifSent": {
+                    "comment": [
+                         "Number of BGP notifications sent."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2568",
+                    "propLocalId": "1202",
+                    "label": "Number of Notification Messages Sent",
+                    "baseType": "scalar:Uint64",
+                    "modelType": "bgp:PeerCount",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "openRcvd": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2559",
+                    "propLocalId": "1193",
+                    "label": "Number of Open Messages Received",
+                    "baseType": "scalar:Uint64",
+                    "modelType": "bgp:PeerCount",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "openSent": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2558",
+                    "propLocalId": "1192",
+                    "label": "Number of Open Messages Sent",
+                    "baseType": "scalar:Uint64",
+                    "modelType": "bgp:PeerCount",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "rn": {
+                    "comment": [
+                         "Identifies an object from its siblings within the context of its parent object. The distinguished name contains a sequence of relative names."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2",
+                    "propLocalId": "3",
+                    "label": "rn",
+                    "baseType": "reference:BinRN",
+                    "modelType": "reference:BinRN",
+                    "needsPropDelimiters": true,
+                    "uitype": "auto",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "routeRefreshRcvd": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2565",
+                    "propLocalId": "1199",
+                    "label": "Number of Route Refresh Messages Received",
+                    "baseType": "scalar:Uint64",
+                    "modelType": "bgp:PeerCount",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "routeRefreshSent": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2564",
+                    "propLocalId": "1198",
+                    "label": "Number of Route Refresh Messages Sent",
+                    "baseType": "scalar:Uint64",
+                    "modelType": "bgp:PeerCount",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "status": {
+                    "comment": [
+                         "The upgrade status. This property is for internal use only."
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "3",
+                    "propLocalId": "4",
+                    "label": "status",
+                    "baseType": "scalar:Bitmask32",
+                    "modelType": "mo:ModificationStatus",
+                    "needsPropDelimiters": false,
+                    "uitype": "bitmask",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "validValues": [
+                         { "value": "2", "localName": "created",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be created. An error is returned if the object already exists.  \nIn the return value of a setter method: indicates that an object has been created.  \n"
+                             ],
+                             "label": "created "},
+                         { "value": "8", "localName": "deleted",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be deleted.  \nIn the return value of a setter method: indicates that an object has been deleted.\n"
+                             ],
+                             "label": "deleted "},
+                         { "value": "4", "localName": "modified",
+                             "platformFlavors": [
+
+                             ],
+                             "comment": [
+                                 "In a setter method: specifies that an object should be modified  \nIn the return value of a setter method: indicates that an object has been modified.\n"
+                             ],
+                             "label": "modified "}
+                    ],
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "updateRcvd": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2561",
+                    "propLocalId": "1195",
+                    "label": "Number of Update Messages Received",
+                    "baseType": "scalar:Uint64",
+                    "modelType": "bgp:PeerCount",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                },
+                "updateSent": {
+                    "comment": [
+                         ""
+                    ],
+                    "isConfigurable": false,
+                    "propGlobalId": "2560",
+                    "propLocalId": "1194",
+                    "label": "Number of Update Messages Sent",
+                    "baseType": "scalar:Uint64",
+                    "modelType": "bgp:PeerCount",
+                    "needsPropDelimiters": false,
+                    "uitype": "number",
+                    "createOnly": false,
+                    "readWrite": false,
+                    "readOnly": true,
+                    "isNaming": false,
+                    "secure": false,
+                    "implicit": true,
+                    "mandatory": false,
+                    "isOverride": false,
+                    "isLike": false,
+                    "platformFlavors": [
+
+                    ],
+                    "isDeprecated": false
+                }
+            }
+        }
+}

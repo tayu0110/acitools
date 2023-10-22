@@ -15,7 +15,7 @@ pub struct Attributes {
     child_action: String,
     #[serde(skip_serializing_if = "String::is_empty")]
     cont_name: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
+    #[serde(skip_serializing_if = "String::is_empty", default)]
     dn: String,
     #[serde(skip_serializing_if = "String::is_empty")]
     encap: String,

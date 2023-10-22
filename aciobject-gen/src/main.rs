@@ -51,8 +51,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("#[serde(rename_all = \"camelCase\")]");
     println!("pub struct Attributes {{");
     for (name, _attr) in js["properties"].as_object().unwrap() {
-        let name = name.to_case(Case::Snake);
-        match name.as_str() {
+        let field = name.to_case(Case::Snake);
+        match field.as_str() {
             "status" => {
                 println!("    status: ConfigStatus,")
             }
@@ -64,11 +64,20 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             }
             "dn" => {
                 println!("    #[serde(skip_serializing_if = \"String::is_empty\", default)]");
-                println!("    {name}: String,")
+                println!("    {field}: String,")
+            }
+            "ext_mnge_by" | "config_issues" | "mon_pol_dn" => {
+                println!("    #[allow(dead_code)]");
+                println!("    #[serde(skip_serializing)]");
+                println!("    {field}: String,")
             }
             _ => {
-                println!("    #[serde(skip_serializing_if = \"String::is_empty\")]");
-                println!("    {name}: String,")
+                if field.to_case(Case::Camel) == name.as_str() {
+                    println!("    #[serde(skip_serializing_if = \"String::is_empty\")]");
+                } else {
+                    println!("    #[serde(skip_serializing_if = \"String::is_empty\", rename = \"{name}\")]");
+                }
+                println!("    {field}: String,")
             }
         }
     }
@@ -91,8 +100,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("pub enum ChildItem {{");
     for name in js["contains"].as_object().unwrap().keys() {
         let name = name.replace(":", "");
-        let name = name.to_case(Case::Pascal);
-        println!("    {name} {{}},");
+        let variant = name.to_case(Case::Pascal);
+        if variant.to_case(Case::Camel) != name.as_str() {
+            println!("    #[serde(rename = \"{name}\")]")
+        }
+        println!("    {variant} {{}},");
     }
     println!("}}");
     println!("");
@@ -104,6 +116,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("pub enum {}Endpoint {{", obj_name.to_case(Case::Pascal));
     println!("    ClassAll,");
     println!("    MoUni,");
+    println!("    Raw(String),");
     for dn in js["dnFormats"]
         .as_array()
         .unwrap()
@@ -164,6 +177,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("        match self {{");
     println!("            Self::ClassAll => Cow::Borrowed(\"node/class/{obj_name}.json\"),");
     println!("            Self::MoUni => Cow::Borrowed(\"mo/uni.json\"),");
+    println!("            Self::Raw(endpoint) => Cow::Owned(format!(\"{{endpoint}}\")),");
     for (name, dn, t, is_captured) in endpoints {
         println!(
             "            Self::{name}{}",
