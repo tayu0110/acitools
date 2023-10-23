@@ -56,11 +56,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             "status" => {
                 println!("    status: ConfigStatus,")
             }
-            "type" => {
+            k @ ("type" | "if") => {
                 println!(
-                    "    #[serde(rename = \"type\", skip_serializing_if = \"String::is_empty\")]"
+                    "    #[serde(rename = \"{k}\", skip_serializing_if = \"String::is_empty\", default)]"
                 );
-                println!("    r#type: String,")
+                println!("    r#{k}: String,")
             }
             "dn" => {
                 println!("    #[serde(skip_serializing_if = \"String::is_empty\", default)]");

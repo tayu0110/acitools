@@ -5,46 +5,46 @@ use std::borrow::Cow;
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Attributes {
-    #[serde(skip_serializing_if = "String::is_empty")]
+    #[serde(skip_serializing_if = "String::is_empty", rename = "Nhmetric", default)]
     nhmetric: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
+    #[serde(skip_serializing_if = "String::is_empty", rename = "Nhtag", default)]
     nhtag: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
+    #[serde(skip_serializing_if = "String::is_empty", default)]
     active: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
+    #[serde(skip_serializing_if = "String::is_empty", default)]
     addr: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
+    #[serde(skip_serializing_if = "String::is_empty", default)]
     child_action: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
+    #[serde(skip_serializing_if = "String::is_empty", default)]
     create_ts: String,
     #[serde(skip_serializing_if = "String::is_empty", default)]
     dn: String,
-    #[serde(skip_serializing_if = "String::is_empty", rename = "if")]
+    #[serde(rename = "if", skip_serializing_if = "String::is_empty", default)]
     r#if: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
+    #[serde(skip_serializing_if = "String::is_empty", default)]
     metric: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
+    #[serde(skip_serializing_if = "String::is_empty", default)]
     mod_ts: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
+    #[serde(skip_serializing_if = "String::is_empty", default)]
     mpls_label: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
+    #[serde(skip_serializing_if = "String::is_empty", default)]
     name: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
+    #[serde(skip_serializing_if = "String::is_empty", default)]
     owner: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
+    #[serde(skip_serializing_if = "String::is_empty", default)]
     pref: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
+    #[serde(skip_serializing_if = "String::is_empty", default)]
     rn: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
+    #[serde(skip_serializing_if = "String::is_empty", default)]
     route_type: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
+    #[serde(skip_serializing_if = "String::is_empty", default)]
     rw_vnid: String,
     status: ConfigStatus,
-    #[serde(skip_serializing_if = "String::is_empty")]
+    #[serde(skip_serializing_if = "String::is_empty", default)]
     tag: String,
-    #[serde(rename = "type")]
+    #[serde(rename = "type", skip_serializing_if = "String::is_empty", default)]
     r#type: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
+    #[serde(skip_serializing_if = "String::is_empty", default)]
     vrf: String,
 }
 
@@ -56,6 +56,7 @@ pub enum ChildItem {}
 pub enum Endpoint {
     ClassAll,
     MoUni,
+    Raw(String),
     MoOwner {
         pod: String,
         node: String,
@@ -105,6 +106,7 @@ impl EndpointScheme for Endpoint {
         match self {
             Self::ClassAll => Cow::Borrowed("node/class/uribv6Nexthop.json"),
             Self::MoUni => Cow::Borrowed("mo/uni.json"),
+            Self::Raw(endpoint) => Cow::Owned(format!("{endpoint}")),
             Self::MoOwner {
                 pod,
                 node,
