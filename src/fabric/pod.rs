@@ -10,6 +10,8 @@ pub struct Attributes {
     id: String,
     lc_own: String,
     mod_ts: String,
+    #[allow(dead_code)]
+    #[serde(skip_serializing, default)]
     mon_pol_dn: String,
     pod_type: String,
     status: String,

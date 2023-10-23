@@ -29,7 +29,7 @@ pub struct Attributes {
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub enum ChildItem {
-    EqptSpSd(sprom_sensor_data::EqptSpPd),
+    EqptSpSd(sprom_sensor_data::EqptSpSd),
 }
 
 #[derive(Debug, Clone)]

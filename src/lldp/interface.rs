@@ -16,6 +16,8 @@ pub struct Attributes {
     lc_own: String,
     mac: String,
     mod_ts: String,
+    #[allow(dead_code)]
+    #[serde(skip_serializing, default)]
     mon_pol_dn: String,
     name: String,
     oper_rx_st: String,

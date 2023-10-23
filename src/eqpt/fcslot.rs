@@ -20,7 +20,8 @@ pub struct Attributes {
     loc: String,
     #[serde(skip_serializing_if = "String::is_empty")]
     mod_ts: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
+    #[allow(dead_code)]
+    #[serde(skip_serializing, default)]
     mon_pol_dn: String,
     #[serde(skip_serializing_if = "String::is_empty")]
     oper_st: String,
@@ -29,13 +30,14 @@ pub struct Attributes {
     #[serde(skip_serializing_if = "String::is_empty")]
     rn: String,
     status: ConfigStatus,
-    #[serde(rename = "type")]
+    #[serde(rename = "type", skip_serializing_if = "String::is_empty")]
     r#type: String,
 }
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub enum ChildItem {
+    #[serde(rename = "eqptFC")]
     EqptFc(fc::EqptFc),
     EqptRtOosSlot {},
     FaultCounts {},
@@ -45,9 +47,10 @@ pub enum ChildItem {
 }
 
 #[derive(Debug, Clone)]
-pub enum Endpoint {
+pub enum EqptFcSlotEndpoint {
     ClassAll,
     MoUni,
+    Raw(String),
     MoCh {
         pod: String,
         node: String,
@@ -58,11 +61,12 @@ pub enum Endpoint {
     },
 }
 
-impl EndpointScheme for Endpoint {
+impl EndpointScheme for EqptFcSlotEndpoint {
     fn endpoint(&self) -> Cow<'_, str> {
         match self {
             Self::ClassAll => Cow::Borrowed("node/class/eqptFCSlot.json"),
             Self::MoUni => Cow::Borrowed("mo/uni.json"),
+            Self::Raw(endpoint) => Cow::Owned(format!("{endpoint}")),
             Self::MoCh { pod, node, fcslot } => Cow::Owned(format!(
                 "mo/topology/pod-{pod}/node-{node}/sys/ch/fcslot-{fcslot}.json"
             )),
@@ -81,7 +85,7 @@ mod __internal {
     impl AciObjectScheme for EqptFcSlot {
         type Attributes = Attributes;
         type ChildItem = ChildItem;
-        type Endpoint = Endpoint;
+        type Endpoint = EqptFcSlotEndpoint;
         const CLASS_NAME: &'static str = "eqptFCSlot";
     }
 }

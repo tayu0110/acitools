@@ -31,7 +31,7 @@ pub struct Attributes {
     rn: String,
     #[serde(skip_serializing_if = "String::is_empty")]
     sig: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
+    #[serde(skip_serializing_if = "String::is_empty", rename = "stackMIB")]
     stack_mib: String,
     status: ConfigStatus,
     #[serde(skip_serializing_if = "String::is_empty")]
@@ -46,6 +46,7 @@ pub enum ChildItem {}
 pub enum EqptSpromFanBlkEndpoint {
     ClassAll,
     MoUni,
+    Raw(String),
     MoExtChSpfan {
         pod: String,
         node: String,
@@ -71,6 +72,7 @@ impl EndpointScheme for EqptSpromFanBlkEndpoint {
         match self {
             Self::ClassAll => Cow::Borrowed("node/class/eqptSpromFanBlk.json"),
             Self::MoUni => Cow::Borrowed("mo/uni.json"),
+            Self::Raw(endpoint) => Cow::Owned(format!("{endpoint}")),
             Self::MoExtChSpfan {
                 pod,
                 node,

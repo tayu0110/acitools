@@ -35,6 +35,8 @@ pub struct Attributes {
     medium: String,
     mod_ts: String,
     mode: String,
+    #[allow(dead_code)]
+    #[serde(skip_serializing, default)]
     mon_pol_dn: String,
     mtu: String,
     name: String,

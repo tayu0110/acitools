@@ -29,13 +29,13 @@ pub struct Attributes {
     mod_ts: String,
     #[serde(skip_serializing_if = "String::is_empty")]
     oem_eprise: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
+    #[serde(skip_serializing_if = "String::is_empty", rename = "oemMIB")]
     oem_mib: String,
     #[serde(skip_serializing_if = "String::is_empty")]
     rn: String,
     #[serde(skip_serializing_if = "String::is_empty")]
     sig: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
+    #[serde(skip_serializing_if = "String::is_empty", rename = "stackMIB")]
     stack_mib: String,
     status: ConfigStatus,
     #[serde(skip_serializing_if = "String::is_empty")]
@@ -50,6 +50,7 @@ pub enum ChildItem {}
 pub enum EqptSpromBpBlkEndpoint {
     ClassAll,
     MoUni,
+    Raw(String),
     MoExtChSpbp {
         pod: String,
         node: String,
@@ -70,6 +71,7 @@ impl EndpointScheme for EqptSpromBpBlkEndpoint {
         match self {
             Self::ClassAll => Cow::Borrowed("node/class/eqptSpromBPBlk.json"),
             Self::MoUni => Cow::Borrowed("mo/uni.json"),
+            Self::Raw(endpoint) => Cow::Owned(format!("{endpoint}")),
             Self::MoExtChSpbp { pod, node, extch } => Cow::Owned(format!(
                 "mo/topology/pod-{pod}/node-{node}/sys/extch-{extch}/spbp/spbpblk.json"
             )),

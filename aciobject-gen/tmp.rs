@@ -45,33 +45,33 @@ pub enum EqptSpSdEndpoint {
     ClassAll,
     MoUni,
     Raw(String),
-    MoScSplc {
+    MoSplc {
         pod: String,
         node: String,
         scslot: String,
         spsd: String,
     },
-    MoSysScSplc {
+    MoSysSplc {
         scslot: String,
         spsd: String,
     },
-    MoFcSplc {
+    MoSplc {
         pod: String,
         node: String,
         fcslot: String,
         spsd: String,
     },
-    MoSysFcSplc {
+    MoSysSplc {
         fcslot: String,
         spsd: String,
     },
-    MoLcSplc {
+    MoSplc {
         pod: String,
         node: String,
         lcslot: String,
         spsd: String,
     },
-    MoSysLcSplc {
+    MoSysSplc {
         lcslot: String,
         spsd: String,
     },
@@ -95,33 +95,33 @@ pub enum EqptSpSdEndpoint {
         supslot: String,
         spsd: String,
     },
-    MoScSpsensorblk {
+    MoSpsensorblk {
         pod: String,
         node: String,
         scslot: String,
         spsd: String,
     },
-    MoSysScSpsensorblk {
+    MoSysSpsensorblk {
         scslot: String,
         spsd: String,
     },
-    MoFcSpsensorblk {
+    MoSpsensorblk {
         pod: String,
         node: String,
         fcslot: String,
         spsd: String,
     },
-    MoSysFcSpsensorblk {
+    MoSysSpsensorblk {
         fcslot: String,
         spsd: String,
     },
-    MoLcSpsensorblk {
+    MoSpsensorblk {
         pod: String,
         node: String,
         lcslot: String,
         spsd: String,
     },
-    MoSysLcSpsensorblk {
+    MoSysSpsensorblk {
         lcslot: String,
         spsd: String,
     },
@@ -145,33 +145,33 @@ pub enum EqptSpSdEndpoint {
         supslot: String,
         spsd: String,
     },
-    MoScSplcblk {
+    MoSplcblk {
         pod: String,
         node: String,
         scslot: String,
         spsd: String,
     },
-    MoSysScSplcblk {
+    MoSysSplcblk {
         scslot: String,
         spsd: String,
     },
-    MoFcSplcblk {
+    MoSplcblk {
         pod: String,
         node: String,
         fcslot: String,
         spsd: String,
     },
-    MoSysFcSplcblk {
+    MoSysSplcblk {
         fcslot: String,
         spsd: String,
     },
-    MoLcSplcblk {
+    MoSplcblk {
         pod: String,
         node: String,
         lcslot: String,
         spsd: String,
     },
-    MoSysLcSplcblk {
+    MoSysSplcblk {
         lcslot: String,
         spsd: String,
     },
@@ -203,33 +203,33 @@ impl EndpointScheme for EqptSpSdEndpoint {
             Self::ClassAll => Cow::Borrowed("node/class/eqptSpSd.json"),
             Self::MoUni => Cow::Borrowed("mo/uni.json"),
             Self::Raw(endpoint) => Cow::Owned(format!("{endpoint}")),
-            Self::MoScSplc {
+            Self::MoSplc {
                 pod,
                 node,
                 scslot,
                 spsd,
             } => Cow::Owned(format!("mo/topology/pod-{pod}/node-{node}/sys/ch/scslot-{scslot}/sc/splc/spsd-{spsd}.json")),
-            Self::MoSysScSplc {
+            Self::MoSysSplc {
                 scslot,
                 spsd,
             } => Cow::Owned(format!("mo/sys/ch/scslot-{scslot}/sc/splc/spsd-{spsd}.json")),
-            Self::MoFcSplc {
+            Self::MoSplc {
                 pod,
                 node,
                 fcslot,
                 spsd,
             } => Cow::Owned(format!("mo/topology/pod-{pod}/node-{node}/sys/ch/fcslot-{fcslot}/fc/splc/spsd-{spsd}.json")),
-            Self::MoSysFcSplc {
+            Self::MoSysSplc {
                 fcslot,
                 spsd,
             } => Cow::Owned(format!("mo/sys/ch/fcslot-{fcslot}/fc/splc/spsd-{spsd}.json")),
-            Self::MoLcSplc {
+            Self::MoSplc {
                 pod,
                 node,
                 lcslot,
                 spsd,
             } => Cow::Owned(format!("mo/topology/pod-{pod}/node-{node}/sys/ch/lcslot-{lcslot}/lc/splc/spsd-{spsd}.json")),
-            Self::MoSysLcSplc {
+            Self::MoSysSplc {
                 lcslot,
                 spsd,
             } => Cow::Owned(format!("mo/sys/ch/lcslot-{lcslot}/lc/splc/spsd-{spsd}.json")),
@@ -253,33 +253,33 @@ impl EndpointScheme for EqptSpSdEndpoint {
                 supslot,
                 spsd,
             } => Cow::Owned(format!("mo/sys/ch/supslot-{supslot}/sup/spsup/spsd-{spsd}.json")),
-            Self::MoScSpsensorblk {
+            Self::MoSpsensorblk {
                 pod,
                 node,
                 scslot,
                 spsd,
             } => Cow::Owned(format!("mo/topology/pod-{pod}/node-{node}/sys/ch/scslot-{scslot}/sc/splc/spsensorblk/spsd-{spsd}.json")),
-            Self::MoSysScSpsensorblk {
+            Self::MoSysSpsensorblk {
                 scslot,
                 spsd,
             } => Cow::Owned(format!("mo/sys/ch/scslot-{scslot}/sc/splc/spsensorblk/spsd-{spsd}.json")),
-            Self::MoFcSpsensorblk {
+            Self::MoSpsensorblk {
                 pod,
                 node,
                 fcslot,
                 spsd,
             } => Cow::Owned(format!("mo/topology/pod-{pod}/node-{node}/sys/ch/fcslot-{fcslot}/fc/splc/spsensorblk/spsd-{spsd}.json")),
-            Self::MoSysFcSpsensorblk {
+            Self::MoSysSpsensorblk {
                 fcslot,
                 spsd,
             } => Cow::Owned(format!("mo/sys/ch/fcslot-{fcslot}/fc/splc/spsensorblk/spsd-{spsd}.json")),
-            Self::MoLcSpsensorblk {
+            Self::MoSpsensorblk {
                 pod,
                 node,
                 lcslot,
                 spsd,
             } => Cow::Owned(format!("mo/topology/pod-{pod}/node-{node}/sys/ch/lcslot-{lcslot}/lc/splc/spsensorblk/spsd-{spsd}.json")),
-            Self::MoSysLcSpsensorblk {
+            Self::MoSysSpsensorblk {
                 lcslot,
                 spsd,
             } => Cow::Owned(format!("mo/sys/ch/lcslot-{lcslot}/lc/splc/spsensorblk/spsd-{spsd}.json")),
@@ -303,33 +303,33 @@ impl EndpointScheme for EqptSpSdEndpoint {
                 supslot,
                 spsd,
             } => Cow::Owned(format!("mo/sys/ch/supslot-{supslot}/sup/spsup/spsensorblk/spsd-{spsd}.json")),
-            Self::MoScSplcblk {
+            Self::MoSplcblk {
                 pod,
                 node,
                 scslot,
                 spsd,
             } => Cow::Owned(format!("mo/topology/pod-{pod}/node-{node}/sys/ch/scslot-{scslot}/sc/splc/splcblk/spsd-{spsd}.json")),
-            Self::MoSysScSplcblk {
+            Self::MoSysSplcblk {
                 scslot,
                 spsd,
             } => Cow::Owned(format!("mo/sys/ch/scslot-{scslot}/sc/splc/splcblk/spsd-{spsd}.json")),
-            Self::MoFcSplcblk {
+            Self::MoSplcblk {
                 pod,
                 node,
                 fcslot,
                 spsd,
             } => Cow::Owned(format!("mo/topology/pod-{pod}/node-{node}/sys/ch/fcslot-{fcslot}/fc/splc/splcblk/spsd-{spsd}.json")),
-            Self::MoSysFcSplcblk {
+            Self::MoSysSplcblk {
                 fcslot,
                 spsd,
             } => Cow::Owned(format!("mo/sys/ch/fcslot-{fcslot}/fc/splc/splcblk/spsd-{spsd}.json")),
-            Self::MoLcSplcblk {
+            Self::MoSplcblk {
                 pod,
                 node,
                 lcslot,
                 spsd,
             } => Cow::Owned(format!("mo/topology/pod-{pod}/node-{node}/sys/ch/lcslot-{lcslot}/lc/splc/splcblk/spsd-{spsd}.json")),
-            Self::MoSysLcSplcblk {
+            Self::MoSysSplcblk {
                 lcslot,
                 spsd,
             } => Cow::Owned(format!("mo/sys/ch/lcslot-{lcslot}/lc/splc/splcblk/spsd-{spsd}.json")),

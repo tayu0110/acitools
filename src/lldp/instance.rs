@@ -16,6 +16,8 @@ pub struct Attributes {
     // #[serde(rename = "md5CACert")]
     // md5_ca_cert: String,
     mod_ts: String,
+    #[allow(dead_code)]
+    #[serde(skip_serializing, default)]
     mon_pol_dn: String,
     name: String,
     oper_err: String,

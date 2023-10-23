@@ -41,6 +41,8 @@ pub struct Attributes {
     lo_warn7: String,
     lo_warn8: String,
     mod_ts: String,
+    #[allow(dead_code)]
+    #[serde(skip_serializing, default)]
     mon_pol_dn: String,
     rn: String,
     status: ConfigStatus,

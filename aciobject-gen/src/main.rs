@@ -68,7 +68,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             }
             "ext_mnge_by" | "config_issues" | "mon_pol_dn" => {
                 println!("    #[allow(dead_code)]");
-                println!("    #[serde(skip_serializing)]");
+                println!("    #[serde(skip_serializing, default)]");
                 println!("    {field}: String,")
             }
             _ => {

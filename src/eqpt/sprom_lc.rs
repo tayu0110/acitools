@@ -31,7 +31,8 @@ pub struct Attributes {
     mod_ts: String,
     #[serde(skip_serializing_if = "String::is_empty")]
     model: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
+    #[allow(dead_code)]
+    #[serde(skip_serializing, default)]
     mon_pol_dn: String,
     #[serde(skip_serializing_if = "String::is_empty")]
     num_blk: String,
@@ -55,7 +56,7 @@ pub struct Attributes {
 pub enum ChildItem {
     EqptSpCmnBlk(sprom_common_block::EqptSpCmnBlk),
     EqptSpPd(sprom_port_data::EqptSpPd),
-    EqptSpSd(sprom_sensor_data::EqptSpPd),
+    EqptSpSd(sprom_sensor_data::EqptSpSd),
     EqptSpSensorBlk(sprom_sensor_block::EqptSpSensorBlk),
     EqptSpromLcBlk(sprom_lc_block::EqptSpromLcBlk),
     FaultCounts {},

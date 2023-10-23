@@ -29,6 +29,8 @@ pub struct Attributes {
     last_link_st_chg: String,
     media: String,
     mod_ts: String,
+    #[allow(dead_code)]
+    #[serde(skip_serializing, default)]
     mon_pol_dn: String,
     native_vlan: String,
     #[serde(rename = "numOfSI")]

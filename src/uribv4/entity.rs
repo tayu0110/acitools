@@ -14,7 +14,8 @@ pub struct Attributes {
     dn: String,
     #[serde(skip_serializing_if = "String::is_empty")]
     mod_ts: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
+    #[allow(dead_code)]
+    #[serde(skip_serializing, default)]
     mon_pol_dn: String,
     #[serde(skip_serializing_if = "String::is_empty")]
     name: String,

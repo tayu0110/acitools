@@ -12,6 +12,8 @@ pub struct Attributes {
     id: String,
     loc: String,
     mod_ts: String,
+    #[allow(dead_code)]
+    #[serde(skip_serializing, default)]
     mon_pol_dn: String,
     oper_st: String,
     phys_id: String,

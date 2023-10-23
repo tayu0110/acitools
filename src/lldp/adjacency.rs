@@ -15,6 +15,8 @@ pub struct Attributes {
     mgmt_ip: String,
     mgmt_port_mac: String,
     mod_ts: String,
+    #[allow(dead_code)]
+    #[serde(skip_serializing, default)]
     mon_pol_dn: String,
     name: String,
     port_desc: String,

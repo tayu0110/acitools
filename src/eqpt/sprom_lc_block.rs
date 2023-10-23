@@ -54,13 +54,14 @@ pub struct Attributes {
 #[serde(rename_all = "camelCase")]
 pub enum ChildItem {
     EqptSpPd(sprom_port_data::EqptSpPd),
-    EqptSpSd(sprom_sensor_data::EqptSpPd),
+    EqptSpSd(sprom_sensor_data::EqptSpSd),
 }
 
 #[derive(Debug, Clone)]
 pub enum EqptSpromLcBlkEndpoint {
     ClassAll,
     MoUni,
+    Raw(String),
     MoScSplc {
         pod: String,
         node: String,
@@ -92,6 +93,7 @@ impl EndpointScheme for EqptSpromLcBlkEndpoint {
         match self {
             Self::ClassAll => Cow::Borrowed("node/class/eqptSpromLcBlk.json"),
             Self::MoUni => Cow::Borrowed("mo/uni.json"),
+            Self::Raw(endpoint) => Cow::Owned(format!("{endpoint}")),
             Self::MoScSplc { pod, node, scslot } => Cow::Owned(format!(
                 "mo/topology/pod-{pod}/node-{node}/sys/ch/scslot-{scslot}/sc/splc/splcblk.json"
             )),

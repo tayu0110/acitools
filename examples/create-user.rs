@@ -16,7 +16,7 @@ fn ask() -> (String, String) {
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let (new_user, new_pass) = ask();
 
-    let str = include_str!("../simulator.txt")
+    let str = include_str!("../sandbox.txt")
         .split_whitespace()
         .collect::<Vec<&str>>();
     let (username, endpoint, password) = (str[0], str[1], str[2]);

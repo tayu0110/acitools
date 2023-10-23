@@ -11,6 +11,8 @@ pub struct Attributes {
     child_action: String,
     lc_own: String,
     mod_ts: String,
+    #[allow(dead_code)]
+    #[serde(skip_serializing, default)]
     mon_pol_dn: String,
     name: String,
     oper_err: String,

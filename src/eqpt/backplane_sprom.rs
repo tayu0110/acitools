@@ -1,11 +1,10 @@
-use crate::{AciObject, ConfigStatus, EndpointScheme};
-use serde::{Deserialize, Serialize};
-use std::borrow::Cow;
-
 use super::{
     backplane_sprom_block, backplane_sprom_license, backplane_sprom_sn, backplane_sprom_wwn,
     sprom_common_block,
 };
+use crate::{AciObject, ConfigStatus, EndpointScheme};
+use serde::{Deserialize, Serialize};
+use std::borrow::Cow;
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -32,7 +31,8 @@ pub struct Attributes {
     mod_ts: String,
     #[serde(skip_serializing_if = "String::is_empty")]
     model: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
+    #[allow(dead_code)]
+    #[serde(skip_serializing, default)]
     mon_pol_dn: String,
     #[serde(skip_serializing_if = "String::is_empty")]
     num_blk: String,
@@ -55,9 +55,12 @@ pub struct Attributes {
 #[serde(rename_all = "camelCase")]
 pub enum ChildItem {
     EqptBpSpLic(backplane_sprom_license::EqptBpSpLic),
+    #[serde(rename = "eqptBpSpSSN")]
     EqptBpSpSsn(backplane_sprom_sn::EqptBpSpSsn),
+    #[serde(rename = "eqptBpSpWWN")]
     EqptBpSpWwn(backplane_sprom_wwn::EqptBpSpWwn),
     EqptSpCmnBlk(sprom_common_block::EqptSpCmnBlk),
+    #[serde(rename = "eqptSpromBPBlk")]
     EqptSpromBPBlk(backplane_sprom_block::EqptSpromBpBlk),
     FaultCounts {},
     FaultInst {},
@@ -68,6 +71,7 @@ pub enum ChildItem {
 pub enum EqptSpromBpEndpoint {
     ClassAll,
     MoUni,
+    Raw(String),
     MoExtch {
         pod: String,
         node: String,
@@ -88,6 +92,7 @@ impl EndpointScheme for EqptSpromBpEndpoint {
         match self {
             Self::ClassAll => Cow::Borrowed("node/class/eqptSpromBP.json"),
             Self::MoUni => Cow::Borrowed("mo/uni.json"),
+            Self::Raw(endpoint) => Cow::Owned(format!("{endpoint}")),
             Self::MoExtch { pod, node, extch } => Cow::Owned(format!(
                 "mo/topology/pod-{pod}/node-{node}/sys/extch-{extch}/spbp.json"
             )),

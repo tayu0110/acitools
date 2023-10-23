@@ -22,6 +22,8 @@ pub struct Attributes {
     mfg_tm: String,
     mod_ts: String,
     model: String,
+    #[allow(dead_code)]
+    #[serde(skip_serializing, default)]
     mon_pol_dn: String,
     oper_st: String,
     oper_st_qual: String,
