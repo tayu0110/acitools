@@ -11,7 +11,7 @@ pub struct Attributes {
     cimc_version: String,
     #[serde(skip_serializing_if = "String::is_empty")]
     descr: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
+    #[serde(skip_serializing_if = "String::is_empty", default)]
     dn: String,
     #[serde(skip_serializing_if = "String::is_empty")]
     id: String,

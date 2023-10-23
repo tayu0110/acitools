@@ -9,6 +9,7 @@ use serde::{Deserialize, Serialize};
 pub struct Attributes {
     alerts: String,
     child_action: String,
+    #[serde(default)]
     dn: String,
     mod_ts: String,
     #[allow(dead_code)]

@@ -12,6 +12,7 @@ pub struct Attributes {
     #[serde(rename = "controlPlaneMTU")]
     control_plane_mtu: String,
     current_time: String,
+    #[serde(default)]
     dn: String,
     enforce_subnet_check: String,
     etep_addr: String,
@@ -239,6 +240,8 @@ pub enum ChildItem {
     PoeNic {},
     ProcContainer {},
     ProcEntity {},
+    // what is this???
+    ProcMemory(serde_json::Value),
     ProcSystem {},
     PtpEntity {},
     QosmEntity {},

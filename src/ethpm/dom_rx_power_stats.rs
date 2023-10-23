@@ -6,6 +6,7 @@ use serde::{Deserialize, Serialize};
 pub struct Attributes {
     alert: String,
     child_action: String,
+    #[serde(default)]
     dn: String,
     hi_alarm: String,
     hi_alarm2: String,

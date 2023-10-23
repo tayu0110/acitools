@@ -5,9 +5,9 @@ use std::borrow::Cow;
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Attributes {
-    #[serde(skip_serializing_if = "String::is_empty")]
+    #[serde(skip_serializing_if = "String::is_empty", rename = "c110v")]
     c_110_v: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
+    #[serde(skip_serializing_if = "String::is_empty", rename = "c220v")]
     c_220_v: String,
     #[serde(skip_serializing_if = "String::is_empty")]
     child_action: String,
@@ -41,7 +41,7 @@ pub struct Attributes {
     rn: String,
     #[serde(skip_serializing_if = "String::is_empty")]
     sig: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
+    #[serde(skip_serializing_if = "String::is_empty", rename = "smOID")]
     sm_oid: String,
     status: ConfigStatus,
     #[serde(skip_serializing_if = "String::is_empty")]
@@ -56,6 +56,7 @@ pub enum ChildItem {}
 pub enum EqptSpromPsuBlkEndpoint {
     ClassAll,
     MoUni,
+    Raw(String),
     MoExtChSppsu {
         pod: String,
         node: String,
@@ -81,6 +82,7 @@ impl EndpointScheme for EqptSpromPsuBlkEndpoint {
         match self {
             Self::ClassAll => Cow::Borrowed("node/class/eqptSpromPsuBlk.json"),
             Self::MoUni => Cow::Borrowed("mo/uni.json"),
+            Self::Raw(endpoint) => Cow::Owned(format!("{endpoint}")),
             Self::MoExtChSppsu {
                 pod,
                 node,

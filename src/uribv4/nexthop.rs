@@ -17,7 +17,7 @@ pub struct Attributes {
     child_action: String,
     #[serde(skip_serializing_if = "String::is_empty")]
     create_ts: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
+    #[serde(skip_serializing_if = "String::is_empty", default)]
     dn: String,
     #[serde(skip_serializing_if = "String::is_empty", rename = "if")]
     r#if: String,

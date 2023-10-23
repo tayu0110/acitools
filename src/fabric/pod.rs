@@ -6,6 +6,7 @@ use crate::{AciObject, EndpointScheme};
 #[serde(rename_all = "camelCase")]
 pub struct Attributes {
     child_action: String,
+    #[serde(default)]
     dn: String,
     id: String,
     lc_own: String,

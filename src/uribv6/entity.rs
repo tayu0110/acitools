@@ -11,7 +11,7 @@ pub struct Attributes {
     admin_st: String,
     #[serde(skip_serializing_if = "String::is_empty")]
     child_action: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
+    #[serde(skip_serializing_if = "String::is_empty", default)]
     dn: String,
     #[serde(skip_serializing_if = "String::is_empty")]
     mod_ts: String,

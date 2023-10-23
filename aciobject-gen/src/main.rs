@@ -73,9 +73,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             }
             _ => {
                 if field.to_case(Case::Camel) == name.as_str() {
-                    println!("    #[serde(skip_serializing_if = \"String::is_empty\")]");
+                    println!("    #[serde(skip_serializing_if = \"String::is_empty\", default)]");
                 } else {
-                    println!("    #[serde(skip_serializing_if = \"String::is_empty\", rename = \"{name}\")]");
+                    println!("    #[serde(skip_serializing_if = \"String::is_empty\", rename = \"{name}\", default)]");
                 }
                 println!("    {field}: String,")
             }
@@ -104,7 +104,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         if variant.to_case(Case::Camel) != name.as_str() {
             println!("    #[serde(rename = \"{name}\")]")
         }
-        println!("    {variant} {{}},");
+        println!("    {variant}(serde_json::Value),");
     }
     println!("}}");
     println!("");
